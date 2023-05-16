@@ -1,5 +1,3 @@
-@extends('Templates/header')
-@section('content')
 <div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper">
           <div class="page-content">
             <div class="transition-all duration-150 container-fluid" id="page_layout">
@@ -27,7 +25,7 @@
                 </div>
                 <!-- END: BreadCrumb -->
                 <div class=" space-y-5">
-                  <h6>Your Conten.</h6>
+                  <h6>Your Content...</h6>
                 </div>
 
               </div>
@@ -35,5 +33,3 @@
           </div>
         </div>
       </div>
-
-@endsection
