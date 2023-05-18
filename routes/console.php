@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+// Artisan::command('database:restore {file}', function (string $file) {
+//     $this->info("Restoring data: {$file}!");
+// })->purpose('Restore data for kodemaya database');
