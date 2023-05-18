@@ -3,12 +3,11 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: Connect to VPS
+    - name: Build & Deploy App
       uses: appleboy/ssh-action@v0.1.10
       with:
         host: 20.187.120.241
@@ -16,5 +15,14 @@ jobs:
         password: MagnumMax123
         port: 22
         script: |
-          whoami
-          ls -al
+          cd ~
+          rm -rf KodeMaya
+          rm -rf /var/www/html/KodeMaya
+          git clone https://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@github.com/Erisukmawan/KodeMaya.git
+          sudo cp -r KodeMaya /var/www/html
+          cd /var/www/html/KodeMaya
+          sudo mv .env.example .env
+          sudo composer install
+          sudo php artisan key:generate
+          sudo systemctl reload apache2
+          
