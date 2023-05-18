@@ -40,4 +40,4 @@ Password   : kodemayabangkit1
 Database   : db_kodemaya
 Port       : 3306
 ```
-5. Autodeploy sudah ter setup, setiap push otomatis update runner action ke server, dan bisa di cek di [Kodemaya Dev](http://20.187.120.241)
+5. Autodeploy sudah ter setup, setiap push otomatis update runner action ke server, dan bisa di cek di <a href="http://20.187.120.241" target="_blank">Kodemaya Dev</a>
