@@ -88,6 +88,7 @@ DROP TABLE IF EXISTS `files`;
 CREATE TABLE `files` (
   `file_id` int(11) NOT NULL AUTO_INCREMENT,
   `owner_id` int(11) DEFAULT NULL,
+  `file_gid` varchar(50) DEFAULT NULL,
   `file_batch_id` int(11) DEFAULT NULL,
   `file_name` varchar(60) DEFAULT NULL,
   `file_type` varchar(10) DEFAULT NULL,
@@ -213,16 +214,15 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(20) DEFAULT NULL,
-  `lastname` varchar(20) DEFAULT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `pic_id` varchar(50) DEFAULT NULL,
+  `name` varchar(150) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `phone` varchar(16) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
-  `account_type` enum('A','M','U') DEFAULT NULL,
+  `account_type` enum('A','M','C') DEFAULT 'C',
   `balance` int(11) DEFAULT NULL,
-  `account_status` enum('A','B') DEFAULT NULL,
+  `account_status` enum('A','P','B') DEFAULT 'A',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`user_id`)
