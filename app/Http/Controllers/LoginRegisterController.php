@@ -41,7 +41,7 @@ class LoginRegisterController extends Controller
         $request->validate([
             'name' => 'required|string|max:250',
             'email' => 'required|email|max:250|unique:users',
-            'password' => 'required|min:8|confirmed'
+            'password' => 'required|min:8'
         ]);
 
         User::create([
@@ -109,7 +109,7 @@ class LoginRegisterController extends Controller
             } else if ($account_type == 'M') {
                 Log::info('Login as Mentor');
                 return view('mentor.dashboard');
-            } else if ($account_type == 'U') {
+            } else if ($account_type == 'C') {
                 Log::info('Login as User');
                 return view('customer.dashboard');
             }

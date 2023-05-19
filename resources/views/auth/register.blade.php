@@ -14,11 +14,12 @@
 @endsection
 
 @section('content-form')
-<form class="space-y-4" action='index.html'>
+<form class="space-y-4" action="{{ route('store') }}" method="post">
+    @csrf
     <div class="fromGroup">
         <label class="block capitalize form-label">fullname</label>
         <div class="relative ">
-            <input type="email" name="email" class="form-control py-2" placeholder="Add placeholder" value="KodeMaya@gmail.com">
+            <input type="email" name="name" class="form-control py-2" placeholder="Add placeholder" value="KodeMaya@gmail.com">
         </div>
     </div>
     <div class="fromGroup">
