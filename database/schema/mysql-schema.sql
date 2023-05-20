@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `consultation`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `consultation` (
   `consultation_id` int(11) NOT NULL AUTO_INCREMENT,
-  `consultatio_status` enum('W','A','D') DEFAULT NULL,
+  `consultation_status` enum('W','A','D') NOT NULL,
   `invoice_no` varchar(30) DEFAULT NULL,
   `mentor_id` int(11) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL,
