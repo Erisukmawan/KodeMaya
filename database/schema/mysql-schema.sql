@@ -10,7 +10,8 @@ DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `service_type` enum('K','T') DEFAULT NULL,
-  `category_name` varchar(50) DEFAULT NULL,
+  `category_type` varchar(50) DEFAULT NULL,
+  `category_name` varchar(100) DEFAULT 'NULL',
   `category_description` text DEFAULT NULL,
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -170,9 +171,9 @@ CREATE TABLE `transactions` (
   `target_id` int(11) NOT NULL,
   `payment_method` varchar(15) DEFAULT NULL,
   `service_type` enum('K','T','W') DEFAULT NULL,
-  `transactions_type` enum('K','D') DEFAULT NULL,
+  `transaction_type` enum('K','D') DEFAULT 'D',
   `amount` int(11) DEFAULT NULL,
-  `status` enum('P','D','F','C') NOT NULL DEFAULT 'P',
+  `transaction_status` enum('P','D','F','C') NOT NULL DEFAULT 'P',
   `notes` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`transaction_id`),
