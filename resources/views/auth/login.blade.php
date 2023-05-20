@@ -22,7 +22,7 @@
 @section('content-form-header')
 <div class="text-center 2xl:mb-10 mb-4">
     <h4 class="font-medium">Masuk</h4>
-    <div class="text-slate-500 text-base">
+    <div class="text-slate-400 text-base">
         Masuk ke akun Anda untuk mulai menggunakan KodeMaya
     </div>
 </div>
@@ -50,19 +50,19 @@
     <div class="fromGroup">
         <label class="block capitalize form-label">email</label>
         <div class="relative">
-            <input type="email" name="email" class="form-control py-2" placeholder="Add placeholder" value="KodeMaya@gmail.com">
+            <input type="email" name="email" class="form-control py-2" placeholder="Email">
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">password</label>
-        <div class="relative "><input type="password" name="password" class="form-control py-2" placeholder="Add placeholder" value="KodeMaya">
+        <div class="relative "><input type="password" name="password" class="form-control py-2" placeholder="Password" value="KodeMaya">
         </div>
     </div>
     <div class="flex justify-between">
         <label class="flex items-center cursor-pointer">
             <div class="checkbox-area mr-2 sm:mr-4 mt-2">
                 <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="hidden" name="keep" checked="checked">
+                    <input type="checkbox" class="hidden" name="keep">
                     <span class="h-4 w-4 border flex-none border-slate-100 dark:border-slate-800 rounded inline-flex ltr:mr-3 rtl:ml-3 relative transition-all duration-150 bg-slate-100 dark:bg-slate-900">
                         <img src="assets/images/icon/ck-white.svg" alt="" class="h-[10px] w-[10px] block m-auto opacity-0"></span>
                     <span class="text-500 dark:text-slate-400 text-sm leading-6 capitalize">Biarkan saya tetap masuk</span>

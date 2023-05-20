@@ -19,41 +19,38 @@
     <div class="fromGroup">
         <label class="block capitalize form-label">fullname</label>
         <div class="relative ">
-            <input type="email" name="name" class="form-control py-2" placeholder="Add placeholder" value="KodeMaya@gmail.com">
+            <input type="text" name="name" class="form-control py-2" placeholder="Nama Lengkap" >
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">email</label>
         <div class="relative ">
-            <input type="email" name="email" class="form-control py-2" placeholder="Add placeholder" value="KodeMaya@gmail.com">
+            <input type="email" name="email" class="form-control py-2" placeholder="Email Anda" >
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">password</label>
-        <div class="relative "><input type="password" name="password" class="form-control py-2" placeholder="Add placeholder" value="KodeMaya">
+        <div class="relative "><input type="password" name="password" class="form-control py-2" placeholder="Password">
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">confirm password</label>
-        <div class="relative "><input type="password" name="password" class="form-control py-2" placeholder="Add placeholder" value="KodeMaya">
+        <div class="relative "><input type="password" name="password_confirmed" class="form-control py-2" placeholder="Konfirmasi Password">
         </div>
     </div>
     <div class="flex justify-between">
         <label class="flex items-center cursor-pointer">
             <div class="checkbox-area mr-2 sm:mr-4 mt-2">
                 <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="hidden" name="keep" checked="checked">
+                    <input type="checkbox" class="hidden" name="accept">
                     <span class="h-4 w-4 border flex-none border-slate-100 dark:border-slate-800 rounded inline-flex ltr:mr-3 rtl:ml-3 relative transition-all duration-150 bg-slate-100 dark:bg-slate-900">
                         <img src="assets/images/icon/ck-white.svg" alt="" class="h-[10px] w-[10px] block m-auto opacity-0"></span>
                     <span class="text-500 dark:text-slate-400 text-sm leading-6 capitalize">
-                        Terima Syarat Dan Ketentuan Dan Kebijakan Privasi Kami
+                       Terima <a href="#" class="text-primary-500 hover:underline" target="_blank">Syarat Dan Ketentuan</a> Dan <a class="text-primary-500 hover:text-primary-300 hover:underline" target="_blank" href="#">Kebijakan Privasi</a> Kami 
                     </span>
                 </label>
             </div>
         </label>
-        <a class="text-sm text-slate-800 dark:text-slate-400 leading-6 font-medium" href="forget-password-one.html">Lupa
-            Password?
-        </a>
     </div>
     <button class="btn btn-dark block w-full text-center">Buat Akun</button>
 </form>
