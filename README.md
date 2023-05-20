@@ -41,3 +41,10 @@ Database   : db_kodemaya
 Port       : 3306
 ```
 5. Autodeploy sudah ter setup, setiap push otomatis update runner action ke server, dan bisa di cek di <a href="http://20.187.120.241" target="_blank">Kodemaya Dev</a>
+
+#Teamwork
+1. Edwin Liona Jaya
+2. Hanif Ahmad Syauqi
+3. Eri Sukmawan
+4. M. Ilham Gymnastiar
+
