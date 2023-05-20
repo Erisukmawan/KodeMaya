@@ -43,10 +43,10 @@ Port       : 3306
 5. Autodeploy sudah ter setup, setiap push otomatis update runner action ke server, dan bisa di cek di <a href="http://20.187.120.241" target="_blank">Kodemaya Dev</a>
 
 ## Teamwork
-1. Edwin Liona Jaya
-2. Hanif Ahmad Syauqi
-3. Eri Sukmawan
-4. M. Ilham Gymnastiar
+1. Edwin Liona Jaya (10121154) - Product Manager
+2. Hanif Ahmad Syauqi (10121161 - Website Developer
+3. Eri Sukmawan (10121139) - UI/UX Designer
+4. M. Ilham Gymnastiar (10121124) - Database Administrator
 
 ## Fitur
 ### Admin
