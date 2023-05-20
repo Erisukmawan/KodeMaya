@@ -174,6 +174,7 @@ CREATE TABLE `transactions` (
   `status` enum('P','D','F','C') DEFAULT NULL,
   `notes` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`transaction_id`),
   KEY `source_id` (`source_id`),
   KEY `target_id` (`target_id`),
