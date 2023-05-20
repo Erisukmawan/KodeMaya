@@ -47,3 +47,24 @@ Port       : 3306
 2. Hanif Ahmad Syauqi
 3. Eri Sukmawan
 4. M. Ilham Gymnastiar
+
+## Fitur
+### Admin
+- [ ] Admin Dashboard
+- [ ] Kelola Pengguna
+- [ ] Kelola Mentor
+- [ ] Kelola Keuangan
+- [ ] Kelola Admin
+
+### Mentor
+- [ ] Mentor Dashboard
+- [ ] Kelola Keuangan
+- [ ] Konsultasi
+- [ ] Tulung
+
+### Pengguna
+- [ ] Landing Page
+- [ ] Fitur Konsultasi
+- [ ] Fitur Tulung
+- [ ] Fitur Pembayaran
+- [ ] Fitur Profile
