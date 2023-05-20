@@ -24,7 +24,7 @@ CREATE TABLE `chat` (
   `file_batch_id` int(11) DEFAULT NULL,
   `invoice_no` varchar(30) DEFAULT NULL,
   `message` text DEFAULT NULL,
-  `chat_type` enum('T','I','V','D','P') DEFAULT NULL,
+  `chat_type` enum('T','I','V','D','P') NOT NULL DEFAULT 'T',
   `created_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`chat_id`),
   KEY `user_id` (`user_id`),
@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `consultation`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `consultation` (
   `consultation_id` int(11) NOT NULL AUTO_INCREMENT,
-  `consultation_status` enum('W','A','D') NOT NULL,
+  `consultation_status` enum('W','A','D') NOT NULL DEFAULT 'W',
   `invoice_no` varchar(30) DEFAULT NULL,
   `mentor_id` int(11) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL,
@@ -95,6 +95,7 @@ CREATE TABLE `files` (
   `file_mimetype` varchar(50) DEFAULT NULL,
   `file_url` varchar(255) DEFAULT NULL,
   `file_size` int(11) DEFAULT NULL,
+  `file_description` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`file_id`),
@@ -113,7 +114,7 @@ CREATE TABLE `invoice` (
   `service_type` enum('K','T') DEFAULT NULL,
   `service_tax` int(11) DEFAULT NULL,
   `total_cost` int(11) DEFAULT NULL,
-  `invoice_status` enum('U','P','E') DEFAULT NULL,
+  `invoice_status` enum('U','P','E') NOT NULL DEFAULT 'U',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`invoice_no`)
@@ -171,15 +172,16 @@ CREATE TABLE `transactions` (
   `service_type` enum('K','T','W') DEFAULT NULL,
   `transactions_type` enum('K','D') DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
-  `status` enum('P','D','F','C') DEFAULT NULL,
+  `status` enum('P','D','F','C') NOT NULL DEFAULT 'P',
   `notes` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`transaction_id`),
   KEY `source_id` (`source_id`),
   KEY `target_id` (`target_id`),
+  KEY `payment_method` (`payment_method`),
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`source_id`) REFERENCES `users` (`user_id`),
-  CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`target_id`) REFERENCES `users` (`user_id`)
+  CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`target_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `transactions_ibfk_3` FOREIGN KEY (`payment_method`) REFERENCES `payment` (`payment_method`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `tulung`;
@@ -195,7 +197,7 @@ CREATE TABLE `tulung` (
   `file_batch_id` int(11) DEFAULT NULL,
   `title` varchar(50) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `tulung_status` enum('W','A','R','D') DEFAULT NULL,
+  `tulung_status` enum('W','A','R','D') NOT NULL DEFAULT 'W',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deadline_at` datetime DEFAULT NULL,
@@ -220,10 +222,12 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `pic_id` varchar(50) DEFAULT NULL,
+  `attachment_id` int(11) DEFAULT NULL,
+  `pic_id` int(11) DEFAULT NULL,
   `name` varchar(150) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(16) DEFAULT NULL,
+  `address` text DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `account_type` enum('A','M','C') DEFAULT 'C',
@@ -231,7 +235,11 @@ CREATE TABLE `users` (
   `account_status` enum('A','P','B') DEFAULT 'A',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`user_id`)
+  PRIMARY KEY (`user_id`),
+  KEY `pic_id` (`pic_id`),
+  KEY `attachment_id` (`attachment_id`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`pic_id`) REFERENCES `files` (`file_id`),
+  CONSTRAINT `users_ibfk_2` FOREIGN KEY (`attachment_id`) REFERENCES `file_batch` (`file_batch_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
