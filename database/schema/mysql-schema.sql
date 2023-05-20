@@ -164,16 +164,21 @@ DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `transactions` (
   `transaction_id` int(11) NOT NULL AUTO_INCREMENT,
-  `invoice_no` varchar(30) DEFAULT NULL,
+  `reference_code` varchar(20) NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `target_id` int(11) NOT NULL,
   `payment_method` varchar(15) DEFAULT NULL,
-  `service_type` enum('K','T') DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `service_type` enum('K','T','W') DEFAULT NULL,
+  `transactions_type` enum('K','D') DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `status` enum('P','D','F','C') DEFAULT NULL,
+  `notes` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`transaction_id`),
-  KEY `invoice_no` (`invoice_no`),
-  KEY `payment_method` (`payment_method`),
-  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`invoice_no`) REFERENCES `invoice` (`invoice_no`),
-  CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`payment_method`) REFERENCES `payment` (`payment_method`)
+  KEY `source_id` (`source_id`),
+  KEY `target_id` (`target_id`),
+  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`source_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`target_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `tulung`;

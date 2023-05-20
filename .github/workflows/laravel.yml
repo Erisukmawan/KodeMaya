@@ -15,16 +15,5 @@ jobs:
         password: MagnumMax123
         port: 22
         script: |
-          cd ~
-          rm -rf KodeMaya
-          sudo rm -rf /var/www/html/KodeMaya
-          git clone https://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@github.com/Erisukmawan/KodeMaya.git
-          sudo cp -r KodeMaya /var/www/html
-          cd /var/www/html/KodeMaya
-          sudo chgrp -R www-data /var/www/html/KodeMaya/
-          sudo chmod -R 775 /var/www/html/KodeMaya/storage
-          sudo mv .env.example .env
-          sudo composer install
-          sudo php artisan key:generate
-          sudo systemctl reload apache2
+          echo "Ga ngapa ngapain"
           

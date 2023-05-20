@@ -41,7 +41,7 @@ class LoginRegisterController extends Controller
         $request->validate([
             'name' => 'required|string|max:250',
             'email' => 'required|email|max:250|unique:users',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8|confirmed'
         ]);
 
         User::create([
@@ -80,12 +80,21 @@ class LoginRegisterController extends Controller
             'password' => 'required'
         ]);
 
-        if (Auth::attempt($credentials, $request->get('keep') == "on")) {
-            Log::info('Success login ', ['email' => $request->get('email'), 'password' => $request->get('password')]);
+        $rememberMe = false;
+
+        if ($request->get('keep')) {
+            $isRemember = $request->get('keep');
+            if ($isRemember == 'on') {
+                $rememberMe = true;
+            } 
+        }
+
+        if (Auth::attempt($credentials, $rememberMe)) {
+            Log::info('Success login ', ['email' => $request->get('email'), 'password' => $request->get('password'), 'rememberMe' => $rememberMe]);
             $request->session()->regenerate();
             return redirect()->route('dashboard')->withSuccess('You have successfully logged in!');
         } else {
-            Log::info('Failed login.', ['email' => $request->get('email'), 'password' => $request->get('password')]);
+            Log::warning('Failed login.', ['email' => $request->get('email'), 'password' => $request->get('password')]);
             return back()->withErrors([
                 'message' => 'User atau Password tidak valid.',
             ])->onlyInput('message');
@@ -113,8 +122,6 @@ class LoginRegisterController extends Controller
                 Log::info('Login as User');
                 return view('customer.dashboard');
             }
-
-            // return view('dashboardadmin.index');
         }
         return redirect()->route('login')
             ->withErrors([

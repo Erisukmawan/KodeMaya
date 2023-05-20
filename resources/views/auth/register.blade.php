@@ -35,7 +35,7 @@
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">confirm password</label>
-        <div class="relative "><input type="password" name="password_confirmed" class="form-control py-2" placeholder="Konfirmasi Password">
+        <div class="relative "><input type="password" name="password_confirmation" class="form-control py-2" placeholder="Konfirmasi Password">
         </div>
     </div>
     <div class="flex justify-between">
