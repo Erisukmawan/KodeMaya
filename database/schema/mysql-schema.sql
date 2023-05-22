@@ -69,7 +69,7 @@ DROP TABLE IF EXISTS `consultation_post`;
 CREATE TABLE `consultation_post` (
   `post_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pic_id` int(11) NOT NULL DEFAULT 0,
-  `title` varchar(100) DEFAULT 'NULL',
+  `title` varchar(100) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `mentor_id` int(11) NOT NULL DEFAULT 0,
   `price` int(11) NOT NULL DEFAULT 0,
@@ -255,7 +255,7 @@ CREATE TABLE `tulung_post` (
   `post_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pic_id` int(11) NOT NULL DEFAULT 0,
   `title` varchar(100) DEFAULT NULL,
-  `description` text DEFAULT 'NULL',
+  `description` text DEFAULT NULL,
   `mentor_id` int(11) NOT NULL DEFAULT 0,
   `start_from` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
