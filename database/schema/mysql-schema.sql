@@ -63,6 +63,23 @@ CREATE TABLE `consultation` (
   CONSTRAINT `consultation_ibfk_5` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `consultation_post`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `consultation_post` (
+  `post_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pic_id` int(11) NOT NULL DEFAULT 0,
+  `title` varchar(100) DEFAULT 'NULL',
+  `description` text DEFAULT NULL,
+  `mentor_id` int(11) NOT NULL DEFAULT 0,
+  `price` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`post_id`),
+  KEY `mentor_id` (`mentor_id`),
+  CONSTRAINT `consultation_post_ibfk_1` FOREIGN KEY (`mentor_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `enum`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -161,6 +178,19 @@ CREATE TABLE `personal_access_tokens` (
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `rating`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rating` (
+  `rating_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) DEFAULT NULL,
+  `service_type` enum('K','T') DEFAULT NULL,
+  `rating_star` float DEFAULT NULL,
+  `rating_description` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`rating_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -216,6 +246,23 @@ CREATE TABLE `tulung` (
   CONSTRAINT `tulung_ibfk_4` FOREIGN KEY (`chat_id`) REFERENCES `chat` (`chat_id`),
   CONSTRAINT `tulung_ibfk_5` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
   CONSTRAINT `tulung_ibfk_6` FOREIGN KEY (`file_batch_id`) REFERENCES `file_batch` (`file_batch_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `tulung_post`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tulung_post` (
+  `post_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pic_id` int(11) NOT NULL DEFAULT 0,
+  `title` varchar(100) DEFAULT NULL,
+  `description` text DEFAULT 'NULL',
+  `mentor_id` int(11) NOT NULL DEFAULT 0,
+  `start_from` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`post_id`),
+  KEY `mentor_id` (`mentor_id`),
+  CONSTRAINT `tulung_post_ibfk_1` FOREIGN KEY (`mentor_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `users`;
