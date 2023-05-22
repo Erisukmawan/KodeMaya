@@ -1,10 +1,10 @@
-<mxfile host="app.diagrams.net" modified="2023-05-21T14:02:47.093Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="yE-mJGSkk7MEU77GXsUF" version="21.3.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-05-22T01:28:18.789Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="M-oxMyXThZdcLiBlHGpi" version="21.3.2" type="github" pages="2">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1313" dy="686" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1433" dy="601" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Clix4Bp29KnAu1q2UwQA-1" value="User" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="Clix4Bp29KnAu1q2UwQA-1" value="users" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="780" y="837" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Clix4Bp29KnAu1q2UwQA-2" value="user_id" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" parent="1" vertex="1">
@@ -127,7 +127,7 @@
             <mxPoint x="880" y="845" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Clix4Bp29KnAu1q2UwQA-38" value="transaction" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="Clix4Bp29KnAu1q2UwQA-38" value="transactions" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="260" y="837" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Clix4Bp29KnAu1q2UwQA-39" value="transaction_id" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" parent="1" vertex="1">
@@ -713,7 +713,7 @@
             <mxPoint x="4" y="-45" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Js9PxaeQD0gSt3_nWMCA-1" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Clix4Bp29KnAu1q2UwQA-189">
+        <mxCell id="Js9PxaeQD0gSt3_nWMCA-1" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Clix4Bp29KnAu1q2UwQA-189" vertex="1" connectable="0">
           <mxGeometry x="-0.7554" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -724,7 +724,7 @@
             <mxPoint x="1410" y="947" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Js9PxaeQD0gSt3_nWMCA-3" value="M" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Clix4Bp29KnAu1q2UwQA-191">
+        <mxCell id="Js9PxaeQD0gSt3_nWMCA-3" value="M" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Clix4Bp29KnAu1q2UwQA-191" vertex="1" connectable="0">
           <mxGeometry x="0.6884" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -899,7 +899,7 @@
             <mxPoint x="1907.5" y="650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Clix4Bp29KnAu1q2UwQA-237" value="service_taxt" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="Clix4Bp29KnAu1q2UwQA-237" value="service_tax" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="2027.5" y="627" width="122.5" height="45" as="geometry" />
         </mxCell>
         <mxCell id="Clix4Bp29KnAu1q2UwQA-238" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="Clix4Bp29KnAu1q2UwQA-237" edge="1">
@@ -1196,7 +1196,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="mnwsUbG2iXk8M_w46NII" name="Halaman-2">
-    <mxGraphModel dx="315" dy="165" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="100" pageHeight="400" math="0" shadow="0">
+    <mxGraphModel dx="1050" dy="541" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="100" pageHeight="400" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
