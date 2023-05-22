@@ -9,6 +9,13 @@
 
 # KodeMaya Project
 
+## Documents
+- [Airtable Task](https://airtable.com/appdEfaX58o2Y1Zvd/tblQJwZRrqlFLyiUm/viwRufDIxlKQVMYbQ?blocks=hide)
+- [Product Requirements](https://docs.google.com/document/d/1ArVKnLahrpUSWaYxMQ2OXA-y1mR7QjekpVBHT8yxnL0/edit)
+- [Bussiness Process](https://docs.google.com/document/d/1nKZieumMZe3Bmbz7qSoxKSLAjvYeZpAW/edit)
+- [Data Analysis](https://docs.google.com/document/d/176rklXfiJ_Qlzmh3cmKt_gvRWmNhvM1f3D2XVGuXg_o/edit)
+- [ER Diagram](https://app.diagrams.net/#HErisukmawan%2FKodeMaya%2Fmain%2Fresources%2FER%20Diagram%20KodeMaya.drawio)
+
 ## Instalasi
 - clone repo
 - masuk folder, ketik di cmd
@@ -20,10 +27,10 @@
 - `php artisan serve`
 
 ## Note
-1. Bagian perintah yg di skip itu untuk create table dan restore database, karna udah ada di server jadi tidak perlu digunakan.  
-2. Backup db akan otomatis mingguan
-3. Settings untuk auto backup db ada pada app/Console/Kernel.php#L16
-4. Server dan database development sementara pake :
+1. Bagian perintah yg di skip itu buat create table dan restore database, karna dah ada di server jadi ga perlu dipake.  
+2. Backup db otomatis mingguan (buat server)
+3. Settings buat auto backup db ada di app/Console/Kernel.php#L16
+4. Database development sementara pake :
 ```
   [  Server SSH  ]
 
@@ -40,7 +47,6 @@ Password   : kodemayabangkit1
 Database   : db_kodemaya
 Port       : 3306
 ```
-5. Autodeploy sudah ter setup, setiap push otomatis update runner action ke server, dan bisa di cek di <a href="http://20.187.120.241" target="_blank">Kodemaya Dev</a>
 
 ## Project Team
 1. Edwin Liona Jaya (10121154) - Product Manager
