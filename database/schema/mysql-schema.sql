@@ -183,12 +183,15 @@ DROP TABLE IF EXISTS `rating`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rating` (
   `rating_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) DEFAULT NULL,
+  `post_id` int(10) unsigned DEFAULT 0,
   `service_type` enum('K','T') DEFAULT NULL,
   `rating_star` float DEFAULT NULL,
   `rating_description` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`rating_id`)
+  PRIMARY KEY (`rating_id`),
+  KEY `post_id` (`post_id`),
+  CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `consultation_post` (`post_id`),
+  CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `tulung_post` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `transactions`;
