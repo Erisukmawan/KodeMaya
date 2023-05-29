@@ -44,6 +44,7 @@ html {
     font-feature-settings: normal;
  /* 5 */
 }
+
 /*
 1. Remove the margin in all browsers.
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
@@ -131,6 +132,10 @@ sub {
 }
 sup {
   top: -0.5em;
+}
+#btn-back-to-top {
+    position: fixed;
+    display: none;
 }
 /*
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)

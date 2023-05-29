@@ -24,9 +24,10 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
 
 <body class=" font-inter" id="body_class">
     <!-- [if IE]> <p class="browserupgrade"> You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security. </p> <![endif] -->
-    <main class="app-wrapper">
+        <main class="app-wrapper">
         <!-- BEGIN: Sidebar -->
         <!-- BEGIN: Sidebar -->
+        
         <div class="sidebar-wrapper group md:hidden block">
             <div id="bodyOverlay" class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div>
             <div class="logo-segment">
@@ -416,6 +417,9 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                 <!-- Upgrade Your Business Plan Card Start -->
             </div>
         </div>
+        <button id="btn-back-to-top"  style="z-index:2; margin-top:21.5em" class="btn btn-sm  btn-danger fixed ltr:md:right-[40px] ltr:right-0 rtl:left-0 top-1/2  cursor-pointer font-medium mb-12 shadow-deep ltr:rounded-b rtl:rounded-t" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+                            <iconify-icon class="text-sm dark:text-white" icon="mingcute:up-fill"></iconify-icon>
+                            </button>
         <!-- End: Sidebar -->
         <!-- End: Sidebar -->
         <div class="flex flex-col justify-between min-h-screen">
@@ -738,18 +742,22 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                     </button>
                                 </div>
                                 <div>
+                                    <a href="{{route('register')}}">
                                     <button class="btn inline-flex btn-sm justify-center btn-primary ">
                                         <span class="flex items-center">
                                             <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2" icon="mdi:register-outline"></iconify-icon>
                                             <span>Daftar</span>
                                         </span>
                                     </button>
+                                    </a>
+                                    <a href="{{route('login')}}">
                                     <button class="btn inline-flex btn-sm justify-center btn-outline-primary ">
                                         <span class="flex items-center">
                                             <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2" icon="heroicons-outline:login"></iconify-icon>
                                             <span class="dark:text-white" >Masuk</span>
                                         </span>
                                     </button>
+                                    </a>
                                 </div>
                                 <!-- END: TOggle Theme -->
                                 <!-- END: Header -->
@@ -761,9 +769,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                             <!-- end nav tools -->
                         </div>
                     </div>
-                </div>
-    </div>
-    </main>
+                
+        
                 <!-- END: Header -->
                 <!-- END: Header -->
                 @yield('content')
