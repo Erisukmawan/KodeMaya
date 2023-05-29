@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginRegisterController;
 
 /*
@@ -15,11 +15,12 @@ use App\Http\Controllers\LoginRegisterController;
 |
 */
 
-// Route::resource('/',DashboardAdminController::class);
+Route::get('/',[LandingPageController::class, 'index'])->name('landingpage');
 
+// Route::get('/', 'index')->name('admin');
 
 Route::controller(LoginRegisterController::class)->group(function() {
-    Route::get('/', 'dashboard')->name('dashboard');
+    Route::get('/admin', 'dashboard')->name('dashboard');
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
