@@ -31,7 +31,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
         <div class="sidebar-wrapper group md:hidden block">
             <div id="bodyOverlay" class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div>
             <div class="logo-segment">
-                <a class="flex items-center" href="index.html">
+                <a class="flex items-center" href="/">
                     <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
                     <img src="assets/images/logo/favicon.svg" class="white_logo" alt="logo">
                     <span class="ltr:ml-3 rtl:mr-3 text-xl font-Inter font-bold text-slate-900 dark:text-white">KodeMaya</span>
@@ -430,7 +430,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     <div class="app-header z-[999] ltr:ml-[248px] rtl:mr-[248px] bg-white dark:bg-slate-800 shadow-sm dark:shadow-slate-700">
                         <div class="flex justify-between items-center h-full">
                             <div class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
-                                <a href="index.html" class="mobile-logo xl:hidden inline-block">
+                                <a href="/" class="mobile-logo xl:hidden inline-block">
                                     <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
                                     <img src="assets/images/logo/favicon.svg" class="white_logo" alt="logo">
                                 </a>
@@ -441,7 +441,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                             </div>
                             <!-- end vertcial -->
                             <div class="items-center space-x-4 rtl:space-x-reverse horizental-box">
-                                <a href="index.html">
+                                <a href="/">
                                     <span class="xl:inline-block hidden">
                                         <img src="assets/images/logo/logo.svg" class="black_logo " alt="logo">
                                         <img src="assets/images/logo/logo.svg" class="white_logo" alt="logo">
