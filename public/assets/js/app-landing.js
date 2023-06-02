@@ -24,7 +24,7 @@
       // $("#bodyOverlay").removeClass("block");
       $(".app-wrapper").addClass("horizontalMenu");
 
-      $(".sidebar-wrapper").addClass("menu-hide");
+      // $(".sidebar-wrapper").addClass("menu-hide");
       $("#menuCollapse").hide();
       $(".app-header").addClass("margin-0");
       $(".site-footer").addClass("margin-0");

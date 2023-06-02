@@ -57,364 +57,56 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     <li class="">
                         <a href="#" class="navItem">
                             <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:home"></iconify-icon>
-                                <span>D</span>
-                            </span>
-                        </a>
-                    </li>
-                    <!-- Apps Area -->
-                    <li class="sidebar-menu-title">APPS</li>
-                    <li>
-                        <a href="chat.html" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class="nav-icon" icon="heroicons-outline:chat"></iconify-icon>
-                                <span>Chat</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="email.html" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:mail"></iconify-icon>
-                                <span>Email</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="kanban.html" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:view-boards"></iconify-icon>
-                                <span>Kanban</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="calander.html" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:calendar"></iconify-icon>
-                                <span>Calander</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="todo.html" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:clipboard-check"></iconify-icon>
-                                <span>Todo</span>
+                                <iconify-icon class="nav-icon" icon=heroicons-outline:home> </iconify-icon>
+                                <span>Home</span>
                             </span>
                         </a>
                     </li>
                     <li class="">
                         <a href="javascript:void(0)" class="navItem">
                             <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:document"></iconify-icon>
-                                <span>Projects</span>
+                                <iconify-icon class=" nav-icon" icon="mdi:feature-highlight"></iconify-icon>
+                                <span>Fitur</span>
                             </span>
                             <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
                         </a>
                         <ul class="sidebar-submenu">
                             <li>
-                                <a href="project.html">Projects</a>
+                                <a href="project.html">Konsultasi</a>
                             </li>
                             <li>
-                                <a href="project-details.html">Project Details</a>
+                                <a href="project-details.html">Tulung</a>
                             </li>
                         </ul>
                     </li>
-                    <!-- Pages Area -->
-                    <li class="sidebar-menu-title">PAGES</li>
-                    <!-- Authentication -->
+                    <li class="">
+                        <a href="#" class="navItem">
+                            <span class="flex items-center">
+                                <iconify-icon class="nav-icon" icon=material-symbols:price-change-outline> </iconify-icon>
+                                <span>Harga</span>
+                            </span>
+                        </a>
+                    </li>
                     <li class="">
                         <a href="javascript:void(0)" class="navItem">
                             <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:lock-closed"></iconify-icon>
-                                <span>Authentication</span>
+                                <iconify-icon class=" nav-icon" icon="material-symbols:contact-support-outline"></iconify-icon>
+                                <span>Bantuan</span>
                             </span>
                             <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
                         </a>
                         <ul class="sidebar-submenu">
                             <li>
-                                <a href="signin-one.html">Signin One</a>
+                                <a href="project.html">Tentang Kami</a>
                             </li>
                             <li>
-                                <a href="signin-two.html">Signin Two</a>
+                                <a href="project-details.html">Hubungi Kami</a>
                             </li>
                             <li>
-                                <a href="signin-three.html">Signin Three</a>
-                            </li>
-                            <li>
-                                <a href="signup-one.html">Signup One</a>
-                            </li>
-                            <li>
-                                <a href="signup-two.html">Signup Two</a>
-                            </li>
-                            <li>
-                                <a href="signup-three.html">Signup Three</a>
-                            </li>
-                            <li>
-                                <a href="forget-password-one.html">Forget Password One</a>
-                            </li>
-                            <li>
-                                <a href="forget-password-two.html">Forget Password Two</a>
-                            </li>
-                            <li>
-                                <a href="forget-password-three.html">Forget Password Three</a>
-                            </li>
-                            <li>
-                                <a href="lock-screen-one.html">Lock Screen One</a>
-                            </li>
-                            <li>
-                                <a href="lock-screen-two.html">Lock Screen Two</a>
-                            </li>
-                            <li>
-                                <a href="lock-screen-three.html">Lock Screen Three</a>
+                                <a href="project-details.html">Syarat dan Ketentuan</a>
                             </li>
                         </ul>
                     </li>
-                    <!-- Utility -->
-                    <li class="">
-                        <a href="javascript:void(0)" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:view-boards"></iconify-icon>
-                                <span>Utility</span>
-                            </span>
-                            <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="invoice.html">Invoice</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing</a>
-                            </li>
-                            <li>
-                                <a href="blog.html">Blog</a>
-                            </li>
-                            <li>
-                                <a href="blank-page.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="settings.html">Settings</a>
-                            </li>
-                            <li>
-                                <a href="profile.html">Profile</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404 Page</a>
-                            </li>
-                            <li>
-                                <a href="comming-soon.html">Coming Soon</a>
-                            </li>
-                            <li>
-                                <a href="under-maintanance.html">Under Maintanance</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Elements Area -->
-                    <li class="sidebar-menu-title">ELEMENTS</li>
-                    <!-- Widgets -->
-                    <li class="">
-                        <a href="javascript:void(0)" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:view-grid-add"></iconify-icon>
-                                <span>Widgets</span>
-                            </span>
-                            <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="basic-widgets.html">Basic</a>
-                            </li>
-                            <li>
-                                <a href="statistics-widgets.html">Statistic</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Components -->
-                    <li>
-                        <a href="javascript:void(0)" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:collection"></iconify-icon>
-                                <span>Components</span>
-                            </span>
-                            <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="typography.html">Typography</a>
-                            </li>
-                            <li>
-                                <a href="colors.html">Colors</a>
-                            </li>
-                            <li>
-                                <a href="alert.html">Alert</a>
-                            </li>
-                            <li>
-                                <a href="buttons.html">Button</a>
-                            </li>
-                            <li>
-                                <a href="card.html">Card</a>
-                            </li>
-                            <li>
-                                <a href="carousel.html">Carousel</a>
-                            </li>
-                            <li>
-                                <a href="dropdown.html">Dropdown</a>
-                            </li>
-                            <li>
-                                <a href="image.html">Image</a>
-                            </li>
-                            <li>
-                                <a href="modal.html">Modal</a>
-                            </li>
-                            <li>
-                                <a href="progressbar.html">Progress bar</a>
-                            </li>
-                            <li>
-                                <a href="placeholder.html">Placeholder</a>
-                            </li>
-                            <li>
-                                <a href="tab-accordion.html">Tab & Accordion</a>
-                            </li>
-                            <li>
-                                <a href="badges.html">Badges</a>
-                            </li>
-                            <li>
-                                <a href="pagination.html">Pagination</a>
-                            </li>
-                            <li>
-                                <a href="video.html">Video</a>
-                            </li>
-                            <li>
-                                <a href="tooltip-popover.html">Tooltip & Popover</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Forms -->
-                    <li class="">
-                        <a href="javascript:void(0)" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:clipboard-list"></iconify-icon>
-                                <span>Forms</span>
-                            </span>
-                            <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="input.html">Input</a>
-                            </li>
-                            <li>
-                                <a href="input-group.html">Input group</a>
-                            </li>
-                            <li>
-                                <a href="input-layout.html">Input layout</a>
-                            </li>
-                            <li>
-                                <a href="form-validation.html">Form validation</a>
-                            </li>
-                            <li>
-                                <a href="wizard.html">Wizard</a>
-                            </li>
-                            <li>
-                                <a href="input-mask.html">Input mask</a>
-                            </li>
-                            <li>
-                                <a href="file-input.html">File input</a>
-                            </li>
-                            <li>
-                                <a href="form-repeater.html">Form repeater</a>
-                            </li>
-                            <li>
-                                <a href="textarea.html">Textarea</a>
-                            </li>
-                            <li>
-                                <a href="checkbox.html">Checkbox</a>
-                            </li>
-                            <li>
-                                <a href="radio.html">Radio button</a>
-                            </li>
-                            <li>
-                                <a href="switch.html">Switch</a>
-                            </li>
-                            <li>
-                                <a href="select.html">Select</a>
-                            </li>
-                            <li>
-                                <a href="date-picker.html">Date time picker</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Tables -->
-                    <li class="">
-                        <a href="javascript:void(0)" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:table"></iconify-icon>
-                                <span>Tables</span>
-                            </span>
-                            <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="basic-table.html">Basic table</a>
-                            </li>
-                            <li>
-                                <a href="advance-table.html">Advanced table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Charts -->
-                    <li class="">
-                        <a href="javascript:void(0)" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:chart-bar"></iconify-icon>
-                                <span>Chart</span>
-                            </span>
-                            <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
-                        </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="apex-chart.html">Apex chart</a>
-                            </li>
-                            <li>
-                                <a href="chartjs.html">Chart js</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Map -->
-                    <li class="">
-                        <a href="map.html" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:map"></iconify-icon>
-                                <span>Map</span>
-                            </span>
-                        </a>
-                    </li>
-                    <!-- Icons -->
-                    <li class="">
-                        <a href="icons.html" class="navItem">
-                            <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="heroicons-outline:emoji-happy"></iconify-icon>
-                                <span>Icons</span>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-                <!-- Upgrade Your Business Plan Card Start -->
-                <div class="bg-slate-900 mb-10 mt-24 p-4 relative text-center rounded-2xl text-white" id="sidebar_bottom_wizard">
-                    <img src="assets/images/svg/rabit.svg" alt="" class="mx-auto relative -mt-[73px]">
-                    <div class="max-w-[160px] mx-auto mt-6">
-                        <div class="widget-title font-Inter mb-1">Unlimited Access</div>
-                        <div class="text-xs font-light font-Inter">
-                            Upgrade your system to business plan
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <button class="bg-white hover:bg-opacity-80 text-slate-900 text-sm font-Inter rounded-md w-full block py-2 font-medium">
-                            Upgrade
-                        </button>
-                    </div>
-                </div>
-                <!-- Upgrade Your Business Plan Card Start -->
             </div>
         </div>
         <button id="btn-back-to-top"  style="z-index:2; margin-top:21.5em" class="btn btn-sm  btn-danger fixed ltr:md:right-[40px] ltr:right-0 rtl:left-0 top-1/2  cursor-pointer font-medium mb-12 shadow-deep ltr:rounded-b rtl:rounded-t" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
@@ -462,17 +154,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
 
                             <div class="main-menu">
                                 <ul>
-
-                                    <li class="
-             menu-item-has-children 
-              ">
-                                        <!--  Single menu -->
-
-                                        <!-- has dropdown -->
-
-
-
-                                        <a href="javascript:void()">
+                                    <li class="menu-item-has-children">
+                                        <a href="{{url('/') }}" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=heroicons-outline:home> </iconify-icon>
@@ -485,7 +168,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         <a href="javascript:void()">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
-                                                    <iconify-icon icon=heroicons-outline:chip> </iconify-icon>
+                                                    <iconify-icon icon=mdi:feature-highlight> </iconify-icon>
                                                 </span>
                                                 <div class="text-box">Fitur</div>
                                             </div>
@@ -495,138 +178,42 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         </a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href=chat.html>
+                                                <a href=#konsultasi>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon=heroicons-outline:chat class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Chat
+                                                            Konsultasi
                                                         </span>
                                                     </div>
                                                 </a>
                                             </li>
-
-
-
                                             <li>
-                                                <a href=email.html>
+                                                <a href=#tulung>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:mail class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=ic:baseline-connect-without-contact class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Email
+                                                            Tulung
                                                         </span>
                                                     </div>
                                                 </a>
                                             </li>
-
-
-
-                                            <li>
-                                                <a href=calender>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:calendar class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Calendar
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-
-
-                                            <li>
-                                                <a href=kanban>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:view-boards class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Kanban
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-
-
-                                            <li>
-                                                <a href=todo>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:clipboard-check class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Todo
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-
-
-                                            <li>
-                                                <a href=projects>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:document class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Projects
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
                                         </ul>
 
                                         <!-- Megamenu -->
 
 
                                     </li>
-                                    <li class=" menu-item-has-children">
+                                    <li class="menu-item-has-children ">
                                         <a href="javascript:void()">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
-                                                    <iconify-icon icon=heroicons-outline:view-grid-add> </iconify-icon>
+                                                    <iconify-icon icon=material-symbols:price-change-outline> </iconify-icon>
                                                 </span>
                                                 <div class="text-box">Harga</div>
                                             </div>
-                                            <div class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
-                                                <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
-                                            </div>
                                         </a>
-
-                                        <!-- Dropdown menu -->
-
-
-
-                                        <ul class="sub-menu">
-
-
-
-                                            <li>
-                                                <a href=basic-widgets.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:document-text class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Basic
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-
-
-                                            <li>
-                                                <a href=statistics-widgets.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:document-text class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Statistic
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-                                        </ul>
-
-                                        <!-- Megamenu -->
-
-
                                     </li>
+                                    
 
                                     <li class="
              menu-item-has-children 
@@ -640,86 +227,45 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         <a href="javascript:void()">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
-                                                    <iconify-icon icon=heroicons-outline:template> </iconify-icon>
+                                                    <iconify-icon icon=material-symbols:contact-support-outline> </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Extra</div>
+                                                <div class="text-box">Bantuan</div>
                                             </div>
                                             <div class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
                                                 <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
                                             </div>
                                         </a>
-
-                                        <!-- Dropdown menu -->
-
-
-
                                         <ul class="sub-menu">
-
-
-
                                             <li>
                                                 <a href=basic-table.html>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:table class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=mdi:about class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Basic Table
+                                                            Tentang Kami
                                                         </span>
                                                     </div>
                                                 </a>
                                             </li>
-
-
-
                                             <li>
                                                 <a href=advance-table.html>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:table class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=fluent:contact-card-group-28-regular class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Advanced table
+                                                            Hubungi Kami
                                                         </span>
                                                     </div>
                                                 </a>
                                             </li>
-
-
-
                                             <li>
                                                 <a href=apex-chart.html>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:chart-bar class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=material-symbols:privacy-tip-outline class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Apex chart
+                                                            Syarat dan Ketentuan
                                                         </span>
                                                     </div>
                                                 </a>
                                             </li>
-
-
-
-                                            <li>
-                                                <a href=chartjs.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:chart-bar class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Chart js
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-
-
-                                            <li>
-                                                <a href=map.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:map class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Map
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
                                         </ul>
 
                                         <!-- Megamenu -->

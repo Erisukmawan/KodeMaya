@@ -1,9 +1,6 @@
 @extends('landingpage.header')
 @section('content')
-
-<!-- <div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper">
-    <div class="page-content"> -->
-
+<div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper"></div>
       <section class="bg-white dark:bg-gray-900">
         <div class="px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 flex flex-1">
           <div class="mr-auto place-self-center lg:col-span-3">
@@ -31,7 +28,9 @@
           </div>
       </section>
 
-    <!-- </div>
-</div> -->
+    <div class="page-content">
+      <hr>
+    </div>
+</div>
 
 @endsection

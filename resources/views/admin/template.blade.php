@@ -321,7 +321,7 @@
             <li>
                 <a href="javascript:void(0)" class="navItem">
                     <span class="flex items-center">
-                        <iconify-icon class="nav-icon" icon="carbon:task-tools"></iconify-icon>
+                        <iconify-icon class="nav-icon" icon="ic:baseline-connect-without-contact"></iconify-icon>
                         <span>Tulung</span>
                     </span>
                     <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
