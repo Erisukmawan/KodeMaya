@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <title>KodeMaya - Dashboard</title>
-  <link rel="icon" type="image/png" href="assets/images/logo/favicon.svg">
+  <link rel="icon" type="image/png" href="{{ url('/assets/images/logo/favicon.svg') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- BEGIN: Theme CSS-->
-  <link rel="stylesheet" href="assets/css/rt-plugins.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="{{ url('/assets/css/rt-plugins.css') }}">
+  <link rel="stylesheet" href="{{ url('/assets/css/app.css') }}">
   <!-- End : Theme CSS-->
-  <script src="assets/js/settings.js" sync></script>
+  <script src="{{ url('/assets/js/settings.js') }}" sync></script>
 </head>
 
 <body class="font-inter dashcode-app" id="body_class">
@@ -77,9 +77,9 @@
         @yield('menu-mobile')
   </main>
   <!-- scripts -->
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/rt-plugins.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="{{ url('/assets/js/jquery-3.6.0.min.js') }}"></script>
+  <script src="{{ url('/assets/js/rt-plugins.js') }}"></script>
+  <script src="{{ url('/assets/js/app.js') }}"></script>
   @yield('custom-script')
 </body>
 

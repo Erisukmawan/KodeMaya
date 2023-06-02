@@ -114,13 +114,13 @@ class LoginRegisterController extends Controller
 
             if ($account_type == 'A') {
                 Log::info('Login as Admin');
-                return view('admin.dashboard');
+                return redirect()->route('admin.dashboard');
             } else if ($account_type == 'M') {
                 Log::info('Login as Mentor');
-                return view('mentor.dashboard');
+                return redirect()->route('mentor.dashboard');
             } else if ($account_type == 'C') {
                 Log::info('Login as User');
-                return view('customer.dashboard');
+                return redirect()->route('customer.dashboard');
             }
         }
         return redirect()->route('login')
