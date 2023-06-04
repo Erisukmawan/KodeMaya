@@ -200,13 +200,13 @@
                 <div class="mb-5">
                     <ul class="m-0 p-0 list-none">
                         <li class="inline-block relative top-[3px] text-base text-primary-500 font-Inter ">
-                            <a href="{{ route('admin.dashboard') }}">
+                            <a href="{{ route('admin.menu.dashboard') }}">
                                 <iconify-icon icon="heroicons-outline:home"></iconify-icon>
                                 <iconify-icon icon="heroicons-outline:chevron-right" class="relative text-slate-500 text-sm rtl:rotate-180"></iconify-icon>
                             </a>
                         </li>
                         <li class="inline-block relative text-sm text-primary-500 font-Inter ">
-                            {{ explode('.', Route::current()->getName())[1] }}
+                            {{ explode('.', Route::current()->getName())[0] }}
                             <iconify-icon icon="heroicons-outline:chevron-right" class="relative top-[3px] text-slate-500 rtl:rotate-180"></iconify-icon>
                         </li>
 
@@ -227,7 +227,7 @@
 <div class="sidebar-wrapper group">
     <div id="bodyOverlay" class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div>
     <div class="logo-segment">
-        <a class="flex items-center" href="{{ route('admin.dashboard') }}">
+        <a class="flex items-center" href="{{ route('admin.menu.dashboard') }}">
             <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="black_logo" alt="logo">
             <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="white_logo" alt="logo">
             <span class="ltr:ml-3 rtl:mr-3 text-xl font-Inter font-bold text-slate-900 dark:text-white">KodeMaya</span>
@@ -250,7 +250,7 @@
         <ul class="sidebar-menu">
             <li class="sidebar-menu-title">MENU</li>
             <li class="{{ (request()->is('admin/dashboard*')) ? 'active' : '' }}">
-                <a href="{{ route('admin.dashboard') }}" class="navItem">
+                <a href="{{ route('admin.menu.dashboard') }}" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class="nav-icon" icon="heroicons-outline:home"></iconify-icon>
                         <span>Dashboard</span>
@@ -258,7 +258,7 @@
                 </a>
             </li>
             <li class="{{ (request()->is('admin/users*')) ? 'active' : '' }}">
-                <a href="{{ route('admin.users') }}" class="navItem">
+                <a href="{{ route('admin.menu.users') }}" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="heroicons-outline:users"></iconify-icon>
                         <span>Kelola Pengguna</span>
@@ -275,15 +275,15 @@
                 </a>
                 <ul class="sidebar-submenu">
                     <li>
-                        <a class="{{ (request()->is('admin/pricing*')) ? 'active' : '' }}" href="{{ route('admin.pricing') }}">Harga</a>
+                        <a class="{{ (request()->is('admin/pricing*')) ? 'active' : '' }}" href="{{ route('admin.menu.parameter.pricing') }}">Harga</a>
                     </li>
                     <li>
-                        <a class="{{ (request()->is('admin/enum*')) ? 'active' : '' }}" href="{{ route('admin.enum') }}">Enum</a>
+                        <a class="{{ (request()->is('admin/enum*')) ? 'active' : '' }}" href="{{ route('admin.menu.parameter.enum') }}">Enum</a>
                     </li>
                 </ul>
             </li>
             <li class="{{ (request()->is('admin/notification*')) ? 'active' : '' }}">
-                <a href="{{ route('admin.notification') }}" class="navItem">
+                <a href="{{ route('admin.menu.notification') }}" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="iconamoon:notification-light"></iconify-icon>
                         <span>Notifikasi</span>
@@ -293,7 +293,7 @@
             <!-- Apps Area -->
             <li class="sidebar-menu-title">KEUANGAN</li>
             <li class="{{ (request()->is('admin/income*')) ? 'active' : '' }}">
-                <a href="{{ route('admin.income') }}" class="navItem">
+                <a href="{{ route('admin.finance.income') }}" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class="nav-icon" icon="fluent-mdl2:analytics-view"></iconify-icon>
                         <span>Informasi Pendapatan</span>
@@ -301,7 +301,7 @@
                 </a>
             </li>
             <li class="{{ (request()->is('admin/disbursement*')) ? 'active' : '' }}">
-                <a href="{{ route('admin.disbursement') }}" class="navItem">
+                <a href="{{ route('admin.finance.disbursement') }}" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class="nav-icon" icon="heroicons-outline:credit-card"></iconify-icon>
                         <span>Pencairan Dana</span>
@@ -309,7 +309,7 @@
                 </a>
             </li>
             <li class="{{ (request()->is('admin/transactions*')) ? 'active' : '' }}">
-                <a href="{{ route('admin.transactions') }}" class="navItem">
+                <a href="{{ route('admin.finance.transactions') }}" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="uil:transaction"></iconify-icon>
                         <span>Riwayat Transaksi</span>
@@ -328,13 +328,13 @@
                 </a>
                 <ul class="sidebar-submenu">
                     <li>
-                        <a class="{{ (request()->is('admin/tulung/post*')) ? 'active' : '' }}" href="{{ route('admin.tulung.post') }}">Profil Unggahan</a>
+                        <a class="{{ (request()->is('admin/tulung/post*')) ? 'active' : '' }}" href="{{ route('admin.features.tulung.post') }}">Profil Unggahan</a>
                     </li>
                     <li>
-                        <a class="{{ (request()->is('admin/tulung/task*')) ? 'active' : '' }}" href="{{ route('admin.tulung.task') }}">Status Pengerjaan</a>
+                        <a class="{{ (request()->is('admin/tulung/task*')) ? 'active' : '' }}" href="{{ route('admin.features.tulung.task') }}">Status Pengerjaan</a>
                     </li>
                     <li>
-                        <a class="{{ (request()->is('admin/tulung/history*')) ? 'active' : '' }}" href="{{ route('admin.tulung.history') }}">Riwayat</a>
+                        <a class="{{ (request()->is('admin/tulung/history*')) ? 'active' : '' }}" href="{{ route('admin.features.tulung.history') }}">Riwayat</a>
                     </li>
                 </ul>
             </li>
@@ -348,13 +348,13 @@
                 </a>
                 <ul class="sidebar-submenu">
                     <li>
-                        <a class="{{ (request()->is('admin/consultation/post*')) ? 'active' : '' }}" href="{{ route('admin.consultation.post') }}">Profil Unggahan</a>
+                        <a class="{{ (request()->is('admin/consultation/post*')) ? 'active' : '' }}" href="{{ route('admin.features.consultation.post') }}">Profil Unggahan</a>
                     </li>
                     <li>
-                        <a class="{{ (request()->is('admin/consultation/task*')) ? 'active' : '' }}" href="{{ route('admin.consultation.task') }}">Status Konsul</a>
+                        <a class="{{ (request()->is('admin/consultation/task*')) ? 'active' : '' }}" href="{{ route('admin.features.consultation.task') }}">Status Konsul</a>
                     </li>
                     <li>
-                        <a class="{{ (request()->is('admin/consultation/history*')) ? 'active' : '' }}" href="{{ route('admin.consultation.history') }}">Riwayat</a>
+                        <a class="{{ (request()->is('admin/consultation/history*')) ? 'active' : '' }}" href="{{ route('admin.features.consultation.history') }}">Riwayat</a>
                     </li>
                 </ul>
             </li>
@@ -365,7 +365,7 @@
 
 @section('menu-mobile')
 <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
-    <a href="{{ route('admin.income') }}">
+    <a href="{{ route('admin.finance.income') }}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
@@ -382,7 +382,7 @@
             <img src="assets/images/users/user-1.jpg" alt="" class="w-full h-full rounded-full border-2 border-slate-100">
         </div>
     </a>
-    <a href="{{ route('admin.notification') }}">
+    <a href="{{ route('admin.menu.notification') }}">
         <div>
             <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">

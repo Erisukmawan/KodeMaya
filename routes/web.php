@@ -31,18 +31,18 @@ Route::controller(LoginRegisterController::class)->group(function() {
 });
 
 Route::controller(AdminController::class)->group(function() {
-    Route::get('/admin/dashboard', 'view_dashboard')->name('admin.dashboard');
-    Route::get('/admin/users', 'view_manage_users')->name('admin.users');
-    Route::get('/admin/pricing', 'view_manage_pricing')->name('admin.pricing');
-    Route::get('/admin/enum', 'view_manage_enum')->name('admin.enum');
-    Route::get('/admin/notification', 'view_notification')->name('admin.notification');
-    Route::get('/admin/income', 'view_income')->name('admin.income');
-    Route::get('/admin/disbursement', 'view_disbursement')->name('admin.disbursement');
-    Route::get('/admin/transactions', 'view_transactions')->name('admin.transactions');
-    Route::get('/admin/tulung/post', 'view_tulung_post')->name('admin.tulung.post');
-    Route::get('/admin/tulung/task', 'view_tulung_task')->name('admin.tulung.task');
-    Route::get('/admin/tulung/history', 'view_tulung_history')->name('admin.tulung.history');
-    Route::get('/admin/consultation/post', 'view_consultation_post')->name('admin.consultation.post');
-    Route::get('/admin/consultation/task', 'view_consultation_task')->name('admin.consultation.task');
-    Route::get('/admin/consultation/history', 'view_consultation_history')->name('admin.consultation.history');
+    Route::get('/admin/dashboard', 'view_dashboard')->name('admin.menu.dashboard');
+    Route::get('/admin/users', 'view_manage_users')->name('admin.menu.users');
+    Route::get('/admin/pricing', 'view_manage_pricing')->name('admin.menu.parameter.pricing');
+    Route::get('/admin/enum', 'view_manage_enum')->name('admin.menu.parameter.enum');
+    Route::get('/admin/notification', 'view_notification')->name('admin.menu.notification');
+    Route::get('/admin/income', 'view_income')->name('admin.finance.income');
+    Route::get('/admin/disbursement', 'view_disbursement')->name('admin.finance.disbursement');
+    Route::get('/admin/transactions', 'view_transactions')->name('admin.finance.transactions');
+    Route::get('/admin/tulung/post', 'view_tulung_post')->name('admin.features.tulung.post');
+    Route::get('/admin/tulung/task', 'view_tulung_task')->name('admin.features.tulung.task');
+    Route::get('/admin/tulung/history', 'view_tulung_history')->name('admin.features.tulung.history');
+    Route::get('/admin/consultation/post', 'view_consultation_post')->name('admin.features.consultation.post');
+    Route::get('/admin/consultation/task', 'view_consultation_task')->name('admin.features.consultation.task');
+    Route::get('/admin/consultation/history', 'view_consultation_history')->name('admin.features.consultation.history');
 });
