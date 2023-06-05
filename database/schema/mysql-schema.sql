@@ -299,7 +299,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `account_type` enum('A','M','C') DEFAULT 'C',
-  `balance` int(11) DEFAULT NULL,
+  `balance` double NOT NULL DEFAULT 0,
   `account_status` enum('A','P','B') DEFAULT 'A',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
