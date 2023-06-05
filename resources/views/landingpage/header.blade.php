@@ -14,7 +14,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
     <link rel="icon" type="image/png" href="assets/images/logo/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" href="assets/css/rt-plugins.css">
     <link rel="stylesheet" href="assets/css/app.css">
@@ -24,34 +25,44 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
 
 <body class=" font-inter" id="body_class">
     <!-- [if IE]> <p class="browserupgrade"> You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security. </p> <![endif] -->
-        <main class="app-wrapper">
+    <main class="app-wrapper">
         <!-- BEGIN: Sidebar -->
         <!-- BEGIN: Sidebar -->
-        
+
         <div class="sidebar-wrapper group md:hidden block">
-            <div id="bodyOverlay" class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div>
+            <div id="bodyOverlay"
+                class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div>
             <div class="logo-segment">
                 <a class="flex items-center" href="/">
                     <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
                     <img src="assets/images/logo/favicon.svg" class="white_logo" alt="logo">
-                    <span class="ltr:ml-3 rtl:mr-3 text-xl font-Inter font-bold text-slate-900 dark:text-white">KodeMaya</span>
+                    <span
+                        class="ltr:ml-3 rtl:mr-3 text-xl font-Inter font-bold text-slate-900 dark:text-white">KodeMaya</span>
                 </a>
                 <!-- Sidebar Type Button -->
                 <div id="sidebar_type" class="cursor-pointer text-slate-900 dark:text-white text-lg">
                     <span class="sidebarDotIcon extend-icon cursor-pointer text-slate-900 dark:text-white text-2xl">
-                        <div class="h-4 w-4 border-[1.5px] border-slate-900 dark:border-slate-700 rounded-full transition-all duration-150 ring-2 ring-inset ring-offset-4 ring-black-900 dark:ring-slate-400 bg-slate-900 dark:bg-slate-400 dark:ring-offset-slate-700"></div>
+                        <div
+                            class="h-4 w-4 border-[1.5px] border-slate-900 dark:border-slate-700 rounded-full transition-all duration-150 ring-2 ring-inset ring-offset-4 ring-black-900 dark:ring-slate-400 bg-slate-900 dark:bg-slate-400 dark:ring-offset-slate-700">
+                        </div>
                     </span>
                     <span class="sidebarDotIcon collapsed-icon cursor-pointer text-slate-900 dark:text-white text-2xl">
-                        <div class="h-4 w-4 border-[1.5px] border-slate-900 dark:border-slate-700 rounded-full transition-all duration-150"></div>
+                        <div
+                            class="h-4 w-4 border-[1.5px] border-slate-900 dark:border-slate-700 rounded-full transition-all duration-150">
+                        </div>
                     </span>
                 </div>
                 <button class="sidebarCloseIcon text-2xl">
-                    <iconify-icon class="text-slate-900 dark:text-slate-200" icon="clarity:window-close-line"></iconify-icon>
+                    <iconify-icon class="text-slate-900 dark:text-slate-200" icon="clarity:window-close-line">
+                    </iconify-icon>
                 </button>
             </div>
-            <div id="nav_shadow" class="nav_shadow h-[60px] absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-200 pointer-events-none
-      opacity-0"></div>
-            <div class="sidebar-menus bg-white dark:bg-slate-800 py-2 px-4 h-[calc(100%-80px)] overflow-y-auto z-50" id="sidebar_menus">
+            <div id="nav_shadow"
+                class="nav_shadow h-[60px] absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-200 pointer-events-none
+      opacity-0">
+            </div>
+            <div class="sidebar-menus bg-white dark:bg-slate-800 py-2 px-4 h-[calc(100%-80px)] overflow-y-auto z-50"
+                id="sidebar_menus">
                 <ul class="sidebar-menu">
                     <li class="sidebar-menu-title">MENU</li>
                     <li class="">
@@ -82,7 +93,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     <li class="">
                         <a href="#" class="navItem">
                             <span class="flex items-center">
-                                <iconify-icon class="nav-icon" icon=material-symbols:price-change-outline> </iconify-icon>
+                                <iconify-icon class="nav-icon" icon=material-symbols:price-change-outline>
+                                </iconify-icon>
                                 <span>Harga</span>
                             </span>
                         </a>
@@ -90,7 +102,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     <li class="">
                         <a href="javascript:void(0)" class="navItem">
                             <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="material-symbols:contact-support-outline"></iconify-icon>
+                                <iconify-icon class=" nav-icon" icon="material-symbols:contact-support-outline">
+                                </iconify-icon>
                                 <span>Bantuan</span>
                             </span>
                             <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
@@ -109,9 +122,11 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     </li>
             </div>
         </div>
-        <button id="btn-back-to-top"  style="z-index:2; margin-top:21.5em" class="btn btn-sm  btn-danger fixed ltr:md:right-[40px] ltr:right-0 rtl:left-0 top-1/2  cursor-pointer font-medium mb-12 shadow-deep ltr:rounded-b rtl:rounded-t" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
-                            <iconify-icon class="text-sm dark:text-white" icon="mingcute:up-fill"></iconify-icon>
-                            </button>
+        <button id="btn-back-to-top" style="z-index:2; margin-top:21.5em"
+            class="btn btn-sm  btn-danger fixed ltr:md:right-[40px] ltr:right-0 rtl:left-0 top-1/2  cursor-pointer font-medium mb-12 shadow-deep ltr:rounded-b rtl:rounded-t"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+            <iconify-icon class="text-sm dark:text-white" icon="mingcute:up-fill"></iconify-icon>
+        </button>
         <!-- End: Sidebar -->
         <!-- End: Sidebar -->
         <div class="flex flex-col justify-between min-h-screen">
@@ -119,16 +134,20 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                 <!-- BEGIN: Header -->
                 <!-- BEGIN: Header -->
                 <div class="z-[9]" id="app_header">
-                    <div class="app-header z-[999] ltr:ml-[248px] rtl:mr-[248px] bg-white dark:bg-slate-800 shadow-sm dark:shadow-slate-700">
+                    <div
+                        class="app-header z-[999] ltr:ml-[248px] rtl:mr-[248px] bg-white dark:bg-slate-800 shadow-sm dark:shadow-slate-700">
                         <div class="flex justify-between items-center h-full">
-                            <div class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
+                            <div
+                                class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
                                 <a href="/" class="mobile-logo xl:hidden inline-block">
                                     <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
                                     <img src="assets/images/logo/favicon.svg" class="white_logo" alt="logo">
                                 </a>
-                                <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
-                                    <iconify-icon class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white" icon="heroicons-outline:menu-alt-3"></iconify-icon>
-                                </button>
+                                {{-- <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
+                                    <iconify-icon
+                                        class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white"
+                                        icon="heroicons-outline:menu-alt-3"></iconify-icon>
+                                </button> --}}
 
                             </div>
                             <!-- end vertcial -->
@@ -143,19 +162,19 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         <img src="assets/images/logo/favicon.svg" class="white_logo " alt="logo">
                                     </span>
                                 </a>
-                                <button class="smallDeviceMenuController  open-sdiebar-controller xl:hidden inline-block">
-                                    <iconify-icon class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white" icon="heroicons-outline:menu-alt-3"></iconify-icon>
-                                </button>
+                                {{-- <button
+                                    class="smallDeviceMenuController open-sdiebar-controller xl:hidden inline-block">
+                                    <iconify-icon
+                                        class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white"
+                                        icon="heroicons-outline:menu-alt-3"></iconify-icon>
+                                </button> --}}
 
                             </div>
                             <!-- end horizental -->
-
-
-
                             <div class="main-menu">
                                 <ul>
                                     <li class="menu-item-has-children">
-                                        <a href="{{url('/') }}" class="Navbar">
+                                        <a href="{{ url('/') }}" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=heroicons-outline:home> </iconify-icon>
@@ -172,7 +191,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                                 </span>
                                                 <div class="text-box">Fitur</div>
                                             </div>
-                                            <div class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
+                                            <div
+                                                class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
                                                 <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
                                             </div>
                                         </a>
@@ -180,7 +200,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                             <li>
                                                 <a href=#konsultasi>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:chat class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=heroicons-outline:chat
+                                                            class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
                                                             Konsultasi
                                                         </span>
@@ -190,7 +211,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                             <li>
                                                 <a href=#tulung>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=ic:baseline-connect-without-contact class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=ic:baseline-connect-without-contact
+                                                            class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
                                                             Tulung
                                                         </span>
@@ -198,26 +220,22 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                                 </a>
                                             </li>
                                         </ul>
-
                                         <!-- Megamenu -->
-
-
                                     </li>
                                     <li class="menu-item-has-children ">
                                         <a href="javascript:void()">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
-                                                    <iconify-icon icon=material-symbols:price-change-outline> </iconify-icon>
+                                                    <iconify-icon icon=material-symbols:price-change-outline>
+                                                    </iconify-icon>
                                                 </span>
                                                 <div class="text-box">Harga</div>
                                             </div>
                                         </a>
                                     </li>
-                                    
 
-                                    <li class="
-             menu-item-has-children 
-              ">
+
+                                    <li class="menu-item-has-children ">
                                         <!--  Single menu -->
 
                                         <!-- has dropdown -->
@@ -227,11 +245,13 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         <a href="javascript:void()">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
-                                                    <iconify-icon icon=material-symbols:contact-support-outline> </iconify-icon>
+                                                    <iconify-icon icon=material-symbols:contact-support-outline>
+                                                    </iconify-icon>
                                                 </span>
                                                 <div class="text-box">Bantuan</div>
                                             </div>
-                                            <div class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
+                                            <div
+                                                class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
                                                 <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
                                             </div>
                                         </a>
@@ -239,7 +259,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                             <li>
                                                 <a href=basic-table.html>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=mdi:about class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=mdi:about class="leading-[1] text-base">
+                                                        </iconify-icon>
                                                         <span class="leading-[1]">
                                                             Tentang Kami
                                                         </span>
@@ -249,7 +270,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                             <li>
                                                 <a href=advance-table.html>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=fluent:contact-card-group-28-regular class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=fluent:contact-card-group-28-regular
+                                                            class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
                                                             Hubungi Kami
                                                         </span>
@@ -259,7 +281,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                             <li>
                                                 <a href=apex-chart.html>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=material-symbols:privacy-tip-outline class="leading-[1] text-base"> </iconify-icon>
+                                                        <iconify-icon icon=material-symbols:privacy-tip-outline
+                                                            class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
                                                             Syarat dan Ketentuan
                                                         </span>
@@ -276,48 +299,61 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                 </ul>
                             </div>
                             <!-- end top menu -->
-                            <div class="nav-tools flex items-center lg:space-x-5 space-x-3 rtl:space-x-reverse leading-0">
+                            <div
+                                class="nav-tools flex items-center lg:space-x-5 space-x-3 rtl:space-x-reverse leading-0">
 
                                 <!-- BEGIN: Toggle Theme -->
                                 <div>
-                                    <button id="themeMood" class="h-[28px] w-[28px] lg:h-[32px] lg:w-[32px] lg:bg-gray-500 bg-slate-50 dark:bg-slate-900 lg:dark:bg-slate-900 dark:text-white text-slate-100 cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center">
-                                    <span class="flex items-center">    
-                                        <iconify-icon class="text-slate-800 dark:text-white text-xl dark:block hidden" id="moonIcon" icon="line-md:sunny-outline-to-moon-alt-loop-transition"></iconify-icon>
-                                        <iconify-icon class="text-slate-800 dark:text-white text-xl dark:hidden block" id="sunIcon" icon="line-md:moon-filled-to-sunny-filled-loop-transition"></iconify-icon>
-                                    </span>
+                                    <button id="themeMood"
+                                        class="h-[28px] w-[28px] lg:h-[32px] lg:w-[32px] lg:bg-gray-500 bg-slate-50 dark:bg-slate-900 lg:dark:bg-slate-900 dark:text-white text-slate-100 cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center">
+                                        <span class="flex items-center">
+                                            <iconify-icon
+                                                class="text-slate-800 dark:text-white text-xl dark:block hidden"
+                                                id="moonIcon"
+                                                icon="line-md:sunny-outline-to-moon-alt-loop-transition">
+                                            </iconify-icon>
+                                            <iconify-icon
+                                                class="text-slate-800 dark:text-white text-xl dark:hidden block"
+                                                id="sunIcon"
+                                                icon="line-md:moon-filled-to-sunny-filled-loop-transition">
+                                            </iconify-icon>
+                                        </span>
                                     </button>
                                 </div>
                                 <div>
-                                    <a href="{{route('register')}}">
-                                    <button class="btn inline-flex btn-sm justify-center btn-primary ">
-                                        <span class="flex items-center">
-                                            <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2" icon="mdi:register-outline"></iconify-icon>
-                                            <span>Daftar</span>
-                                        </span>
-                                    </button>
+                                    <a href="{{ route('register') }}">
+                                        <button class="btn inline-flex btn-sm justify-center btn-primary ">
+                                            <span class="flex items-center">
+                                                <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2"
+                                                    icon="mdi:register-outline"></iconify-icon>
+                                                <span>Daftar</span>
+                                            </span>
+                                        </button>
                                     </a>
-                                    <a href="{{route('login')}}">
-                                    <button class="btn inline-flex btn-sm justify-center btn-outline-primary ">
-                                        <span class="flex items-center">
-                                            <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2" icon="heroicons-outline:login"></iconify-icon>
-                                            <span class="dark:text-white" >Masuk</span>
-                                        </span>
-                                    </button>
+                                    <a href="{{ route('login') }}">
+                                        <button class="btn inline-flex btn-sm justify-center btn-outline-primary ">
+                                            <span class="flex items-center">
+                                                <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2"
+                                                    icon="heroicons-outline:login"></iconify-icon>
+                                                <span class="dark:text-white">Masuk</span>
+                                            </span>
+                                        </button>
                                     </a>
                                 </div>
                                 <!-- END: TOggle Theme -->
                                 <!-- END: Header -->
-                                <button class="smallDeviceMenuController md:hidden block leading-0">
-                                    <iconify-icon class="cursor-pointer text-slate-900 dark:text-white text-2xl" icon="heroicons-outline:menu-alt-3"></iconify-icon>
+                                <button class="smallDeviceMenuController xl:hidden block leading-0">
+                                    <iconify-icon class="cursor-pointer text-slate-900 dark:text-white text-2xl"
+                                        icon="heroicons-outline:menu-alt-3"></iconify-icon>
                                 </button>
                                 <!-- end mobile menu -->
+                                <!-- end nav tools -->
                             </div>
-                            <!-- end nav tools -->
                         </div>
                     </div>
-                
-        
-                <!-- END: Header -->
-                <!-- END: Header -->
-                @yield('content')
-                @include('landingpage.footer')
+
+
+                    <!-- END: Header -->
+                    <!-- END: Header -->
+                    @yield('content')
+                    @include('landingpage.footer')

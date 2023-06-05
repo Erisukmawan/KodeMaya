@@ -21,12 +21,12 @@
     <div class="items-center space-x-4 rtl:space-x-reverse horizental-box">
         <a href="index.html">
             <span class="xl:inline-block hidden">
-                <img src="assets/images/logo/logo.svg" class="black_logo " alt="logo">
-                <img src="assets/images/logo/logo-white.svg" class="white_logo" alt="logo">
+                <img src="{{ url('assets/images/logo/logo.svg') }}" class="black_logo " alt="logo">
+                <img src="{{ url('assets/images/logo/logo-white.svg') }}" class="white_logo" alt="logo">
             </span>
             <span class="xl:hidden inline-block">
-                <img src="assets/images/logo/logo-c.svg" class="black_logo " alt="logo">
-                <img src="assets/images/logo/logo-c-white.svg" class="white_logo " alt="logo">
+                <img src="{{ url('assets/images/logo/logo-c.svg') }}" class="black_logo " alt="logo">
+                <img src="{{ url('assets/images/logo/logo-c-white.svg') }}" class="white_logo " alt="logo">
             </span>
         </a>
         <button class="smallDeviceMenuController  open-sdiebar-controller xl:hidden inline-block">
@@ -1114,7 +1114,7 @@
                             <div class="flex-none">
                                 <div class="h-8 w-8 bg-white dark:bg-slate-700 rounded-full relative">
                                     <span class="bg-secondary-500 w-[10px] h-[10px] rounded-full border border-white dark:border-slate-700 inline-block absolute right-0 top-0"></span>
-                                    <img src="/assets/images/all-img/user.png" alt="user" class="block w-full h-full object-cover rounded-full border hover:border-white border-transparent">
+                                    <img src="{{ url('assets/images/all-img/user.png') }}" alt="user" class="block w-full h-full object-cover rounded-full border hover:border-white border-transparent">
                                 </div>
                             </div>
                             <div class="flex-1">
@@ -1193,7 +1193,7 @@
                         <div class="flex ltr:text-left rtl:text-right">
                             <div class="flex-none ltr:mr-3 rtl:ml-3">
                                 <div class="h-8 w-8 bg-white rounded-full">
-                                    <img src="/assets/images/all-img/user.png" alt="user" class="border-white block w-full h-full object-cover rounded-full border">
+                                    <img src="{{ url('assets/images/all-img/user.png') }}" alt="user" class="border-white block w-full h-full object-cover rounded-full border">
                                 </div>
                             </div>
                             <div class="flex-1">
@@ -1267,7 +1267,7 @@
         <div class="md:block hidden w-full">
             <button class="text-slate-800 dark:text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="lg:h-8 lg:w-8 h-7 w-7 rounded-full flex-1 ltr:mr-[10px] rtl:ml-[10px]">
-                    <img src="assets/images/all-img/user.png" alt="user" class="block w-full h-full object-cover rounded-full">
+                    <img src="{{ url('assets/images/all-img/user.png') }}" alt="user" class="block w-full h-full object-cover rounded-full">
                 </div>
                 <span class="flex-none text-slate-600 dark:text-white text-sm font-normal items-center lg:flex hidden overflow-hidden text-ellipsis whitespace-nowrap">{{ Auth::user()->name }}</span>
                 <svg class="w-[16px] h-[16px] dark:text-white hidden lg:inline-block text-base inline-block ml-[10px] rtl:mr-[10px]" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1801,7 +1801,7 @@
     <a href="profile.html" class="relative bg-white bg-no-repeat backdrop-filter backdrop-blur-[40px] rounded-full footer-bg dark:bg-slate-700
       h-[65px] w-[65px] z-[-1] -mt-[40px] flex justify-center items-center">
         <div class="h-[50px] w-[50px] rounded-full relative left-[0px] hrefp-[0px] custom-dropshadow">
-            <img src="assets/images/users/user-1.jpg" alt="" class="w-full h-full rounded-full border-2 border-slate-100">
+            <img src="{{ url('assets/images/users/user-1.jpg') }}" alt="" class="w-full h-full rounded-full border-2 border-slate-100">
         </div>
     </a>
     <a href="#">

@@ -22,7 +22,6 @@ Route::get('/',[LandingPageController::class, 'index'])->name('landingpage');
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
-
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
@@ -30,10 +29,14 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::post('/logout', 'logout')->name('logout');
 });
 
-Route::controller(AdminController::class)->group(function() {
+Route::middleware(['admin'])->controller(AdminController::class)->group(function() {
     Route::get('/admin/dashboard', 'view_dashboard')->name('admin.menu.dashboard');
     Route::get('/admin/users', 'view_manage_users')->name('admin.menu.users');
-    Route::get('/admin/pricing', 'view_manage_pricing')->name('admin.menu.parameter.pricing');
+    Route::get('/admin/global', 'view_manage_global')->name('admin.menu.parameter.global');
+    Route::get('/admin/global/get', 'get_global')->name('admin.menu.parameter.global.get');
+    Route::post('/admin/global/add', 'add_global')->name('admin.menu.parameter.global.add');
+    Route::post('/admin/global/update', 'update_global')->name('admin.menu.parameter.global.update');
+    Route::post('/admin/global/delete', 'delete_global')->name('admin.menu.parameter.global.delete');
     Route::get('/admin/enum', 'view_manage_enum')->name('admin.menu.parameter.enum');
     Route::get('/admin/notification', 'view_notification')->name('admin.menu.notification');
     Route::get('/admin/income', 'view_income')->name('admin.finance.income');

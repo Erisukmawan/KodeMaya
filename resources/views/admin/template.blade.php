@@ -3,9 +3,9 @@
 @section('header-element')
 <div class="flex justify-between items-center h-full">
     <div class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
-        <a href="index.html" class="mobile-logo xl:hidden inline-block">
-            <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
-            <img src="assets/images/logo/favicon.svg" class="white_logo" alt="logo">
+        <a href="{{ route('admin.menu.dashboard') }}" class="mobile-logo xl:hidden inline-block">
+            <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="black_logo" alt="logo">
+            <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="white_logo" alt="logo">
         </a>
         <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
             <iconify-icon class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white" icon="heroicons-outline:menu-alt-3"></iconify-icon>
@@ -19,14 +19,14 @@
     </div>
     <!-- end vertcial -->
     <div class="items-center space-x-4 rtl:space-x-reverse horizental-box">
-        <a href="index.html">
+        <a href="{{ route('admin.menu.dashboard') }}">
             <span class="xl:inline-block hidden">
-                <img src="assets/images/logo/logo.svg" class="black_logo " alt="logo">
-                <img src="assets/images/logo/logo-white.svg" class="white_logo" alt="logo">
+                <img src="{{ url('assets/images/logo/logo.svg') }}" class="black_logo " alt="logo">
+                <img src="{{ url('assets/images/logo/logo-white.svg') }}" class="white_logo" alt="logo">
             </span>
             <span class="xl:hidden inline-block">
-                <img src="assets/images/logo/logo-c.svg" class="black_logo " alt="logo">
-                <img src="assets/images/logo/logo-c-white.svg" class="white_logo " alt="logo">
+                <img src="{{ url('assets/images/logo/logo-c.svg') }}" class="black_logo " alt="logo">
+                <img src="{{ url('assets/images/logo/logo-c-white.svg') }}" class="white_logo " alt="logo">
             </span>
         </a>
         <button class="smallDeviceMenuController  open-sdiebar-controller xl:hidden inline-block">
@@ -73,7 +73,7 @@
                         <div class="flex ltr:text-left rtl:text-right">
                             <div class="flex-none ltr:mr-3 rtl:ml-3">
                                 <div class="h-8 w-8 bg-white rounded-full">
-                                    <img src="/assets/images/all-img/user.png" alt="user" class="border-white block w-full h-full object-cover rounded-full border">
+                                    <img src="{{ url('assets/images/all-img/user.png') }}" alt="user" class="border-white block w-full h-full object-cover rounded-full border">
                                 </div>
                             </div>
                             <div class="flex-1">
@@ -147,7 +147,7 @@
         <div class="md:block hidden w-full">
             <button class="text-slate-800 dark:text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="lg:h-8 lg:w-8 h-7 w-7 rounded-full flex-1 ltr:mr-[10px] rtl:ml-[10px]">
-                    <img src="assets/images/all-img/user.png" alt="user" class="block w-full h-full object-cover rounded-full">
+                    <img src="{{ url('assets/images/all-img/user.png') }}" alt="user" class="block w-full h-full object-cover rounded-full">
                 </div>
                 <span class="flex-none text-slate-600 dark:text-white text-sm font-normal items-center lg:flex hidden overflow-hidden text-ellipsis whitespace-nowrap">{{ Auth::user()->name }}</span>
                 <svg class="w-[16px] h-[16px] dark:text-white hidden lg:inline-block text-base inline-block ml-[10px] rtl:mr-[10px]" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -202,13 +202,14 @@
                         <li class="inline-block relative top-[3px] text-base text-primary-500 font-Inter ">
                             <a href="{{ route('admin.menu.dashboard') }}">
                                 <iconify-icon icon="heroicons-outline:home"></iconify-icon>
-                                <iconify-icon icon="heroicons-outline:chevron-right" class="relative text-slate-500 text-sm rtl:rotate-180"></iconify-icon>
                             </a>
                         </li>
-                        <li class="inline-block relative text-sm text-primary-500 font-Inter ">
-                            {{ explode('.', Route::current()->getName())[0] }}
+                        @foreach(explode('.', Route::current()->getName()) as $name)
+                        <li class="inline-block relative text-sm text-slate-500 font-Inter dark:text-white">
                             <iconify-icon icon="heroicons-outline:chevron-right" class="relative top-[3px] text-slate-500 rtl:rotate-180"></iconify-icon>
+                            {{ $name }}
                         </li>
+                        @endforeach
 
                     </ul>
                 </div>
@@ -275,7 +276,7 @@
                 </a>
                 <ul class="sidebar-submenu">
                     <li>
-                        <a class="{{ (request()->is('admin/pricing*')) ? 'active' : '' }}" href="{{ route('admin.menu.parameter.pricing') }}">Harga</a>
+                        <a class="{{ (request()->is('admin/global*')) ? 'active' : '' }}" href="{{ route('admin.menu.parameter.global') }}">Global</a>
                     </li>
                     <li>
                         <a class="{{ (request()->is('admin/enum*')) ? 'active' : '' }}" href="{{ route('admin.menu.parameter.enum') }}">Enum</a>
@@ -359,8 +360,16 @@
                 </ul>
             </li>
         </ul>
+        <div class="bg-slate-900 mb-10 mt-10 p-2 relative text-center rounded-3xl text-white" id="sidebar_bottom_wizard">
+            <div>
+                <button class="text-slate-900 text-xs text-white font-Inter rounded-md w-full block py-2 font-medium">
+                    Perlu Bantuan?
+                </button>
+            </div>
+        </div>
     </div>
 </div>
+
 @endsection
 
 @section('menu-mobile')
@@ -379,7 +388,7 @@
     <a href="profile.html" class="relative bg-white bg-no-repeat backdrop-filter backdrop-blur-[40px] rounded-full footer-bg dark:bg-slate-700
       h-[65px] w-[65px] z-[-1] -mt-[40px] flex justify-center items-center">
         <div class="h-[50px] w-[50px] rounded-full relative left-[0px] hrefp-[0px] custom-dropshadow">
-            <img src="assets/images/users/user-1.jpg" alt="" class="w-full h-full rounded-full border-2 border-slate-100">
+            <img src="{{ url('assets/images/users/user-1.jpg') }}" alt="" class="w-full h-full rounded-full border-2 border-slate-100">
         </div>
     </a>
     <a href="{{ route('admin.menu.notification') }}">

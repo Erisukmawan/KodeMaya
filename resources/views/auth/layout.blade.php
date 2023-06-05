@@ -31,8 +31,8 @@
             <div class="left-column relative z-[1]">
                 <div class="max-w-[520px] pt-20 ltr:pl-20 rtl:pr-20">
                     <a href="/">
-                        <img src="assets/images/logo/logo.svg" alt="" class="mb-10 dark_logo">
-                        <img src="assets/images/logo/logo.svg" alt="" class="mb-10 white_logo">
+                        <img src="{{ url('assets/images/logo/logo.svg') }}" alt="" class="mb-10 dark_logo">
+                        <img src="{{ url('assets/images/logo/logo.svg') }}" alt="" class="mb-10 white_logo">
                     </a>
                     <h5>
                         Melangkah bersama dalam dunia
@@ -50,8 +50,8 @@
                     <div class="auth-box h-full flex flex-col justify-center">
                         <div class="mobile-logo text-center mb-6 lg:hidden block">
                             <a href="/">
-                                <img src="assets/images/logo/logo.svg" alt="" class="mb-10 dark_logo">
-                                <img src="assets/images/logo/logo.svg" alt="" class="mb-10 white_logo">
+                                <img src="{{ url('assets/images/logo/logo.svg') }}" alt="" class="mb-10 dark_logo">
+                                <img src="{{ url('assets/images/logo/logo.svg') }}" alt="" class="mb-10 white_logo">
                             </a>
                         </div>
                         @yield('content-form-header')
