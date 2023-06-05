@@ -123,6 +123,23 @@ CREATE TABLE `files` (
   CONSTRAINT `files_ibfk_2` FOREIGN KEY (`file_batch_id`) REFERENCES `file_batch` (`file_batch_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `global_parameter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `global_parameter` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `name` varchar(100) DEFAULT NULL,
+  `code` varchar(50) DEFAULT 'NULL',
+  `parameter_type` enum('S','I','T','D') DEFAULT 'S',
+  `description` varchar(255) DEFAULT NULL,
+  `value_integer` int(11) DEFAULT 0,
+  `value_string` text DEFAULT NULL,
+  `value_datetime` datetime DEFAULT NULL,
+  `value_double` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `invoice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
