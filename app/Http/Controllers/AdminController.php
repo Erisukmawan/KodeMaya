@@ -12,9 +12,34 @@ class AdminController extends Controller
         return view('admin.menu.dashboard');
     }
 
+    // Users Management
     public function view_manage_users()
     {
-        return view('admin.menu.users');
+        $users = DB::table('users')->get();
+        return view('admin.menu.users', ['data' => $users]);
+    }
+
+    public function get_user(Request $request)
+    {
+        $method = $request->method();
+        if ($method == 'GET') {
+            $row = DB::table('users')->get()->where('user_id', $request->query('id'))->first();
+
+            return $row;
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function update_user(Request $request)
+    {
+        DB::table('users')
+        ->where('user_id', $request->get('user_id'))
+        ->update([
+            'account_type' => $request->get('account_type'),
+            'account_status' => $request->get('account_status'),
+        ]);
+        return redirect()->back();
     }
 
     // Global Parameter

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class LoginRegisterController extends Controller
 {
@@ -86,18 +87,14 @@ class LoginRegisterController extends Controller
             $isRemember = $request->get('keep');
             if ($isRemember == 'on') {
                 $rememberMe = true;
-            } 
+            }
         }
 
         if (Auth::attempt($credentials, $rememberMe)) {
-            Log::info('Success login ', ['email' => $request->get('email'), 'password' => $request->get('password'), 'rememberMe' => $rememberMe]);
             $request->session()->regenerate();
-            return redirect()->route('dashboard')->withSuccess('You have successfully logged in!');
+            return redirect()->route('dashboard');
         } else {
-            Log::warning('Failed login.', ['email' => $request->get('email'), 'password' => $request->get('password')]);
-            return back()->withErrors([
-                'message' => 'User atau Password tidak valid.',
-            ])->onlyInput('message');
+            return redirect()->route('login')->withErrors(['message' => 'Email atau Password invalid.']);
         }
     }
 
@@ -111,20 +108,25 @@ class LoginRegisterController extends Controller
         if (Auth::check()) {
             $user_data = Auth::user();
             $account_type = $user_data->account_type;
+            $account_status = $user_data->account_status;
+            $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
+
+            if ($account_status == 'B') {
+                Auth::logout();
+                return redirect()->route('login')
+                    ->withErrors(['message' => !empty($ban_message) ? $ban_message->value_string : 'Akun anda telah ditangguhkan, Hubungi CS KodeMaya']);
+            }
 
             if ($account_type == 'A') {
-                return redirect()->route('admin.menu.dashboard');
+                return redirect()->route('admin.menu.dashboard')->withSuccess('Success Login Admin');
             } else if ($account_type == 'M') {
-                return redirect()->route('mentor.menu.dashboard');
+                return redirect()->route('mentor.menu.dashboard')->withSuccess('Success Login Mentor');
             } else if ($account_type == 'C') {
-                return redirect()->route('customer.menu.dashboard');
+                return redirect()->route('customer.menu.dashboard')->withSuccess('Success Login Customer');
             }
         }
         return redirect()->route('login')
-            ->withErrors([
-                'message' => 'Login untuk mengakses dashboard.',
-            ])
-            ->onlyInput('message');
+            ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
     }
 
     /**

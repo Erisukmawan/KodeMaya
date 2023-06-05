@@ -29,13 +29,29 @@
 @endsection
 
 @section('content-form')
-@if ($errors->has('message'))
+@if ($message = Session::get('success'))
+<div class="p-6 login-alert-main">
+    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-success-500 text-white">
+        <div class="flex items-center space-x-3 rtl:space-x-reverse">
+            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
+            <p class="flex-1 font-Inter">
+                {{ $message }}
+            </p>
+            <div class="flex-0 text-xl cursor-pointer login-alert">
+                <iconify-icon icon="line-md:close"></iconify-icon>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
+@if ($errors->any())
 <div class="p-6 login-alert-main">
     <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-danger-500 text-white">
         <div class="flex items-center space-x-3 rtl:space-x-reverse">
             <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
             <p class="flex-1 font-Inter">
-                {{ $errors->first('message') }}
+                {{ $errors->first() }}
             </p>
             <div class="flex-0 text-xl cursor-pointer login-alert">
                 <iconify-icon icon="line-md:close"></iconify-icon>

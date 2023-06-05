@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MentorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,8 @@ Route::controller(LoginRegisterController::class)->group(function() {
 Route::middleware(['admin'])->controller(AdminController::class)->group(function() {
     Route::get('/admin/dashboard', 'view_dashboard')->name('admin.menu.dashboard');
     Route::get('/admin/users', 'view_manage_users')->name('admin.menu.users');
+    Route::get('/admin/users/get', 'get_user')->name('admin.menu.users.get');
+    Route::post('/admin/users/update', 'update_user')->name('admin.menu.users.update');
     Route::get('/admin/global', 'view_manage_global')->name('admin.menu.parameter.global');
     Route::get('/admin/global/get', 'get_global')->name('admin.menu.parameter.global.get');
     Route::post('/admin/global/add', 'add_global')->name('admin.menu.parameter.global.add');
@@ -48,4 +52,13 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
     Route::get('/admin/consultation/post', 'view_consultation_post')->name('admin.features.consultation.post');
     Route::get('/admin/consultation/task', 'view_consultation_task')->name('admin.features.consultation.task');
     Route::get('/admin/consultation/history', 'view_consultation_history')->name('admin.features.consultation.history');
+});
+
+
+Route::middleware(['mentor'])->controller(MentorController::class)->group(function() {
+    Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
+});
+
+Route::middleware(['customer'])->controller(CustomerController::class)->group(function() {
+    Route::get('/customer/dashboard', 'view_dashboard')->name('customer.menu.dashboard');
 });
