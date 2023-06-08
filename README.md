@@ -60,7 +60,7 @@ Port       : 3306
 - [ ] Kelola Pengguna
 - [ ] Kelola Mentor
 - [ ] Kelola Keuangan
-- [ ] Kelola Admin
+- [X] Kelola Admin
 
 ### Mentor
 - [ ] Mentor Dashboard
