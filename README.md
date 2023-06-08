@@ -57,7 +57,7 @@ Port       : 3306
 ## Fitur
 ### Admin
 - [ ] Admin Dashboard
-- [] Kelola Pengguna
+- [ ] Kelola Pengguna
 - [ ] Kelola Mentor
 - [ ] Kelola Keuangan
 - [X] Kelola Admin
