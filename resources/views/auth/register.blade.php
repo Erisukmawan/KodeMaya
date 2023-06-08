@@ -19,30 +19,42 @@
     <div class="fromGroup">
         <label class="block capitalize form-label">fullname</label>
         <div class="relative ">
-            <input type="text" name="name" class="form-control py-2" placeholder="Nama Lengkap" >
+            <input type="text" name="name" class="form-control py-2" placeholder="Nama Lengkap" required>
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">email</label>
         <div class="relative ">
-            <input type="email" name="email" class="form-control py-2" placeholder="Email Anda" >
+            <input type="email" name="email" class="form-control py-2" placeholder="Email Anda" required>
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">password</label>
-        <div class="relative "><input type="password" name="password" class="form-control py-2" placeholder="Password">
-        </div>
+        <div class="relative ">
+            <input id="password" type="password" name="password" class="form-control py-2" placeholder="Password" required="required">
+            <button id="passIcon" class="passIcon absolute top-2.5 right-3 text-slate-300 text-xl p-0 leading-none" type="button">
+                <iconify-icon id="passwordshow" class="hidden" icon="heroicons-solid:eye-off"></iconify-icon>
+                <iconify-icon id="passwordhide" class="inline-block" icon="heroicons-outline:eye"></iconify-icon>
+        </button>    
+    </div>
+                                
+                                
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">confirm password</label>
-        <div class="relative "><input type="password" name="password_confirmation" class="form-control py-2" placeholder="Konfirmasi Password">
-        </div>
+        <div class="relative ">
+            <input type="password" id="passwordcf" name="password_confirmation" class="form-control py-2" placeholder="Konfirmasi Password" required>
+        <button id="passIconcf" class="passIcon absolute top-2.5 right-3 text-slate-300 text-xl p-0 leading-none" type="button">
+                <iconify-icon id="passwordshowcf" class="hidden" icon="heroicons-solid:eye-off"></iconify-icon>
+                <iconify-icon id="passwordhidecf" class="inline-block" icon="heroicons-outline:eye"></iconify-icon>
+        </button>    
+    </div>
     </div>
     <div class="flex justify-between">
         <label class="flex items-center cursor-pointer">
-            <div class="checkbox-area mr-2 sm:mr-4 mt-2">
+            <div class="checkbox-area mr-2 sm:mr-4 mt-2" >
                 <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="hidden" name="accept">
+                    <input type="checkbox" class="hidden" name="accept" id="check" required="required">
                     <span class="h-4 w-4 border flex-none border-slate-100 dark:border-slate-800 rounded inline-flex ltr:mr-3 rtl:ml-3 relative transition-all duration-150 bg-slate-100 dark:bg-slate-900">
                         <img src="assets/images/icon/ck-white.svg" alt="" class="h-[10px] w-[10px] block m-auto opacity-0"></span>
                     <span class="text-500 dark:text-slate-400 text-sm leading-6 capitalize">
@@ -52,7 +64,7 @@
             </div>
         </label>
     </div>
-    <button class="btn btn-dark block w-full text-center">Buat Akun</button>
+    <button id="buatakun" class="btn btn-secondary w-full text-center" style="cursor:no-drop" disabled>Buat Akun</button>
 </form>
 @endsection
 

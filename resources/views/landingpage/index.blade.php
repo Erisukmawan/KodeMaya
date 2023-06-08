@@ -2,11 +2,11 @@
 @section('content')
 <div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper"></div>
       <section class="bg-white dark:bg-gray-900">
-        <div class="px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 flex flex-1">
-          <div class="mr-auto place-self-center lg:col-span-3">
-            <h1 class="mx-auto mb-5 font-extrabold leading-none text-9xl" style="color: #009FBD; font-size: 6.3rem; margin-left: 30px;" >Mudah.</h1>
-            <h1 class="mx-auto mb-5 text-8xl font-extrabold leading-none" style="color: #57AFD8; font-size: 6.3rem; margin-left: 30px;">Cepat.</h1>
-            <h1 class="mx-auto mb-5 text-8xl font-extrabold leading-none" style="color: #6BDFDA; font-size: 6.3rem; margin-left: 30px;">Akurat.</h1>
+        <div class="px-1 py-2 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 flex flex-1">
+          <div class="hero mr-auto place-self-center lg:col-span-3">
+            <h1  class="hero-text mx-auto mb-5 text-8xl font-extrabold leading-none" style="color: #009FBD; font-size: 6.3rem; margin-left: 30px;" >Mudah.</h1>
+            <h1 class="hero-text mx-auto mb-5 text-8xl font-extrabold leading-none" style="color: #57AFD8; font-size: 6.3rem; margin-left: 30px;">Cepat.</h1>
+            <h1 class="hero-text mx-auto mb-5 text-8xl font-extrabold leading-none" style="color: #6BDFDA; font-size: 6.3rem; margin-left: 30px;">Akurat.</h1>
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-white" style="margin-left: 30px;">
               Bersama KodeMaya, proses belajarmu akan menjadi <b>LEBIH MUDAH</b> dan <b>CEPAT</b>. Ayo bergabung
               sekarang!</p>

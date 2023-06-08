@@ -66,13 +66,18 @@
     <div class="fromGroup">
         <label class="block capitalize form-label">email</label>
         <div class="relative">
-            <input type="email" name="email" class="form-control py-2" placeholder="Email">
+            <input type="email" name="email" class="form-control py-2" placeholder="Email" required>
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">password</label>
-        <div class="relative "><input type="password" name="password" class="form-control py-2" placeholder="Password" value="KodeMaya">
-        </div>
+        <div class="relative ">
+            <input id="password" type="password" name="password" class="form-control py-2" placeholder="Password" required="required">
+            <button id="passIcon" class="passIcon absolute top-2.5 right-3 text-slate-300 text-xl p-0 leading-none" type="button">
+                <iconify-icon id="passwordshow" class="hidden" icon="heroicons-solid:eye-off"></iconify-icon>
+                <iconify-icon id="passwordhide" class="inline-block" icon="heroicons-outline:eye"></iconify-icon>
+        </button>
+</div>
     </div>
     <div class="flex justify-between">
         <label class="flex items-center cursor-pointer">
@@ -89,11 +94,11 @@
             Password?
         </a>
     </div>
-    <button id="login-btn-load" class="btn hidden justify-center w-full text-center btn-dark" disabled>
+    <button id="login-btn-load" class="btn hidden justify-center w-full text-center btn-success" disabled>
         <iconify-icon class="text-xl spin-slow ltr:mr-2 rtl:ml-2 relative top-[1px]" icon="line-md:loading-twotone-loop" style="top: 4px;"></iconify-icon>
         <span>Sedang Masuk</span>
     </button>
-    <button id="login-btn" class="btn btn-dark inline-flex justify-center w-full text-center">
+    <button id="login-btn" class="btn btn-success inline-flex justify-center w-full text-center">
         <span>Masuk<span>
     </button>
 </form>
