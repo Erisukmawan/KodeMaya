@@ -57,10 +57,10 @@ Port       : 3306
 ## Fitur
 ### Admin
 - [ ] Admin Dashboard
-- [ ] Kelola Pengguna
+- [] Kelola Pengguna
 - [ ] Kelola Mentor
 - [ ] Kelola Keuangan
-- [ ] Kelola Admin
+- [X] Kelola Admin
 
 ### Mentor
 - [ ] Mentor Dashboard
