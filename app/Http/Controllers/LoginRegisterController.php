@@ -21,22 +21,11 @@ class LoginRegisterController extends Controller
         ]);
     }
 
-    /**
-     * Display a registration form.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function register()
     {
         return view('auth.register');
     }
 
-    /**
-     * Store a new user.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -44,7 +33,7 @@ class LoginRegisterController extends Controller
             'email' => 'required|email|max:250|unique:users',
             'password' => 'required|min:8|confirmed',
             'accept' => 'required'
-        ]);
+        ]); 
 
         User::create([
             'name' => $request->name,
@@ -59,22 +48,12 @@ class LoginRegisterController extends Controller
             ->withSuccess('You have successfully registered & logged in!');
     }
 
-    /**
-     * Display a login form.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function login()
     {
         return view('auth.login');
     }
 
-    /**
-     * Authenticate the user.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -99,11 +78,6 @@ class LoginRegisterController extends Controller
         }
     }
 
-    /**
-     * Display a dashboard to authenticated users.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function dashboard()
     {
         if (Auth::check()) {
@@ -129,13 +103,6 @@ class LoginRegisterController extends Controller
         return redirect()->route('login')
             ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
     }
-
-    /**
-     * Log out the user from application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function logout(Request $request)
     {
         Auth::logout();

@@ -14,10 +14,42 @@
 @endsection
 
 @section('content-form')
+@if ($message = Session::get('success'))
+<div class="p-6 register-alert-main">
+    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-success-500 text-white">
+        <div class="flex items-center space-x-3 rtl:space-x-reverse">
+            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
+            <p class="flex-1 font-Inter">
+                {{ $message }}
+            </p>
+            <div class="flex-0 text-xl cursor-pointer register-alert">
+                <iconify-icon icon="line-md:close"></iconify-icon>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
+@if ($errors->any())
+<div class="p-6 register-alert-main">
+    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-danger-500 text-white">
+        <div class="flex items-center space-x-3 rtl:space-x-reverse">
+            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
+            <p class="flex-1 font-Inter">
+                {{ $errors->first() }}
+            </p>
+            <div class="flex-0 text-xl cursor-pointer register-alert">
+                <iconify-icon icon="line-md:close"></iconify-icon>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
 <form class="space-y-4" action="{{ route('store') }}" method="post">
     @csrf
     <div class="fromGroup">
-        <label class="block capitalize form-label">fullname</label>
+        <label class="block capitalize form-label">Nama Lengkap</label>
         <div class="relative ">
             <input type="text" name="name" class="form-control py-2" placeholder="Nama Lengkap" required>
         </div>
@@ -33,22 +65,18 @@
         <div class="relative ">
             <input id="password" type="password" name="password" class="form-control py-2" placeholder="Password" required="required">
             <button id="passIcon" class="passIcon absolute top-2.5 right-3 text-slate-300 text-xl p-0 leading-none" type="button">
-                <iconify-icon id="passwordshow" class="hidden" icon="heroicons-solid:eye-off"></iconify-icon>
-                <iconify-icon id="passwordhide" class="inline-block" icon="heroicons-outline:eye"></iconify-icon>
-        </button>    
-    </div>
-                                
-                                
+                <iconify-icon id="passShow" data-show="0" class="text-slate-500 dark:text-slate-300" icon="heroicons-solid:eye-off"></iconify-icon>
+            </button>    
+        </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">confirm password</label>
         <div class="relative ">
             <input type="password" id="passwordcf" name="password_confirmation" class="form-control py-2" placeholder="Konfirmasi Password" required>
-        <button id="passIconcf" class="passIcon absolute top-2.5 right-3 text-slate-300 text-xl p-0 leading-none" type="button">
-                <iconify-icon id="passwordshowcf" class="hidden" icon="heroicons-solid:eye-off"></iconify-icon>
-                <iconify-icon id="passwordhidecf" class="inline-block" icon="heroicons-outline:eye"></iconify-icon>
-        </button>    
-    </div>
+            <button id="passIconcf" class="passIcon absolute top-2.5 right-3 text-slate-300 text-xl p-0 leading-none" type="button">
+            <iconify-icon id="passConfirmShow" data-show="0" class="text-slate-500 dark:text-slate-300" icon="heroicons-solid:eye-off"></iconify-icon>
+            </button>    
+        </div>
     </div>
     <div class="flex justify-between">
         <label class="flex items-center cursor-pointer">
@@ -101,4 +129,63 @@
         Masuk
     </a>
 </div>
+@endsection
+
+
+@section('custom-script')
+<script>
+    $(function() {
+        $(".register-alert").click(function() {
+            $('.register-alert-main').remove()
+        })
+
+        $('#passShow').on('click', function() {
+            const el = $(this)
+            const isShow = el.data('show')
+
+            if (isShow == '0') {
+                el.data('show', '1')
+                el.attr('icon', 'heroicons-outline:eye')
+                $('#password').attr('type', 'text')
+            } else {
+                el.data('show', '0')
+                el.attr('icon', 'heroicons-solid:eye-off')
+                $('#password').attr('type', 'password')
+            }
+        })
+
+        $('#passConfirmShow').on('click', function() {
+            const el = $(this)
+            const isShow = el.data('show')
+
+            if (isShow == '0') {
+                el.data('show', '1')
+                el.attr('icon', 'heroicons-outline:eye')
+                $('#passwordcf').attr('type', 'text')
+            } else {
+                el.data('show', '0')
+                el.attr('icon', 'heroicons-solid:eye-off')
+                $('#passwordcf').attr('type', 'password')
+            }
+        })
+
+        $('#check').on('change', function () {
+            const el = $(this)
+            const isChecked = el.is(':checked')
+            const tombolRegister = $('#buatakun')
+
+            if (isChecked) {
+                tombolRegister.attr('disabled', false)
+                tombolRegister.toggleClass('btn-success');
+                tombolRegister.toggleClass('btn-default');
+                tombolRegister.css('cursor', 'default')
+            } else {
+                tombolRegister.attr('disabled', 'disabled')
+                tombolRegister.toggleClass('btn-default');
+                tombolRegister.toggleClass('btn-success');
+                tombolRegister.css('cursor', 'no-drop')
+            }
+        })
+    });
+</script>
 @endsection

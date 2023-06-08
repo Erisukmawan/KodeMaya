@@ -320,6 +320,64 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         </span>
                                     </button>
                                 </div>
+                                @if (Auth::check())
+                                <div class="md:block hidden w-full">
+                                    <button class="text-slate-800 dark:text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="lg:h-8 lg:w-8 h-7 w-7 rounded-full flex-1 ltr:mr-[10px] rtl:ml-[10px]">
+                                            <img src="{{ url('assets/images/all-img/user.png') }}" alt="user" class="block w-full h-full object-cover rounded-full">
+                                        </div>
+                                        <span class="flex-none text-slate-600 dark:text-white text-sm font-normal items-center lg:flex hidden overflow-hidden text-ellipsis whitespace-nowrap">{{ Auth::user()->name }}</span>
+                                        <svg class="w-[16px] h-[16px] dark:text-white hidden lg:inline-block text-base inline-block ml-[10px] rtl:mr-[10px]" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </button>
+                                    <!-- Dropdown menu -->
+                                    <div class="dropdown-menu z-10 hidden bg-white divide-y divide-slate-100 shadow w-44 dark:bg-slate-800 border dark:border-slate-700 !top-[23px] rounded-md overflow-hidden">
+                                        <ul class="py-1 text-sm text-slate-800 dark:text-slate-200">
+                                            <li>
+                                                @php 
+                                                    $acc_type = Auth::user()->account_type;
+                                                    $dashboardRoute = null;
+
+                                                    if ($acc_type == 'A') {
+                                                        $dashboardRoute = 'admin.menu.dashboard';
+                                                    } else if ($acc_type == 'M') {
+                                                        $dashboardRoute = 'mentor.menu.dashboard';
+                                                    } else {
+                                                        $dashboardRoute = 'customer.menu.dashboard';
+                                                    }
+                                                @endphp
+                                                <a href="{{ route($dashboardRoute) }}" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
+                                                    <iconify-icon icon="line-md:home-md" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
+                                                    <span class="font-Inter">Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <a href="/profile" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
+                                                    <iconify-icon icon="heroicons-outline:user" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
+                                                    <span class="font-Inter">Profil</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/settings" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
+                                                    <iconify-icon icon="heroicons-outline:cog" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
+                                                    <span class="font-Inter">Pengaturan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
+                                                    @csrf
+                                                    <button type="submit">
+                                                        <iconify-icon icon="heroicons-outline:login" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
+                                                        <span class="font-Inter">Logout</span>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                @else
                                 <div>
                                     <a href="{{ route('register') }}">
                                         <button class="btn inline-flex btn-sm justify-center btn-primary ">
@@ -340,6 +398,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         </button>
                                     </a>
                                 </div>
+                                @endif
                                 <!-- END: TOggle Theme -->
                                 <!-- END: Header -->
                                 <button class="smallDeviceMenuController xl:hidden block leading-0">

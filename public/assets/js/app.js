@@ -36,57 +36,6 @@
     screenWidth();
   });
 
-  var showpw = document.getElementById('passIcon');
-  var inputpass = document.getElementById('password')
-  var passwordhide = document.getElementById('passwordhide')
-  var passwordshow = document.getElementById('passwordshow')
-  showpw.onclick = function() {
-      if (inputpass.type === "password" ) {
-          inputpass.type = "text";
-          $(passwordhide).hide();
-          $(passwordshow).show();
-      } 
-      else {
-          inputpass.type = "password";
-          $(passwordhide).show();
-          $(passwordshow).hide();
-      }
-  }
-  var showpwcf = document.getElementById('passIconcf');
-  var inputpasscf = document.getElementById('passwordcf')
-  var passwordhidecf = document.getElementById('passwordhidecf')
-  var passwordshowcf = document.getElementById('passwordshowcf')
-  showpwcf.onclick = function () {
-      if (inputpasscf.type === "password") {
-          inputpasscf.type = "text";
-          $(passwordhidecf).hide();
-          $(passwordshowcf).show();
-      } else {
-          inputpasscf.type = "password";
-          $(passwordhidecf).show();
-          $(passwordshowcf).hide();
-      }
-  }
-
-  var checker = document.getElementById('check');
-  var sendbtn = document.getElementById('buatakun');
-  // when unchecked or checked, run the function
-  checker.onchange = function () {
-      if (this.checked) {
-          sendbtn.disabled = false;
-          sendbtn.style.cursor = 'default';
-          this.required = false;
-          $(sendbtn).toggleClass('btn-success');
-          $(sendbtn).toggleClass('btn-default');
-      } else {
-        sendbtn.style.cursor = 'no-drop';
-        $(sendbtn).toggleClass('btn-default');
-        $(sendbtn).toggleClass('btn-success');
-          sendbtn.disabled = true;
-      }
-
-    
-  }
 
   /*===================================
    Dark and light theme change
