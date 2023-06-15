@@ -30,6 +30,9 @@ jobs:
         run: |
           php artisan key:generate
 
+      - name: 🔌 Move for Public
+        run: mv public/public.index.php index.php
+
       - name: 💾 Give Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
 
@@ -37,7 +40,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.kodemaya.my.id
-          username: admin-dev@kodemaya.my.id
+          username: production@kodemaya.my.id
           password: KodeMayaBangkit#321
           protocol: ftp
           port: 21
