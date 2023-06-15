@@ -32,6 +32,7 @@ jobs:
 
       - name: 🔌 Prepare Files for Public
         run: |
+          rm -rf public/source-code
           cp -rf public/* .
           rm index.php
           mv public.index.php index.php
