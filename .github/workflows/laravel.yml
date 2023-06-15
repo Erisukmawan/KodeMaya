@@ -1,11 +1,5 @@
-name: Laravel Deploy
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+name: Kodemaya Production Deploy
+on: [workflow_dispatch]
 jobs:
   web-dev-sync:
     name: 🎉 Deploy

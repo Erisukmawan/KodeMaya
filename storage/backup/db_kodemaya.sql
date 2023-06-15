@@ -15,6 +15,15 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Dumping data for table `bank_account`
+--
+
+LOCK TABLES `bank_account` WRITE;
+/*!40000 ALTER TABLE `bank_account` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bank_account` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping data for table `category`
 --
 
@@ -30,15 +39,6 @@ UNLOCK TABLES;
 LOCK TABLES `chat` WRITE;
 /*!40000 ALTER TABLE `chat` DISABLE KEYS */;
 /*!40000 ALTER TABLE `chat` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `consultation_post`
---
-
-LOCK TABLES `consultation_post` WRITE;
-/*!40000 ALTER TABLE `consultation_post` DISABLE KEYS */;
-/*!40000 ALTER TABLE `consultation_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -148,7 +148,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,NULL,NULL,'MRHRTZ','hanifsyauqi61@gmail.com',NULL,NULL,'$2y$10$gB0IHqa.9FZcKi.SiY7dRuXc1O57/44M87xuhopm.KIDGTtK/m9eq',NULL,'A',250050,'A','2023-06-02 06:07:49','2023-06-05 15:14:44',NULL),(2,NULL,NULL,'Sicara cicadas','sicara.cicadas41@gmail.com',NULL,NULL,'$2y$10$z19bISwP7kBlr/mZXP0fb.VQvCVMeGtJE.R0rpw2zMz7waHujQr6K',NULL,'C',0,'A','2023-06-05 08:08:20','2023-06-05 16:35:13',NULL),(6,NULL,NULL,'Wabot Cli','wabotcli@gmail.com',NULL,NULL,'$2y$10$m/ftWyCADQ86GnH7WB3NPOmIDTXu/ZfadxLAU6iHzDmxoWCL91DWi',NULL,'C',0,'A','2023-06-15 07:02:00','2023-06-15 07:02:00',NULL);
+INSERT INTO `users` VALUES (1,NULL,NULL,'MRHRTZ','hanifsyauqi61@gmail.com',NULL,NULL,'$2y$10$gB0IHqa.9FZcKi.SiY7dRuXc1O57/44M87xuhopm.KIDGTtK/m9eq',NULL,'A',250050,'A','2023-06-02 06:07:49','2023-06-05 15:14:44',NULL),(2,NULL,NULL,'Sicara cicadas','sicara.cicadas41@gmail.com',NULL,NULL,'$2y$10$z19bISwP7kBlr/mZXP0fb.VQvCVMeGtJE.R0rpw2zMz7waHujQr6K',NULL,'C',0,'A','2023-06-05 08:08:20','2023-06-05 16:35:13',NULL),(8,NULL,NULL,'Wabot Cli','wabotcli@gmail.com',NULL,NULL,'$2y$10$fk23dzq73oZD/gHSjD7yOOyGlfuNK.HThoBuMYdMTv7nruZrjBHfi',NULL,'C',0,'A','2023-06-15 07:20:30','2023-06-15 07:28:24','');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -160,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-15 14:14:29
+-- Dump completed on 2023-06-15 19:37:02

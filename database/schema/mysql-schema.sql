@@ -4,6 +4,23 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+DROP TABLE IF EXISTS `bank_account`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bank_account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `bank_name` varchar(15) DEFAULT NULL,
+  `account_name` varchar(150) DEFAULT NULL,
+  `account_no` varchar(30) DEFAULT NULL,
+  `account_status` enum('P','A','R') DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `bank_name` (`bank_name`),
+  CONSTRAINT `bank_account_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `bank_account_ibfk_2` FOREIGN KEY (`bank_name`) REFERENCES `payment` (`payment_method`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -34,50 +51,6 @@ CREATE TABLE `chat` (
   CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`file_batch_id`) REFERENCES `file_batch` (`file_batch_id`),
   CONSTRAINT `chat_ibfk_3` FOREIGN KEY (`invoice_no`) REFERENCES `invoice` (`invoice_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `consultation`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `consultation` (
-  `consultation_id` int(11) NOT NULL AUTO_INCREMENT,
-  `consultation_status` enum('W','A','D') NOT NULL DEFAULT 'W',
-  `invoice_no` varchar(30) DEFAULT NULL,
-  `mentor_id` int(11) DEFAULT NULL,
-  `customer_id` int(11) DEFAULT NULL,
-  `chat_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `ends_on` datetime DEFAULT NULL,
-  PRIMARY KEY (`consultation_id`),
-  KEY `invoice_no` (`invoice_no`),
-  KEY `mentor_id` (`mentor_id`),
-  KEY `customer_id` (`customer_id`),
-  KEY `chat_id` (`chat_id`),
-  KEY `category_id` (`category_id`),
-  CONSTRAINT `consultation_ibfk_1` FOREIGN KEY (`invoice_no`) REFERENCES `invoice` (`invoice_no`),
-  CONSTRAINT `consultation_ibfk_2` FOREIGN KEY (`mentor_id`) REFERENCES `users` (`user_id`),
-  CONSTRAINT `consultation_ibfk_3` FOREIGN KEY (`customer_id`) REFERENCES `users` (`user_id`),
-  CONSTRAINT `consultation_ibfk_4` FOREIGN KEY (`chat_id`) REFERENCES `chat` (`chat_id`),
-  CONSTRAINT `consultation_ibfk_5` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `consultation_post`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `consultation_post` (
-  `post_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `pic_id` int(11) NOT NULL DEFAULT 0,
-  `title` varchar(100) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `mentor_id` int(11) NOT NULL DEFAULT 0,
-  `price` int(11) NOT NULL DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`post_id`),
-  KEY `mentor_id` (`mentor_id`),
-  CONSTRAINT `consultation_post_ibfk_1` FOREIGN KEY (`mentor_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `enum`;
@@ -207,7 +180,6 @@ CREATE TABLE `rating` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`rating_id`),
   KEY `post_id` (`post_id`),
-  CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `consultation_post` (`post_id`),
   CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `tulung_post` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -300,9 +272,10 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) DEFAULT NULL,
   `account_type` enum('A','M','C') DEFAULT 'C',
   `balance` double NOT NULL DEFAULT 0,
-  `account_status` enum('A','P','B') DEFAULT 'A',
+  `account_status` enum('A','P','B') DEFAULT 'P',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `verify_token` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   KEY `pic_id` (`pic_id`),
   KEY `attachment_id` (`attachment_id`),
