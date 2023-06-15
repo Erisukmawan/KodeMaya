@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MentorController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::get('/',[LandingPageController::class, 'index'])->name('landingpage');
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/register', 'register')->name('register');
+    Route::get('/verify', 'verify')->name('verify');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
     Route::post('/authenticate', 'authenticate')->name('authenticate');
@@ -61,4 +63,10 @@ Route::middleware(['mentor'])->controller(MentorController::class)->group(functi
 
 Route::middleware(['customer'])->controller(CustomerController::class)->group(function() {
     Route::get('/customer/dashboard', 'view_dashboard')->name('customer.menu.dashboard');
+    Route::get('/customer/tulung/post', 'view_tulung_post')->name('customer.features.tulung.post');
+    Route::get('/customer/tulung/task', 'view_tulung_task')->name('customer.features.tulung.task');
+    Route::get('/customer/tulung/history', 'view_tulung_history')->name('customer.features.tulung.history');
+    Route::get('/customer/notification', 'view_notification')->name('customer.menu.notification');
+    Route::get('/customer/history-transactions', 'view_history_transactions')->name('customer.finance.history_transactions');
+    Route::get('/customer/profile', 'view_profil')->name('customer.settings.profile');
 });

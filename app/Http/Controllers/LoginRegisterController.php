@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class LoginRegisterController extends Controller
 {
@@ -26,26 +27,63 @@ class LoginRegisterController extends Controller
         return view('auth.register');
     }
 
+    public function verify(Request $request) {
+        DB::beginTransaction();
+        try {
+            $userReq = DB::table('users')->select(['user_id', 'verify_token'])->where('user_id', '=', $request->get('uid'))->first();
+
+            if ($userReq) {
+                $userHash = $userReq->verify_token;
+                if ($userHash == $request->get('token')) {
+                    User::where('user_id', '=', $userReq->user_id)
+                    ->update([
+                        'account_status' => 'A',
+                        'verify_token' => '',
+                    ]);
+                    DB::commit();
+                    return redirect()->route('login')->withSuccess('Verifikasi berhasil! Silahkan login.');
+                }
+            }
+            DB::commit();
+            return redirect()->route('login')->withErrors('Maaf verifikasi akun sudah tidak valid');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e);
+            return redirect()->route('login')->withErrors(['message' => $e->getMessage()]);
+        }
+    }
+
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:250',
-            'email' => 'required|email|max:250|unique:users',
-            'password' => 'required|min:8|confirmed',
-            'accept' => 'required'
-        ]); 
+        DB::beginTransaction();
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required|string|max:250',
+                'email' => 'required|email|max:250|unique:users',
+                'password' => 'required|min:8|confirmed',
+                'accept' => 'required'
+            ]); 
+    
+            $verify_token = Hash::make($request->email.env("VALIDATE_KEY"));
 
-        $credentials = $request->only('email', 'password');
-        Auth::attempt($credentials);
-        $request->session()->regenerate();
-        return redirect()->route('dashboard')
-            ->withSuccess('You have successfully registered & logged in!');
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'verify_token' => $verify_token
+            ]);
+
+            $user->notify(new \App\Notifications\Daftar);
+
+            DB::commit();
+            return redirect()->route('login')->withSuccess('Registrasi berhasil, silahkan cek email kamu untuk melanjutkan verifikasi.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e);
+            return redirect()->route('register')->withErrors($e->getMessage());
+        }
+        
     }
 
     public function login()
@@ -74,7 +112,7 @@ class LoginRegisterController extends Controller
             $request->session()->regenerate();
             return redirect()->route('dashboard');
         } else {
-            return redirect()->route('login')->withErrors(['message' => 'Email atau Password invalid.']);
+            return redirect()->route('login')->withErrors(['message' => 'Email atau Password tidak valid.']);
         }
     }
 
@@ -82,15 +120,26 @@ class LoginRegisterController extends Controller
     {
         if (Auth::check()) {
             $user_data = Auth::user();
-            $account_type = $user_data->account_type;
+
             $account_status = $user_data->account_status;
             $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
+            $verify_message = DB::table('global_parameter')->get()->where('code', 'verify_message')->first();
 
-            if ($account_status == 'B') {
+            if ($account_status != 'A') {
                 Auth::logout();
+                $message = "";
+                
+                if ($account_status == 'B') {
+                    $message = !empty($ban_message) ? $ban_message->value_string : 'Akun anda telah ditangguhkan, Hubungi CS KodeMaya';
+                } else if ($account_status == 'P') {
+                    $message = !empty($verify_message) ? $verify_message->value_string : "Maaf kamu belum verifikasi email, belum menerima email? silahkan klik tombol lupa password.";
+                }
+                
                 return redirect()->route('login')
-                    ->withErrors(['message' => !empty($ban_message) ? $ban_message->value_string : 'Akun anda telah ditangguhkan, Hubungi CS KodeMaya']);
+                ->withErrors(['message' => $message]);
             }
+
+            $account_type = $user_data->account_type;
 
             if ($account_type == 'A') {
                 return redirect()->route('admin.menu.dashboard')->withSuccess('Success Login Admin');
@@ -103,12 +152,13 @@ class LoginRegisterController extends Controller
         return redirect()->route('login')
             ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
     }
+
     public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-            ->withSuccess('You have logged out successfully!');;
+            ->withSuccess('You have logged out successfully!');
     }
 }

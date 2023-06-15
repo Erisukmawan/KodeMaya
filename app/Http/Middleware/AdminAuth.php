@@ -20,14 +20,6 @@ class AdminAuth
         if (Auth::check()) {
             $user_data = Auth::user();
             $account_type = $user_data->account_type;
-            $account_status = $user_data->account_status;
-            $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
-
-            if ($account_status == 'B') {
-                Auth::logout();
-                return redirect()->route('login')
-                ->withErrors('message', !empty($ban_message) ? $ban_message->value_string : 'Akun anda telah ditangguhkan, Hubungi CS KodeMaya');
-            }
 
             if ($account_type == 'A') {
                 return $next($request);

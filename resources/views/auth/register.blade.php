@@ -93,37 +93,31 @@
         </label>
     </div>
     <button id="buatakun" class="btn btn-secondary w-full text-center" style="cursor:no-drop" disabled>Buat Akun</button>
+    <button id="buatakunload" class="btn hidden justify-center w-full text-center btn-success" style="cursor:no-drop" disabled>
+        Loading
+        <iconify-icon class="text-xl spin-slow ltr:mr-2 rtl:ml-2 relative top-[1px]" icon="line-md:loading-twotone-loop" style="top: 4px;"></iconify-icon>
+    </button>
 </form>
 @endsection
 
 
 @section('content-sosmed-in')
-<ul class="flex">
-    <li class="flex-1">
+<ul class="flex justify-evenly">
+    <li class="flex">
         <a href="#" class="inline-flex h-10 w-10 bg-[#1C9CEB] text-white text-2xl flex-col items-center justify-center rounded-full">
-            <img src="assets/images/icon/tw.svg" alt="">
+            <img src="assets/images/icon/icons8-github.svg" alt="">
         </a>
     </li>
-    <li class="flex-1">
+    <li class="flex">
         <a href="#" class="inline-flex h-10 w-10 bg-[#395599] text-white text-2xl flex-col items-center justify-center rounded-full">
-            <img src="assets/images/icon/fb.svg" alt="">
-        </a>
-    </li>
-    <li class="flex-1">
-        <a href="#" class="inline-flex h-10 w-10 bg-[#0A63BC] text-white text-2xl flex-col items-center justify-center rounded-full">
-            <img src="assets/images/icon/in.svg" alt="">
-        </a>
-    </li>
-    <li class="flex-1">
-        <a href="#" class="inline-flex h-10 w-10 bg-[#EA4335] text-white text-2xl flex-col items-center justify-center rounded-full">
-            <img src="assets/images/icon/gp.svg" alt="">
+            <img src="assets/images/icon/icons8-google.svg" alt="">
         </a>
     </li>
 </ul>
 @endsection
 
 @section('content-form-footer')
-<div class="md:max-w-[345px] mx-auto font-normal text-slate-500 dark:text-slate-400 mt-12 uppercase text-sm">
+<div class="md:max-w-[345px] mx-auto font-normal text-slate-500 dark:text-slate-400 mt-6 uppercase text-sm">
     Sudah pernah mendaftar?
     <a href="/login" class="text-slate-900 dark:text-white font-medium hover:underline">
         Masuk
@@ -138,6 +132,14 @@
         $(".register-alert").click(function() {
             $('.register-alert-main').remove()
         })
+
+        $('#buatakun').show()
+        $('#buatakunload').hide()
+
+        $("form").submit(function() {
+            $('#buatakun').hide()
+            $('#buatakunload').show()
+        });
 
         $('#passShow').on('click', function() {
             const el = $(this)
