@@ -31,10 +31,10 @@ jobs:
           php artisan key:generate
 
       - name: 🔌 Move Files for Public
-        run: mv public/* .
+        run: mv -f public/* .
 
       - name: 👇 Last touch index public
-        run: mv public.index.php index.php
+        run: mv -f public.index.php index.php
 
       - name: 💾 Give Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
