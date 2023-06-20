@@ -8,13 +8,13 @@ DROP TABLE IF EXISTS `bank_account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bank_account` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `account_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `bank_name` varchar(15) DEFAULT NULL,
   `account_name` varchar(150) DEFAULT NULL,
   `account_no` varchar(30) DEFAULT NULL,
-  `account_status` enum('P','A','R') DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `account_status` enum('P','A','I') DEFAULT NULL,
+  PRIMARY KEY (`account_id`),
   KEY `user_id` (`user_id`),
   KEY `bank_name` (`bank_name`),
   CONSTRAINT `bank_account_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
@@ -270,9 +270,9 @@ CREATE TABLE `users` (
   `address` text DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
-  `account_type` enum('A','M','C') DEFAULT 'C',
+  `user_type` enum('A','M','C') DEFAULT 'C',
   `balance` double NOT NULL DEFAULT 0,
-  `account_status` enum('A','P','B') DEFAULT 'P',
+  `user_status` enum('A','P','B') DEFAULT 'P',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `verify_token` varchar(100) DEFAULT NULL,
