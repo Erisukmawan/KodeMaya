@@ -48,7 +48,7 @@ class CustomerAuth
             }
         } else {
             return redirect()->route('login')
-            ->withErrors('message', 'Silahkan login terlebih dahulu.')
+            ->withErrors(['message' => 'Silahkan login terlebih dahulu.'])
             ->onlyInput('message');
         }
     }

@@ -362,9 +362,9 @@
         </ul>
         <div class="bg-slate-900 mb-10 mt-10 p-2 relative text-center rounded-3xl text-white" id="sidebar_bottom_wizard">
             <div>
-                <button class="text-slate-900 text-xs text-white font-Inter rounded-md w-full block py-2 font-medium">
-                    Perlu Bantuan?
-                </button>
+                <a href="{{ url('/service-logs') }}" target="_blank" class="text-slate-900 text-xs text-white font-Inter rounded-md w-full block py-2 font-medium">
+                    System Logs
+                </a>
             </div>
         </div>
     </div>

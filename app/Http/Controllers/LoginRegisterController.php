@@ -27,7 +27,8 @@ class LoginRegisterController extends Controller
         return view('auth.register');
     }
 
-    public function verify(Request $request) {
+    public function verify(Request $request)
+    {
         DB::beginTransaction();
         try {
             $userReq = DB::table('users')->select(['user_id', 'verify_token'])->where('user_id', '=', $request->get('uid'))->first();
@@ -36,10 +37,10 @@ class LoginRegisterController extends Controller
                 $userHash = $userReq->verify_token;
                 if ($userHash == $request->get('token')) {
                     User::where('user_id', '=', $userReq->user_id)
-                    ->update([
-                        'user_status' => 'A',
-                        'verify_token' => '',
-                    ]);
+                        ->update([
+                            'user_status' => 'A',
+                            'verify_token' => '',
+                        ]);
                     DB::commit();
                     return redirect()->route('login')->withSuccess('Verifikasi berhasil! Silahkan login.');
                 }
@@ -63,9 +64,9 @@ class LoginRegisterController extends Controller
                 'email' => 'required|email|max:250|unique:users',
                 'password' => 'required|min:8|confirmed',
                 'accept' => 'required'
-            ]); 
-    
-            $verify_token = Hash::make($request->email.env("VALIDATE_KEY"));
+            ]);
+
+            $verify_token = Hash::make($request->email . env("VALIDATE_KEY"));
 
             $user = User::create([
                 'name' => $request->name,
@@ -83,7 +84,6 @@ class LoginRegisterController extends Controller
             Log::error($e);
             return redirect()->route('register')->withErrors($e->getMessage());
         }
-        
     }
 
     public function login()
@@ -91,7 +91,7 @@ class LoginRegisterController extends Controller
         return view('auth.login');
     }
 
-    
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -120,32 +120,31 @@ class LoginRegisterController extends Controller
     {
         if (Auth::check()) {
             $user_data = Auth::user();
-
             $user_status = $user_data->user_status;
-            $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
-            $verify_message = DB::table('global_parameter')->get()->where('code', 'verify_message')->first();
-
             if ($user_status != 'A') {
                 Auth::logout();
-                $message = "";
                 
+                $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
+                $verify_message = DB::table('global_parameter')->get()->where('code', 'verify_message')->first();
+                $message = "";
+
                 if ($user_status == 'B') {
                     $message = !empty($ban_message) ? $ban_message->value_string : 'Akun anda telah ditangguhkan, Hubungi CS KodeMaya';
                 } else if ($user_status == 'P') {
                     $message = !empty($verify_message) ? $verify_message->value_string : "Maaf kamu belum verifikasi email, belum menerima email? silahkan klik tombol lupa password.";
                 }
-                
+
                 return redirect()->route('login')
-                ->withErrors(['message' => $message]);
+                    ->withErrors(['message' => $message]);
             }
 
-            $account_type = $user_data->account_type;
+            $user_type = $user_data->user_type;
 
-            if ($account_type == 'A') {
+            if ($user_type == 'A') {
                 return redirect()->route('admin.menu.dashboard')->withSuccess('Success Login Admin');
-            } else if ($account_type == 'M') {
+            } else if ($user_type == 'M') {
                 return redirect()->route('mentor.menu.dashboard')->withSuccess('Success Login Mentor');
-            } else if ($account_type == 'C') {
+            } else if ($user_type == 'C') {
                 return redirect()->route('customer.menu.dashboard')->withSuccess('Success Login Customer');
             }
         }
