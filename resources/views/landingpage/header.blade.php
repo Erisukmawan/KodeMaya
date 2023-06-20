@@ -19,6 +19,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" href="assets/css/rt-plugins.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/landingpage.css">
     <!-- End : Theme CSS-->
     <script src="assets/js/settings.js" sync></script>
 </head>
@@ -104,7 +105,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                             <span class="flex items-center">
                                 <iconify-icon class=" nav-icon" icon="material-symbols:contact-support-outline">
                                 </iconify-icon>
-                                <span>Bantuan</span>
+                                <span>FAQ</span>
                             </span>
                             <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
                         </a>
@@ -122,11 +123,6 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     </li>
             </div>
         </div>
-        <button id="btn-back-to-top" style="z-index:2; margin-top:21.5em"
-            class="btn btn-sm  btn-danger fixed ltr:md:right-[40px] ltr:right-0 rtl:left-0 top-1/2  cursor-pointer font-medium mb-12 shadow-deep ltr:rounded-b rtl:rounded-t"
-            data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
-            <iconify-icon class="text-sm dark:text-white" icon="mingcute:up-fill"></iconify-icon>
-        </button>
         <!-- End: Sidebar -->
         <!-- End: Sidebar -->
         <div class="flex flex-col justify-between min-h-screen">
@@ -248,7 +244,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                                     <iconify-icon icon=material-symbols:contact-support-outline>
                                                     </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Bantuan</div>
+                                                <div class="text-box">FAQ</div>
                                             </div>
                                             <div
                                                 class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
@@ -411,8 +407,13 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                         </div>
                     </div>
 
-
+<button id="btn-back-to-top" style="z-index:2; margin-top:21.5em"
+            class="btn btn-sm  btn-danger fixed ltr:md:right-[40px] ltr:right-0 rtl:left-0 top-1/2  cursor-pointer font-medium mb-12 shadow-deep ltr:rounded-b rtl:rounded-t"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+            <iconify-icon class="text-sm dark:text-white" icon="mingcute:up-fill"></iconify-icon>
+        </button>
                     <!-- END: Header -->
                     <!-- END: Header -->
                     @yield('content')
+                    
                     @include('landingpage.footer')

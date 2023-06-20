@@ -1,36 +1,58 @@
 @extends('landingpage.header')
 @section('content')
 <div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper"></div>
-      <section class="bg-white dark:bg-gray-900">
-        <div class="px-1 py-2 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 flex flex-1">
-          <div class="hero mr-auto place-self-center lg:col-span-3">
-            <h1  class="hero-text mx-auto mb-5 text-8xl font-extrabold leading-none" style="color: #009FBD; font-size: 6.3rem; margin-left: 30px;" >Mudah.</h1>
-            <h1 class="hero-text mx-auto mb-5 text-8xl font-extrabold leading-none" style="color: #57AFD8; font-size: 6.3rem; margin-left: 30px;">Cepat.</h1>
-            <h1 class="hero-text mx-auto mb-5 text-8xl font-extrabold leading-none" style="color: #6BDFDA; font-size: 6.3rem; margin-left: 30px;">Akurat.</h1>
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-white" style="margin-left: 30px;">
-              Bersama KodeMaya, proses belajarmu akan menjadi <b>LEBIH MUDAH</b> dan <b>CEPAT</b>. Ayo bergabung
-              sekarang!</p>
-              
-                  <a href="{{route('register')}}" style="margin-left: 30px;"
-                      class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                      Ayo Gabung
-                      <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd"
-                              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                              clip-rule="evenodd"></path>
-                      </svg>
-                  </a>
-              </div>
-              <div class="flex" style="max-width: 31%; max-height: auto; margin-right: -0.9em;">
-                  <img src="assets/images/all-img/poto.png">
-              </div>
-          </div>
-      </section>
-
-    <div class="page-content">
-      <hr>
+<section class="hero">
+  <div class="background">
+      <div class="hero-content">
+          <h1>We Help To <span>Build</span> Your Dream</h1>
+          <p>Bersama KodeMaya, proses belajarmu akan menjadi LEBIH MUDAH dan CEPAT. Ayo bergabung sekarang!</p>
+          <a href="{{route('register')}}" class="cta">Gabung Sekarang Juga !</a>
+      </div>
     </div>
+</section>
+<section class="Fitur">
+  <div class="page-content">
+    <h1 class="dark:text-white">Produk</h1>
+    <div class="card-row dark:color-dark">
+        <div class="outer-card">
+            <div class="inner-card">
+                <div class="card-content">
+                    <h2>Card Title 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut sapien in ex eleifend rutrum.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="outer-card">
+            <div class="inner-card_2">
+                <div class="card-content">
+                    <h2>Card Title 2</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut sapien in ex eleifend rutrum.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="outer-card">
+            <div class="inner-card">
+                <div class="card-content">
+                    <h2>Card Title 3</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut sapien in ex eleifend rutrum.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="outer-card">
+            <div class="inner-card">
+                <div class="card-content">
+                    <h2>Card Title 4</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut sapien in ex eleifend rutrum.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
 </div>
 
 @endsection
