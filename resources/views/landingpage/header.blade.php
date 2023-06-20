@@ -336,7 +336,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         <ul class="py-1 text-sm text-slate-800 dark:text-slate-200">
                                             <li>
                                                 @php 
-                                                    $acc_type = Auth::user()->account_type;
+                                                    $acc_type = Auth::user()->user_type;
                                                     $dashboardRoute = null;
 
                                                     if ($acc_type == 'A') {

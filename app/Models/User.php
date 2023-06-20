@@ -28,7 +28,7 @@ class User extends Authenticatable
         'phone',
         'address',
         'balance',
-        'account_status',
+        'user_status',
         'verify_token'
     ];
 

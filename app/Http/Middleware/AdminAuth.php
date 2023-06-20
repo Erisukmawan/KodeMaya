@@ -19,9 +19,9 @@ class AdminAuth
     {
         if (Auth::check()) {
             $user_data = Auth::user();
-            $account_type = $user_data->account_type;
+            $user_type = $user_data->user_type;
 
-            if ($account_type == 'A') {
+            if ($user_type == 'A') {
                 return $next($request);
             } else {
                 return abort(403);

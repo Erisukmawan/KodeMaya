@@ -37,7 +37,7 @@ class LoginRegisterController extends Controller
                 if ($userHash == $request->get('token')) {
                     User::where('user_id', '=', $userReq->user_id)
                     ->update([
-                        'account_status' => 'A',
+                        'user_status' => 'A',
                         'verify_token' => '',
                     ]);
                     DB::commit();
@@ -121,17 +121,17 @@ class LoginRegisterController extends Controller
         if (Auth::check()) {
             $user_data = Auth::user();
 
-            $account_status = $user_data->account_status;
+            $user_status = $user_data->user_status;
             $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
             $verify_message = DB::table('global_parameter')->get()->where('code', 'verify_message')->first();
 
-            if ($account_status != 'A') {
+            if ($user_status != 'A') {
                 Auth::logout();
                 $message = "";
                 
-                if ($account_status == 'B') {
+                if ($user_status == 'B') {
                     $message = !empty($ban_message) ? $ban_message->value_string : 'Akun anda telah ditangguhkan, Hubungi CS KodeMaya';
-                } else if ($account_status == 'P') {
+                } else if ($user_status == 'P') {
                     $message = !empty($verify_message) ? $verify_message->value_string : "Maaf kamu belum verifikasi email, belum menerima email? silahkan klik tombol lupa password.";
                 }
                 

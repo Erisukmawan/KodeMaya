@@ -36,8 +36,8 @@ class AdminController extends Controller
         DB::table('users')
         ->where('user_id', $request->get('user_id'))
         ->update([
-            'account_type' => $request->get('account_type'),
-            'account_status' => $request->get('account_status'),
+            'user_type' => $request->get('user_type'),
+            'user_status' => $request->get('user_status'),
         ]);
         return redirect()->back();
     }

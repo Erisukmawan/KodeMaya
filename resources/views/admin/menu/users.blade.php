@@ -47,17 +47,17 @@
                                             <td class="table-td">{{ $data->name }}</td>
                                             <td class="table-td" style="text-transform: lowercase;">{{ $data->email }}</td>
                                             <td class="table-td">
-                                                @if ($data->account_type == 'A')
+                                                @if ($data->user_type == 'A')
                                                     <div
                                                         class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-primary-500 bg-primary-500">
                                                         Admin
                                                     </div>
-                                                @elseif ($data->account_type == 'M')
+                                                @elseif ($data->user_type == 'M')
                                                     <div
                                                         class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">
                                                         Mentor
                                                     </div>
-                                                @elseif ($data->account_type == 'C')
+                                                @elseif ($data->user_type == 'C')
                                                     <div
                                                         class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-500 bg-info-500">
                                                         Customer
@@ -66,12 +66,12 @@
                                             </td>
                                             <td class="table-td currency-format">{{ $data->balance }}</td>
                                             <td class="table-td">
-                                                @if ($data->account_status == 'A')
+                                                @if ($data->user_status == 'A')
                                                     <div
                                                         class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">
                                                         Active
                                                     </div>
-                                                @elseif ($data->account_status == 'B')
+                                                @elseif ($data->user_status == 'B')
                                                     <div
                                                         class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">
                                                         Banned
@@ -165,8 +165,8 @@
                             </div>
                             {{-- Account Type Select --}}
                             <div class="input-area">
-                                <label for="account_type" class="form-label">Account Type</label>
-                                <select id="account_type" name="account_type" class="form-control" required>
+                                <label for="user_type" class="form-label">Account Type</label>
+                                <select id="user_type" name="user_type" class="form-control" required>
                                     <option value="A" class="dark:bg-slate-700">
                                         Admin
                                     </option>
@@ -180,8 +180,8 @@
                             </div>
                             {{-- Account Status Select --}}
                             <div class="input-area">
-                                <label for="account_status" class="form-label">Account Status</label>
-                                <select id="account_status" name="account_status" class="form-control" required>
+                                <label for="user_status" class="form-label">Account Status</label>
+                                <select id="user_status" name="user_status" class="form-control" required>
                                     <option value="A" class="dark:bg-slate-700">
                                         Active
                                     </option>
@@ -233,8 +233,8 @@
                 $('#user_form #phone').val(data.phone)
                 $('#user_form #balance').val(currency.format(data.balance))
                 $('#user_form #address').val(data.address)
-                $('#user_form #account_type').val(data.account_type).change()
-                $('#user_form #account_status').val(data.account_status).change()
+                $('#user_form #user_type').val(data.user_type).change()
+                $('#user_form #user_status').val(data.user_status).change()
             })
         }
 
@@ -250,8 +250,8 @@
                 $('#user_form #phone').val(data.phone)
                 $('#user_form #balance').val(currency.format(data.balance))
                 $('#user_form #address').val(data.address)
-                $('#user_form #account_type').val(data.account_type).change()
-                $('#user_form #account_status').val(data.account_status).change()
+                $('#user_form #user_type').val(data.user_type).change()
+                $('#user_form #user_status').val(data.user_status).change()
             })
         }
     </script>
