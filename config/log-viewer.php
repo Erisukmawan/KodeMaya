@@ -112,17 +112,17 @@ return [
         //         'password' => 'password',
         //     ],
         // ],
-        //
-        'production' => [
-            'name' => 'Production',
-            'host' => env('APP_URL').'/service-logs',
-            'auth' => [      
-                'token' => env('LOG_VIEWER_PRODUCTION_TOKEN'),
-            ],
-            'headers' => [
-                'X-Foo' => 'Bar',
-            ],
-        ],
+        
+        // 'production' => [
+        //     'name' => 'Production',
+        //     'host' => env('APP_URL').'/service-logs',
+        //     'auth' => [      
+        //         'token' => env('LOG_VIEWER_PRODUCTION_TOKEN'),
+        //     ],
+        //     'headers' => [
+        //         'X-Foo' => 'Bar',
+        //     ],
+        // ],
     ],
 
     /*

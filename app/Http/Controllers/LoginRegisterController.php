@@ -76,6 +76,7 @@ class LoginRegisterController extends Controller
             ]);
 
             $user->notify(new \App\Notifications\Daftar);
+            Log::info('User Register '.Auth::user()->email);
 
             DB::commit();
             return redirect()->route('login')->withSuccess('Registrasi berhasil, silahkan cek email kamu untuk melanjutkan verifikasi.');
@@ -110,6 +111,7 @@ class LoginRegisterController extends Controller
 
         if (Auth::attempt($credentials, $rememberMe)) {
             $request->session()->regenerate();
+            Log::info('User login '.Auth::user()->email);
             return redirect()->route('dashboard');
         } else {
             return redirect()->route('login')->withErrors(['message' => 'Email atau Password tidak valid.']);
@@ -123,7 +125,7 @@ class LoginRegisterController extends Controller
             $user_status = $user_data->user_status;
             if ($user_status != 'A') {
                 Auth::logout();
-                
+
                 $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
                 $verify_message = DB::table('global_parameter')->get()->where('code', 'verify_message')->first();
                 $message = "";
