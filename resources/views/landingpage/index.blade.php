@@ -13,7 +13,7 @@
 <section class="Fitur">
   <div class="page-content">
     <h1 class="dark:text-white">Produk</h1>
-    <div class="card-row dark:color-dark">
+    <div class="card-row dark:">
         <div class="outer-card">
             <div class="inner-card">
                 <div class="card-content">
