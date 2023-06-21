@@ -18,5 +18,6 @@
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="assets/js/rt-plugins.js"></script>
   <script src="assets/js/app-landing.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="if (AOS) {AOS.init();}"></script>
 </body>
 </html>

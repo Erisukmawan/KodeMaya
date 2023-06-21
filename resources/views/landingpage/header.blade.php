@@ -20,6 +20,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
     <link rel="stylesheet" href="assets/css/rt-plugins.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/landingpage.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- End : Theme CSS-->
     <script src="assets/js/settings.js" sync></script>
 </head>
@@ -219,7 +220,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         <!-- Megamenu -->
                                     </li>
                                     <li class="menu-item-has-children ">
-                                        <a href="javascript:void()">
+                                        <a href="#produk">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=material-symbols:price-change-outline>
