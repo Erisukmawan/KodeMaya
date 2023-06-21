@@ -21,6 +21,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/landingpage.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <!-- End : Theme CSS-->
     <script src="assets/js/settings.js" sync></script>
 </head>
@@ -85,10 +86,10 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                         </a>
                         <ul class="sidebar-submenu">
                             <li>
-                                <a href="project.html">Konsultasi</a>
+                                <a href="#Tulung">Tulung</a>
                             </li>
                             <li>
-                                <a href="project-details.html">Tulung</a>
+                                <a href="#Mentor">Mentor</a>
                             </li>
                         </ul>
                     </li>
@@ -171,7 +172,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                             <div class="main-menu">
                                 <ul>
                                     <li class="menu-item-has-children">
-                                        <a href="{{ url('/') }}" class="Navbar">
+                                        <a href="#home" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=heroicons-outline:home> </iconify-icon>
@@ -195,23 +196,23 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         </a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href=#konsultasi>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:chat
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Konsultasi
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href=#tulung>
+                                                <a href=#Tulung>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon=ic:baseline-connect-without-contact
                                                             class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
                                                             Tulung
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href=#Mentor>
+                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
+                                                        <iconify-icon icon=heroicons-outline:chat
+                                                            class="leading-[1] text-base"> </iconify-icon>
+                                                        <span class="leading-[1]">
+                                                            Mentor
                                                         </span>
                                                     </div>
                                                 </a>

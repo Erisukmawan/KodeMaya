@@ -36,6 +36,32 @@
     screenWidth();
   });
 
+  const testimonials = document.querySelectorAll(".testimonial");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  let index = 0;
+
+  function showTestimonial(index) {
+      testimonials.forEach(testimonial => {
+          testimonial.style.display = "none";
+      });
+      testimonials[index].style.display = "block";
+  }
+  showTestimonial(index);
+  prevBtn.addEventListener("click", () => {
+      index--;
+      if (index < 0) {
+          index = testimonials.length - 1;
+      }
+      showTestimonial(index);
+  });
+  nextBtn.addEventListener("click", () => {
+      index++;
+      if (index > testimonials.length - 1) {
+          index = 0;
+      }
+      showTestimonial(index);
+  });
 // Button back to top
 // Get the button
 // Get the button

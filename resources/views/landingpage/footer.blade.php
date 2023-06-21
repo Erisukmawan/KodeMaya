@@ -19,5 +19,6 @@
   <script src="assets/js/rt-plugins.js"></script>
   <script src="assets/js/app-landing.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="if (AOS) {AOS.init();}"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

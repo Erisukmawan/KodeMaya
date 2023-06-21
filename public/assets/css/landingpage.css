@@ -12,7 +12,7 @@ html {
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
     box-shadow: 0 20px 30px rgb(37, 169, 212);
-    margin-bottom: 25px;
+    margin-bottom: 45px;
 }
 .background{
     background: repeating-linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.753), rgba(255, 255, 255, 0));
@@ -53,9 +53,12 @@ html {
     background-color: #103d91;
     color: #fff;
     padding: 10px 20px;
+    margin-top: 20px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
 }
 
 .cta:hover {
@@ -63,68 +66,118 @@ html {
     color: #fff;
 }
 
+
+
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
 .Fitur{
+    margin-top: 15px;
     padding: 20px;
 }
 .Fitur .page-content{
     padding: 20px;
-    background-color: #3AA6B9;
+    background: repeating-linear-gradient(to left, #3AA6B9, #3aa6b970, rgba(255, 255, 255, 0));
     border-radius: 20px;
     box-shadow: 5px 3px 50px rgba(20, 20, 20, 0.534);
 }
-.dark .page-content {
-    background-color: #373951;
+.Fitur .page-content_mentor {
+    padding: 20px;
+    background: repeating-linear-gradient(to top, #3AA6B9, #3aa6b970, rgba(255, 255, 255, 0));
+    border-radius: 20px;
+    box-shadow: 5px 3px 50px rgba(20, 20, 20, 0.534);
 }
 .Fitur h1{
-    padding: 20px;
+    margin-bottom: 15px;
     align-items: center;
+    padding: 20px;
     text-align: center;
-    color: #fff;
+    color: black;
     font-size: 48px;
     text-decoration: underline;
     text-decoration-color: rgb(207, 127, 22);
     text-underline-offset: 15px;
 }
+.Fitur .title {
+    align-items: center;
+    text-align: center;
+    color: black;
+    font-size: 28px;
+}
 .card-row {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     flex-wrap: wrap;
     padding: 20px;
     border-radius:5px;
+    
 }
 
+
 .outer-card {
-    width: calc(33.33% - 20px);
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    box-shadow: 0 10px 40px 15px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    border-radius: 20px;
-    flex-wrap: wrap;
+    width: calc(50% - 20px);
 }
 
 .inner-card {
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 
 .inner-card img {
-    width: 100%;
+    width: 87%;
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-content {
     padding: 20px;
     background-color: #ffffff;
+    height: fit-content;
+    box-shadow: 0 18px 20px rgba(20, 20, 20, 0.534);
 }
-
-.dark .card-content {
+.dark .page-content{
+    background: #202c3c;
+    color: white;
+}
+.dark .page-content_mentor {
+    background: #202c3c;
+    color: white;
+}
+.dark .Fitur .page-content p {
+    color: white;
+}
+.dark .Fitur .page-content_mentor p {
+    color: white;
+}
+.dark .card-content{
     padding: 20px;
-    color: #fff;
-    background-color: #373951;
+    color: white;
+    background-color: #514e5a;
+}
+.dark .card-content h2{
+    color: white;
 }
 
 .card-content h2 {
@@ -135,6 +188,90 @@ html {
 .card-content p {
     font-size: 16px;
     margin-bottom: 20px;
+}
+.page-content_testi{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+.testimonial-section {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.testimonial-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.testimonial {
+    position: relative;
+    width: 100%;
+    background-color: #a3dbfc;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-img {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-text {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 10px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.testimonial-author {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.testimonial-controls {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.testimonial-controls button {
+    background-color: #f2f2f2;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-controls button:hover {
+    background-color: #333;
+    color: #f2f2f2;
 }
 @media screen and (max-width: 768px) {
     .hero {
@@ -166,7 +303,6 @@ html {
         margin-bottom: 10px;
         margin-top: 20px;
         border-radius: 5px;
-        box-shadow: 0 10px 40px 15px rgba(0, 0, 0, 0.2);
         overflow: hidden;
         border-radius: 20px;
         flex-wrap: wrap;
