@@ -10,31 +10,31 @@
             </div>
         </div>
 </section>
-<section class="Fitur" id="Tulung" data-aos="fade-up">
+<section class="Tulung" id="Tulung" data-aos="fade-up">
   <div class="page-content ">
     <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">TULUNG</h1>
     <p class="title" data-aos="fade-up" data-aos-duration="1500">Anda Mungkin Bertanya, Apa Itu Tulung ?</p>
     <div class="card-row">
         <div class="outer-card " data-aos="zoom-out-up" data-aos-duration="1500">
-            <div class="inner-card">
+            <div class="inner-card_img" data-aos="zoom-out-up" data-aos-duration="1500">
                 <img src="assets/images/all-img/Tulung.png" alt="">
 
             </div>
         </div>
         <div class="outer-card" data-aos="zoom-out-up" data-aos-duration="1500">
-             <div class="inner-card">
-                 <div class="card-content">
+             <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
+                 <div class="card-content" >
                      <h2>Mentor Berpengalaman</h2>
                      <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
                  </div>
              </div>
-            <div class="inner-card">
+            <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                 <div class="card-content" >
                     <h2>Mentor Berpengalaman</h2>
                     <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
                 </div>
             </div>
-            <div class="inner-card">
+            <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                 <div class="card-content">
                     <h2>Harga Fleksibel dan Transparan</h2>
                     <p>Gak perlu khawatir kemahalan, kamu bisa bernegosiasi dengan mentor untuk menyesuaikan harga yang
@@ -45,27 +45,27 @@
     </div>
   </div>
 </section>
-<section class="Fitur" id="Mentor" data-aos="fade-up">
-    <div class="page-content_mentor">
+<section class="Mentor" id="Mentor" data-aos="fade-up">
+    <div class="page-content">
         <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">Mentor</h1>
-        <p class="title" data-aos="fade-up" data-aos-duration="1500">Anda Mungkin Bertanya, Apa Itu Tulung ?</p>
+        <p class="title" data-aos="fade-up" data-aos-duration="1500">Apa Saja Keuntungan Menjadi Mentor Di KodeMaya ?</p>
         <div class="card-row">
             <div class="outer-card" data-aos="zoom-out-up" data-aos-duration="1500">
-                <div class="inner-card">
+                <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="card-content">
-                        <h2>Mentor Berpengalaman</h2>
+                        <h2>Bekerja dimana saja dan kapan saja</h2>
                         <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
                     </div>
                 </div>
-                <div class="inner-card">
+                <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="card-content">
-                        <h2>Mentor Berpengalaman</h2>
+                        <h2>Harga project bisa anda atur sendiri</h2>
                         <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
                     </div>
                 </div>
-                <div class="inner-card">
+                <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="card-content">
-                        <h2>Harga Fleksibel dan Transparan</h2>
+                        <h2>Pajak yang relatif kecil</h2>
                         <p>Gak perlu khawatir kemahalan, kamu bisa bernegosiasi dengan mentor untuk menyesuaikan harga
                             yang
                             kamu mau</p>
@@ -75,18 +75,18 @@
                 
             </div>
             <div class="outer-card " data-aos="zoom-out-up" data-aos-duration="1500">
-                <div class="inner-card">
+                <div class="inner-card_img" data-aos="zoom-out-up" data-aos-duration="1500">
                     <img src="assets/images/all-img/Mentor.png" alt="">
 
                 </div>
             </div>
+            <a href="{{route('register')}}" class="cta animate-[wiggle_1s_ease-in-out_infinite]" data-aos="zoom-out-up" data-aos-duration="2500" >Gabung Sekarang Juga !</a>
         </div>
     </div>
 </section>
 
-<section class="Fitur" id="Mentor" data-aos="fade-up">
-    <div class=" space-y-5">
-        <div class="card">
+<section class="Harga" id="Harga" data-aos="fade-up">
+    <div class="page-content space-y-5">
         <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">HARGA</h1>
         <p class="title" data-aos="fade-up" data-aos-duration="1500">Anda Mungkin Bertanya, Apa Itu Tulung ?</p>
         <div class="card-body p-6">
@@ -213,14 +213,15 @@ overflow-hidden z-[1] bg-primary-500" data-aos="zoom-out-up" data-aos-duration="
                     </div>
                 </div>
             </div>
+            <a href="{{route('register')}}" class="cta animate-[wiggle_1s_ease-in-out_infinite]" data-aos="zoom-out-up"
+            data-aos-duration="1500">Lihat Selengkapnya</a>
         </div>
-    </div>
 </section>
 
-<section class="Fitur" id="Mentor" data-aos="fade-up">
+<section class="Testimonial" id="Testi" data-aos="fade-up">
     <div class="page-content_testi" >
-        <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">TESTIMONIAL</h1>
-        <p class="title" data-aos="fade-up" data-aos-duration="1500">Apa Yang Pelanggan Kami Katakan</p>
+        <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">Review</h1>
+        <p class="title" data-aos="fade-up" data-aos-duration="1500">Pendapat dari Pelanggan Kami</p>
         <div class="testimonial-section" data-aos="fade-up" data-aos-duration="2000">
             <div class="testimonial-container" >
                 <div class="testimonial">
