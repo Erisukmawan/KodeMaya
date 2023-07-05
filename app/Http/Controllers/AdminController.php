@@ -156,4 +156,9 @@ class AdminController extends Controller
     {
         return view('admin.features.consultation.history');
     }
+
+    public function view_file_manager()
+    {
+        return view('admin.utility.filemanager');
+    }
 }

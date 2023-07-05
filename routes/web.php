@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MentorController;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +21,26 @@ use App\Models\User;
 
 Route::get('/',[LandingPageController::class, 'index'])->name('landingpage');
 
-// Route::get('/', 'index')->name('admin');
+// Route::get('/list-files', function() {
+//     // The human readable folder name to get the contents of...
+//     // For simplicity, this folder is assumed to exist in the root directory.
+//     $folder = '1TIGPlwR94tafFHQfg9uNYmF_sLhB8UXT';
+
+//     // Get directory contents...
+//     $files = collect(Storage::disk('google')->listContents($folder));
+//     // $files = Storage::disk('google')->allFiles($folder);
+//     // $file = Storage::disk('google')->get('1TIGPlwR94tafFHQfg9uNYmF_sLhB8UXT/1Vx1U_XaV5ueyc4YEfYg6O-nZb4SMK57i');
+
+//     return $files;
+//     // return $files->mapWithKeys(function($file) {
+//     //     return [$file->path() => pathinfo($file->path(),PATHINFO_BASENAME)];
+//     // });
+// });
+
+// Route::get('/create-dir', function() {
+//     Storage::disk('google')->makeDirectory('/1TIGPlwR94tafFHQfg9uNYmF_sLhB8UXT/Test Dir');
+//     return 'Directory was created in Google Drive';
+// });
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
@@ -54,6 +73,7 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
     Route::get('/admin/consultation/post', 'view_consultation_post')->name('admin.features.consultation.post');
     Route::get('/admin/consultation/task', 'view_consultation_task')->name('admin.features.consultation.task');
     Route::get('/admin/consultation/history', 'view_consultation_history')->name('admin.features.consultation.history');
+    Route::get('/admin/file-manager', 'view_file_manager')->name('admin.utility.file-manager');
 });
 
 
