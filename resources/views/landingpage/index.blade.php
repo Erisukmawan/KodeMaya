@@ -316,9 +316,6 @@
     </section>
 
     </div>
-<<<<<<< HEAD
-@endsection
-=======
   </div>
 </section>
 <section class="Mentor" id="Mentor" data-aos="fade-up">
@@ -558,4 +555,3 @@ overflow-hidden z-[1] bg-primary-500" data-aos="zoom-out-up" data-aos-duration="
 
 
 @endsection
->>>>>>> cea8d5b3b9257c2de65198a217c68bb2bbf791c7
