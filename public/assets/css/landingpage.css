@@ -1,9 +1,10 @@
 html {
     scroll-behavior: smooth;
     z-index: 1;
+    
 }
 
-.hero {
+.hero{
     background-image: url("../images/cover.jpg");
     background-size: cover;
     background-position: center center;
@@ -54,7 +55,7 @@ html {
     color: #fff;
     padding: 10px 20px;
     margin-top: 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     text-decoration: none;
     font-weight: bold;
     -webkit-animation: mover 1s infinite alternate;
@@ -88,23 +89,17 @@ html {
     }
 }
 
-.Fitur{
-    margin-top: 15px;
+.Tulung{
+    margin-top: 10px;
     padding: 20px;
 }
-.Fitur .page-content{
+.Tulung .page-content{
     padding: 20px;
-    background: repeating-linear-gradient(to left, #3AA6B9, #3aa6b970, rgba(255, 255, 255, 0));
     border-radius: 20px;
-    box-shadow: 5px 3px 50px rgba(20, 20, 20, 0.534);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 7px rgba(20, 20, 20, 0.2);
 }
-.Fitur .page-content_mentor {
-    padding: 20px;
-    background: repeating-linear-gradient(to top, #3AA6B9, #3aa6b970, rgba(255, 255, 255, 0));
-    border-radius: 20px;
-    box-shadow: 5px 3px 50px rgba(20, 20, 20, 0.534);
-}
-.Fitur h1{
+.Tulung h1{
     margin-bottom: 15px;
     align-items: center;
     padding: 20px;
@@ -112,15 +107,154 @@ html {
     color: black;
     font-size: 48px;
     text-decoration: underline;
-    text-decoration-color: rgb(207, 127, 22);
+    text-decoration-color: rgb(63, 51, 226);
     text-underline-offset: 15px;
+    font-weight: bold;
 }
-.Fitur .title {
+.Tulung .title {
     align-items: center;
     text-align: center;
     color: black;
-    font-size: 28px;
+    font-size: 20px;
 }
+.dark .Tulung .title{
+    color: #fff;
+}
+.Tulung .card-content {
+    padding: 15px;
+    margin: auto;
+    /* background-color: #88d5e270; */
+    
+    height: fit-content;
+    border-radius: 20px;
+    box-shadow: 10px 8px 15px rgba(20, 20, 20, 0.4);
+}
+.Tulung .inner-card {
+    padding: 15px;
+    margin: auto;
+    height: fit-content;
+    /* box-shadow: 90px 20px 200px rgba(20, 20, 20, 0.9); */
+}
+/* mentor */
+.Mentor {
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.Mentor .page-content {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 7px rgba(20, 20, 20, 0.2);
+}
+
+.Mentor h1 {
+    margin-bottom: 15px;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    color: black;
+    font-size: 48px;
+    text-decoration: underline;
+    text-decoration-color: rgb(63, 51, 226);
+    text-underline-offset: 15px;
+    font-weight: bold;
+}
+
+.Mentor .title {
+    align-items: center;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+}
+
+.dark .Mentor .title {
+    color: #fff;
+}
+
+.Mentor .card-content {
+    padding: 15px;
+    margin: auto;
+    background-color: #88d5e270;
+    height: fit-content;
+    border-radius: 20px;
+    box-shadow: 10px 8px 15px rgba(20, 20, 20, 0.4);
+}
+
+.Mentor .inner-card {
+    padding: 15px;
+    margin: auto;
+    height: fit-content;
+    justify-content: center;
+    /* box-shadow: 90px 20px 200px rgba(20, 20, 20, 0.9); */
+}
+.Mentor .cta{
+    border-radius: 20px;
+    padding: 15px;
+}
+/* Harga */
+.Harga {
+    margin-top: 10px;
+    padding: 20px;
+}
+.Harga .page-content{
+    border-radius: 20px;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 7px rgba(20, 20, 20, 0.2);
+}
+.Harga .cta{
+    margin: auto;
+    margin-top: 40px;
+    padding: auto;
+    align-items: center;
+    text-align: center;
+}
+.Harga h1 {
+    margin-bottom: 15px;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    color: black;
+    font-size: 48px;
+    text-decoration: underline;
+    text-decoration-color: rgb(63, 51, 226);
+    text-underline-offset: 15px;
+    font-weight: bold;
+}
+
+.Harga .title {
+    align-items: center;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+}
+
+.dark .Harga .title {
+    color: #fff;
+}
+.Fitur{
+    margin-top: 15px;
+    padding: 20px;
+}
+.Fitur .page-content{
+    padding: 20px;
+    /* background: repeating-linear-gradient(to left, #3AA6B9, #3aa6b970, rgba(255, 255, 255, 0)); */
+    border-radius: 20px;
+    background-color: #fff;
+    /* box-shadow: 1px 3px 3px rgba(20, 20, 20, 0.534); */
+}
+.Fitur .page-content_mentor {
+    padding: 20px;
+    background: repeating-linear-gradient(to top, #3AA6B9, #3aa6b970, rgba(255, 255, 255, 0));
+    border-radius: 20px;
+    box-shadow: 5px 3px 50px rgba(20, 20, 20, 0.534);
+}
+
 .card-row {
     display: flex;
     justify-content:space-around;
@@ -135,7 +269,7 @@ html {
     width: calc(50% - 20px);
 }
 
-.inner-card {
+.Fitur .inner-card {
     border-radius: 5px;
     margin-top: 20px;
     overflow: hidden;
@@ -143,7 +277,7 @@ html {
 }
 
 
-.inner-card img {
+.inner-card_img img {
     width: 87%;
     height: auto;
     display: block;
@@ -153,7 +287,8 @@ html {
 
 .card-content {
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #88d5e270;
+    justify-content: center;
     height: fit-content;
     box-shadow: 0 18px 20px rgba(20, 20, 20, 0.534);
 }
@@ -161,14 +296,7 @@ html {
     background: #202c3c;
     color: white;
 }
-.dark .page-content_mentor {
-    background: #202c3c;
-    color: white;
-}
 .dark .Fitur .page-content p {
-    color: white;
-}
-.dark .Fitur .page-content_mentor p {
     color: white;
 }
 .dark .card-content{
@@ -189,10 +317,41 @@ html {
     font-size: 16px;
     margin-bottom: 20px;
 }
+.Testimonial {
+    margin-top: 10px;
+    padding: 20px;
+}
+.Testimonial h1 {
+    margin-bottom: 15px;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    color: black;
+    font-size: 48px;
+    text-decoration: underline;
+    text-decoration-color: rgb(63, 51, 226);
+    text-underline-offset: 15px;
+    font-weight: bold;
+}
+
+.Testimonial .title {
+    align-items: center;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+}
+
+.dark .Testimonial .title {
+    color: #fff;
+}
 .page-content_testi{
-    background-color: white;
     padding: 20px;
     border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 7px rgba(20, 20, 20, 0.2);
+}
+.dark .page-content_testi{
+    background-color: #202c3c;
 }
 .testimonial-section {
     position: relative;
@@ -210,11 +369,15 @@ html {
 .testimonial {
     position: relative;
     width: 100%;
-    background-color: #a3dbfc;
+    background-color: #88d5e270;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.dark .testimonial{
+    background-color: #514e5a;
+    color: white;
 }
 
 .testimonial-img {
@@ -324,10 +487,16 @@ html {
     }
     .cta {
         padding: 6px 13px;
-        border-radius: 5px;
         text-decoration: none;
         font-weight: bold;
         font-size: 15px;
 
+    }
+    .Mentor .cta {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        border-radius: 20px;
+        text-align: center;
     }
 }
