@@ -10,4 +10,8 @@ class MentorController extends Controller
     {
         return view('mentor.menu.dashboard');
     }
+    public function view_tulung_pesanan()
+    {
+        return view('mentor.features.tulung.pesanan');
+    }
 }

@@ -79,6 +79,7 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
 
 Route::middleware(['mentor'])->controller(MentorController::class)->group(function() {
     Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
+    Route::get('/mentor/tulung/pesanan', 'view_tulung_pesanan')->name('mentor.features.tulung.pesanan');
 });
 
 Route::middleware(['customer'])->controller(CustomerController::class)->group(function() {

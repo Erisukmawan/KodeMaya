@@ -18,3 +18,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+routes/web.php
+resources/views/mentor/template.blade.php
+resources/views/auth/dashboard.blade.php
+app/Http/Controllers/MentorController.php

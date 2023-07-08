@@ -13,6 +13,8 @@
   <!-- BEGIN: Theme CSS-->
   <link rel="stylesheet" href="{{ url('/assets/css/rt-plugins.css') }}">
   <link rel="stylesheet" href="{{ url('/assets/css/app.css') }}">
+  <link rel="stylesheet" href="{{ url('/assets/css/app-chat.css') }}">
+  
   <!-- End : Theme CSS-->
   <script src="{{ url('/assets/js/settings.js') }}" sync></script>
 </head>

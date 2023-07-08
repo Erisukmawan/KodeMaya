@@ -200,7 +200,7 @@
                 <div class="mb-5">
                     <ul class="m-0 p-0 list-none">
                         <li class="inline-block relative top-[3px] text-base text-primary-500 font-Inter ">
-                            <a href="{{ route('customer.menu.dashboard') }}">
+                            <a href="{{ route('mentor.menu.dashboard') }}">
                                 <iconify-icon icon="heroicons-outline:home"></iconify-icon>
                             </a>
                         </li>
@@ -250,8 +250,8 @@
     <div class="sidebar-menus bg-white dark:bg-slate-800 py-2 px-4 h-[calc(100%-80px)] overflow-y-auto z-50" id="sidebar_menus">
         <ul class="sidebar-menu">
             <li class="sidebar-menu-title">MENU</li>
-            <li class="{{ (request()->is('customer/dashboard*')) ? 'active' : '' }}">
-                <a href="{{ route('customer.menu.dashboard') }}" class="navItem">
+            <li class="{{ (request()->is('mentor/dashboard*')) ? 'active' : '' }}">
+                <a href="{{ route('mentor.menu.dashboard') }}" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class="nav-icon" icon="heroicons-outline:home"></iconify-icon>
                         <span>Dashboard</span>
@@ -268,26 +268,26 @@
                 </a>
                 <ul class="sidebar-submenu">
                     <li>
-                        <a class="{{ (request()->is('customer/tulung/post*')) ? 'active' : '' }}" href="{{ route('customer.features.tulung.post') }}">Cari Layanan</a>
+                        <a class="{{ (request()->is('mentor/tulung/post*')) ? 'active' : '' }}" href="">Cari Layanan</a>
                     </li>
                     <li>
-                        <a class="{{ (request()->is('customer/tulung/task*')) ? 'active' : '' }}" href="{{ route('customer.features.tulung.task') }}">Pesanan</a>
+                        <a class="{{ (request()->is('mentor/tulung/task*')) ? 'active' : '' }}" href="{{ route('mentor.features.tulung.pesanan') }}">Pesanan</a>
                     </li>
                     <li>
-                        <a class="{{ (request()->is('customer/tulung/history*')) ? 'active' : '' }}" href="{{ route('customer.features.tulung.history') }}">Riwayat</a>
+                        <a class="{{ (request()->is('mentor/tulung/history*')) ? 'active' : '' }}" href="">Riwayat</a>
                     </li>
                 </ul>
             </li>
-            <li class="{{ (request()->is('customer/transactions*')) ? 'active' : '' }}">
-                <a href="{{ route('customer.finance.history_transactions') }}" class="navItem">
+            <li class="{{ (request()->is('mentor/transactions*')) ? 'active' : '' }}">
+                <a href="" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="uil:transaction"></iconify-icon>
                         <span>Riwayat Transaksi</span>
                     </span>
                 </a>
             </li>
-            <li class="{{ (request()->is('customer/notification*')) ? 'active' : '' }}">
-                <a href="{{ route('customer.menu.notification') }}" class="navItem">
+            <li class="{{ (request()->is('mentor/notification*')) ? 'active' : '' }}">
+                <a href="" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="iconamoon:notification-light"></iconify-icon>
                         <span>Notifikasi</span>
@@ -296,8 +296,8 @@
             </li>
             <!-- Apps Area -->
             <li class="sidebar-menu-title">Pengaturan</li>
-            <li class="{{ (request()->is('customer/income*')) ? 'active' : '' }}">
-                <a href="{{ route('customer.settings.profile') }}" class="navItem">
+            <li class="{{ (request()->is('mentor/income*')) ? 'active' : '' }}">
+                <a href="" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class="nav-icon" icon="fluent-mdl2:analytics-view"></iconify-icon>
                         <span>Profile</span>
@@ -336,7 +336,7 @@
             <img src="{{ url('assets/images/users/user-1.jpg') }}" alt="" class="w-full h-full rounded-full border-2 border-slate-100">
         </div>
     </a>
-    <a href="{{ route('customer.menu.notification') }}">
+    <a href="">
         <div>
             <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
