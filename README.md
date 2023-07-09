@@ -52,12 +52,11 @@ Password   : KodeMayaBangkit#321
 ### Mentor
 - [ ] Mentor Dashboard
 - [ ] Kelola Keuangan
-- [ ] Konsultasi
 - [ ] Tulung
+- [ ] Profile
 
 ### Pengguna
 - [ ] Landing Page
-- [ ] Fitur Konsultasi
 - [ ] Fitur Tulung
 - [ ] Fitur Pembayaran
 - [ ] Fitur Profile
