@@ -52,7 +52,7 @@
     [
         'actionText' => $actionText,
     ]
-) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
+) <span class="break-all"> <a href="{{ $actionUrl }}" target="_blank">{{ $displayableActionUrl }}</a></span>
 </x-slot:subcopy>
 @endisset
 </x-mail::message>

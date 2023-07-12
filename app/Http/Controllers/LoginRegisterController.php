@@ -75,15 +75,15 @@ class LoginRegisterController extends Controller
                 'verify_token' => $verify_token
             ]);
 
-            $user->notify(new \App\Notifications\Daftar);
-            Log::info('User Register '.Auth::user()->email);
+            Log::info('User Register '.$user);
 
+            $user->notify(new \App\Notifications\Daftar);
             DB::commit();
-            return redirect()->route('login')->withSuccess('Registrasi berhasil, silahkan cek email kamu untuk melanjutkan verifikasi.');
+            return redirect()->route('login')->withSuccess('Registrasi berhasil, silahkan cek email (termasuk spam) kamu untuk melanjutkan verifikasi.');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('register')->withErrors($e->getMessage());
+            return redirect()->route('register')->withErrors("Gagal mendaftar, pastikan email kamu aktif.");
         }
     }
 

@@ -10,7 +10,6 @@
                     !</a>
             </div>
         </div>
-<<<<<<< HEAD
     </section>
     <section class="Fitur" id="Tulung" data-aos="fade-up">
         <div class="page-content ">
@@ -45,38 +44,6 @@
                             </p>
                         </div>
                     </div>
-=======
-</section>
-<section class="Tulung" id="Tulung" data-aos="fade-up">
-  <div class="page-content ">
-    <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">TULUNG</h1>
-    <p class="title" data-aos="fade-up" data-aos-duration="1500">Anda Mungkin Bertanya, Apa Itu Tulung ?</p>
-    <div class="card-row">
-        <div class="outer-card " data-aos="zoom-out-up" data-aos-duration="1500">
-            <div class="inner-card_img" data-aos="zoom-out-up" data-aos-duration="1500">
-                <img src="assets/images/all-img/Tulung.png" alt="">
-
-            </div>
-        </div>
-        <div class="outer-card" data-aos="zoom-out-up" data-aos-duration="1500">
-             <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
-                 <div class="card-content" >
-                     <h2>Mentor Berpengalaman</h2>
-                     <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
-                 </div>
-             </div>
-            <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
-                <div class="card-content" >
-                    <h2>Mentor Berpengalaman</h2>
-                    <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
-                </div>
-            </div>
-            <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
-                <div class="card-content">
-                    <h2>Harga Fleksibel dan Transparan</h2>
-                    <p>Gak perlu khawatir kemahalan, kamu bisa bernegosiasi dengan mentor untuk menyesuaikan harga yang
-                        kamu mau</p></p>
->>>>>>> cea8d5b3b9257c2de65198a217c68bb2bbf791c7
                 </div>
             </div>
         </div>
