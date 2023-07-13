@@ -300,7 +300,9 @@
 @endsection
 
 @section('menu-mobile')
-<div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
+@if(request()->is('mentor/tulung/pesanan') == 'active')
+<div style=" @media(max-width: 760px) { #menuMobile1 = display:'none'}" 
+id="menuMobile1" class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
     <a href="{{ route('mentor.features.tulung.pesanan') }}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
@@ -308,7 +310,7 @@
                 <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
             </span>
             <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Pesanan
+                Pesanana
             </span>
         </div>
     </a>
@@ -334,5 +336,41 @@
         </div>
     </a>
 </div>
+@else
+<div style=" @media(max-width: 760px) { #menuMobile = display:'block'}" id="menuMobile" class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
+    <a href="{{ route('mentor.features.tulung.pesanan') }}">
+        <div>
+            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900 ">
+                <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
+            </span>
+            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
+                Pesanani
+            </span>
+        </div>
+    </a>
+    <a href="{{ route('mentor.profile') }}" class="relative bg-white bg-no-repeat backdrop-filter backdrop-blur-[40px] rounded-full footer-bg dark:bg-slate-700
+      h-[65px] w-[65px] z-[-1] -mt-[40px] flex justify-center items-center">
+        <div class="h-[50px] w-[50px] rounded-full relative left-[0px] hrefp-[0px] custom-dropshadow">
+            <img src="{{ url('assets/images/users/user-1.jpg') }}" alt="" class="w-full h-full rounded-full border-2 border-slate-100">
+        </div>
+    </a>
+    <a href="">
+        <div>
+            <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900">
+                <iconify-icon icon="heroicons-outline:bell"></iconify-icon>
+                <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
+            justify-center rounded-full text-white z-[99]">
+                    2
+                </span>
+            </span>
+            <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
+                Notifikasi
+            </span>
+        </div>
+    </a>
+</div>
+@endif
 </div>
 @endsection
