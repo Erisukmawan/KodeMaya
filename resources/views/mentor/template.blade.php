@@ -158,7 +158,7 @@
             <div class="dropdown-menu z-10 hidden bg-white divide-y divide-slate-100 shadow w-44 dark:bg-slate-800 border dark:border-slate-700 !top-[23px] rounded-md overflow-hidden">
                 <ul class="py-1 text-sm text-slate-800 dark:text-slate-200">
                     <li>
-                        <a href="/profile" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
+                        <a href="{{ route('mentor.profile') }}" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
                             <iconify-icon icon="heroicons-outline:user" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
                             <span class="font-Inter">Profil</span>
                         </a>
@@ -168,15 +168,6 @@
                             <iconify-icon icon="heroicons-outline:cog" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
                             <span class="font-Inter">Pengaturan</span>
                         </a>
-                    </li>
-                    <li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
-                            @csrf
-                            <button type="submit">
-                                <iconify-icon icon="heroicons-outline:login" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
-                                <span class="font-Inter">Logout</span>
-                            </button>
-                        </form>
                     </li>
                 </ul>
             </div>
@@ -268,7 +259,7 @@
                 </a>
                 <ul class="sidebar-submenu">
                     <li>
-                        <a class="{{ (request()->is('mentor/tulung/post*')) ? 'active' : '' }}" href="">Cari Layanan</a>
+                        <a class="{{ (request()->is('mentor/tulung/post*')) ? 'active' : '' }}" href="">Layanan</a>
                     </li>
                     <li>
                         <a class="{{ (request()->is('mentor/tulung/task*')) ? 'active' : '' }}" href="{{ route('mentor.features.tulung.pesanan') }}">Pesanan</a>
@@ -295,15 +286,6 @@
                 </a>
             </li>
             <!-- Apps Area -->
-            <li class="sidebar-menu-title">Pengaturan</li>
-            <li class="{{ (request()->is('mentor/income*')) ? 'active' : '' }}">
-                <a href="" class="navItem">
-                    <span class="flex items-center">
-                        <iconify-icon class="nav-icon" icon="fluent-mdl2:analytics-view"></iconify-icon>
-                        <span>Profile</span>
-                    </span>
-                </a>
-            </li>
         </ul>
         <div class="bg-slate-900 mb-10 mt-10 p-2 relative text-center rounded-3xl text-white" id="sidebar_bottom_wizard">
             <div>
@@ -319,18 +301,18 @@
 
 @section('menu-mobile')
 <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
-    <a href="{{ route('admin.finance.income') }}">
+    <a href="{{ route('mentor.features.tulung.pesanan') }}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
                 <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
             </span>
             <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Pendapatan
+                Pesanan
             </span>
         </div>
     </a>
-    <a href="profile.html" class="relative bg-white bg-no-repeat backdrop-filter backdrop-blur-[40px] rounded-full footer-bg dark:bg-slate-700
+    <a href="{{ route('mentor.profile') }}" class="relative bg-white bg-no-repeat backdrop-filter backdrop-blur-[40px] rounded-full footer-bg dark:bg-slate-700
       h-[65px] w-[65px] z-[-1] -mt-[40px] flex justify-center items-center">
         <div class="h-[50px] w-[50px] rounded-full relative left-[0px] hrefp-[0px] custom-dropshadow">
             <img src="{{ url('assets/images/users/user-1.jpg') }}" alt="" class="w-full h-full rounded-full border-2 border-slate-100">

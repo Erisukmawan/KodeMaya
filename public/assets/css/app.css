@@ -4922,6 +4922,9 @@ textarea.form-control.is-invalid{
 .max-w-4xl{
   max-width: 56rem;
 }
+.max-w-7xl {
+    max-width: 96rem;
+}
 .max-w-\[3\.23rem\]{
   max-width: 3.23rem;
 }
@@ -11383,8 +11386,9 @@ ul.custom-list ul li{
 }
 
 .parent-height {
-  height: calc(100% - 200px);
+  height: calc(100% - 19%);
 }
+
 
 .msg-action-btn{
   display: flex;
@@ -11418,6 +11422,12 @@ ul.custom-list ul li{
     line-height: 1.75rem;
   }
 }
+@media (max-width : 768px) {
+  .parent-height {
+      height: calc(100% - 12%);
+  }
+}
+
 
 .info-500-list{
   font-size: 0.75rem;

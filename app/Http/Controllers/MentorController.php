@@ -14,4 +14,8 @@ class MentorController extends Controller
     {
         return view('mentor.features.tulung.pesanan');
     }
+    public function view_profile()
+    {
+        return view('mentor.profile');
+    }
 }
