@@ -420,31 +420,31 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     <button class="btn" onclick="my_modal_4.showModal()">open modal</button>
                     <dialog id="my_modal_4" class="modal rounded" >
                     <form method="dialog" class="modal-box w-24 max-w-24">
-                        <h3 class="font-bold text-lg justify-center text-center">Daftar Sebagai</h3>
+                        <h3 class="font-bold text-lg dark:text-white justify-center text-center">Daftar Sebagai</h3>
                         <!-- <br> -->
                         <div class="modal-action justify-center text-center">
                             
                        
-                        <div class="card-container">
-                        <div class="card">
+                        <div class="card-container_register ">
+                        <div class="card_register rounded">
                             <a href="https://www.example.com">
                             <img src="assets/images/all-img/Mentor.png" alt="Image 1">
-                            <div class="card-overlay">
+                            <div class="card-overlay_register">
                                 <h3>Mentor</h3>
                             </div>
                             </a>
                             <br>
-                            <h5 class="font-bold text-lg justify-center text-center">Mentor</h5>
+                            <h5 class="font-bold dark:text-white text-lg justify-center text-center">Mentor</h5>
                         </div>
-                        <div class="card">
+                        <div class="card_register rounded">
                             <a href="{{ route('register') }}">
                             <img src="{{ url('assets/images/all-img/Tulung.png') }}" alt="Image 2">
-                            <div class="card-overlay">
+                            <div class="card-overlay_register">
                                 <h3>Pelanggan</h3>
                             </div>
                             </a>
                             <br>
-                            <h5 class="font-bold text-lg justify-center text-center">Pelanggan</h5>
+                            <h5 class="font-bold dark:text-white text-lg justify-center text-center">Pelanggan</h5>
                         </div>
                         </div>
 

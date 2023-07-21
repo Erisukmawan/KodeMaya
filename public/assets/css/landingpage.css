@@ -249,12 +249,12 @@ html {
     font-size: 20px;
 }
 
-.card-container {
+.card-container_register {
     display: flex;
     justify-content: space-between;
 }
 
-.card {
+.card_register {
     position: relative;
     width: 200px;
     height: 200px;
@@ -262,11 +262,15 @@ html {
     margin: 20px;
     
 }
-.dark .card{
-    
+.dark .card-container_register{
+    background-color: #202c3c;
+    color: white;
+}
+.dark #my_modal_4{
+    background-color: #202c3c;
 }
 
-.card img {
+.card_register img {
     width: auto;
     height: 95%;
     object-fit: fill;
@@ -276,7 +280,7 @@ html {
     margin: auto;
 }
 
-.card-overlay {
+.card-overlay_register {
     position: absolute;
     top: 0;
     left: 0;
@@ -290,7 +294,7 @@ html {
     transition: opacity 0.3s ease;
 }
 
-.card-overlay:hover {
+.card-overlay_register:hover {
     opacity: 1;
 }
 
