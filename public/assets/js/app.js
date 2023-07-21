@@ -10,9 +10,9 @@
   $(ParentUl).addClass("menu-open");
   var ParentClass = $("a.active").parent().parent().parent();
   $(ParentClass).addClass("active");
-  localStorage.menuLayout == "horizontalMenu"
-  localStorage.navbar == "sticky top-0"
-  localStorage.contentLayout = "container-fluid"
+  localStorage.menuLayout == "horizontalMenu";
+  localStorage.navbar == "sticky top-0";
+  localStorage.contentLayout = "container-fluid";
   function screenWidth() {
     if ($(window).width() < 1281) {
       $(".sidebar-wrapper").addClass("menu-hide");
@@ -27,12 +27,13 @@
       $("#sidebar_type").show();
       // $("#bodyOverlay").removeClass("block");
       $(".app-wrapper").addClass("horizontalMenu");
-
+      $("#app_header").removeClass("floating").removeClass("hidden").removeClass("static").addClass("sticky top-0");
       // $(".sidebar-wrapper").addClass("menu-hide");
       $("#menuCollapse").hide();
       $(".app-header").addClass("margin-0");
       $(".site-footer").addClass("margin-0");
       $("#content_wrapper").addClass("margin-0");
+      // $("#page_layout").addClass("container-fluid");
     }
   }
   screenWidth();
@@ -137,6 +138,7 @@
       $(".sidebar-wrapper").removeClass("menu-hide");
       $("#menuCollapse").show();
       $(".app-header").removeClass("margin-0");
+      $("#app_header").addClass("static");
       $(".site-footer").removeClass("margin-0");
       $("#content_wrapper").removeClass("margin-0");
     }

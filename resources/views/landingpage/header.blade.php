@@ -141,11 +141,11 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                     <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
                                     <img src="assets/images/logo/favicon.svg" class="white_logo" alt="logo">
                                 </a>
-                                {{-- <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
+                                <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
                                     <iconify-icon
                                         class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white"
                                         icon="heroicons-outline:menu-alt-3"></iconify-icon>
-                                </button> --}}
+                                </button>
 
                             </div>
                             <!-- end vertcial -->
@@ -160,12 +160,12 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         <img src="assets/images/logo/favicon.svg" class="white_logo " alt="logo">
                                     </span>
                                 </a>
-                                {{-- <button
+                                <button
                                     class="smallDeviceMenuController open-sdiebar-controller xl:hidden inline-block">
                                     <iconify-icon
                                         class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white"
                                         icon="heroicons-outline:menu-alt-3"></iconify-icon>
-                                </button> --}}
+                                </button> 
 
                             </div>
                             <!-- end horizental -->
