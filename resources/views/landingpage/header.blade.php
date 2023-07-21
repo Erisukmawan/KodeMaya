@@ -377,7 +377,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                 </div>
                                 @else
                                 <div>
-                                    <a href="{{ route('register') }}">
+                                    <a onclick="my_modal_4.showModal()">
                                         <button class="btn inline-flex btn-sm justify-center btn-primary ">
                                             <span class="flex items-center">
                                                 <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2"
@@ -387,7 +387,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         </button>
                                     </a>
                                     <a href="{{ route('login') }}">
-                                        <button class="btn inline-flex btn-sm justify-center btn-outline-primary ">
+                                        <button class="btn inline-flex btn-sm justify-center btn-outline-primary">
                                             <span class="flex items-center">
                                                 <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2"
                                                     icon="heroicons-outline:login"></iconify-icon>
@@ -417,5 +417,41 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     <!-- END: Header -->
                     <!-- END: Header -->
                     @yield('content')
-                    
+                    <button class="btn" onclick="my_modal_4.showModal()">open modal</button>
+                    <dialog id="my_modal_4" class="modal rounded" >
+                    <form method="dialog" class="modal-box w-24 max-w-24">
+                        <h3 class="font-bold text-lg justify-center text-center">Daftar Sebagai</h3>
+                        <!-- <br> -->
+                        <div class="modal-action justify-center text-center">
+                            
+                       
+                        <div class="card-container">
+                        <div class="card">
+                            <a href="https://www.example.com">
+                            <img src="assets/images/all-img/Mentor.png" alt="Image 1">
+                            <div class="card-overlay">
+                                <h3>Mentor</h3>
+                            </div>
+                            </a>
+                            <br>
+                            <h5 class="font-bold text-lg justify-center text-center">Mentor</h5>
+                        </div>
+                        <div class="card">
+                            <a href="{{ route('register') }}">
+                            <img src="{{ url('assets/images/all-img/Tulung.png') }}" alt="Image 2">
+                            <div class="card-overlay">
+                                <h3>Pelanggan</h3>
+                            </div>
+                            </a>
+                            <br>
+                            <h5 class="font-bold text-lg justify-center text-center">Pelanggan</h5>
+                        </div>
+                        </div>
+
+                        <br>
+                        <!-- if there is a button, it will close the modal -->
+                        <button class="btn btn-danger w-20">Batal</button>
+                        </div>
+                    </form>
+                    </dialog>
                     @include('landingpage.footer')

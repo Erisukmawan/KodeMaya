@@ -48,6 +48,7 @@
         </div>
     </div>
 </section>
+<!-- You can open the modal using ID.showModal() method -->
 <section class="Mentor" id="Mentor" data-aos="fade-up">
     <div class="page-content">
         <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">Mentor</h1>
