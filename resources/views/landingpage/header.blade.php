@@ -419,7 +419,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                     @yield('content')
                     <button class="btn" onclick="my_modal_4.showModal()">open modal</button>
                     <dialog id="my_modal_4" class="modal rounded" >
-                    <form method="dialog" class="modal-box w-24 max-w-24">
+                    <form method="dialog" class="modal-box  max-w-24">
                         <h3 class="font-bold text-lg dark:text-white justify-center text-center">Daftar Sebagai</h3>
                         <!-- <br> -->
                         <div class="modal-action justify-center text-center">
@@ -448,9 +448,9 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                         </div>
                         </div>
 
-                        <br>
+                        <br><br>
                         <!-- if there is a button, it will close the modal -->
-                        <button class="btn btn-danger w-20">Batal</button>
+                        <button  class="btn btn-danger w-auto">Batal</button>
                         </div>
                     </form>
                     </dialog>

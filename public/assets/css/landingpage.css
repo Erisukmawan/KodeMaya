@@ -259,8 +259,44 @@ html {
     width: 200px;
     height: 200px;
     background-color: #c0c0c0;
-    margin: 20px;
+    margin: 15px;
     
+}
+@media screen and (max-width: 768px){
+    .card_register {
+    position: relative;
+    max-width: 95px;
+    max-height: 95px;
+    background-color: #c0c0c0;
+    margin: 8px;
+    }
+    .dark .card-container_register{
+    background-color: #202c3c;
+    color: white;
+    }
+    .card-container_register{
+    background-color: white;
+    color: black;
+    }
+    .card-container_register h5 {
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    }
+    .card-container_register h5 {
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    }
+    .card-overlay_register h3{
+        color: #fff;
+        font-size: 6px;
+        text-align: center;
+    }
 }
 .dark .card-container_register{
     background-color: #202c3c;
@@ -298,7 +334,7 @@ html {
     opacity: 1;
 }
 
-.card-overlay h3 {
+.card-overlay_register h3 {
     color: #fff;
     font-size: 18px;
     text-align: center;
