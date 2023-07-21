@@ -150,16 +150,16 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                             </div>
                             <!-- end vertcial -->
                             <div class="items-center space-x-4 rtl:space-x-reverse horizental-box">
-                                <a href="/">
-                                    <span class="xl:inline-block hidden">
-                                        <img src="assets/images/logo/logo.svg" class="black_logo " alt="logo">
-                                        <img src="assets/images/logo/logo.svg" class="white_logo" alt="logo">
-                                    </span>
-                                    <span class="xl:hidden inline-block">
-                                        <img src="assets/images/logo/favicon.svg" class="black_logo " alt="logo">
-                                        <img src="assets/images/logo/favicon.svg" class="white_logo " alt="logo">
-                                    </span>
-                                </a>
+                            <a href="{{ route('landingpage') }}">
+                                <span class="xl:inline-block hidden">
+                                    <img src="{{ url('assets/images/logo/logo.svg') }}" class="black_logo " alt="logo">
+                                    <img src="{{ url('assets/images/logo/logo.svg') }}" class="white_logo" alt="logo">
+                                </span>
+                                <span class="xl:hidden inline-block">
+                                    <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="black_logo " alt="logo">
+                                    <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="white_logo " alt="logo">
+                                </span>
+                            </a>
                                 <button
                                     class="smallDeviceMenuController open-sdiebar-controller xl:hidden inline-block">
                                     <iconify-icon
