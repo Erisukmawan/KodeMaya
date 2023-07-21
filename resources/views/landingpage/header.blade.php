@@ -2,7 +2,7 @@
 <!-- Template N
 
 ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Codeshaper Website: https://codeshaper.net Contact: support@codeshaperbd.net Like: https://www.facebook.com/Codeshaperbd Purchase: https://themeforest.net/item/dashcode-admin-dashboard-template/42600453 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project. -->
-<html lang="zxx" dir="ltr" class="light">
+<html lang="zxx" dir="ltr" class="black">
 
 
 <head>
@@ -319,7 +319,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                     </button>
                                 </div>
                                 @if (Auth::check())
-                                <div class="md:block hidden w-full">
+                                <div class="w-full">
                                     <button class="text-slate-800 dark:text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <div class="lg:h-8 lg:w-8 h-7 w-7 rounded-full flex-1 ltr:mr-[10px] rtl:ml-[10px]">
                                             <img src="{{ url('assets/images/all-img/user.png') }}" alt="user" class="block w-full h-full object-cover rounded-full">

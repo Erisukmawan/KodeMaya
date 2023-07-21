@@ -10,6 +10,9 @@
   $(ParentUl).addClass("menu-open");
   var ParentClass = $("a.active").parent().parent().parent();
   $(ParentClass).addClass("active");
+  localStorage.menuLayout == "horizontalMenu"
+  localStorage.navbar == "sticky top-0"
+  localStorage.contentLayout = "container-fluid"
   function screenWidth() {
     if ($(window).width() < 1281) {
       $(".sidebar-wrapper").addClass("menu-hide");
@@ -19,16 +22,17 @@
       $("#content_wrapper").addClass("margin-0");
       $(".sidebarCloseIcon").show();
       $("#sidebar_type").hide();
-      $("#bodyOverlay").addClass("block");
     } else {
-      $(".sidebar-wrapper").removeClass("menu-hide");
-      $("#menuCollapse").show();
-      $(".app-header").removeClass("margin-0");
-      $(".site-footer").removeClass("margin-0");
-      $("#content_wrapper").removeClass("margin-0");
       $(".sidebarCloseIcon").hide();
       $("#sidebar_type").show();
-      $("#bodyOverlay").removeClass("block");
+      // $("#bodyOverlay").removeClass("block");
+      $(".app-wrapper").addClass("horizontalMenu");
+
+      // $(".sidebar-wrapper").addClass("menu-hide");
+      $("#menuCollapse").hide();
+      $(".app-header").addClass("margin-0");
+      $(".site-footer").addClass("margin-0");
+      $("#content_wrapper").addClass("margin-0");
     }
   }
   screenWidth();
@@ -159,7 +163,7 @@
 
   // Menu Layout toggle
   if (localStorage.menuLayout == "horizontalMenu") {
-    // $(".app-wrapper").addClass(localStorage.menuLayout);
+    $(".app-wrapper").addClass(localStorage.menuLayout);
     $("#horizontal_menu").prop("checked", true);
   } else {
     // $(".app-wrapper").removeClass("horizontalMenu");
