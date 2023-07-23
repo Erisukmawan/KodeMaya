@@ -17,13 +17,13 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" href="assets/css/rt-plugins.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="assets/css/landingpage.css">
+    <link rel="stylesheet" href="{{url('/assets/css/rt-plugins.css')}}">
+    <link rel="stylesheet" href="{{url('/assets/css/app.css')}}">
+    <link rel="stylesheet" href="{{url('/assets/css/landingpage.css')}}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <!-- End : Theme CSS-->
-    <script src="assets/js/settings.js" sync></script>
+    <script src="{{url('/assets/js/settings.js')}}" sync></script>
 </head>
 
 <body class=" font-inter" id="body_class">
@@ -416,7 +416,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
         </button>
                     <!-- END: Header -->
                     <!-- END: Header -->
-                    @yield('content')
+                    @include('landingpage.index')
                     <button class="btn" onclick="my_modal_4.showModal()">open modal</button>
                     <dialog id="my_modal_4" class="modal rounded" >
                     <form method="dialog" class="modal-box  max-w-24">

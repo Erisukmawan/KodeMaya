@@ -14,4 +14,12 @@ class CustomerController extends Controller
     {
         return view('customer.profile');
     }
+    public function view_pemesanan()
+    {
+        return view('customer.menu.pemesanan');
+    }
+    public function view_form_pemesanan()
+    {
+        return view('customer.menu.form-pemesanan');
+    }
 }

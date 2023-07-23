@@ -85,8 +85,8 @@ Route::middleware(['mentor'])->controller(MentorController::class)->group(functi
 
 Route::middleware(['customer'])->controller(CustomerController::class)->group(function() {
     Route::get('/customer/dashboard', 'view_dashboard')->name('customer.menu.dashboard');
-    Route::get('/customer/tulung/post', 'view_tulung_post')->name('customer.features.tulung.post');
-    Route::get('/customer/tulung/task', 'view_tulung_task')->name('customer.features.tulung.task');
+    Route::get('/customer/pemesanan/', 'view_pemesanan')->name('customer.menu.pemesanan');
+    Route::get('/customer/pemesanan/form-pemesanan', 'view_form_pemesanan')->name('customer.menu.pemesanan.form_pemesanan');
     Route::get('/customer/tulung/history', 'view_tulung_history')->name('customer.features.tulung.history');
     Route::get('/customer/notification', 'view_notification')->name('customer.menu.notification');
     Route::get('/customer/history-transactions', 'view_history_transactions')->name('customer.finance.history_transactions');

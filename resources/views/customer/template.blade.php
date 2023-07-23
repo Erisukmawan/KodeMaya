@@ -39,12 +39,12 @@
                                         </a>
                                     </li>
                                     <li class="menu-item-has-children menuatas">
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void() {{ (request()->is('customer/pemesanan')) ? 'active' : '' }} menuatas">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=mdi:feature-highlight> </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Fitur</div>
+                                                <div class="text-box">Pemesanan</div>
                                             </div>
                                             <div
                                                 class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
@@ -52,13 +52,13 @@
                                             </div>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li class="menuatas">
-                                                <a href=#Tulung>
+                                            <li class="{{ (request()->is('customer/pemesanan')) ? 'active' : '' }} menuatas">
+                                                <a href="{{ route('customer.menu.pemesanan') }}">
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon=ic:baseline-connect-without-contact
                                                             class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Tulung
+                                                            Pesanan
                                                         </span>
                                                     </div>
                                                 </a>
@@ -69,7 +69,17 @@
                                                         <iconify-icon icon=heroicons-outline:chat
                                                             class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            customer
+                                                            Negoisasi
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="menuatas">
+                                                <a href=#customer>
+                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
+                                                        <iconify-icon icon="mdi:hand-clap" class="leading-[1] text-base"> </iconify-icon>
+                                                        <span class="leading-[1]">
+                                                            Kontrak
                                                         </span>
                                                     </div>
                                                 </a>
@@ -84,7 +94,7 @@
                                                     <iconify-icon icon=material-symbols:price-change-outline>
                                                     </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Harga</div>
+                                                <div class="text-box">Pembayaran</div>
                                             </div>
                                         </a>
                                     </li>
@@ -230,7 +240,7 @@
 
 @section('menu-mobile')
 <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
-    <a href="">
+    <a href="javascript:void()">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
@@ -240,6 +250,7 @@
                 Pesanan
             </span>
         </div>
+        
         
     </a>
     <a href="">

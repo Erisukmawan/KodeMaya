@@ -1,5 +1,3 @@
-@extends('landingpage.header')
-@section('content')
 <div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper"></div>
 <section id="home" class="hero" data-aos="fade-up" data-aos-duration="1000">
     <div class="background">
@@ -18,7 +16,7 @@
         <div class="card-row">
             <div class="outer-card " data-aos="zoom-out-up" data-aos-duration="1500">
                 <div class="inner-card_img" data-aos="zoom-out-up" data-aos-duration="1500">
-                    <img src="assets/images/all-img/Tulung.png" alt="">
+                    <img src="{{url('/assets/images/all-img/Tulung.png')}}" alt="">
 
                 </div>
             </div>
@@ -81,7 +79,7 @@
             </div>
             <div class="outer-card " data-aos="zoom-out-up" data-aos-duration="1500">
                 <div class="inner-card_img" data-aos="zoom-out-up" data-aos-duration="1500">
-                    <img src="assets/images/all-img/Mentor.png" alt="">
+                    <img src="{{url('/assets/images/all-img/Mentor.png')}}" alt="">
 
                 </div>
             </div>
@@ -100,7 +98,7 @@
                 <div data-aos="zoom-out-up" data-aos-duration="1500"
                     class="price-table bg-opacity-[0.16] dark:bg-opacity-[0.36] rounded-[6px] p-6 text-slate-900 dark:text-white relative overflow-hidden z-[1] bg-warning-500">
                     <div class="overlay absolute right-0 top-0 w-full h-full z-[-1]">
-                        <img src="assets/images/all-img/big-shap1.png" alt="" class="ml-auto block">
+                        <img src="{{url('/assets/images/all-img/big-shap1.png')}}" alt="" class="ml-auto block">
                     </div>
                     <header class="mb-6">
                         <h4 class="text-xl mb-5">Website</h4>
@@ -124,7 +122,7 @@
                 <div class="price-table bg-opacity-[0.16] dark:bg-opacity-[0.36] rounded-[6px] p-6 text-slate-900 dark:text-white relative overflow-hidden z-[1] bg-info-500"
                     data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="overlay absolute right-0 top-0 w-full h-full z-[-1]">
-                        <img src="assets/images/all-img/big-shap2.png" alt="" class="ml-auto block">
+                        <img src="{{url('/assets/images/all-img/big-shap2.png')}}" alt="" class="ml-auto block">
                     </div>
                     <div class="text-sm font-medium bg-slate-900 dark:bg-slate-900 text-white py-2 text-center absolute ltr:-right-[43px]
     rtl:-left-[43px] top-6 px-10 transform ltr:rotate-[45deg] rtl:-rotate-45">
@@ -152,7 +150,7 @@
                 <div class="price-table bg-opacity-[0.16] dark:bg-opacity-[0.36] rounded-[6px] p-6 text-slate-900 dark:text-white relative overflow-hidden z-[1] bg-success-500"
                     data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="overlay absolute right-0 top-0 w-full h-full z-[-1]">
-                        <img src="assets/images/all-img/big-shap3.png" alt="" class="ml-auto block">
+                        <img src="{{url('/assets/images/all-img/big-shap3.png')}}" alt="" class="ml-auto block">
                     </div>
                     <header class="mb-6">
                         <h4 class="text-xl mb-5">Aplikasi Mobile</h4>
@@ -176,7 +174,7 @@
                 <div class="price-table bg-opacity-[0.16] dark:bg-opacity-[0.36] rounded-[6px] p-6 text-slate-900 dark:text-white relative
 overflow-hidden z-[1] bg-primary-500" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="overlay absolute right-0 top-0 w-full h-full z-[-1]">
-                        <img src="assets/images/all-img/big-shap4.png" alt="" class="ml-auto block">
+                        <img src="{{url('/assets/images/all-img/big-shap4.png')}}" alt="" class="ml-auto block">
                     </div>
                     <header class="mb-6">
                         <h4 class="text-xl mb-5">Aplikasi Desktop</h4>
@@ -203,63 +201,5 @@ overflow-hidden z-[1] bg-primary-500" data-aos="zoom-out-up" data-aos-duration="
         </div>
 </section>
 
-<section class="Testimonial" id="Testi" data-aos="fade-up">
-    <div class="page-content_testi">
-        <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">Review</h1>
-        <p class="title" data-aos="fade-up" data-aos-duration="1500">Pendapat dari Pelanggan Kami</p>
-        <div class="testimonial-section" data-aos="fade-up" data-aos-duration="2000">
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <div class="testimonial-img">
-                        <img src="assets/images/avatar/av-1.svg" alt="Person 1">
-                    </div>
-                    <div class="testimonial-text">
-                        <p>"I absolutely love this code! It's made my life so much easier."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p>- John Doe</p>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-img">
-                        <img src="assets/images/avatar/av-2.svg" alt="Person 2">
-                    </div>
-                    <div class="testimonial-text">
-                        <p>"This code is amazing! It's saved me countless hours of work."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p>- Jane Smith</p>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-img">
-                        <img src="assets/images/avatar/av-3.svg" alt="Person 2">
-                    </div>
-                    <div class="testimonial-text">
-                        <p>"This code is amazing! It's saved me countless hours of work."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p>- Jane Smith</p>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-img">
-                        <img src="assets/images/avatar/av-4.svg" alt="Person 2">
-                    </div>
-                    <div class="testimonial-text">
-                        <p>"This code is amazing! It's saved me countless hours of work."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p>- Jane Smith</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-controls">
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-            </div>
-        </div>
-    </div>
-</section>
+
 </div>
-@endsection
