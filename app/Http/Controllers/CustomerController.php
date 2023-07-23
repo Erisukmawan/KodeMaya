@@ -10,4 +10,8 @@ class CustomerController extends Controller
     {
         return view('customer.menu.dashboard');
     }
+    public function view_profile()
+    {
+        return view('customer.profile');
+    }
 }

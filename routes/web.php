@@ -90,5 +90,5 @@ Route::middleware(['customer'])->controller(CustomerController::class)->group(fu
     Route::get('/customer/tulung/history', 'view_tulung_history')->name('customer.features.tulung.history');
     Route::get('/customer/notification', 'view_notification')->name('customer.menu.notification');
     Route::get('/customer/history-transactions', 'view_history_transactions')->name('customer.finance.history_transactions');
-    Route::get('/customer/profile', 'view_profil')->name('customer.settings.profile');
+    Route::get('/customer/profile', 'view_profile')->name('customer.profile');
 });

@@ -3,67 +3,27 @@
 
 @section('main-content')
     <div class="space-y-5 profile-page">
-                  
-                  <div class="grid grid-cols-12 gap-6">
-                    <div class="lg:col-span-4 col-span-12">
-                      <div class="card h-full">
-                        <header class="card-header">
-                            <div class="flex space-x-3 items-center rtl:space-x-reverse">
-                            <div class="flex-none h-8 w-8 rounded-full bg-primary-500 text-slate-300 flex flex-col items-center justify-center text-lg">
-                              <iconify-icon icon="heroicons:credit-card"></iconify-icon>
-                            </div>
-                            <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                              Payment Settings
-                            </div>
+      <div class="bg-no-repeat bg-cover bg-center px-5 py-8 rounded-xl relative flex items-center" style="background-image: url({{url('assets/images/all-img/widget-bg-7.png')}})">
+                      <div class="flex-1">
+                        <div class="max-w-[180px]">
+                          <div class="text-xl font-medium text-white dark:text-slate-800 mb-2">
+                            <span class="block font-normal">Good evening,</span>
+                            <span class="block">Mr. Dianne Russell</span>
                           </div>
-                        </header>
-                        <div class="card-body p-6">
-                          <ul class="list space-y-8">
-                            <li class="flex space-x-3 rtl:space-x-reverse">
-                              <div class="flex-none text-2xl text-slate-600 dark:text-slate-300">
-                                <iconify-icon icon="ph:bank"></iconify-icon>
-                              </div>
-                              <div class="flex-1">
-                                <div class="uppercase text-xs text-slate-500 dark:text-slate-300 mb-1 leading-[12px]">
-                                  Nama Bank
-                                </div>
-                                <a href="./mailto:someone@example.com" class="text-base text-slate-600 dark:text-slate-50">
-                                  {{ Auth::user()->email }}
-                                </a>
-                              </div>
-                            </li>
-                            <!-- end single list -->
-                            <li class="flex space-x-3 rtl:space-x-reverse">
-                              <div class="flex-none text-2xl text-slate-600 dark:text-slate-300">
-                                <iconify-icon icon="mdi:card-account-details-outline"></iconify-icon>
-                              </div>
-                              <div class="flex-1">
-                                <div class="uppercase text-xs text-slate-500 dark:text-slate-300 mb-1 leading-[12px]">
-                                  Nama Pemilik
-                                </div>
-                                <a href="./tel:0189749676767" class="text-base text-slate-600 dark:text-slate-50">
-                                  {{ Auth::user()->name }}
-                                </a>
-                              </div>
-                            </li>
-                            
-                            <li class="flex space-x-3 rtl:space-x-reverse">
-                              <div class="flex-none text-2xl text-slate-600 dark:text-slate-300">
-                                <iconify-icon icon="ic:outline-account-balance-wallet"></iconify-icon>
-                              </div>
-                              <div class="flex-1">
-                                <div class="uppercase text-xs text-slate-500 dark:text-slate-300 mb-1 leading-[12px]">
-                                  Nomor Rekening
-                                </div>
-                                <a href="./tel:0189749676767" class="text-base text-slate-600 dark:text-slate-50">
-                                  +1-202-555-0151
-                                </a>
-                              </div>
-                            </li>
-                          </ul>
                         </div>
                       </div>
+                      <div class="flex-none">
+                        <button class="flex space-x-1 btn-light bg-white btn-sm btn">
+                          <div class="flex-none h-6 w-6  rounded-full bg-info-900 text-white flex flex-col items-center justify-center text-lg">
+                                <iconify-icon icon="mingcute:add-fill"></iconify-icon>
+                              </div>
+                              <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
+                                Tambah Pesanan
+                              </div>
+                        </button>
+                      </div>
                     </div>
+                  <div class=" gap-6">
                     <div class="lg:col-span-8 col-span-12">
                       <div class="card">
                           <header class="card-header">
