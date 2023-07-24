@@ -110,46 +110,7 @@
                                                 </span>
                                                 <div class="text-box">FAQ</div>
                                             </div>
-                                            <div
-                                                class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
-                                                <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
-                                            </div>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href=basic-table.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=mdi:about class="leading-[1] text-base">
-                                                        </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Tentang Kami
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href=advance-table.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=fluent:contact-card-group-28-regular
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Hubungi Kami
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href=apex-chart.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=material-symbols:privacy-tip-outline
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Syarat dan Ketentuan
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
+</a>
 
                                         <!-- Megamenu -->
 
@@ -240,11 +201,11 @@
 
 @section('menu-mobile')
 <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
-    <a href="javascript:void()">
+    <a href="{{route('customer.menu.pemesanan')}}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
-                <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
+                <iconify-icon icon="mdi:feature-highlight"></iconify-icon>
             </span>
             <span class="block text-[11px] text-slate-600 dark:text-slate-300">
                 Pesanan
@@ -255,46 +216,38 @@
     </a>
     <a href="">
         <div>
-            <div class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900 " id="konten">
-                <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
-            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Pesanan
+            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900 ">
+                <iconify-icon icon="heroicons-outline:chat"></iconify-icon>
             </span>
-            <input type="checkbox" id="chek" />
-                <div class="fab text-slate-900"></div>
-                <div class="fac">
-                <iconify-icon icon="material-symbols:image-outline"></iconify-icon>
-                <iconify-icon icon="mdi:file-outline"> </iconify-icon>
-                <iconify-icon icon="majesticons:video-line"> </iconify-icon>
-                <iconify-icon icon="solar:tag-price-bold"> </iconify-icon>
-                </div>
-            </div>                                
+            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
+                Negoisasi
+            </span>
         </div>
     </a>
     <a href="">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
-                <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
+                <iconify-icon icon="mdi:hand-clap"></iconify-icon>
             </span>
             <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Pesanan
+                Kontrak
             </span>
         </div>
     </a>
-    <a href="">
+    <a href="{{route('customer.menu.pembayaran')}}">
         <div>
             <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
-                <iconify-icon icon="heroicons-outline:bell"></iconify-icon>
+                <iconify-icon icon="material-symbols:price-change-outline"></iconify-icon>
                 <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
             justify-center rounded-full text-white z-[99]">
-                    2
+                    1
                 </span>
             </span>
             <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
-                Notifikasi
+                Pembayaran
             </span>
         </div>
     </a>
