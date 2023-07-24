@@ -42,4 +42,8 @@ class CustomerController extends Controller
     {
         return view('customer.menu.detail-kontrak');
     }
+    public function view_pembayaran_checkout()
+    {
+        return view('customer.menu.checkout');
+    }
 }

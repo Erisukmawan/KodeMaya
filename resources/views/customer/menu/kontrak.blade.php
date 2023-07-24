@@ -5,7 +5,7 @@
                           <header class="card-header">
                               <div class="flex-1">
                           <div class="text-xl text-sm text-black dark:text-white mb-2">
-                            <span class="block font-normal">Kode Pembayaran : #KT2112</span>
+                            <span class="block font-normal">Kode Kontrak : #KT2112</span>
                           </div>
                       </div>
                       <div class="flex-none">
@@ -36,6 +36,17 @@
                               </div>
                               <div class="block  text-base dark:text-slate-100 text-black font-sm">
                               Bapaknya Siapa
+                              </div>
+                            </div>
+                            <div class="relative text-lg space-x-2 ">
+                              <!-- <div class="flex-none h-6 w-6 rounded-full bg-info-500 dark:bg-info-100 text-black flex flex-col items-center justify-center text-sm">
+                                <iconify-icon icon="heroicons:user"></iconify-icon>
+                              </div> -->
+                              <div class="flex-1 mx-8 text-sm dark:text-slate-100 text-black font-sm">
+                                Tenggat Waktu :
+                              </div>
+                              <div class="block  text-base dark:text-slate-100 text-black font-sm">
+                              20-06-2023
                               </div>
                             </div>
                           

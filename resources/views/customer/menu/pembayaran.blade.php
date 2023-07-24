@@ -52,7 +52,7 @@
                             </div>
                           
                           </div>
-                          <a href="./#" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
+                          <a href="{{route('customer.menu.pembayaran.checkout')}}" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
                                 dark:text-slate-300">
                             <span>Lanjutkan Pembayaran</span>
                             <iconify-icon icon="heroicons:arrow-right"></iconify-icon>

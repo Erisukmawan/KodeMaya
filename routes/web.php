@@ -89,6 +89,7 @@ Route::middleware(['customer'])->controller(CustomerController::class)->group(fu
     Route::get('/customer/pemesanan/form-pemesanan', 'view_form_pemesanan')->name('customer.menu.pemesanan.form_pemesanan');
     Route::get('/customer/pemesanan/detail-pemesanan', 'view_detail_pemesanan')->name('customer.menu.pemesanan.detail_pemesanan');
     Route::get('/customer/pembayaran/', 'view_pembayaran')->name('customer.menu.pembayaran');
+    Route::get('/customer/pembayaran/checkout', 'view_pembayaran_checkout')->name('customer.menu.pembayaran.checkout');
     Route::get('/customer/pembayaran/preview', 'view_pembayaran_preview')->name('customer.menu.pembayaran.bukti_pembayaran');
     Route::get('/customer/profile', 'view_profile')->name('customer.profile');
     Route::get('/customer/kontrak', 'view_kontrak')->name('customer.menu.kontrak');
