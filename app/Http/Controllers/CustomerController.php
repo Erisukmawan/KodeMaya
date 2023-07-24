@@ -22,4 +22,12 @@ class CustomerController extends Controller
     {
         return view('customer.menu.form-pemesanan');
     }
+    public function view_pembayaran()
+    {
+        return view('customer.menu.pembayaran');
+    }
+    public function view_pembayaran_preview()
+    {
+        return view('customer.menu.preview-pembayaran');
+    }
 }

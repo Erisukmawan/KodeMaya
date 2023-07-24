@@ -88,7 +88,7 @@
                                         <!-- Megamenu -->
                                     </li>
                                     <li class="menu-item-has-children menuatas">
-                                        <a href="#produk">
+                                        <a href="{{route('customer.menu.pembayaran')}}">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=material-symbols:price-change-outline>
