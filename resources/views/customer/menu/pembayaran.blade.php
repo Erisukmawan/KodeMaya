@@ -5,7 +5,7 @@
                           <header class="card-header">
                               <div class="flex-1">
                           <div class="text-xl text-sm text-black dark:text-white mb-2">
-                            <span class="block font-normal">Kode Pembayaran : {id_pemesanan}</span>
+                            <span class="block font-normal">Kode Pembayaran : #PB2112</span>
                           </div>
                       </div>
                       <div class="flex-none">
@@ -23,7 +23,7 @@
                                 Project :
                               </div>
                               <div class="block  text-base dark:text-slate-100 text-black font-sm">
-                              20-06-03 12:09:12
+                              Aplikasi pencari jodoh
                               </div>
                             </div>
 
@@ -81,7 +81,7 @@
                                   <th scope="col" class=" table-th ">Project_name</th>
                                   <th scope="col" class=" table-th ">Mentor</th>
                                   <th scope="col" class=" table-th ">Date</th>
-                                  <th scope="col" class=" table-th ">Amount</th>
+                                  <th scope="col" class=" table-th ">Total</th>
                                   <th scope="col" class=" table-th ">user_status</th>
                                   <th scope="col" class=" table-th ">Action</th>
                                 </tr>
@@ -92,7 +92,7 @@
                                   <td class="table-td ">Aplikasi Kantin Sekolah</td>
                                   <td class="table-td">Jenny Wilson</td>
                                   <td class="table-td ">3/26/2022</td>
-                                  <td class="table-td ">$1779.53</td>
+                                  <td class="table-td ">Rp.779.953</td>
                                   <td class="table-td ">
                                     <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">
                                       paid

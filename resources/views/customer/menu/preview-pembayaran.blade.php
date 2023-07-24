@@ -159,53 +159,12 @@
                               2</td>
                             <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
                                     rtl:last:text-left px-6 py-4">
-                              $600.25</td>
+                              Rp600.25</td>
                             <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
                                     rtl:last:text-left px-6 py-4">
-                              $1200.50</td>
+                              Rp1200.50</td>
                           </tr>
-                          <tr class="border-b border-slate-100 dark:border-slate-700">
-                            <td colspan="3" class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              Headphone</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              2</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              $600.25</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              $1200.50</td>
-                          </tr>
-                          <tr class="border-b border-slate-100 dark:border-slate-700">
-                            <td colspan="3" class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              Headphone</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              2</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              $600.25</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              $1200.50</td>
-                          </tr>
-                          <tr class="border-b border-slate-100 dark:border-slate-700">
-                            <td colspan="3" class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              Headphone</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              2</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              $600.25</td>
-                            <td class="text-slate-900 dark:text-slate-300 text-sm font-normal ltr:text-left ltr:last:text-right rtl:text-right
-                                    rtl:last:text-left px-6 py-4">
-                              $1200.50</td>
-                          </tr>
+                          
                         </table>
                         <div class="md:flex px-6 py-6 items-center">
                           <div class="flex-1 text-slate-500 dark:text-slate-300 text-sm">Amet minim mollit non deserunt ullamco est sit aliqua
@@ -213,15 +172,15 @@
                           <div class="flex-none min-w-[270px] space-y-3">
                             <div class="flex justify-between">
                               <span class="font-medium text-slate-600 text-xs dark:text-slate-300 uppercase">subtotal:</span>
-                              <span class="text-slate-900 dark:text-slate-300">$3601.50</span>
+                              <span class="text-slate-900 dark:text-slate-300">Rp3601.50</span>
                             </div>
                             <div class="flex justify-between">
                               <span class="font-medium text-slate-600 text-xs dark:text-slate-300 uppercase">vat (3.5%):</span>
-                              <span class="text-slate-900 dark:text-slate-300">$20.50</span>
+                              <span class="text-slate-900 dark:text-slate-300">Rp20.50</span>
                             </div>
                             <div class="flex justify-between">
                               <span class="font-medium text-slate-600 text-xs dark:text-slate-300 uppercase">Invoice total:</span>
-                              <span class="text-slate-900 dark:text-slate-300 font-bold">$3622.00</span>
+                              <span class="text-slate-900 dark:text-slate-300 font-bold">Rp3622.00</span>
                             </div>
                           </div>
                         </div>

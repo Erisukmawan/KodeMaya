@@ -97,7 +97,7 @@
                           <div class="input-area">
                           <label for="textFormatter" class="form-label">Email</label>
                           <div class="relative space-y-6">
-                            <input id="nama_project" type="email" class="form-control" placeholder="Apa Nama Project Anda ?" value="{{Auth::User()->email}}">
+                            <input id="nama_project" type="email" class="form-control" placeholder="Masukkan Email Anda " value="{{Auth::User()->email}}">
                             <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                             <span class="block"></span>  
                         </div>
@@ -105,7 +105,7 @@
                           <div class="input-area">
                           <label for="textFormatter" class="form-label">Alamat</label>
                           <div class="relative space-y-6">
-                            <input id="nama_project" type="text" class="form-control" placeholder="Apa Nama Project Anda ?">
+                            <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
                             <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                             <span class="block"></span>  
                         </div>
@@ -113,7 +113,7 @@
                           <div class="input-area">
                           <label for="textFormatter" class="form-label">Telphone</label>
                           <div class="relative space-y-6">
-                            <input id="nama_project" type="number" class="form-control" placeholder="Apa Nama Project Anda ?">
+                            <input id="nama_project" type="number" class="form-control" placeholder="08xxxxxxxxx">
                             <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                             <span class="block"></span>  
                         </div>
@@ -126,7 +126,7 @@
                               <input type="file" class=" w-full hidden" name="basic" accept=".jpg, .jpeg, .png">
                               <span class="w-full h-[40px] file-control flex items-center custom-class">
                   <span class="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
-                    <span id="placeholder" class="text-slate-400">Choose a file or drop it here...</span>
+                    <!-- <span id="placeholder" class="text-slate-400"></span> -->
                               </span>
                               <span class="file-name flex-none cursor-pointer border-l px-4 border-slate-200 dark:border-slate-700 h-full inline-flex items-center bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 text-sm rounded-tr rounded-br font-normal">Browse</span>
                               </span>
