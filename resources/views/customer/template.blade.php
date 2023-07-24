@@ -75,7 +75,7 @@
                                                 </a>
                                             </li>
                                             <li class="menuatas">
-                                                <a href=#customer>
+                                                <a href="{{route('customer.menu.kontrak')}}">
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon="mdi:hand-clap" class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
@@ -87,7 +87,7 @@
                                         </ul>
                                         <!-- Megamenu -->
                                     </li>
-                                    <li class="menu-item-has-children menuatas">
+                                    <li class="{{ (request()->is('customer/pembayaran*')) ? 'active' : '' }} menuatas">
                                         <a href="{{route('customer.menu.pembayaran')}}">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
@@ -225,7 +225,7 @@
             </span>
         </div>
     </a>
-    <a href="">
+    <a href="{{route('customer.menu.kontrak')}}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
