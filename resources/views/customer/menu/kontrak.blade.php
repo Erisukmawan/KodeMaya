@@ -1,8 +1,10 @@
 @extends('customer/template')
 @section('main-content')
 <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-                    <div class="card">
+                   
+                      <div class="card">
                           <header class="card-header">
+                            
                               <div class="flex-1">
                           <div class="text-xl text-sm text-black dark:text-white mb-2">
                             <span class="block font-normal">Kode Kontrak : #KT2112</span>
