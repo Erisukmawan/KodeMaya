@@ -102,7 +102,7 @@
                                       <div class="flex space-x-2">
                                         <a href="{{route('customer.menu.pembayaran.bukti_pembayaran')}}">
                                                 <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white">
-                                                  <iconify-icon icon="heroicons:eye"></iconify-icon>
+                                                  <iconify-icon icon="solar:bill-check-linear"></iconify-icon>
                                                 </span>
                                         </a>
                                               <a href="finvoive-preview.html">

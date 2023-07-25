@@ -2,127 +2,143 @@
 
 
 @section('main-content')
-    <div class="space-y-5 profile-page">
-      <div class="bg-no-repeat bg-cover bg-center px-5 py-8 rounded-xl relative flex items-center" style="background-image: url({{url('assets/images/all-img/widget-bg-7.png')}})">
-                      <div class="flex-1">
-                        <div class="max-w-[180px]">
-                          <div class="text-xl font-medium text-white dark:text-slate-800 mb-2">
-                            <span class="block font-normal">Good evening,</span>
-                            <span class="block">Mr. Dianne Russell</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="flex-none">
-                        <button class="flex space-x-1 btn-light bg-white btn-sm btn">
-                          <div class="flex-none h-6 w-6  rounded-full bg-info-900 text-white flex flex-col items-center justify-center text-lg">
-                                <iconify-icon icon="mingcute:add-fill"></iconify-icon>
-                              </div>
-                              <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
-                                Tambah Pesanan
-                              </div>
-                        </button>
-                      </div>
-                    </div>
-                  <div class=" gap-6">
-                    <div class="lg:col-span-8 col-span-12">
-                      <div class="card">
-                          <header class="card-header">
-                              <div class="flex space-x-3 items-center rtl:space-x-reverse">
-                              <div class="flex-none h-8 w-8 rounded-full bg-success-500 text-white flex flex-col items-center justify-center text-lg">
-                                <iconify-icon icon="heroicons:user"></iconify-icon>
-                              </div>
-                              <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                                Profile Settings
-                              </div>
-                            </div>
-                          </header>
-                      <div class="card-body p-6">
-                        <div class="space-y-6">
-                          <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            Connect your bank account to your company profile, and more
-                          </div>
-                          <a href="./#" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
-                                dark:text-slate-300">
-                            <span>Chnage Settings</span>
-                            <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                </div>
+    <div class="card p-6">
+        <div class="grid grid-cols-8 gap-5">
+            <div class="xl:col-span-8 col-span-12">
+                <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
 
-                <div class=" space-y-5">
-                  <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-                    <div class="card">
-                      <div class="card-body p-6">
-                        <div class="space-y-6">
-                          <div class="flex space-x-3 items-center rtl:space-x-reverse">
-                            <div class="flex-none h-8 w-8 rounded-full bg-slate-800 dark:bg-slate-700 text-slate-300 flex flex-col items-center
-                                    justify-center text-lg">
-                              <iconify-icon icon="heroicons:building-office-2"></iconify-icon>
-                            </div>
-                            <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                              Company Settings
-                            </div>
-                          </div>
-                          <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            Set up your company profile, add your company logo, and more
-                          </div>
-                          <a href="./#" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
-                                dark:text-slate-300">
-                            <span>Chnage Settings</span>
-                            <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
-                          </a>
+                    <!-- BEGIN: Group Chart5 -->
+
+
+                    <div class=" bg-info-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                        <div
+                            class="text-info-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
+                            <iconify-icon icon=heroicons-outline:menu-alt-1></iconify-icon>
                         </div>
-                      </div>
+                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
+                            Total Project
+                        </span>
+                        <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
+                            64
+                        </span>
                     </div>
-                    <div class="card">
-                      <div class="card-body p-6">
-                        <div class="space-y-6">
-                          <div class="flex space-x-3 items-center rtl:space-x-reverse">
-                            <div class="flex-none h-8 w-8 rounded-full bg-primary-500 text-slate-300 flex flex-col items-center justify-center text-lg">
-                              <iconify-icon icon="heroicons:credit-card"></iconify-icon>
-                            </div>
-                            <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                              Payment Settings
-                            </div>
-                          </div>
-                          <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            Connect your bank account to your company profile, and more
-                          </div>
-                          <a href="./#" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
-                                dark:text-slate-300">
-                            <span>Chnage Settings</span>
-                            <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
-                          </a>
+
+                    <div class=" bg-success-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                        <div
+                            class="text-success-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
+                            <iconify-icon icon=heroicons-outline:chart-pie></iconify-icon>
                         </div>
-                      </div>
+                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
+                            Project Selesai
+                        </span>
+                        <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
+                            45
+                        </span>
                     </div>
-                    <div class="card">
-                      <div class="card-body p-6">
-                        <div class="space-y-6">
-                          <div class="flex space-x-3 rtl:space-x-reverse items-center">
-                            <div class="flex-none h-8 w-8 rounded-full bg-danger-500 text-white flex flex-col items-center justify-center text-lg">
-                              <iconify-icon icon="solar:logout-2-bold"></iconify-icon>
-                            </div>
-                            <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                              Logout
-                            </div>
-                          </div>
-                          <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            Yakin keluar ? pas balik harus masuk akun lagi, ya.
-                          </div>
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
-                            @csrf
-                            <button type="submit">
-                                <span class="font-Inter items-center justify-center" style="text-align:'center'; color:red">Logout</span>
-                            </button>
-                        </form>
+
+                    <div class=" bg-warning-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                        <div
+                            class="text-warning-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
+                            <iconify-icon icon=heroicons-outline:clock></iconify-icon>
                         </div>
-                      </div>
+                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
+                            Project Di Proses
+                        </span>
+                        <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
+                            190
+                        </span>
                     </div>
-                  </div>
+
+                    <div class=" bg-primary-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                        <div
+                            class="text-primary-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
+                            <iconify-icon icon=heroicons-outline:calculator></iconify-icon>
+                        </div>
+                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
+                            Total Pendapatan
+                        </span>
+                        <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
+                            Rp5.000.564
+                        </span>
+                    </div>
+
+                    <!-- END: Group Chart5 -->
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-8 gap-8">
+        <div class="xl:col-span-8 lg:col-span-7 col-span-12">
+            <div class="card">
+                <div class="card-header noborder">
+                    <h4 class="card-title ">Riwayat Penyelesaian Project</h4>
+                </div>
+                <div class="card-body p-6">
+                    <div class="overflow-x-auto -mx-6 dashcode-data-table">
+                        <div class="inline-block min-w-full align-middle">
+                            <div class="overflow-hidden ">
+                                <table class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
+                                    id="data-table">
+                                    <thead class="bg-slate-200 dark:bg-slate-700">
+                                        <tr>
+                                          <th scope="col" class=" table-th ">Nama Customer</th>
+                                          <th scope="col" class=" table-th ">Judul Project</th>
+                                            <th scope="col" class=" table-th ">Status</th>
+                                            <th scope="col" class=" table-th ">Harga</th>
+                                            <th scope="col" class=" table-th ">Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
+                                        <tr>
+                                            <td class="table-td">
+                                                <div class="flex items-center">
+                                                    <div class="flex-none">
+                                                        <div class="w-8 h-8 rounded-[100%] ltr:mr-3 rtl:ml-3">
+                                                            <img src="{{ url('assets/images/avatar/av-1.svg') }}" alt=""
+                                                                class="w-full h-full rounded-[100%] object-cover">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-1 text-start">
+                                                        <h4 class="text-sm font-medium text-slate-600 whitespace-nowrap">Arlene McCoy</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="table-td">42.5 hours</td>
+                                            <td class="table-td ">
+                                                <span class="block min-w-[140px] text-left">
+                                                    <span class="inline-block text-center mx-auto py-1">
+                                                        <span class="flex items-center space-x-3 rtl:space-x-reverse">
+                                                            <span class="h-[6px] w-[6px] bg-danger-500 rounded-full inline-block ring-4 ring-opacity-30 ring-danger-500"></span>
+                                                            <span>In progress</span>
+                                                        </span>
+                                            </td>
+                                            <td class="table-td">Rp5.000.000</td>
+                                            <td class="table-td">
+                                                <div class="relative">
+                                                    <div class="dropdown relative">
+                                                        <button class="text-xl text-center block w-full " type="button"
+                                                            id="teamDropdownMenuButton" data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                            <iconify-icon icon="heroicons-outline:dots-vertical">
+                                                            </iconify-icon>
+                                                        </button>
+                                                        <ul class=" dropdown-menu min-w-[120px] absolute text-sm text-slate-700 dark:text-white hidden bg-white dark:bg-slate-700 shadow z-[2] float-left overflow-hidden list-none text-left rounded-lg mt-1 m-0 bg-clip-padding border-none">
+                                                            <li>
+                                                                <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}" class="text-slate-600 dark:text-white block font-Inter font-normal px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white">View</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endsection

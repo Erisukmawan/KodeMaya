@@ -39,12 +39,12 @@
                                         </a>
                                     </li>
                                     <li class="menu-item-has-children menuatas">
-                                        <a href="javascript:void()">
+                                        <a href="javascript:void() {{ (request()->is('mentor/pemesanan')) ? 'active' : '' }} menuatas">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=mdi:feature-highlight> </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Fitur</div>
+                                                <div class="text-box">Pemesanan</div>
                                             </div>
                                             <div
                                                 class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
@@ -52,24 +52,34 @@
                                             </div>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li class="menuatas">
-                                                <a href=#Tulung>
+                                            <li class="{{ (request()->is('mentor/pemesanan')) ? 'active' : '' }} menuatas">
+                                                <a href="{{ route('mentor.menu.pemesanan') }}">
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon=ic:baseline-connect-without-contact
                                                             class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Tulung
+                                                            Pesanan
                                                         </span>
                                                     </div>
                                                 </a>
                                             </li>
                                             <li class="menuatas">
-                                                <a href=#Mentor>
+                                                <a href=#mentor>
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon=heroicons-outline:chat
                                                             class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Mentor
+                                                            Negoisasi
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="menuatas">
+                                                <a href="{{route('mentor.menu.kontrak')}}">
+                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
+                                                        <iconify-icon icon="mdi:hand-clap" class="leading-[1] text-base"> </iconify-icon>
+                                                        <span class="leading-[1]">
+                                                            Kontrak
                                                         </span>
                                                     </div>
                                                 </a>
@@ -77,14 +87,14 @@
                                         </ul>
                                         <!-- Megamenu -->
                                     </li>
-                                    <li class="menu-item-has-children menuatas">
-                                        <a href="#produk">
+                                    <li class="{{ (request()->is('mentor/pembayaran*')) ? 'active' : '' }} menuatas">
+                                        <a href="{{route('mentor.menu.pembayaran')}}">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=material-symbols:price-change-outline>
                                                     </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Harga</div>
+                                                <div class="text-box">Pembayaran</div>
                                             </div>
                                         </a>
                                     </li>
@@ -100,46 +110,7 @@
                                                 </span>
                                                 <div class="text-box">FAQ</div>
                                             </div>
-                                            <div
-                                                class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
-                                                <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
-                                            </div>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href=basic-table.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=mdi:about class="leading-[1] text-base">
-                                                        </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Tentang Kami
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href=advance-table.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=fluent:contact-card-group-28-regular
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Hubungi Kami
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href=apex-chart.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=material-symbols:privacy-tip-outline
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Syarat dan Ketentuan
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
+</a>
 
                                         <!-- Megamenu -->
 
@@ -230,60 +201,53 @@
 
 @section('menu-mobile')
 <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
-    <a href="{{ route('mentor.features.tulung.pesanan') }}">
+    <a href="{{route('mentor.menu.pemesanan')}}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
-                <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
+                <iconify-icon icon="mdi:feature-highlight"></iconify-icon>
             </span>
             <span class="block text-[11px] text-slate-600 dark:text-slate-300">
                 Pesanan
             </span>
         </div>
         
-    </a>
-    <a href="{{ route('mentor.features.tulung.pesanan') }}">
-        <div>
-            <div class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900 " id="konten">
-                <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
-            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Pesanan
-            </span>
-            <input type="checkbox" id="chek" />
-                <div class="fab text-slate-900"></div>
-                <div class="fac">
-                <iconify-icon icon="material-symbols:image-outline"></iconify-icon>
-                <iconify-icon icon="mdi:file-outline"> </iconify-icon>
-                <iconify-icon icon="majesticons:video-line"> </iconify-icon>
-                <iconify-icon icon="solar:tag-price-bold"> </iconify-icon>
-                </div>
-            </div>                                
-        </div>
-    </a>
-    <a href="{{ route('mentor.features.tulung.pesanan') }}">
-        <div>
-            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900 ">
-                <iconify-icon icon="heroicons-outline:mail"></iconify-icon>
-            </span>
-            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Pesanan
-            </span>
-        </div>
+        
     </a>
     <a href="">
         <div>
+            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900 ">
+                <iconify-icon icon="heroicons-outline:chat"></iconify-icon>
+            </span>
+            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
+                Negoisasi
+            </span>
+        </div>
+    </a>
+    <a href="{{route('mentor.menu.kontrak')}}">
+        <div>
+            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900 ">
+                <iconify-icon icon="mdi:hand-clap"></iconify-icon>
+            </span>
+            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
+                Kontrak
+            </span>
+        </div>
+    </a>
+    <a href="{{route('mentor.menu.pembayaran')}}">
+        <div>
             <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
-                <iconify-icon icon="heroicons-outline:bell"></iconify-icon>
+                <iconify-icon icon="material-symbols:price-change-outline"></iconify-icon>
                 <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
             justify-center rounded-full text-white z-[99]">
-                    2
+                    1
                 </span>
             </span>
             <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
-                Notifikasi
+                Pembayaran
             </span>
         </div>
     </a>

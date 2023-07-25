@@ -79,7 +79,15 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
 
 Route::middleware(['mentor'])->controller(MentorController::class)->group(function() {
     Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
-    Route::get('/mentor/tulung/pesanan', 'view_tulung_pesanan')->name('mentor.features.tulung.pesanan');
+    Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
+    Route::get('/mentor/pemesanan/', 'view_pemesanan')->name('mentor.menu.pemesanan');
+    Route::get('/mentor/pemesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.pemesanan.pengerjaan_pemesanan');
+    Route::get('/mentor/pemesanan/detail-pemesanan', 'view_detail_pemesanan')->name('mentor.menu.pemesanan.detail_pemesanan');
+    Route::get('/mentor/pembayaran/', 'view_pembayaran')->name('mentor.menu.pembayaran');
+    Route::get('/mentor/pembayaran/checkout', 'view_pembayaran_checkout')->name('mentor.menu.pembayaran.checkout');
+    Route::get('/mentor/pembayaran/preview', 'view_pembayaran_preview')->name('mentor.menu.pembayaran.bukti_pembayaran');
+    Route::get('/mentor/kontrak', 'view_kontrak')->name('mentor.menu.kontrak');
+    Route::get('/mentor/kontrak/detail-kontrak', 'view_detail_kontrak')->name('mentor.menu.kontrak.detail_kontrak');
     Route::get('/mentor/profile', 'view_profile')->name('mentor.profile');
 });
 

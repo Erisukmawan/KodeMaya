@@ -10,12 +10,40 @@ class MentorController extends Controller
     {
         return view('mentor.menu.dashboard');
     }
-    public function view_tulung_pesanan()
-    {
-        return view('mentor.features.tulung.pesanan');
-    }
     public function view_profile()
     {
         return view('mentor.profile');
+    }
+    public function view_pemesanan()
+    {
+        return view('mentor.menu.pemesanan');
+    }
+    public function view_pengerjaan_pemesanan()
+    {
+        return view('mentor.menu.pengerjaan');
+    }
+    public function view_detail_pemesanan()
+    {
+        return view('mentor.menu.detail-pemesanan');
+    }
+    public function view_pembayaran()
+    {
+        return view('mentor.menu.pembayaran');
+    }
+    public function view_pembayaran_preview()
+    {
+        return view('mentor.menu.preview-pembayaran');
+    }
+    public function view_kontrak()
+    {
+        return view('mentor.menu.kontrak');
+    }
+    public function view_detail_kontrak()
+    {
+        return view('mentor.menu.detail-kontrak');
+    }
+    public function view_pembayaran_checkout()
+    {
+        return view('mentor.menu.checkout');
     }
 }
