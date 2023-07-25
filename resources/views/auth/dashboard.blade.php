@@ -20,7 +20,6 @@
 </head>
 
 <body class="font-inter dashcode-app" id="body_class">
-  <!-- [if IE]> <p class="browserupgrade"> You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security. </p> <![endif] -->
   <main class="app-wrapper">
     <!-- BEGIN: Sidebar -->
     <!-- BEGIN: Sidebar -->

@@ -13,6 +13,7 @@
   localStorage.menuLayout == "horizontalMenu";
   localStorage.navbar == "sticky top-0";
   localStorage.contentLayout = "container-fluid";
+  // $("#sidebar_menus, #scrollModal")[0];
   function screenWidth() {
     if ($(window).width() < 1281) {
       $(".sidebar-wrapper").addClass("menu-hide");
@@ -22,6 +23,7 @@
       $("#content_wrapper").addClass("margin-0");
       $(".sidebarCloseIcon").show();
       $("#sidebar_type").hide();
+      // $("#sidebar_menus, #scrollModal")[0];
     } else {
       $(".sidebarCloseIcon").hide();
       $("#sidebar_type").show();
@@ -34,6 +36,7 @@
       $(".site-footer").addClass("margin-0");
       $("#content_wrapper").addClass("margin-0");
       // $("#page_layout").addClass("container-fluid");
+      // $("#sidebar_menus, #scrollModal")[0];
     }
   }
   screenWidth();
@@ -50,16 +53,12 @@
     "class": "dark",
     checked: false
   }, {
-    name: "semiDark",
-    "class": "semiDark",
-    checked: false
-  }, {
     name: "light",
     "class": "light",
     checked: false
   }];
 
-  // Loop through themes and add event listener for changes
+  /// Loop through themes and add event listener for changes
   themes.forEach(function (theme) {
     var radioBtn = $("#".concat(theme["class"]));
     radioBtn.prop("checked", theme.name === currentTheme);
@@ -82,16 +81,6 @@
     localStorage.theme = currentTheme;
     location.reload();
   });
-  $("#grayScale").on("click", function () {
-    if ($("html").hasClass("grayScale")) {
-      $("html").removeClass("grayScale");
-      localStorage.effect = "";
-    } else {
-      $("html").addClass("grayScale");
-      localStorage.effect = "grayScale";
-    }
-  });
-
   /*===================================
    Layout Changer
   =====================================*/
@@ -138,7 +127,6 @@
       $(".sidebar-wrapper").removeClass("menu-hide");
       $("#menuCollapse").show();
       $(".app-header").removeClass("margin-0");
-      $("#app_header").addClass("static");
       $(".site-footer").removeClass("margin-0");
       $("#content_wrapper").removeClass("margin-0");
     }
@@ -165,7 +153,7 @@
 
   // Menu Layout toggle
   if (localStorage.menuLayout == "horizontalMenu") {
-    $(".app-wrapper").addClass(localStorage.menuLayout);
+    // $(".app-wrapper").addClass(localStorage.menuLayout);
     $("#horizontal_menu").prop("checked", true);
   } else {
     // $(".app-wrapper").removeClass("horizontalMenu");
@@ -317,8 +305,11 @@
   /*===================================
    Plugin initialization
   =====================================*/
+  // Sidebar Menu
+  $.sidebarMenu($(".sidebar-menu"));
 
-
+  // Simple Bar
+  // new SimpleBar($("#sidebar_menus, #scrollModal")[0]);
 
   // Basic Carousel
   $(".basic-carousel").owlCarousel({

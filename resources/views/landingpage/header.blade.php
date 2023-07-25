@@ -33,8 +33,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
         <!-- BEGIN: Sidebar -->
 
         <div class="sidebar-wrapper group md:hidden block">
-            <div id="bodyOverlay"
-                class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div>
+            <!-- <div id="bodyOverlay"class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div> -->
             <div class="logo-segment">
                 <a class="flex items-center" href="/">
                     <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
