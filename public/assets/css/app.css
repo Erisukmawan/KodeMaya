@@ -213,6 +213,13 @@ Correct the cursor style of increment and decrement buttons in Safari.
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
+.menuatas.active .text-box {
+    color: blue;
+}
+
+.dark .menuatas.active .text-box {
+    color: #00c9ff;
+}
 [type='search'] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */

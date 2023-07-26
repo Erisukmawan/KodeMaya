@@ -79,15 +79,27 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
 
 Route::middleware(['mentor'])->controller(MentorController::class)->group(function() {
     Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
-    Route::get('/mentor/tulung/pesanan', 'view_tulung_pesanan')->name('mentor.features.tulung.pesanan');
+    Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
+    Route::get('/mentor/pemesanan/', 'view_pemesanan')->name('mentor.menu.pemesanan');
+    Route::get('/mentor/pemesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.pemesanan.pengerjaan_pemesanan');
+    Route::get('/mentor/pemesanan/detail-pemesanan', 'view_detail_pemesanan')->name('mentor.menu.pemesanan.detail_pemesanan');
+    Route::get('/mentor/pembayaran/', 'view_pembayaran')->name('mentor.menu.pembayaran');
+    Route::get('/mentor/pembayaran/checkout', 'view_pembayaran_checkout')->name('mentor.menu.pembayaran.checkout');
+    Route::get('/mentor/pembayaran/preview', 'view_pembayaran_preview')->name('mentor.menu.pembayaran.bukti_pembayaran');
+    Route::get('/mentor/kontrak', 'view_kontrak')->name('mentor.menu.kontrak');
+    Route::get('/mentor/kontrak/detail-kontrak', 'view_detail_kontrak')->name('mentor.menu.kontrak.detail_kontrak');
+    Route::get('/mentor/profile', 'view_profile')->name('mentor.profile');
 });
 
 Route::middleware(['customer'])->controller(CustomerController::class)->group(function() {
     Route::get('/customer/dashboard', 'view_dashboard')->name('customer.menu.dashboard');
-    Route::get('/customer/tulung/post', 'view_tulung_post')->name('customer.features.tulung.post');
-    Route::get('/customer/tulung/task', 'view_tulung_task')->name('customer.features.tulung.task');
-    Route::get('/customer/tulung/history', 'view_tulung_history')->name('customer.features.tulung.history');
-    Route::get('/customer/notification', 'view_notification')->name('customer.menu.notification');
-    Route::get('/customer/history-transactions', 'view_history_transactions')->name('customer.finance.history_transactions');
-    Route::get('/customer/profile', 'view_profil')->name('customer.settings.profile');
+    Route::get('/customer/pemesanan/', 'view_pemesanan')->name('customer.menu.pemesanan');
+    Route::get('/customer/pemesanan/form-pemesanan', 'view_form_pemesanan')->name('customer.menu.pemesanan.form_pemesanan');
+    Route::get('/customer/pemesanan/detail-pemesanan', 'view_detail_pemesanan')->name('customer.menu.pemesanan.detail_pemesanan');
+    Route::get('/customer/pembayaran/', 'view_pembayaran')->name('customer.menu.pembayaran');
+    Route::get('/customer/pembayaran/checkout', 'view_pembayaran_checkout')->name('customer.menu.pembayaran.checkout');
+    Route::get('/customer/pembayaran/preview', 'view_pembayaran_preview')->name('customer.menu.pembayaran.bukti_pembayaran');
+    Route::get('/customer/profile', 'view_profile')->name('customer.profile');
+    Route::get('/customer/kontrak', 'view_kontrak')->name('customer.menu.kontrak');
+    Route::get('/customer/kontrak/detail-kontrak', 'view_detail_kontrak')->name('customer.menu.kontrak.detail_kontrak');
 });

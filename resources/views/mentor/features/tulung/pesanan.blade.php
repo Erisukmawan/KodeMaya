@@ -199,11 +199,11 @@
                             <!-- BEGIN: Messages -->
 
 
-                            <div id="main-message-box" style="height: 128%;">
-                                <div class="chat-content parent-height bg-white dark:bg-slate-800">
+                            <div id="main-message-box" class="h-full">
+                                <div class="chat-content parent-height bg-slate-800 dark:bg-slate-800">
                                     <div class="msgs overflow-y-auto msg-height pt-6 space-y-6">
                                         <div class="block md:px-6 px-4">
-                                            <div class="flex space-x-2 items-start group rtl:space-x-reverse">
+                                            <div class="flex space-x-2 items-start group">
                                                 <div class="flex-none">
                                                     <div class="h-8 w-8 rounded-full">
                                                         <img src="{{ url('assets/images/users/user-2.jpg') }}"
@@ -211,11 +211,10 @@
                                                             class="block w-full h-full object-cover rounded-full">
                                                     </div>
                                                 </div>
-                                                <div class="flex-1 flex space-x-4 rtl:space-x-reverse">
+                                                <div class="flex-1 flex space-x-4">
                                                     <div>
                                                         <div
-                                                            class="text-contrent p-3 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 text-slate-600 text-sm font-normal mb-1 rounded-md flex-1 whitespace-pre-wrap break-all">
-                                                            Hey! How are you?</div>
+                                                            class="text-contrent p-3 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 text-slate-600 text-sm font-normal mb-1 rounded-md flex-1 whitespace-pre-wrap break-all">Hey! How are you?</div>
                                                         <span
                                                             class="font-normal text-xs text-slate-400 dark:text-slate-400">12:20
                                                             pm</span>
@@ -453,10 +452,10 @@
                                 </div>
                                 <!-- message -->
                                 <footer
-                                    class="md:px-6 px-4 sm:flex md:space-x-4 sm:space-x-2 rtl:space-x-reverse border-t md:pt-6 pt-4 border-slate-100
+                                    class=" md:px-9 px-4 sm:flex md:space-x-4 sm:space-x-2 rtl:space-x-reverse border-t md:pt-6 pt-4 border-slate-100
             dark:border-slate-700">
-                                    <div class="flex sm:flex md:space-x-3 space-x-1 rtl:space-x-reverse">
-                                        <div class="h-8 w-8 cursor-pointer bg-slate-100 dark:bg-slate-900 dark:text-slate-400 flex justify-center
+                                    <div class="flex grow sm:flex md:space-x-1 space-x-3 rtl:space-x-reverse">
+                                    <div class="h-8 w-8 cursor-pointer bg-slate-100 dark:bg-slate-900 dark:text-slate-400 flex justify-center
                     items-center text-xl rounded-full"
                                             id="konten">
                                             <iconify-icon icon="heroicons-outline:link">
@@ -470,20 +469,17 @@
                                                 <iconify-icon icon="solar:tag-price-bold"> </iconify-icon>
 
                                             </div>
-                                            <!--  -->
                                         </div>
                                         <div
-                                            class="h-8 w-8 cursor-pointer bg-slate-100 dark:bg-slate-900 dark:text-slate-400 flex justify-center
+                                            class="h-8 w-8  cursor-pointer bg-slate-100 dark:bg-slate-900 dark:text-slate-400 flex justify-center
                     items-center text-xl rounded-full">
                                             <iconify-icon icon="heroicons-outline:emoji-happy"> </iconify-icon>
-                                        </div>
-                                    </div>
-                                    <div class="flex-1 relative flex space-x-3 rtl:space-x-reverse">
-                                        <div class="flex-1 bg-slate-200 rounded-2xl dark:bg-slate-700">
+                                            </div>
+                                            <div class="grow relative bg-slate-200 space-x-3 rounded-2xl dark:bg-slate-700">
                                             <textarea placeholder="Type your message..."
                                                 class="focus:ring-0 focus:outline-0 block w-full bg-transparent dark:text-white resize-none"></textarea>
-                                        </div>
-                                        <div class="flex-none md:pr-0 pr-3">
+                                        </div>  
+                                        <div class="flex-none grow-0 md:pr-0 pr-3">
                                             <button type="button"
                                                 class="h-8 w-8 bg-slate-900 text-white flex flex-col justify-center items-center text-lg rounded-full">
                                                 <iconify-icon icon="heroicons-outline:paper-airplane"
@@ -491,6 +487,7 @@
                                             </button>
                                         </div>
                                     </div>
+                                </div>
                                 </footer>
                                 <!-- end footer -->
                             </div>
@@ -498,7 +495,7 @@
                             <!-- END: Message -->
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
                 <!-- right info bar -->
                 <div class="flex-none w-[285px]" id="info-box">
                     <div class="h-full card">

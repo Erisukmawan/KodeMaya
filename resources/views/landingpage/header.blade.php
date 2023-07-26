@@ -2,7 +2,7 @@
 <!-- Template N
 
 ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Codeshaper Website: https://codeshaper.net Contact: support@codeshaperbd.net Like: https://www.facebook.com/Codeshaperbd Purchase: https://themeforest.net/item/dashcode-admin-dashboard-template/42600453 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project. -->
-<html lang="zxx" dir="ltr" class="light">
+<html lang="zxx" dir="ltr" class="black">
 
 
 <head>
@@ -17,13 +17,13 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" href="assets/css/rt-plugins.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="assets/css/landingpage.css">
+    <link rel="stylesheet" href="{{url('/assets/css/rt-plugins.css')}}">
+    <link rel="stylesheet" href="{{url('/assets/css/app.css')}}">
+    <link rel="stylesheet" href="{{url('/assets/css/landingpage.css')}}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <!-- End : Theme CSS-->
-    <script src="assets/js/settings.js" sync></script>
+    <script src="{{url('/assets/js/settings.js')}}" sync></script>
 </head>
 
 <body class=" font-inter" id="body_class">
@@ -33,8 +33,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
         <!-- BEGIN: Sidebar -->
 
         <div class="sidebar-wrapper group md:hidden block">
-            <div id="bodyOverlay"
-                class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div>
+            <!-- <div id="bodyOverlay"class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div> -->
             <div class="logo-segment">
                 <a class="flex items-center" href="/">
                     <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
@@ -141,31 +140,31 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                     <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
                                     <img src="assets/images/logo/favicon.svg" class="white_logo" alt="logo">
                                 </a>
-                                {{-- <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
+                                <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
                                     <iconify-icon
                                         class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white"
                                         icon="heroicons-outline:menu-alt-3"></iconify-icon>
-                                </button> --}}
+                                </button>
 
                             </div>
                             <!-- end vertcial -->
                             <div class="items-center space-x-4 rtl:space-x-reverse horizental-box">
-                                <a href="/">
-                                    <span class="xl:inline-block hidden">
-                                        <img src="assets/images/logo/logo.svg" class="black_logo " alt="logo">
-                                        <img src="assets/images/logo/logo.svg" class="white_logo" alt="logo">
-                                    </span>
-                                    <span class="xl:hidden inline-block">
-                                        <img src="assets/images/logo/favicon.svg" class="black_logo " alt="logo">
-                                        <img src="assets/images/logo/favicon.svg" class="white_logo " alt="logo">
-                                    </span>
-                                </a>
-                                {{-- <button
+                            <a href="{{ route('landingpage') }}">
+                                <span class="xl:inline-block hidden">
+                                    <img src="{{ url('assets/images/logo/logo.svg') }}" class="black_logo " alt="logo">
+                                    <img src="{{ url('assets/images/logo/logo.svg') }}" class="white_logo" alt="logo">
+                                </span>
+                                <span class="xl:hidden inline-block">
+                                    <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="black_logo " alt="logo">
+                                    <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="white_logo " alt="logo">
+                                </span>
+                            </a>
+                                <button
                                     class="smallDeviceMenuController open-sdiebar-controller xl:hidden inline-block">
                                     <iconify-icon
                                         class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white"
                                         icon="heroicons-outline:menu-alt-3"></iconify-icon>
-                                </button> --}}
+                                </button> 
 
                             </div>
                             <!-- end horizental -->
@@ -319,7 +318,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                     </button>
                                 </div>
                                 @if (Auth::check())
-                                <div class="md:block hidden w-full">
+                                <div class="w-full">
                                     <button class="text-slate-800 dark:text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <div class="lg:h-8 lg:w-8 h-7 w-7 rounded-full flex-1 ltr:mr-[10px] rtl:ml-[10px]">
                                             <img src="{{ url('assets/images/all-img/user.png') }}" alt="user" class="block w-full h-full object-cover rounded-full">
@@ -377,7 +376,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                 </div>
                                 @else
                                 <div>
-                                    <a href="{{ route('register') }}">
+                                    <a onclick="my_modal_4.showModal()">
                                         <button class="btn inline-flex btn-sm justify-center btn-primary ">
                                             <span class="flex items-center">
                                                 <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2"
@@ -387,7 +386,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         </button>
                                     </a>
                                     <a href="{{ route('login') }}">
-                                        <button class="btn inline-flex btn-sm justify-center btn-outline-primary ">
+                                        <button class="btn inline-flex btn-sm justify-center btn-outline-primary">
                                             <span class="flex items-center">
                                                 <iconify-icon class="text-sm dark:text-white ltr:mr-2 rtl:ml-2"
                                                     icon="heroicons-outline:login"></iconify-icon>
@@ -416,6 +415,42 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
         </button>
                     <!-- END: Header -->
                     <!-- END: Header -->
-                    @yield('content')
-                    
+                    @include('landingpage.index')
+                    <button class="btn" onclick="my_modal_4.showModal()">open modal</button>
+                    <dialog id="my_modal_4" class="modal rounded" >
+                    <form method="dialog" class="modal-box  max-w-24">
+                        <h3 class="font-bold text-lg dark:text-white justify-center text-center">Daftar Sebagai</h3>
+                        <!-- <br> -->
+                        <div class="modal-action justify-center text-center">
+                            
+                       
+                        <div class="card-container_register ">
+                        <div class="card_register rounded">
+                            <a href="https://www.example.com">
+                            <img src="assets/images/all-img/Mentor.png" alt="Image 1">
+                            <div class="card-overlay_register">
+                                <h3>Mentor</h3>
+                            </div>
+                            </a>
+                            <br>
+                            <h5 class="font-bold dark:text-white text-lg justify-center text-center">Mentor</h5>
+                        </div>
+                        <div class="card_register rounded">
+                            <a href="{{ route('register') }}">
+                            <img src="{{ url('assets/images/all-img/Tulung.png') }}" alt="Image 2">
+                            <div class="card-overlay_register">
+                                <h3>Pelanggan</h3>
+                            </div>
+                            </a>
+                            <br>
+                            <h5 class="font-bold dark:text-white text-lg justify-center text-center">Pelanggan</h5>
+                        </div>
+                        </div>
+
+                        <br><br>
+                        <!-- if there is a button, it will close the modal -->
+                        <button  class="btn btn-danger w-auto">Batal</button>
+                        </div>
+                    </form>
+                    </dialog>
                     @include('landingpage.footer')

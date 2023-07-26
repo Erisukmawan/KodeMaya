@@ -1,10 +1,10 @@
 html {
     scroll-behavior: smooth;
     z-index: 1;
-    
+
 }
 
-.hero{
+.hero {
     background-image: url("../images/cover.jpg");
     background-size: cover;
     background-position: center center;
@@ -15,7 +15,8 @@ html {
     box-shadow: 0 20px 30px rgb(37, 169, 212);
     margin-bottom: 45px;
 }
-.background{
+
+.background {
     background: repeating-linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.753), rgba(255, 255, 255, 0));
     background-size: cover;
     background-position: center center;
@@ -26,8 +27,9 @@ html {
     align-items: center;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
-    
+
 }
+
 .hero-content {
     text-align: left;
     color: #adadad;
@@ -40,7 +42,8 @@ html {
     margin-bottom: 35px;
     color: #fff;
 }
-.hero-content h1 span{
+
+.hero-content h1 span {
     color: rgb(133, 207, 241);
 }
 
@@ -89,17 +92,19 @@ html {
     }
 }
 
-.Tulung{
+.Tulung {
     margin-top: 10px;
     padding: 20px;
 }
-.Tulung .page-content{
+
+.Tulung .page-content {
     padding: 20px;
     border-radius: 20px;
     background-color: #ffffff;
     box-shadow: 0px 0px 7px rgba(20, 20, 20, 0.2);
 }
-.Tulung h1{
+
+.Tulung h1 {
     margin-bottom: 15px;
     align-items: center;
     padding: 20px;
@@ -111,30 +116,35 @@ html {
     text-underline-offset: 15px;
     font-weight: bold;
 }
+
 .Tulung .title {
     align-items: center;
     text-align: center;
     color: black;
     font-size: 20px;
 }
-.dark .Tulung .title{
+
+.dark .Tulung .title {
     color: #fff;
 }
+
 .Tulung .card-content {
     padding: 15px;
     margin: auto;
     /* background-color: #88d5e270; */
-    
+
     height: fit-content;
     border-radius: 20px;
     box-shadow: 10px 8px 15px rgba(20, 20, 20, 0.4);
 }
+
 .Tulung .inner-card {
     padding: 15px;
     margin: auto;
     height: fit-content;
     /* box-shadow: 90px 20px 200px rgba(20, 20, 20, 0.9); */
 }
+
 /* mentor */
 .Mentor {
     margin-top: 10px;
@@ -188,16 +198,19 @@ html {
     justify-content: center;
     /* box-shadow: 90px 20px 200px rgba(20, 20, 20, 0.9); */
 }
-.Mentor .cta{
+
+.Mentor .cta {
     border-radius: 20px;
     padding: 15px;
 }
+
 /* Harga */
 .Harga {
     margin-top: 10px;
     padding: 20px;
 }
-.Harga .page-content{
+
+.Harga .page-content {
     border-radius: 20px;
     align-items: center;
     margin: auto;
@@ -207,13 +220,15 @@ html {
     background-color: #ffffff;
     box-shadow: 0px 0px 7px rgba(20, 20, 20, 0.2);
 }
-.Harga .cta{
+
+.Harga .cta {
     margin: auto;
     margin-top: 40px;
     padding: auto;
     align-items: center;
     text-align: center;
 }
+
 .Harga h1 {
     margin-bottom: 15px;
     align-items: center;
@@ -234,20 +249,114 @@ html {
     font-size: 20px;
 }
 
+.card-container_register {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_register {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #c0c0c0;
+    margin: 15px;
+    
+}
+@media screen and (max-width: 768px){
+    .card_register {
+    position: relative;
+    max-width: 95px;
+    max-height: 95px;
+    background-color: #c0c0c0;
+    margin: 8px;
+    }
+    .dark .card-container_register{
+    background-color: #202c3c;
+    color: white;
+    }
+    .card-container_register{
+    background-color: white;
+    color: black;
+    }
+    .card-container_register h5 {
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    }
+    .card-container_register h5 {
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    }
+    .card-overlay_register h3{
+        color: #fff;
+        font-size: 6px;
+        text-align: center;
+    }
+}
+.dark .card-container_register{
+    background-color: #202c3c;
+    color: white;
+}
+.dark #my_modal_4{
+    background-color: #202c3c;
+}
+
+.card_register img {
+    width: auto;
+    height: 95%;
+    object-fit: fill;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+}
+
+.card-overlay_register {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-overlay_register:hover {
+    opacity: 1;
+}
+
+.card-overlay_register h3 {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
 .dark .Harga .title {
     color: #fff;
 }
-.Fitur{
+
+.Fitur {
     margin-top: 15px;
     padding: 20px;
 }
-.Fitur .page-content{
+
+.Fitur .page-content {
     padding: 20px;
     /* background: repeating-linear-gradient(to left, #3AA6B9, #3aa6b970, rgba(255, 255, 255, 0)); */
     border-radius: 20px;
     background-color: #fff;
     /* box-shadow: 1px 3px 3px rgba(20, 20, 20, 0.534); */
 }
+
 .Fitur .page-content_mentor {
     padding: 20px;
     background: repeating-linear-gradient(to top, #3AA6B9, #3aa6b970, rgba(255, 255, 255, 0));
@@ -257,11 +366,11 @@ html {
 
 .card-row {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     flex-wrap: wrap;
     padding: 20px;
-    border-radius:5px;
-    
+    border-radius: 5px;
+
 }
 
 
@@ -292,19 +401,23 @@ html {
     height: fit-content;
     box-shadow: 0 18px 20px rgba(20, 20, 20, 0.534);
 }
-.dark .page-content{
+
+.dark .page-content {
     background: #202c3c;
     color: white;
 }
+
 .dark .Fitur .page-content p {
     color: white;
 }
-.dark .card-content{
+
+.dark .card-content {
     padding: 20px;
     color: white;
     background-color: #514e5a;
 }
-.dark .card-content h2{
+
+.dark .card-content h2 {
     color: white;
 }
 
@@ -317,10 +430,12 @@ html {
     font-size: 16px;
     margin-bottom: 20px;
 }
+
 .Testimonial {
     margin-top: 10px;
     padding: 20px;
 }
+
 .Testimonial h1 {
     margin-bottom: 15px;
     align-items: center;
@@ -344,15 +459,18 @@ html {
 .dark .Testimonial .title {
     color: #fff;
 }
-.page-content_testi{
+
+.page-content_testi {
     padding: 20px;
     border-radius: 20px;
     background-color: #ffffff;
     box-shadow: 0px 0px 7px rgba(20, 20, 20, 0.2);
 }
-.dark .page-content_testi{
+
+.dark .page-content_testi {
     background-color: #202c3c;
 }
+
 .testimonial-section {
     position: relative;
     width: 100%;
@@ -375,7 +493,8 @@ html {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.dark .testimonial{
+
+.dark .testimonial {
     background-color: #514e5a;
     color: white;
 }
@@ -436,6 +555,7 @@ html {
     background-color: #333;
     color: #f2f2f2;
 }
+
 @media screen and (max-width: 768px) {
     .hero {
         background-size: cover;
@@ -443,6 +563,7 @@ html {
         justify-content: center;
         align-items: center;
     }
+
     .background {
         background: repeating-linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.644), rgba(255, 255, 255, 0));
         background-size: cover;
@@ -453,6 +574,7 @@ html {
         justify-content: bottom;
         align-items: bottom;
     }
+
     .card-row {
         display: contents;
         justify-content: baseline;
@@ -461,6 +583,7 @@ html {
         width: 100%;
         border-radius: 5px;
     }
+
     .outer-card {
         width: calc(100%);
         margin-bottom: 10px;
@@ -470,6 +593,7 @@ html {
         border-radius: 20px;
         flex-wrap: wrap;
     }
+
     .hero-content h1 {
         font-size: 40px;
         margin-top: 70%;
@@ -479,12 +603,14 @@ html {
         font-size: 12px;
         margin: 15px;
     }
+
     .hero-content {
         text-align: center;
         color: #fff;
         max-width: 400px;
         margin: 0 auto;
     }
+
     .cta {
         padding: 6px 13px;
         text-decoration: none;
@@ -492,6 +618,7 @@ html {
         font-size: 15px;
 
     }
+
     .Mentor .cta {
         margin: auto;
         display: flex;

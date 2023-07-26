@@ -1,5 +1,5 @@
 $.sidebarMenu = function(menu) {
-  var animationSpeed = 300,
+  var animationSpeed = 0,
     subMenuSelector = '.sidebar-submenu';
 
   $(menu).on('click', 'li a', function(e) {
@@ -27,7 +27,7 @@ $.sidebarMenu = function(menu) {
       //Open the target menu and add the menu-open class
       checkElement.slideDown(animationSpeed, function() {
         //Add the class active to the parent li
-        checkElement.addClass('menu-open');
+        checkElement.removeClass('menu-open');
         parent.find('li.active').removeClass('active');
         parent_li.addClass('active');
       });
