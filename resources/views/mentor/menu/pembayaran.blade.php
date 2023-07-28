@@ -50,7 +50,8 @@
                                     <div class="flex space-x-2">
                                         <a href="{{route('mentor.menu.pembayaran.bukti_pembayaran')}}">
                                             <span
-                                                class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white">
+                                                class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "
+                                                data-tippy-content="Lihat Bukti Bayar" data-tippy-theme="seccondary">
                                                 <iconify-icon icon="solar:bill-check-linear"></iconify-icon>
                                             </span>
                                         </a>

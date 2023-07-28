@@ -45,6 +45,7 @@ Route::get('/',[LandingPageController::class, 'index'])->name('landingpage');
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/register', 'register')->name('register');
+    Route::get('/register-mentor', 'register_mentor')->name('register-mentor');
     Route::get('/verify', 'verify')->name('verify');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');

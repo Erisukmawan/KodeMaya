@@ -61,17 +61,17 @@
                                   <td class="table-td ">
                                       <div class="flex space-x-2">
                                         <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
-                                          <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white">
+                                          <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "data-tippy-content="Detail Project" data-tippy-theme="seccondary">
                                             <iconify-icon icon="heroicons:eye"></iconify-icon>
                                           </span>
                                         </a>
                                         <a href="">
-                                                <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white">
+                                               <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white "data-tippy-content="Terima Project" data-tippy-theme="seccondary">
                                                   <iconify-icon icon="material-symbols:check"></iconify-icon>
                                                 </span>
                                         </a>
                                               <a href="{{route('mentor.menu.nego')}}">
-                                                <span class="text-2xl rounded-sm pt-2 p-1 w-9 hover:bg-slate-900 bg-warning-600 text-white">
+                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-warning-600 text-white "data-tippy-content="Negoisasi" data-tippy-theme="seccondary">
                                                   <iconify-icon icon="material-symbols:chat"></iconify-icon>
                                                 </span>
                                               </a>
@@ -121,12 +121,12 @@
                                   <td class="table-td ">
                                       <div class="flex space-x-2">
                                         <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
-                                          <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white">
+                                          <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "data-tippy-content="Detail Project" data-tippy-theme="seccondary">
                                             <iconify-icon icon="heroicons:eye"></iconify-icon>
                                           </span>
                                         </a>
                                         <a href="{{route('mentor.menu.pemesanan.pengerjaan_pemesanan')}}">
-                                                <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white">
+                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white" data-tippy-content="Kerjakan Project" data-tippy-theme="seccondary">
                                                   <iconify-icon icon="bxs:edit"></iconify-icon>
                                                 </span>
                                       </div>
@@ -149,12 +149,12 @@
                                   <td class="table-td ">
                                       <div class="flex space-x-2">
                                         <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
-                                          <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white">
+<span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "data-tippy-content="Detail Project" data-tippy-theme="seccondary">
                                             <iconify-icon icon="heroicons:eye"></iconify-icon>
                                           </span>
                                         </a>
                                         <a href="{{route('mentor.menu.pemesanan.pengerjaan_pemesanan')}}">
-                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white" data-tippy-content="primary tooltip!" data-tippy-theme="primary">
+                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white" data-tippy-content="Kerjakan Project" data-tippy-theme="seccondary">
                                                   <iconify-icon icon="bxs:edit"></iconify-icon>
                                                 </span>
                                       </div>
@@ -201,7 +201,7 @@
                                   <td class="table-td ">
                                       <div class="flex space-x-2">
                                         <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
-                                          <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white">
+                                          <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "data-tippy-content="Detail Project" data-tippy-theme="seccondary">
                                             <iconify-icon icon="heroicons:eye"></iconify-icon>
                                           </span>
                                         </a>

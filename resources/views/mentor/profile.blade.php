@@ -10,11 +10,7 @@
                         <div class="flex-none">
                           <div class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] md:ml-0 md:mr-0 ml-auto mr-auto md:mb-0 mb-4 rounded-full ring-4
                                 ring-slate-100 relative">
-                            <img src="assets/images/users/user-1.jpg" alt="" class="w-full h-full object-cover rounded-full">
-                            <a href="./profile-setting" class="absolute right-2 h-8 w-8 bg-slate-50 text-slate-600 rounded-full shadow-sm flex flex-col items-center
-                                    justify-center md:top-[140px] top-[100px]">
-                              <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                            </a>
+                            <img src="{{url('assets/images/users/user-1.jpg')}}" alt="" class="w-full h-full object-cover rounded-full">
                           </div>
                         </div>
                         <div class="flex-1">
@@ -118,48 +114,29 @@
                     </div>
                   </div>
                 <div class=" space-y-5">
-                  <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-                    <div class="card">
-                      <div class="card-body p-6">
-                        <div class="space-y-6">
-                          <div class="flex space-x-3 items-center rtl:space-x-reverse">
-                            <div class="flex-none h-8 w-8 rounded-full bg-slate-800 dark:bg-slate-700 text-slate-300 flex flex-col items-center
-                                    justify-center text-lg">
-                              <iconify-icon icon="heroicons:building-office-2"></iconify-icon>
-                            </div>
-                            <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                              Company Settings
-                            </div>
-                          </div>
-                          <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            Set up your company profile, add your company logo, and more
-                          </div>
-                          <a href="./#" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
-                                dark:text-slate-300">
-                            <span>Chnage Settings</span>
-                            <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                  <!-- <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-6"> -->
                     <div class="card">
                       <div class="card-body p-6">
                         <div class="space-y-6">
                           <div class="flex space-x-3 items-center rtl:space-x-reverse">
                             <div class="flex-none h-8 w-8 rounded-full bg-primary-500 text-slate-300 flex flex-col items-center justify-center text-lg">
-                              <iconify-icon icon="heroicons:credit-card"></iconify-icon>
+                              <iconify-icon icon="solar:document-outline"></iconify-icon>
                             </div>
                             <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                              Payment Settings
+                              Document 
                             </div>
                           </div>
                           <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            Connect your bank account to your company profile, and more
-                          </div>
-                          <a href="./#" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
-                                dark:text-slate-300">
-                            <span>Chnage Settings</span>
-                            <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
+                            <iframe src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width:100%; height:auto;" class="space-y-8" frameborder="0"></iframe>
+                              <label for="textFormatter" class="mt-8 form-label">Ganti Dokumen</label>
+                              <input id="nama_project" type="file" class="form-control" placeholder="08xxxxxxxxx">
+                            </div>
+                           <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
+                              <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
+                                Ubah Profile
+                              </div>
+                        </button>
+                            <!-- <iconify-icon icon="heroicons:arrow-right"></iconify-icon> -->
                           </a>
                         </div>
                       </div>
@@ -187,6 +164,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  <!-- </div> -->
                 </div>
 @endsection

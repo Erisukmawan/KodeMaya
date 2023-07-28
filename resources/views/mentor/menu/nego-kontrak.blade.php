@@ -302,127 +302,62 @@
                     <div class="p-8 h-full card-body">
                         <!-- BEGIN: Info Area -->
                         <div data-simplebar class="h-full p-6">
-                            <h3 class="text-xl text-center text-slate-900 font-medium mt-8 mb-8 font-bold">Tambah
+                            <header class="grid grid-col-2 grid gap-1">
+                            <h3
+                                class="text-xl text-center text-slate-900 font-medium mt-8 mb-8 font-bold">
                                 Kontrak</h3>
-                            <div>
-                                <ul class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
-                                    id="tabs-tab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <a href="#tabs-tambah-kontrak"
-                                            class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent active dark:text-slate-300"
-                                            id="tabs-tambah-kontrak-tab" data-bs-toggle="pill"
-                                            data-bs-target="#tabs-tambah-kontrak" role="tab"
-                                            aria-controls="tabs-tambah-kontrak" aria-selected="true">
-                                            <iconify-icon class="mr-1" icon="heroicons-outline:home"></iconify-icon>
-                                            Home
-                                        </a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a href="#tabs-detail"
-                                            class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent dark:text-slate-300"
-                                            id="tabs-detail-tab" data-bs-toggle="pill"
-                                            data-bs-target="#tabs-detail" role="tab"
-                                            aria-controls="tabs-detail" aria-selected="false">
-                                            <iconify-icon class="mr-1" icon="bx:detail"></iconify-icon>
-                                            Detail
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="tabs-tabContent">
-                                    <div class="tab-pane fade show active" id="tabs-tambah-kontrak" role="tabpanel"
-                                        aria-labelledby="tabs-tambah-kontrak-tab">
-                                        <div class="input-area">
-                                            <label for="textFormatter" class="form-label">Nama Project</label>
-                                            <div class="relative space-y-6">
-                                                <input id="nama_project" type="text" class="form-control"
-                                                    placeholder="Alamat Anda">
-                                                <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                                <span class="block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="input-area">
-                                            <label for="textFormatter" class="form-label">Deskripsi</label>
-                                            <div class="relative space-y-6">
-                                                <input id="nama_project" type="text" class="form-control"
-                                                    placeholder="Alamat Anda">
-                                                <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                                <span class="block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="input-area">
-                                            <label for="textFormatter" class="form-label">Tenggat Waktu</label>
-                                            <div class="relative space-y-6">
-                                                <input id="nama_project" type="date" class="form-control"
-                                                    placeholder="Alamat Anda">
-                                                <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                                <span class="block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="input-area">
-                                            <label for="textFormatter" class="form-label">Waktu Kontrak</label>
-                                            <div class="relative space-y-6">
-                                                <input id="nama_project" type="date" class="form-control"
-                                                    placeholder="Alamat Anda">
-                                                <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                                <span class="block"></span>
-                                            </div>
-                                        </div>
-                                        <div class="input-area">
-                                            <label for="textFormatter" class="form-label">Total Harga</label>
-                                            <div class="relative space-y-6">
-                                                <input id="nama_project" type="text" class="form-control"
-                                                    placeholder="Alamat Anda">
-                                                <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                                <span class="block"></span>
-                                            </div>
-                                        </div>
-                                        <button
-                                            class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
-                                            <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
-                                                Tambah Kontrak
-                                            </div>
-                                        </button>
-                                    </div>
-                                    <div class="tab-pane fade" id="tabs-detail" role="tabpanel"
-                                        aria-labelledby="tabs-detail-tab">
-                                        <table
-                                            class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
-                                            >
-                                            <thead class=" border-t border-slate-100 dark:border-slate-800">
-                                                <tr>
-                                                    <th scope="col" class=" table-th ">Id Kontrak</th>
-                                                    <th scope="col" class=" table-th ">Nama Project</th>
-                                                    <th scope="col" class=" table-th ">Deskripsi Project</th>
-                                                    <th scope="col" class=" table-th ">Tenggat Waktu</th>
-                                                    <th scope="col" class=" table-th ">Status</th>
-                                                    <th scope="col" class=" table-th ">Harga</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody
-                                                class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-                                                <tr>
-                                                    <td class="table-td">1</td>
-                                                    <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                                    <td class="table-td">Aplikasi yang bisa mengelola kantin dengan
-                                                        fitur pembayaran</td>
-                                                    <td class="table-td ">20-09-2023
-                                                    </td>
-                                                    <td class="table-td ">
-                                                        <div
-                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">
-                                                            Belum DISetujui
-                                                        </div>
-                                                    </td>
-                                                    <td class="table-td ">Rp1000000</td>
-                                                    
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                            <h3 class="text-sm text-center text-slate-900 font-medium">
+                                Status</h3>
+                            <span
+                                class=" px-3 min-w-[90px] inset-y-0 right-0 text-center mt-1 mb-8 py-1 rounded-[999px]
+                                bg-opacity-25 text-info-500 bg-info-500">
+                                    Belum Disetujui</span>
+                            </header>
+                            <div class="input-area">
+                                <label for="textFormatter" class="form-label">Nama Project</label>
+                                <div class="relative space-y-6">
+                                    <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
+                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
+                                    <span class="block"></span>
                                 </div>
                             </div>
-                        <!-- END: Info Area -->
-                    </div>
+                            <div class="input-area">
+                                <label for="textFormatter" class="form-label">Deskripsi</label>
+                                <div class="relative space-y-6">
+                                    <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
+                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
+                                    <span class="block"></span>
+                                </div>
+                            </div>
+                            <div class="input-area">
+                                <label for="textFormatter" class="form-label">Tenggat Waktu</label>
+                                <div class="relative space-y-6">
+                                    <input id="nama_project" type="date" class="form-control" placeholder="Alamat Anda">
+                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
+                                    <span class="block"></span>
+                                </div>
+                            </div>
+                            <div class="input-area">
+                                <label for="textFormatter" class="form-label">Waktu Kontrak</label>
+                                <div class="relative space-y-6">
+                                    <input id="nama_project" type="date" class="form-control" placeholder="Alamat Anda">
+                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
+                                    <span class="block"></span>
+                                </div>
+                            </div>
+                            <div class="input-area">
+                                <label for="textFormatter" class="form-label">Total Harga</label>
+                                <div class="relative space-y-6">
+                                    <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
+                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
+                                    <span class="block"></span>
+                                </div>
+                            </div>
+                            <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
+                                <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
+                                    Simpan
+                                </div>
+                            </button>
                 </div>
             </div>
         </div>

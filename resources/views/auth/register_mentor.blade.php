@@ -6,7 +6,7 @@
 
 @section('content-form-header')
 <div class="text-center 2xl:mb-10 mb-4">
-    <h4 class="font-medium">Daftar Pelanggan</h4>
+    <h4 class="font-medium">Register Mentor</h4>
     <div class="text-slate-500 text-base">
         Daftarkan akunmu untuk memulai menggunakan KodeMaya
     </div>
@@ -51,25 +51,44 @@
     <div class="fromGroup">
         <label class="block capitalize form-label">Nama Lengkap</label>
         <div class="relative ">
-            <input type="text" name="name" class="form-control py-2" placeholder="Nama Lengkap" required>
+            <input type="text" name="name" class="form-control py-2" placeholder="Masukkan Nama Lengkap" required>
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">email</label>
         <div class="relative ">
-            <input type="email" name="email" class="form-control py-2" placeholder="Email Anda" required>
-        </div>
-    </div>
-    <div class="fromGroup">
-        <label class="block capitalize form-label">alamat</label>
-        <div class="relative ">
-            <input type="textarea" name="" class="form-control py-2" placeholder="Email Anda">
+            <input type="email" name="email" class="form-control py-2" placeholder="Masukkan Email" required>
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">Nomor Telepon</label>
         <div class="relative ">
-            <input type="number" name="" class="form-control py-2" placeholder="No Telphone Aktif">
+            <input type="number" name="telp" class="form-control py-2" placeholder="Masukkan Nomor Telepone Aktif" required>
+        </div>
+    </div>
+    <div class="fromGroup">
+        <label class="block capitalize form-label">alamat</label>
+        <div class="relative ">
+            <textarea type="text" name="alamat" class="form-control py-2" placeholder="Masukkan Alamat Domisili" required></textarea>
+        </div>
+    </div>
+    <div class="fromGroup">
+        <label class="block capitalize form-label">Keahlian</label>
+        <div class="relative ">
+            <select name="basicSelect" id="basicSelect" class="form-control w-full mt-2">
+                              <option selected="Selected" disabled="disabled" value="none" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Select an option</option>
+                              <option value="Website" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Website</option>
+                              <option value="Desktop" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Desktop</option>
+                              <option value="UI/UX" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">UI / UX</option>
+                              <option value="Mobile" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Mobile</option>
+                              <option value="AI" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Artificial Intellegent / Machine Learning</option>
+                            </select> 
+        </div>
+    </div>
+    <div class="fromGroup">
+        <label class="block capitalize form-label">CV atau Portfolio</label>
+        <div class="relative ">
+            <input type="file" name="alamat" class="form-control py-2" placeholder="Masukkan Alamat Domisili" required>
         </div>
     </div>
     <div class="fromGroup">
@@ -81,6 +100,7 @@
             </button>    
         </div>
     </div>
+    
     <div class="fromGroup">
         <label class="block capitalize form-label">confirm password</label>
         <div class="relative ">

@@ -95,24 +95,6 @@
     </form>
 @endsection
 
-
-@section('content-sosmed-in')
-    <ul class="flex justify-evenly">
-        <li class="flex">
-            <a href="#"
-                class="inline-flex h-10 w-10 bg-[#1C9CEB] text-white text-2xl flex-col items-center justify-center rounded-full">
-                <img src="assets/images/icon/icons8-github.svg" alt="">
-            </a>
-        </li>
-        <li class="flex">
-            <a href="#"
-                class="inline-flex h-10 w-10 bg-[#395599] text-white text-2xl flex-col items-center justify-center rounded-full">
-                <img src="assets/images/icon/icons8-google.svg" alt="">
-            </a>
-        </li>
-    </ul>
-@endsection
-
 @section('content-form-footer')
     <div class="md:max-w-[345px] mx-auto font-normal text-slate-500 dark:text-slate-400 mt-6 uppercase text-sm">
         Tidak punya akun?

@@ -110,10 +110,10 @@
 @endsection
 
 @section('content')
-<div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper">
+<div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" >
     <div class="page-content">
-        <div class="transition-all duration-150 container-fluid" id="page_layout">
-            <div id="content_layout">
+        <div class="transition-all duration-150 container-fluid" >
+            <div >
                 <!-- BEGIN: Breadcrumb -->
                 <div class="mb-5">
                     <ul class="m-0 p-0 list-none">
@@ -144,40 +144,33 @@
 
 @section('menu-mobile')
 <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
-    <a href="{{route('mentor.menu.pemesanan')}}">
+    <a href="{{route('mentor.menu.dashboard')}}">
+        <div>
+            <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900">
+                <iconify-icon icon="heroicons-outline:home"></iconify-icon>
+                <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
+            justify-center rounded-full text-white z-[99]">
+                    1
+                </span>
+            </span>
+            <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
+                Pembayaran
+            </span>
+        </div>
+    </a>    
+<a href="{{route('mentor.menu.pemesanan')}}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
                 <iconify-icon icon="mdi:feature-highlight"></iconify-icon>
             </span>
             <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Pesanan
+                Pemesanan
             </span>
         </div>
         
         
-    </a>
-    <a href="{{route('mentor.menu.nego')}}">
-        <div>
-            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900 ">
-                <iconify-icon icon="heroicons-outline:chat"></iconify-icon>
-            </span>
-            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Negoisasi
-            </span>
-        </div>
-    </a>
-    <a href="{{route('mentor.menu.kontrak')}}">
-        <div>
-            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900 ">
-                <iconify-icon icon="mdi:hand-clap"></iconify-icon>
-            </span>
-            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Kontrak
-            </span>
-        </div>
     </a>
     <a href="{{route('mentor.menu.pembayaran')}}">
         <div>

@@ -201,40 +201,33 @@
 
 @section('menu-mobile')
 <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
-    <a href="{{route('customer.menu.pemesanan')}}">
+<a href="{{route('customer.menu.dashboard')}}">
+        <div>
+            <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900">
+                <iconify-icon icon="heroicons-outline:home"></iconify-icon>
+                <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
+            justify-center rounded-full text-white z-[99]">
+                    1
+                </span>
+            </span>
+            <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
+                Pembayaran
+            </span>
+        </div>
+    </a>    
+<a href="{{route('customer.menu.pemesanan')}}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
                 <iconify-icon icon="mdi:feature-highlight"></iconify-icon>
             </span>
             <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Pesanan
+                Pemesanan
             </span>
         </div>
         
         
-    </a>
-    <a href="">
-        <div>
-            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900 ">
-                <iconify-icon icon="heroicons-outline:chat"></iconify-icon>
-            </span>
-            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Negoisasi
-            </span>
-        </div>
-    </a>
-    <a href="{{route('customer.menu.kontrak')}}">
-        <div>
-            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900 ">
-                <iconify-icon icon="mdi:hand-clap"></iconify-icon>
-            </span>
-            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
-                Kontrak
-            </span>
-        </div>
     </a>
     <a href="{{route('customer.menu.pembayaran')}}">
         <div>
