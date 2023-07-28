@@ -20,7 +20,7 @@
                 </a>
             </div>
             <div class="flex-none">
-                <a href="{{route('customer.menu.nego')}}"><button class="rounded-xl p-2 hover:bg-primary-600 w-30 bg-info-700 text-white dark:text-white">
+                <a href=""><button class="rounded-xl p-2 hover:bg-primary-600 w-30 bg-info-700 text-white dark:text-white">
                     <iconify-icon icon="line-md:download-loop"></iconify-icon>
                     <span class="font-normal text-sm p-1">Unduh Project</span>
                 </button>

@@ -71,16 +71,16 @@
                         </div>
                         <div class="flex">
                             <div class="flex-1">
-                                <a href="{{route('customer.menu.pemesanan.detail_pemesanan')}}" class="space-x-3 rtl:space-x-reverse text-sm capitalize bg-slate-700 rounded-full p-2 font-medium text-slate-600
-                                  dark:text-slate-300">
+                                <a href="{{route('customer.menu.pemesanan.detail_pemesanan')}}" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize dark:bg-slate-700 bg-slate-200 rounded-full p-2 font-medium text-slate-600
+                                dark:text-slate-300">
                                     <span>Lihat Detail</span>
                                     <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
                                 </a>
                             </div>
                             <div class="flex-none">
-                                <a href="{{route('customer.menu.pemesanan.review')}}" class="space-x-3 rtl:space-x-reverse text-sm capitalize bg-success-600 rounded-full p-2 font-medium text-slate-600
-                                  dark:text-slate-300">
-                                    <span>Review Pesanan Selesai</span>
+                                <a href="{{route('customer.menu.pemesanan.review')}}" class="space-x-3 rtl:space-x-reverse text-sm capitalize bg-success-500 rounded-full text-white p-2 font-medium
+                                  dark:text-slate-800">
+                                    <span>Review Pesanan</span>
                                     <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
                                 </a>
                             </div>
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{route('customer.menu.pemesanan.detail_pemesanan')}}" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize bg-slate-700 rounded-full p-2 font-medium text-slate-600
+                        <a href="{{route('customer.menu.pemesanan.detail_pemesanan')}}" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize dark:bg-slate-700 bg-slate-200 rounded-full p-2 font-medium text-slate-600
                                 dark:text-slate-300">
                             <span>Lihat Detail</span>
                             <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
@@ -179,7 +179,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{route('customer.menu.pemesanan.detail_pemesanan')}}" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize bg-slate-700 rounded-full p-2 font-medium text-slate-600
+                        <a href="{{route('customer.menu.pemesanan.detail_pemesanan')}}"
+                            class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize dark:bg-slate-700 bg-slate-200 rounded-full p-2 font-medium text-slate-600
                                 dark:text-slate-300">
                             <span>Lihat Detail</span>
                             <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
