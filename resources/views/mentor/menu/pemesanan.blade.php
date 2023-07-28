@@ -71,7 +71,7 @@
                                                 </span>
                                         </a>
                                               <a href="{{route('mentor.menu.nego')}}">
-                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-warning-600 text-white "data-tippy-content="Negoisasi" data-tippy-theme="seccondary">
+                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-warning-600 text-white "data-tippy-content="Negosiasi" data-tippy-theme="seccondary">
                                                   <iconify-icon icon="material-symbols:chat"></iconify-icon>
                                                 </span>
                                               </a>
