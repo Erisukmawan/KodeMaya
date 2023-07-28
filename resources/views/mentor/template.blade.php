@@ -38,55 +38,16 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="menu-item-has-children menuatas">
-                                        <a href="javascript:void() {{ (request()->is('mentor/pemesanan')) ? 'active' : '' }} menuatas">
+                                    <li class="{{ (request()->is('mentor/pemesanan*')) ? 'active' : '' }} menuatas">
+                                        <a href="{{ route('mentor.menu.pemesanan') }}" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                                                <span class="icon-box">
-                                                    <iconify-icon icon=mdi:feature-highlight> </iconify-icon>
+                                               <span class="icon-box">
+                                                    <iconify-icon icon=ic:baseline-connect-without-contact> </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Pemesanan</div>
-                                            </div>
-                                            <div
-                                                class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
-                                                <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
+                                                 <div class="text-box">Pemesanan</div>
                                             </div>
                                         </a>
-                                        <ul class="sub-menu">
-                                            <li class="{{ (request()->is('mentor/pemesanan')) ? 'active' : '' }} menuatas">
-                                                <a href="{{ route('mentor.menu.pemesanan') }}">
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=ic:baseline-connect-without-contact
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Pesanan
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="menuatas">
-                                                <a href=#mentor>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:chat
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Negoisasi
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="menuatas">
-                                                <a href="{{route('mentor.menu.kontrak')}}">
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon="mdi:hand-clap" class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Kontrak
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <!-- Megamenu -->
-                                    </li>
+                                     </li>
                                     <li class="{{ (request()->is('mentor/pembayaran*')) ? 'active' : '' }} menuatas">
                                         <a href="{{route('mentor.menu.pembayaran')}}">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
@@ -97,24 +58,6 @@
                                                 <div class="text-box">Pembayaran</div>
                                             </div>
                                         </a>
-                                    </li>
-
-
-                                    <li class="menu-item-has-children menuatas">
-                                        <!--  Single menu -->
-                                        <a href="javascript:void()">
-                                            <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                                                <span class="icon-box">
-                                                    <iconify-icon icon=material-symbols:contact-support-outline>
-                                                    </iconify-icon>
-                                                </span>
-                                                <div class="text-box">FAQ</div>
-                                            </div>
-</a>
-
-                                        <!-- Megamenu -->
-
-
                                     </li>
 
                                 </ul>
@@ -214,7 +157,7 @@
         
         
     </a>
-    <a href="">
+    <a href="{{route('mentor.menu.nego')}}">
         <div>
             <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">

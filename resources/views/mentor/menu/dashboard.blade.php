@@ -4,8 +4,8 @@
 @section('main-content')
     <div class="card p-6">
         <div class="grid grid-cols-8 gap-5">
-            <div class="xl:col-span-8 col-span-12">
-                <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
+            <div class="xl:col-span-6 col-span-12">
+                <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
 
                     <!-- BEGIN: Group Chart5 -->
 
@@ -46,19 +46,6 @@
                         </span>
                         <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
                             190
-                        </span>
-                    </div>
-
-                    <div class=" bg-primary-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
-                        <div
-                            class="text-primary-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-                            <iconify-icon icon=heroicons-outline:calculator></iconify-icon>
-                        </div>
-                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Total Pendapatan
-                        </span>
-                        <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
-                            Rp5.000.564
                         </span>
                     </div>
 

@@ -307,6 +307,7 @@
   =====================================*/
   // Sidebar Menu
   $.sidebarMenu($(".sidebar-menu"));
+  
 
   // Simple Bar
   // new SimpleBar($("#sidebar_menus, #scrollModal")[0]);

@@ -12,26 +12,15 @@
                           <div class="card-title text-slate-900 dark:text-white">Pengerjaan</div>
                         </div>
                       </header>
-                      <div class="card-text h-full space-y-3 mb-3">
-                        <div class="input-area">
-                          <label for="textFormatter" class="form-label">Tenggat Waktu</label>
-                          <div class="relative">
-                            <input id="nama_project" type="date" class="text-white form-control" placeholder="Apa Nama Project Anda ?">
-                            <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                            <span class="block"></span>  
-                        </div>
-                        </div>
-                      </div>
 
-                      <div class="py-[18px] px-6 font-normal font-Inter text-sm rounded-md bg-warning-500 bg-opacity-[14%] text-warning-500">
+                      <div class="py-[18px] px-6 font-normal space-y-8 font-Inter text-sm rounded-md bg-warning-500 bg-opacity-[14%] text-warning-500">
                             <div class="flex items-start space-x-3 rtl:space-x-reverse">
-                              <div class="flex-1">
-                                Jika pengerjaan pesanan sudah beres, maka unggah file serta detail project dan ubahlah status menjadi "diperiksa" agar segera diperiksa oleh admin
+                              <div class="flex-1 text-center">
+                                Pesanan harus diselesaikan minimal 2 hari sebelum tenggat waktu untuk diperiksa oleh pegawai
                               </div>
                             </div>
                           </div>
-
-                        <div class="card-text h-full space-y-8 mb-3">
+                        <div class="card-text h-full mt-8 space-y-8 mb-3">
                         <div class="input-area">
                           <label for="textFormatter" class="form-label">Ubah Status</label>
                           <div class="relative">

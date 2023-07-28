@@ -38,6 +38,7 @@
                                   <th scope="col" class=" table-th ">Id</th>
                                   <th scope="col" class=" table-th ">Nama Project</th>
                                   <th scope="col" class=" table-th ">Deskripsi</th>
+                                  <th scope="col" class=" table-th ">Kategori</th>
                                   <th scope="col" class=" table-th ">Customer</th>
                                   <th scope="col" class=" table-th ">Status</th>
                                   <th scope="col" class=" table-th ">Action</th>
@@ -48,6 +49,9 @@
                                   <td class="table-td">1</td>
                                   <td class="table-td ">Aplikasi Kantin Sekolah</td>
                                   <td class="table-td">Aplikasi yang bisa mengelola kantin dengan fitur pembayaran</td>
+                                  <td class="table-td "><div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
+                                      Website
+                                    </div></td>
                                   <td class="table-td ">Ida Nur Anisa</td>
                                   <td class="table-td ">
                                     <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">
@@ -66,9 +70,9 @@
                                                   <iconify-icon icon="material-symbols:check"></iconify-icon>
                                                 </span>
                                         </a>
-                                              <a href="">
-                                                <span class="text-2xl rounded-sm pt-2 p-1 w-9 hover:bg-slate-900 bg-danger-600 text-white">
-                                                  <iconify-icon icon="mdi:cancel-bold"></iconify-icon>
+                                              <a href="{{route('mentor.menu.nego')}}">
+                                                <span class="text-2xl rounded-sm pt-2 p-1 w-9 hover:bg-slate-900 bg-warning-600 text-white">
+                                                  <iconify-icon icon="material-symbols:chat"></iconify-icon>
                                                 </span>
                                               </a>
                                       </div>
@@ -92,6 +96,7 @@
                                   <th scope="col" class=" table-th ">Id</th>
                                   <th scope="col" class=" table-th ">Nama Project</th>
                                   <th scope="col" class=" table-th ">Deskripsi</th>
+                                  <th scope="col" class=" table-th ">Kategori</th>
                                   <th scope="col" class=" table-th ">Customer</th>
                                   <th scope="col" class=" table-th ">Status</th>
                                   <th scope="col" class=" table-th ">Tenggat Waktu</th>
@@ -103,6 +108,9 @@
                                   <td class="table-td">1</td>
                                   <td class="table-td ">Aplikasi Kantin Sekolah</td>
                                   <td class="table-td">Aplikasi yang bisa mengelola kantin dengan fitur pembayaran</td>
+                                  <td class="table-td "><div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
+                                      Website
+                                    </div></td>
                                   <td class="table-td ">Ida Nur Anisa</td>
                                   <td class="table-td ">
                                     <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-600 bg-info-500">
@@ -128,6 +136,9 @@
                                   <td class="table-td">2</td>
                                   <td class="table-td ">Aplikasi Bimbel Kampus</td>
                                   <td class="table-td">Aplikasi yang bisa menyediakan layanan konsultasi tugas</td>
+                                  <td class="table-td "><div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
+                                      Website
+                                  </div></td>
                                   <td class="table-td ">Ida Nur Anisa</td>
                                   <td class="table-td ">
                                     <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">
@@ -143,7 +154,7 @@
                                           </span>
                                         </a>
                                         <a href="{{route('mentor.menu.pemesanan.pengerjaan_pemesanan')}}">
-                                                <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white">
+                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white" data-tippy-content="primary tooltip!" data-tippy-theme="primary">
                                                   <iconify-icon icon="bxs:edit"></iconify-icon>
                                                 </span>
                                       </div>
@@ -167,6 +178,7 @@
                                   <th scope="col" class=" table-th ">Id</th>
                                   <th scope="col" class=" table-th ">Nama Project</th>
                                   <th scope="col" class=" table-th ">Deskripsi</th>
+                                  <th scope="col" class=" table-th ">Kategori</th>
                                   <th scope="col" class=" table-th ">Customer</th>
                                   <th scope="col" class=" table-th ">Status</th>
                                   <th scope="col" class=" table-th ">Action</th>
@@ -177,6 +189,9 @@
                                   <td class="table-td">1</td>
                                   <td class="table-td ">Aplikasi Kantin Sekolah</td>
                                   <td class="table-td">Aplikasi yang bisa mengelola kantin dengan fitur pembayaran</td>
+                                  <td class="table-td "><div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
+                                      Website
+                                    </div></td>
                                   <td class="table-td ">Ida Nur Anisa</td>
                                   <td class="table-td ">
                                     <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">
