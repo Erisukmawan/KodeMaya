@@ -149,10 +149,6 @@
             <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
                 <iconify-icon icon="heroicons-outline:home"></iconify-icon>
-                <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
-            justify-center rounded-full text-white z-[99]">
-                    1
-                </span>
             </span>
             <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
                 Pembayaran
@@ -177,10 +173,6 @@
             <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
                 <iconify-icon icon="material-symbols:price-change-outline"></iconify-icon>
-                <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
-            justify-center rounded-full text-white z-[99]">
-                    1
-                </span>
             </span>
             <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
                 Pembayaran

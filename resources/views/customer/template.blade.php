@@ -38,55 +38,16 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="menu-item-has-children menuatas">
-                                        <a href="javascript:void() {{ (request()->is('customer/pemesanan')) ? 'active' : '' }} menuatas">
+                                    <li class="{{ (request()->is('customer/pemesanan*')) ? 'active' : '' }} menuatas">
+                                        <a href="{{ route('customer.menu.pemesanan') }}" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                                                <span class="icon-box">
-                                                    <iconify-icon icon=mdi:feature-highlight> </iconify-icon>
+                                               <span class="ion-box">
+                                                    <iconify-icon icon=ic:baseline-connect-without-contact> </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Pemesanan</div>
-                                            </div>
-                                            <div
-                                                class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
-                                                <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
+                                                  <div class="text-box">Pemesanan</div>
                                             </div>
                                         </a>
-                                        <ul class="sub-menu">
-                                            <li class="{{ (request()->is('customer/pemesanan')) ? 'active' : '' }} menuatas">
-                                                <a href="{{ route('customer.menu.pemesanan') }}">
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=ic:baseline-connect-without-contact
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Pesanan
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="menuatas">
-                                                <a href=#customer>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=heroicons-outline:chat
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Negoisasi
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="menuatas">
-                                                <a href="{{route('customer.menu.kontrak')}}">
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon="mdi:hand-clap" class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Kontrak
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <!-- Megamenu -->
-                                    </li>
+                                     </li>
                                     <li class="{{ (request()->is('customer/pembayaran*')) ? 'active' : '' }} menuatas">
                                         <a href="{{route('customer.menu.pembayaran')}}">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
@@ -98,25 +59,6 @@
                                             </div>
                                         </a>
                                     </li>
-
-
-                                    <li class="menu-item-has-children menuatas">
-                                        <!--  Single menu -->
-                                        <a href="javascript:void()">
-                                            <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                                                <span class="icon-box">
-                                                    <iconify-icon icon=material-symbols:contact-support-outline>
-                                                    </iconify-icon>
-                                                </span>
-                                                <div class="text-box">FAQ</div>
-                                            </div>
-</a>
-
-                                        <!-- Megamenu -->
-
-
-                                    </li>
-
                                 </ul>
                             </div>
 
@@ -234,10 +176,6 @@
             <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
                 <iconify-icon icon="material-symbols:price-change-outline"></iconify-icon>
-                <span class="absolute right-[17px] lg:hrefp-0 -hrefp-2 h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
-            justify-center rounded-full text-white z-[99]">
-                    1
-                </span>
             </span>
             <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
                 Pembayaran
