@@ -1,6 +1,6 @@
-@extends('mentor.template')
+@extends('mentor.template)
 @section('main-content')
-<div class="card xl:col-span-2 rounded-md bg-white dark:bg-slate-800 lg:h-full shadow-base">
+<div class="card xl:col-span-3 rounded-md bg-white dark:bg-slate-800 lg:h-full shadow-base">
                     <div class="card-body flex flex-col p-6">
                       <header class="flex space-x-3 mb-5 items-center border-b border-slate-100 dark:border-slate-700 pb-5 -mx-6 px-6">
                       <a href="{{route('mentor.menu.pemesanan')}}" class="inline-flex items-center space-x-1 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600

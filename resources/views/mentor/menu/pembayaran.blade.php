@@ -1,13 +1,13 @@
 @extends('mentor/template')
 @section('main-content')
 <div class="flex lg:justify-end items-center flex-wrap space-xy-5 ">
-    <button type="button" class="invocie-btn inline-flex btn btn-sm whitespace-nowrap space-x-2 cursor-pointer bg-primary-400
+    <a href="{{(route('mentor.menu.pembayaran.tambah'))}}"><button type="button" class="invocie-btn inline-flex btn btn-sm whitespace-nowrap space-x-2 cursor-pointer bg-primary-400
                     dark:text-white btn-md h-min text-sm font-normal text-white">
         <span class="text-lg">
             <iconify-icon icon="zondicons:add-outline"></iconify-icon>
         </span>
         <span class="text-lg">Tambah Pembayaran</span>
-    </button>
+    </button></a>
 </div>
 <div class="card">
     <header class=" card-header noborder">
@@ -50,14 +50,9 @@
                                     <div class="flex space-x-2">
                                         <a href="{{route('mentor.menu.pembayaran.bukti_pembayaran')}}">
                                             <span
-                                                class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white">
+                                                class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "
+                                                data-tippy-content="Lihat Bukti Bayar" data-tippy-theme="seccondary">
                                                 <iconify-icon icon="solar:bill-check-linear"></iconify-icon>
-                                            </span>
-                                        </a>
-                                        <a href="finvoive-preview.html">
-                                            <span
-                                                class="text-2xl rounded-sm pt-2 p-1 w-9 hover:bg-slate-900 bg-danger-600 text-white">
-                                                <iconify-icon icon="heroicons:trash"></iconify-icon>
                                             </span>
                                         </a>
                                     </div>

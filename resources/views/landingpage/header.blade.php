@@ -426,7 +426,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                        
                         <div class="card-container_register ">
                         <div class="card_register rounded">
-                            <a href="https://www.example.com">
+                            <a href="{{route('register-mentor')}}">
                             <img src="assets/images/all-img/Mentor.png" alt="Image 1">
                             <div class="card-overlay_register">
                                 <h3>Mentor</h3>

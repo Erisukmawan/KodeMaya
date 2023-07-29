@@ -45,6 +45,7 @@ Route::get('/',[LandingPageController::class, 'index'])->name('landingpage');
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/register', 'register')->name('register');
+    Route::get('/register-mentor', 'register_mentor')->name('register-mentor');
     Route::get('/verify', 'verify')->name('verify');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
@@ -63,17 +64,7 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
     Route::post('/admin/global/update', 'update_global')->name('admin.menu.parameter.global.update');
     Route::post('/admin/global/delete', 'delete_global')->name('admin.menu.parameter.global.delete');
     Route::get('/admin/enum', 'view_manage_enum')->name('admin.menu.parameter.enum');
-    Route::get('/admin/notification', 'view_notification')->name('admin.menu.notification');
-    Route::get('/admin/income', 'view_income')->name('admin.finance.income');
-    Route::get('/admin/disbursement', 'view_disbursement')->name('admin.finance.disbursement');
-    Route::get('/admin/transactions', 'view_transactions')->name('admin.finance.transactions');
-    Route::get('/admin/tulung/post', 'view_tulung_post')->name('admin.features.tulung.post');
-    Route::get('/admin/tulung/task', 'view_tulung_task')->name('admin.features.tulung.task');
-    Route::get('/admin/tulung/history', 'view_tulung_history')->name('admin.features.tulung.history');
-    Route::get('/admin/consultation/post', 'view_consultation_post')->name('admin.features.consultation.post');
-    Route::get('/admin/consultation/task', 'view_consultation_task')->name('admin.features.consultation.task');
-    Route::get('/admin/consultation/history', 'view_consultation_history')->name('admin.features.consultation.history');
-    Route::get('/admin/file-manager', 'view_file_manager')->name('admin.utility.file-manager');
+    Route::get('/admin/profile', 'view_profile')->name('admin.profile');
 });
 
 
@@ -84,11 +75,10 @@ Route::middleware(['mentor'])->controller(MentorController::class)->group(functi
     Route::get('/mentor/pemesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.pemesanan.pengerjaan_pemesanan');
     Route::get('/mentor/pemesanan/detail-pemesanan', 'view_detail_pemesanan')->name('mentor.menu.pemesanan.detail_pemesanan');
     Route::get('/mentor/pembayaran/', 'view_pembayaran')->name('mentor.menu.pembayaran');
-    Route::get('/mentor/pembayaran/checkout', 'view_pembayaran_checkout')->name('mentor.menu.pembayaran.checkout');
+    Route::get('/mentor/pembayaran/tambah', 'view_pembayaran_tambah')->name('mentor.menu.pembayaran.tambah');
     Route::get('/mentor/pembayaran/preview', 'view_pembayaran_preview')->name('mentor.menu.pembayaran.bukti_pembayaran');
-    Route::get('/mentor/kontrak', 'view_kontrak')->name('mentor.menu.kontrak');
-    Route::get('/mentor/kontrak/detail-kontrak', 'view_detail_kontrak')->name('mentor.menu.kontrak.detail_kontrak');
     Route::get('/mentor/profile', 'view_profile')->name('mentor.profile');
+    Route::get('/mentor/pemesanan/negosiasi', 'view_nego')->name('mentor.menu.nego');
 });
 
 Route::middleware(['customer'])->controller(CustomerController::class)->group(function() {
@@ -100,6 +90,6 @@ Route::middleware(['customer'])->controller(CustomerController::class)->group(fu
     Route::get('/customer/pembayaran/checkout', 'view_pembayaran_checkout')->name('customer.menu.pembayaran.checkout');
     Route::get('/customer/pembayaran/preview', 'view_pembayaran_preview')->name('customer.menu.pembayaran.bukti_pembayaran');
     Route::get('/customer/profile', 'view_profile')->name('customer.profile');
-    Route::get('/customer/kontrak', 'view_kontrak')->name('customer.menu.kontrak');
-    Route::get('/customer/kontrak/detail-kontrak', 'view_detail_kontrak')->name('customer.menu.kontrak.detail_kontrak');
+    Route::get('/customer/pemesanan/negosiasi', 'view_nego')->name('customer.menu.nego');
+    Route::get('/customer/pemesanan/review', 'view_review')->name('customer.menu.pemesanan.review');
 });

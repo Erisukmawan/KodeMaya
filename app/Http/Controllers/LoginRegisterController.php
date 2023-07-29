@@ -26,6 +26,10 @@ class LoginRegisterController extends Controller
     {
         return view('auth.register');
     }
+    public function register_mentor()
+    {
+        return view('auth.register_mentor');
+    }
 
     public function verify(Request $request)
     {

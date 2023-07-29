@@ -34,16 +34,12 @@ class MentorController extends Controller
     {
         return view('mentor.menu.preview-pembayaran');
     }
-    public function view_kontrak()
+    public function view_pembayaran_tambah()
     {
-        return view('mentor.menu.kontrak');
+        return view('mentor.menu.tambah-pembayaran');
     }
-    public function view_detail_kontrak()
+    public function view_nego()
     {
-        return view('mentor.menu.detail-kontrak');
-    }
-    public function view_pembayaran_checkout()
-    {
-        return view('mentor.menu.checkout');
+        return view('mentor.menu.nego-kontrak');
     }
 }
