@@ -98,14 +98,18 @@
                     <span class="h-4 w-4 border flex-none border-slate-100 dark:border-slate-800 rounded inline-flex ltr:mr-3 rtl:ml-3 relative transition-all duration-150 bg-slate-100 dark:bg-slate-900">
                         <img src="assets/images/icon/ck-white.svg" alt="" class="h-[10px] w-[10px] block m-auto opacity-0"></span>
                     <span class="text-500 dark:text-slate-400 text-sm leading-6 capitalize">
-                       Terima <a href="#" class="text-primary-500 hover:underline" target="_blank">Syarat Dan Ketentuan</a> Dan <a class="text-primary-500 hover:text-primary-300 hover:underline" target="_blank" href="#">Kebijakan Privasi</a> Kami 
+                       Terima 
+                       <a href="{{route('syarat')}}" class="text-primary-500 hover:underline">Syarat & Ketentuan</a> 
+                       dan
+                       <a href="{{route('kebijakan')}}" class="text-primary-500 hover:underline">Kebijakan Privasi</a> 
+                        Kami
                     </span>
                 </label>
             </div>
         </label>
     </div>
-    <button id="buatakun" class="btn btn-secondary w-full text-center" style="cursor:no-drop" disabled>Buat Akun</button>
-    <button id="buatakunload" class="btn hidden justify-center w-full text-center btn-success" style="cursor:no-drop" disabled>
+    <button id="buatakun" class="mt-8 btn btn-secondary w-full text-center" style="cursor:no-drop" disabled>Buat Akun</button>
+    <button id="buatakunload" class="mt-8 btn hidden justify-center w-full text-center btn-success" style="cursor:no-drop" disabled>
         Loading
         <iconify-icon class="text-xl spin-slow ltr:mr-2 rtl:ml-2 relative top-[1px]" icon="line-md:loading-twotone-loop" style="top: 4px;"></iconify-icon>
     </button>

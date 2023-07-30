@@ -127,7 +127,7 @@
                         <div class="input-area">
                           <label for="textFormatter" class="form-label">Nama Virtual Account</label>
                           <div class="relative">
-                            <span class="text-base font-Inter font-bold dark:text-slate-200 text-slate-900 mt-2 inline-block">{{Auth::User()->name}}</span>
+                            <span class="text-base font-Inter font-bold dark:text-slate-200 text-slate-900 mt-2 inline-block">{{Auth::guard('webmentor')->user()->nama}}</span>
                           </div>
                         </div>
                         <div class="input-area">

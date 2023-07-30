@@ -1,21 +1,21 @@
-@extends('customer.template')
+@extends('admin.template')
 @section('main-content')
 <div class="card xl:col-span-2 rounded-md bg-white dark:bg-slate-800 lg:h-full shadow-base">
     <div class="card-body flex flex-col p-6">
         <header
             class="flex space-x-3 mb-5 items-center border-b border-slate-100 dark:border-slate-700 pb-5 -mx-6 px-6">
-            <a href="{{route('customer.menu.pemesanan')}}" class="inline-flex items-center space-x-1 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
+            <a href="{{route('admin.menu.review')}}" class="inline-flex items-center space-x-1 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
                                 dark:text-slate-300">
                 <iconify-icon icon="heroicons:arrow-left"></iconify-icon>
                 <span class="">Kembali </span>
             </a>
             <div class="flex-1">
-                <div class="card-title text-slate-900 dark:text-white">Detail Pesanan</div>
+                <div class="card-title text-slate-900 dark:text-white">Review Pesanan</div>
             </div>
             <div class="flex-none">
                 <a href="{{route('customer.menu.nego')}}"><button class="rounded-xl p-2 hover:bg-primary-600 w-30 bg-success-600 text-white dark:text-white">
-                    <iconify-icon icon="material-symbols:chat"></iconify-icon>
-                    <span class="font-normal text-sm p-1">Negosiasi</span>
+                    <iconify-icon icon="pajamas:review-checkmark"></iconify-icon>
+                    <span class="font-normal text-sm p-1">Pengiriman Pesanan</span>
                 </button>
                 </a>
             </div>
@@ -33,10 +33,10 @@
                 </div>
                 <!-- <div class="flex-1"> -->
                 <div class="input-area relative">
-                    <label for="textFormatter" class="form-label text-slate-400">Status Project</label>
+                    <label for="textFormatter" class="form-label text-slate-400">Status Pesanan</label>
                     <div class="relative">
                         <span
-                            class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">SELESAI</span>
+                            class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">Di Periksa</span>
                     </div>
                 </div>
                 <div class="flex-none input-area space-y-1">
@@ -68,9 +68,30 @@
                             class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">20-08-2023</span>
                     </div>
                 </div>
+                <div class="input-area space-y-1">
+                    <label for="textFormatter" class="form-label text-slate-400">Total Harga</label>
+                    <div class="relative">
+                        <span
+                            class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">RP2000000</span>
+                    </div>
+                </div>
+                <div class="input-area space-y-1">
+                    <label for="textFormatter" class="form-label text-slate-400">Status Kontrak</label>
+                    <div class="relative">
+                        <span
+                            class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">Disetujui</span>
+                    </div>
+                </div>
+                <div class="input-area space-y-1">
+                    <label for="textFormatter" class="form-label text-slate-400">Status Pembayaran</label>
+                    <div class="relative">
+                        <span
+                            class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">Paid</span>
+                    </div>
+                </div>
             </div>
             <div class="input-area mt-5">
-                <label for="textFormatter" class="form-label text-slate-400">Deskripsi pemesanan</label>
+                <label for="textFormatter" class="form-label text-slate-400">Deskripsi project</label>
                 <div class="relative">
                     <span
                         class="text-normal font-Inter font-normal text-slate-800 mt-2  dark:text-white inline-block">Lorem
@@ -90,33 +111,6 @@
                         consequuntur! Commodi minima excepturi repudiandae velit hic maxime
                         doloremque. Quaerat provident commodi consectetur veniam similique ad
                         earum omnis ipsum saepe, voluptas</span>
-                </div>
-            </div>
-            <div class="input-area mt-5">
-                <label for="textFormatter" class="form-label text-slate-400">Lampiran</label>
-                <div class="relative">
-                    <div class="grid lg:grid-cols-2 space-y-2 md:grid-cols-2 grid-cols-2 gap-6">
-                        <div>
-                            <embed type="application/pdf"
-                                src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0"
-                                class="w-full" height="400"></embed>
-                        </div>
-                        <div
-                            class="text-contrent p-3 w-24 bg-slate-300 dark:bg-slate-900 dark:text-slate-300 text-slate-800 text-sm font-normal rounded-md flex-1 mb-1">
-                            <img src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg"
-                                class="rounded-md" alt="image">
-                        </div>
-                        <div
-                            class="text-contrent p-3 w-24 bg-slate-300 dark:bg-slate-900 dark:text-slate-300 text-slate-800 text-sm font-normal rounded-md flex-1 mb-1">
-                            <img src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg"
-                                class="rounded-md" alt="image">
-                        </div>
-                        <div
-                            class="text-contrent p-3 w-24 bg-slate-300 dark:bg-slate-900 dark:text-slate-300 text-slate-800 text-sm font-normal rounded-md flex-1 mb-1">
-                            <img src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg"
-                                class="rounded-md" alt="image">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

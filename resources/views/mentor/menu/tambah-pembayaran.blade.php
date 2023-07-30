@@ -66,7 +66,7 @@
                     <div class="fromGroup       ">
                         <label class="block capitalize form-label  ">Nama Anda</label>
                         <div class="relative ">
-                            <input type="text" class="form-control py-2 " value="{{ Auth::user()->name }}">
+                            <input type="text" class="form-control py-2 " value="{{ Auth::guard('webmentor')->user()->nama }}">
                             <div
                                 class="flex text-xl absolute ltr:right-[14px] rtl:left-[14px] top-1/2 -translate-y-1/2  space-x-1 rtl:space-x-reverse">
                             </div>
@@ -85,7 +85,7 @@
                         <div class="fromGroup       ">
                             <label class="block capitalize form-label  ">Email</label>
                             <div class="relative ">
-                                <input type="email" class="form-control py-2 " value="{{ Auth::user()->email }}">
+                                <input type="email" class="form-control py-2 " value="{{ Auth::guard('webmentor')->user()->email }}">
                                 <div
                                     class="flex text-xl absolute ltr:right-[14px] rtl:left-[14px] top-1/2 -translate-y-1/2  space-x-1 rtl:space-x-reverse">
                                 </div>

@@ -220,6 +220,13 @@ Correct the cursor style of increment and decrement buttons in Safari.
 .dark .menuatas.active .text-box {
     color: #00c9ff;
 }
+.menubawah.active .textcol {
+    color: blue;
+}
+
+.dark .menubawah.active .textcol {
+    color: #00c9ff;
+}
 [type='search'] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */

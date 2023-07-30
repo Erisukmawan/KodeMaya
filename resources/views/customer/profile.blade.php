@@ -44,117 +44,101 @@
                     </div>
                 </div>
                 <!-- end single -->
-                </div>
-                <!-- end single -->
             </div>
-            <!-- profile info-500 -->
+            <!-- end single -->
         </div>
-        <div class="lg:col-span-8 col-span-12 space-x-3">
-            <div class="card">
-                <header class="card-header">
-                    <div class="flex space-x-3 items-center rtl:space-x-reverse">
-                        <div
-                            class="flex-none h-8 w-8 rounded-full bg-success-500 text-white flex flex-col items-center justify-center text-lg">
-                            <iconify-icon icon="heroicons:user"></iconify-icon>
-                        </div>
-                        <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                            Profile Settings
-                        </div>
-                    </div>
-                </header>
-                <div class="card-body p-6">
-                    <div class="space-y-9">
-                        <div class="text-slate-600 dark:text-slate-300 text-sm">
-
-                            <div class="input-area">
-                                <label for="textFormatter" class="form-label">Nama</label>
-                                <div class="relative space-y-6">
-                                    <input id="nama_project" type="text" class="form-control"
-                                        placeholder="Apa Nama Project Anda ? "value="{{ Auth::user()->nama }}">
-                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                    <span class="block"></span>
-                                </div>
-                            </div>
-                            <div class="input-area">
-                                <label for="textFormatter" class="form-label">Email</label>
-                                <div class="relative space-y-6">
-                                    <input id="nama_project" type="email" class="form-control"
-                                        placeholder="Masukkan Email Anda " value="{{ Auth::User()->email }}">
-                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                    <span class="block"></span>
-                                </div>
-                            </div>
-                            <div class="input-area">
-                                <label for="textFormatter" class="form-label">Alamat</label>
-                                <div class="relative space-y-6">
-                                    <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
-                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                    <span class="block"></span>
-                                </div>
-                            </div>
-                            <div class="input-area">
-                                <label for="textFormatter" class="form-label">Telphone</label>
-                                <div class="relative space-y-6">
-                                    <input id="nama_project" type="number" class="form-control" placeholder="08xxxxxxxxx">
-                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                    <span class="block"></span>
-                                </div>
-                            </div>
-                            <div class="card-text h-full space-y-6 mb-8">
-                                <div class="input-area">
-                                    <label for="textFormatter" class="form-label">Foto Profile</label>
-                                    <div class="filePreview">
-                                        <label>
-                                            <input type="file" class=" w-full hidden" name="basic"
-                                                accept=".jpg, .jpeg, .png">
-                                            <span class="w-full h-[40px] file-control flex items-center custom-class">
-                                                <span class="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
-                                                    <!-- <span id="placeholder" class="text-slate-400"></span> -->
-                                                </span>
-                                                <span
-                                                    class="file-name flex-none cursor-pointer border-l px-4 border-slate-200 dark:border-slate-700 h-full inline-flex items-center bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 text-sm rounded-tr rounded-br font-normal">Browse</span>
-                                            </span>
-                                        </label>
-                                        <div id="file-preview"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
-                                <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
-                                    Buat Pesanan
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- profile info-500 -->
+    </div>
+    <div class="lg:col-span-8 col-span-12 space-x-3">
         <div class="card">
+            <header class="card-header">
+                <div class="flex space-x-3 items-center rtl:space-x-reverse">
+                    <div
+                        class="flex-none h-8 w-8 rounded-full bg-success-500 text-white flex flex-col items-center justify-center text-lg">
+                        <iconify-icon icon="heroicons:user"></iconify-icon>
+                    </div>
+                    <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
+                        Profile Settings
+                    </div>
+                </div>
+            </header>
             <div class="card-body p-6">
-                <div class="space-y-6">
-                    <div class="flex space-x-3 rtl:space-x-reverse items-center">
-                        <div
-                            class="flex-none h-8 w-8 rounded-full bg-danger-500 text-white flex flex-col items-center justify-center text-lg">
-                            <iconify-icon icon="solar:logout-2-bold"></iconify-icon>
-                        </div>
-                        <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                            Logout
-                        </div>
-                    </div>
+                <div class="space-y-9">
                     <div class="text-slate-600 dark:text-slate-300 text-sm">
-                        Yakin keluar ? pas balik harus masuk akun lagi, ya.
-                    </div>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                        class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
-                        @csrf
-                        <button type="submit">
-                            <span class="font-Inter items-center justify-center"
-                                style="text-align:'center'; color:red">Logout</span>
+
+                        <div class="input-area">
+                            <label for="textFormatter" class="form-label">Nama</label>
+                            <div class="relative space-y-6">
+                                <input id="nama_project" type="text" class="form-control"
+                                    placeholder="Apa Nama Project Anda ? "value="{{ Auth::User()->nama }}">
+                                <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
+                                <span class="block"></span>
+                            </div>
+                        </div>
+                        <div class="input-area">
+                            <label for="textFormatter" class="form-label">Alamat</label>
+                            <div class="relative space-y-6">
+                                <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
+                                <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
+                                <span class="block"></span>
+                            </div>
+                        </div>
+                        <div class="card-text h-full space-y-6 mb-8">
+                            <div class="input-area">
+                                <label for="textFormatter" class="form-label">Foto Profile</label>
+                                <div class="filePreview">
+                                    <label>
+                                        <input type="file" class=" w-full hidden" name="basic"
+                                            accept=".jpg, .jpeg, .png">
+                                        <span class="w-full h-[40px] file-control flex items-center custom-class">
+                                            <span class="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
+                                                <!-- <span id="placeholder" class="text-slate-400"></span> -->
+                                            </span>
+                                            <span
+                                                class="file-name flex-none cursor-pointer border-l px-4 border-slate-200 dark:border-slate-700 h-full inline-flex items-center bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 text-sm rounded-tr rounded-br font-normal">Browse</span>
+                                        </span>
+                                    </label>
+                                    <div id="file-preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
+                            <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
+                                Ubah Profile
+                            </div>
                         </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    <div class="card">
+        <div class="card-body p-6">
+            <div class="space-y-6">
+                <div class="flex space-x-3 rtl:space-x-reverse items-center">
+                    <div
+                        class="flex-none h-8 w-8 rounded-full bg-danger-500 text-white flex flex-col items-center justify-center text-lg">
+                        <iconify-icon icon="solar:logout-2-bold"></iconify-icon>
+                    </div>
+                    <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
+                        Logout
+                    </div>
+                </div>
+                <div class="text-slate-600 dark:text-slate-300 text-sm">
+                    Yakin keluar ? pas balik harus masuk akun lagi, ya.
+                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                    class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
+                    @csrf
+                    <button type="submit">
+                        <span class="font-Inter items-center justify-center"
+                            style="text-align:'center'; color:red">Logout</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
     </div>
     </div>
 @endsection

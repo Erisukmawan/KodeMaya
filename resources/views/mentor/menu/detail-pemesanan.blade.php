@@ -79,7 +79,7 @@
                             <div class="relative">
                                 <div class="grid lg:grid-cols-2 space-y-2 md:grid-cols-2 grid-cols-2 gap-6">
                                 <div>
-                                    <iframe src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0" class="space-y-8 h-full w-full" frameborder="0"></iframe>
+                                    <embed type="application/pdf" src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0" class="w-full" height="400"></embed>
                                     </div>    
                                 <div class="text-contrent p-3 w-24 bg-slate-300 dark:bg-slate-900 dark:text-slate-300 text-slate-800 text-sm font-normal rounded-md flex-1 mb-1">
                                         <img src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" class="rounded-md" alt="image">

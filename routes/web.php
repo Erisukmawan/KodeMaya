@@ -21,27 +21,41 @@ use App\Http\Controllers\MentorController;
 */
 
 Route::get('/',[LandingPageController::class, 'index'])->name('landingpage');
+Route::get('/faq', [LandingPageController::class, 'faq'])->name('faq');
+Route::get('/kebijakan-privasi', [LandingPageController::class, 'kebijakan'])->name('kebijakan');
+Route::get('/syarat-dan-ketentuan', [LandingPageController::class, 'syarat'])->name('syarat');
 
-// Route::get('/list-files', function() {
-//     // The human readable folder name to get the contents of...
-//     // For simplicity, this folder is assumed to exist in the root directory.
-//     $folder = '1TIGPlwR94tafFHQfg9uNYmF_sLhB8UXT';
 
-//     // Get directory contents...
-//     $files = collect(Storage::disk('google')->listContents($folder));
-//     // $files = Storage::disk('google')->allFiles($folder);
-//     // $file = Storage::disk('google')->get('1TIGPlwR94tafFHQfg9uNYmF_sLhB8UXT/1Vx1U_XaV5ueyc4YEfYg6O-nZb4SMK57i');
+Route::get('/list-dir', function() {
+    $folder = env('GOOGLE_DRIVE_FOLDER');
+    $listDir = collect(Storage::disk('google')->listContents($folder, true));
 
-//     return $files;
-//     // return $files->mapWithKeys(function($file) {
-//     //     return [$file->path() => pathinfo($file->path(),PATHINFO_BASENAME)];
-//     // });
-// });
+    return $listDir;
+});
 
-// Route::get('/create-dir', function() {
-//     Storage::disk('google')->makeDirectory('/1TIGPlwR94tafFHQfg9uNYmF_sLhB8UXT/Test Dir');
-//     return 'Directory was created in Google Drive';
-// });
+Route::get('/list-files', function() {
+    // The human readable folder name to get the contents of...
+    // For simplicity, this folder is assumed to exist in the root directory.
+    // $folder = '17MLpOnKad2ren9enhC2jYV7Y0uKIhxky';
+    // $filePath = 'KodeMaya Files/Document/Kodemaya Mentor.zip';
+    // $filePath = '1CGtusA0vlbxRyWXFCsCizZuE6uYmzGIc/1OezXwRST-KXI6DmVuybmMXOu2hdwrIZ5/Kodemaya Mentor.zip';
+    $fileId = '1OezXwRST-KXI6DmVuybmMXOu2hdwrIZ5/1a9eK0-SohO8wb5GWVxPQu13gJVpp3U2h';
+    // Get directory contents...
+    // $files = collect(Storage::disk('google')->listContents($folder, true));
+    // $files = Storage::disk('google')->allFiles($folder);
+    // $files = Storage::disk('google')->get($fileId);
+    // $files = Storage::disk('google')->getAdapter()->getMetadata($fileId);
+
+    return $files;
+    // return $files->mapWithKeys(function($file) {
+    //     return [$file->path() => pathinfo($file->path(),PATHINFO_BASENAME)];
+    // });
+});
+
+Route::get('/create-dir', function() {
+    Storage::disk('google')->makeDirectory('/1TIGPlwR94tafFHQfg9uNYmF_sLhB8UXT/Test Dir');
+    return 'Directory was created in Google Drive';
+});
 
 Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
@@ -56,6 +70,7 @@ Route::controller(LoginRegisterController::class)->group(function() {
 
 Route::controller(AuthController::class)->group(function() {
     Route::post('/register-customer-process', 'register_customer_process')->name('register_customer_process');
+    Route::post('/register-mentor-process', 'register_mentor_process')->name('register_mentor_process');
     Route::post('/login-auth', 'login_auth')->name('login_auth');
     Route::get('/verify-account', 'verify_account')->name('verify_account');
 });
@@ -73,6 +88,9 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
     Route::post('/admin/global/delete', 'delete_global')->name('admin.menu.parameter.global.delete');
     Route::get('/admin/enum', 'view_manage_enum')->name('admin.menu.parameter.enum');
     Route::get('/admin/profile', 'view_profile')->name('admin.profile');
+    Route::get('/admin/review', 'view_review')->name('admin.menu.review');
+    Route::get('/admin/review/detail', 'view_detail')->name('admin.menu.review.detail_pemesanan');
+    
 });
 
 

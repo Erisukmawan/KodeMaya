@@ -21,9 +21,6 @@
                           <div class="text-2xl font-medium text-slate-900 dark:text-slate-200 mb-[3px]">
                             {{ Auth::user()->name }}
                           </div>
-                          <div class="text-sm font-light text-slate-600 dark:text-slate-400">
-                            Front End Developer
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -31,42 +28,20 @@
                     <div class="profile-info-500 md:flex md:text-start text-center content-center justify-center flex-1 max-w-[516px] md:space-y-0 space-y-4" style="text-align:center">
                       <div class="flex-1">
                         <div class="text-base text-slate-900 dark:text-slate-300 font-medium mb-1">
-                          $32,400
+                        Email
                         </div>
                         <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                          Total Balance
+                          {{ Auth::user()->email }}
                         </div>
                       </div>
-                      <!-- end single -->
                       <div class="flex-1">
                         <div class="text-base text-slate-900 dark:text-slate-300 font-medium mb-1">
-                          {{ Auth::user()->created_at->format('d-m-Y') }}
+                        No Telepone
                         </div>
                         <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                          Tanggal Bergabung
+                          98734276234
                         </div>
                       </div>
-                      <!-- end single -->
-                      
-                      <div class="flex-1 ">
-                                @if (Auth::user()->user_status == 'A')
-                                <div class="flex flex-col items-center justify-center font-medium mb-1">
-                                    <div class="text-base w-14 rounded-2xl bg-success-500 text-white dark:text-slate-300 font-medium p-8">Aktif</div>
-                                </div>
-                                @elseif (Auth::user()->user_status == 'B')
-                                <div class="flex flex-col items-center justify-center font-medium mb-1">
-                                    <div class="text-base w-14 rounded-2xl bg-danger-500 text-white dark:text-slate-300 font-medium p-8">Banned</div>
-                                </div>
-                                @else
-                                <div class="flex flex-col items-center justify-center font-medium mb-1">
-                                    <div class="text-base w-14 rounded-2xl bg-warning-500 text-white dark:text-slate-300 font-medium p-8">Pending</div>
-                                </div>
-                                @endif
-                        <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                          Status Akun
-                        </div>
-                      </div>
-                      <!-- end single -->
                     </div>
                     <!-- profile info-500 -->
                   </div>
@@ -95,14 +70,6 @@
                         </div>
                           </div>
                           <div class="input-area">
-                          <label for="textFormatter" class="form-label">Email</label>
-                          <div class="relative space-y-6">
-                            <input id="nama_project" type="email" class="form-control" placeholder="Masukkan Email Anda " value="{{Auth::User()->email}}">
-                            <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                            <span class="block"></span>  
-                        </div>
-                          </div>
-                          <div class="input-area">
                           <label for="textFormatter" class="form-label">Alamat</label>
                           <div class="relative space-y-6">
                             <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
@@ -110,14 +77,6 @@
                             <span class="block"></span>  
                         </div>
                           </div>
-                          <div class="input-area">
-                          <label for="textFormatter" class="form-label">Telphone</label>
-                          <div class="relative space-y-6">
-                            <input id="nama_project" type="number" class="form-control" placeholder="08xxxxxxxxx">
-                            <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                            <span class="block"></span>  
-                        </div>
-                        </div>
                         <div class="card-text h-full space-y-6 mb-8">
                         <div class="input-area">
                           <label for="textFormatter" class="form-label">Foto Profile</label>

@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\File;
 
 class AuthController extends Controller
 {
@@ -63,6 +65,54 @@ class AuthController extends Controller
             DB::rollBack();
             Log::error($e);
             return redirect()->route('register')->withErrors($e->getMessage());
+        }
+    }
+
+    public function register_mentor_process(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            $request->validate([
+                'nama' => 'required|string|max:250',
+                'email' => 'required|email|max:250|unique:mentor',
+                'alamat' => 'required|string|max:250',
+                'telp' => 'required|string|max:250',
+                'keahlian' => 'required|string|max:250',
+                'dokumen' => [
+                    'required',
+                    File::types(['zip', 'rar', '7z', 'tar.gz'])
+                        ->max(25 * 1024),
+                ],
+                'password' => 'required|min:8|confirmed',
+                'accept' => 'required'
+            ]);
+
+            $file = $request->file('dokumen');
+
+            $user = Mentor::create([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'alamat' => $request->alamat,
+                'telp' => $request->telp,
+                'keahlian' => $request->keahlian,
+                'dokumen' => $file->getClientOriginalName(),
+                'password' => Hash::make($request->password)
+            ]);
+
+            $filepath = env('GOOGLE_DRIVE_FOLDER')."/".env('GOOGLE_DRIVE_FOLDER_DOCUMENT')."/".$user->id_mentor.".".$file->extension();
+
+            Storage::disk('google')->put($filepath, $file->getContent());
+
+            Log::info('Mentor Register ' . json_encode($user));
+
+            $user->notify(new \App\Notifications\VerifikasiMentor);
+            DB::commit();
+            return redirect()->route('login')->withSuccess('Registrasi berhasil, silahkan cek email (termasuk spam) kamu untuk melanjutkan verifikasi.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e);
+            return redirect()->route('register-mentor')->withErrors($e->getMessage());
         }
     }
 
@@ -138,11 +188,11 @@ class AuthController extends Controller
 
             $users = DB::select(
                 "
-                SELECT p.id_pelanggan AS id, p.nama, p.email, p.password, 'customer' as type FROM pelanggan AS p WHERE p.email = :email1
+                SELECT p.id_pelanggan AS id, p.nama, p.email, p.password, p.status_akun, 'customer' as type FROM pelanggan AS p WHERE p.email = :email1
                     UNION
-                SELECT m.id_mentor AS id, m.nama, m.email, m.password, 'mentor' as type FROM mentor AS m WHERE m.email = :email2
+                SELECT m.id_mentor AS id, m.nama, m.email, m.password, m.status_akun, 'mentor' as type FROM mentor AS m WHERE m.email = :email2
                     UNION
-                SELECT pg.id_pegawai AS id, pg.nama, pg.email, pg.password, 'employee' as type FROM pegawai AS pg WHERE pg.email = :email3
+                SELECT pg.id_pegawai AS id, pg.nama, pg.email, pg.password, pg.status_akun, 'employee' as type FROM pegawai AS pg WHERE pg.email = :email3
             ",
                 array("email1" => $email, "email2" => $email, "email3" => $email)
             );
@@ -150,6 +200,10 @@ class AuthController extends Controller
             
             if (count($users) > 0) {
                 $user = $users[0];
+
+                if ($user->status_akun == 'TIDAK AKTIF') {
+                    throw new Exception('Verifikasi email terlebih dahulu untuk melanjutkan!');
+                }
                 
                 if ($user->type == 'customer') {
                     if (Auth::guard('webcustomer')->attempt($credentials, $rememberMe)) {

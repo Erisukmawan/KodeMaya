@@ -5,10 +5,10 @@
     <div class="bg-no-repeat bg-cover bg-center px-5 py-8 rounded-xl relative flex items-center"
         style="background-image: url({{url('assets/images/all-img/widget-bg-7.png')}})">
         <div class="flex-1">
-            <div class="max-w-[300px]">
-                <div class="text-xl font-medium text-slate-800 mb-2">
-                    <span class="block font-normal">Selamat Datang,</span>
-                    <span class="block">{{ Auth::user()->name }}</span>
+            <div class="max-w-[310px]">
+                <div class="text-md text-slate-800 mb-2">
+                    <span class="block font-normal">Hi, {{ Auth::user()->name }} Yuk Buat Project Sekarang!</span>
+                    <!-- <span class="block">{{ Auth::user()->name }}</span> -->
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
                         <div class="flex">
                             <div class="flex-1">
                                 <a href="{{route('customer.menu.pemesanan.detail_pemesanan')}}" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize dark:bg-slate-700 bg-slate-200 rounded-full p-2 font-medium text-slate-600
-                                dark:text-slate-300">
+                                dark:text-slate-300 hidden">
                                     <span>Lihat Detail</span>
                                     <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
                                 </a>
@@ -80,7 +80,7 @@
                             <div class="flex-none">
                                 <a href="{{route('customer.menu.pemesanan.review')}}" class="space-x-3 rtl:space-x-reverse text-sm capitalize bg-success-500 rounded-full text-white p-2 font-medium
                                   dark:text-slate-800">
-                                    <span>Review Pesanan</span>
+                                    <span>Lihat Detail</span>
                                     <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
                                 </a>
                             </div>

@@ -17,8 +17,8 @@ class MentorAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()) {
-            $user_data = Auth::user();
+        if (Auth::guard('webmentor')->check()) {
+            $user_data = Auth::guard('webmentor')->user();
 
             $acc_status = $user_data->status_akun;
 
