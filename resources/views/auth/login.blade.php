@@ -46,7 +46,7 @@
         </div>
     @endif
 
-    <form class="space-y-4" action="{{ route('authenticate') }}" method="post">
+    <form class="space-y-4" action="{{ route('login_auth') }}" method="post">
         @csrf
         <div class="fromGroup">
             <label class="block capitalize form-label">email</label>

@@ -47,7 +47,7 @@
 @isset($actionText)
 <x-slot:subcopy>
 @lang(
-    "Jika kamu mempunyai masalah ketika klik tombol \":actionText\" , salin link dibawah ini\n".
+    "Jika kamu mempunyai masalah ketika klik tombol \":actionText\", salin link dibawah ini\n".
     'ke web browser:',
     [
         'actionText' => $actionText,

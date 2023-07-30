@@ -132,7 +132,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                 <!-- BEGIN: Header -->
                 <div class="z-[9]" id="app_header">
                     <div
-                        class="app-header z-[999] ltr:ml-[248px] rtl:mr-[248px] bg-white dark:bg-slate-800 shadow-sm dark:shadow-slate-700">
+                        class="app-header z-[999] bg-white dark:bg-slate-800 shadow-sm dark:shadow-slate-700">
                         <div class="flex justify-between items-center h-full">
                             <div
                                 class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">

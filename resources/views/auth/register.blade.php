@@ -46,12 +46,12 @@
 </div>
 @endif
 
-<form class="space-y-4" action="{{ route('store') }}" method="post">
+<form class="space-y-4" action="{{ route('register_customer_process') }}" method="post">
     @csrf
     <div class="fromGroup">
         <label class="block capitalize form-label">Nama Lengkap</label>
         <div class="relative ">
-            <input type="text" name="name" class="form-control py-2" placeholder="Nama Lengkap" required>
+            <input type="text" name="nama" class="form-control py-2" placeholder="Nama Lengkap" required>
         </div>
     </div>
     <div class="fromGroup">
@@ -63,13 +63,13 @@
     <div class="fromGroup">
         <label class="block capitalize form-label">alamat</label>
         <div class="relative ">
-            <input type="textarea" name="" class="form-control py-2" placeholder="Email Anda">
+            <input type="textarea" name="alamat" class="form-control py-2" placeholder="Alamat Anda">
         </div>
     </div>
     <div class="fromGroup">
         <label class="block capitalize form-label">Nomor Telepon</label>
         <div class="relative ">
-            <input type="number" name="" class="form-control py-2" placeholder="No Telphone Aktif">
+            <input type="number" name="telp" class="form-control py-2" placeholder="No Telphone Aktif">
         </div>
     </div>
     <div class="fromGroup">

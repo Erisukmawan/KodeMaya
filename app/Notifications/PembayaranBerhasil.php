@@ -2,14 +2,12 @@
 
 namespace App\Notifications;
 
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class Daftar extends Notification
+class PembayaranBerhasil extends Notification
 {
     use Queueable;
 
@@ -36,17 +34,10 @@ class Daftar extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $key = env('VALIDATE_KEY');
-        $payload = [
-            'name' => $notifiable->nama,
-            'email' => $notifiable->email
-        ];
-        $jwt_token = JWT::encode($payload, $key, 'HS256');
-        
         return (new MailMessage)
-                    ->line('Berikut link verifikasi untuk melanjutkan.')
-                    ->action('Verifikasi', url('/verify?&token='.$jwt_token.'&state=0'))
-                    ->line('Terimakasih telah menggunakan aplikasi kami!');
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
     }
 
     /**

@@ -1,4 +1,4 @@
-<div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper"></div>
+<div class="content-wrapper transition-all duration-150" id="content_wrapper"></div>
 <section id="home" class="hero" data-aos="fade-up" data-aos-duration="1000">
     <div class="background">
         <div class="hero-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="2000">

@@ -19,31 +19,15 @@ class MentorAuth
     {
         if (Auth::check()) {
             $user_data = Auth::user();
-            
-            $user_status = $user_data->user_status;
-            $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
-            $verify_message = DB::table('global_parameter')->get()->where('code', 'verify_message')->first();
 
-            if ($user_status != 'A') {
+            $acc_status = $user_data->status_akun;
+
+            if ($acc_status == 'TIDAK AKTIF') {
                 Auth::logout();
-                $message = "";
-                
-                if ($user_status == 'B') {
-                    $message = !empty($ban_message) ? $ban_message->value_string : 'Akun anda telah ditangguhkan, Hubungi CS KodeMaya';
-                } else if ($user_status == 'P') {
-                    $message = !empty($verify_message) ? $verify_message->value_string : "Maaf kamu belum verifikasi email, belum menerima email? silahkan klik tombol lupa password.";
-                }
-                
                 return redirect()->route('login')
-                ->withErrors(['message' => $message]);
-            }
-
-            $user_type = $user_data->user_type;
-
-            if ($user_type == 'M') {
-                return $next($request);
+                ->withErrors(['message' => "Akun tidak aktif, mohon verifikasi akun terlebih dahulu"]);
             } else {
-                return abort(403);
+                return $next($request);
             }
         } else {
             return redirect()->route('login')

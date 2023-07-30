@@ -19,12 +19,15 @@ class AdminAuth
     {
         if (Auth::check()) {
             $user_data = Auth::user();
-            $user_type = $user_data->user_type;
 
-            if ($user_type == 'A') {
-                return $next($request);
+            $acc_status = $user_data->status_akun;
+
+            if ($acc_status == 'TIDAK AKTIF') {
+                Auth::logout();
+                return redirect()->route('login')
+                ->withErrors(['message' => "Akun tidak aktif, mohon verifikasi akun terlebih dahulu"]);
             } else {
-                return abort(403);
+                return $next($request);
             }
         } else {
             return redirect()->route('login')

@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'webcustomer',
+        'passwords' => 'pelanggan',
     ],
 
     /*
@@ -36,10 +36,22 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'webcustomer' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'pelanggan',
         ],
+
+        'webmentor' => [
+            'driver' => 'session',
+            'provider' => 'mentor',
+        ],
+
+        'webemployee' => [
+            'driver' => 'session',
+            'provider' => 'pegawai',
+        ],
+
+
     ],
 
     /*
@@ -60,9 +72,19 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'pelanggan' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Pelanggan::class,
+        ],
+
+        'mentor' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Mentor::class,
+        ],
+
+        'pegawai' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pegawai::class,
         ],
 
         // 'users' => [
@@ -91,8 +113,22 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'pelanggan' => [
+            'provider' => 'pelanggan',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'mentor' => [
+            'provider' => 'mentor',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'pegawai' => [
+            'provider' => 'pegawai',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,

@@ -4,7 +4,7 @@ html {
 
 }
 
-.hero {
+.light .hero {
     background-image: url("../images/cover.jpg");
     background-size: cover;
     background-position: center center;
@@ -12,7 +12,19 @@ html {
     display: flex;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
-    box-shadow: 0 20px 30px rgb(37, 169, 212);
+    box-shadow: 0 20px 30px #000;
+    margin-bottom: 45px;
+}
+
+.dark .hero {
+    background-image: url("../images/cover.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    display: flex;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 20px 30px #103d91;
     margin-bottom: 45px;
 }
 

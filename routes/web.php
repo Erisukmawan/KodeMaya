@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MentorController;
 
@@ -52,6 +53,13 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+Route::controller(AuthController::class)->group(function() {
+    Route::post('/register-customer-process', 'register_customer_process')->name('register_customer_process');
+    Route::post('/login-auth', 'login_auth')->name('login_auth');
+    Route::get('/verify-account', 'verify_account')->name('verify_account');
+});
+
 
 Route::middleware(['admin'])->controller(AdminController::class)->group(function() {
     Route::get('/admin/dashboard', 'view_dashboard')->name('admin.menu.dashboard');
