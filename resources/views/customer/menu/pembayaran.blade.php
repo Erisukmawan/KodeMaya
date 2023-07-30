@@ -2,7 +2,7 @@
 @section('main-content')
 <div class="mb-2 mt-7 p-4 relative text-center rounded-2xl">
     <div class="flex max-w-[300px] mx-auto">
-        <img src="{{url('assets/images/svg/sapa.svg')}}" alt="" class="flex-1 w-8 relative mt-[73px]">
+        <img src="{{url('assets/images/svg/Sapa.svg')}}" alt="" class="flex-1 w-8 relative mt-[73px]">
         <div class="mt-2">
             <div class="widget-title">No Pembayaran #200</div>
             <div class="text-sm font-bold">
