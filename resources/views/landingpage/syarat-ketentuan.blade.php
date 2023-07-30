@@ -4,14 +4,14 @@
 <main class="p-5 bg-light-blue">
       <div class="flex justify-center items-start my-2">
         <div class="w-full sm:w-10/12 md:w-1/2 my-1">
-          <h2 class="text-xl font-semibold text-vnet-blue mb-2">FAQ</h2>
+          <h2 class="text-xl font-semibold text-vnet-blue mb-2">Syarat dan Ketentuan Kodemaya</h2>
           <ul class="flex flex-col">
             <li class="bg-white my-2 shadow-lg" x-data="accordion(1)">
               <h2
                 @click="handleClick()"
                 class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
               >
-                <p class="p-3 text-gray-900 dark:text-black">Apa itu Kodemaya?</p>
+                <p class="p-3 text-gray-900 dark:text-black">Kebijakan Akun</p>
                 <svg
                   :class="handleRotate()"
                   class="fill-current text-blue-700 h-6 w-6 transform transition-transform duration-500"
@@ -25,18 +25,13 @@
                 :style="handleToggle()"
                 class="border-l-2 border-blue-600 overflow-hidden max-h-0 duration-500 transition-all"
               >
-                <p class="p-3 text-gray-900 dark:text-black">
-                  "Kodemaya" adalah sebuah platform inovatif dan terpercaya yang menyediakan wadah bagi para profesional di bidang digital untuk menawarkan jasa seperti pembuatan website, aplikasi Android, desain UI/UX, aplikasi desktop, dan model machine learning/pengolahan data science. Platform ini bertujuan untuk memfasilitasi kolaborasi antara pengguna dan para ahli dalam merancang dan mengembangkan proyek digital yang menakjubkan.
-                </p>
-                <p class="p-3 text-gray-900 dark:text-black">
-                    Logo "Kodemaya" menggunakan kombinasi warna biru tua dan biru muda. Warna biru tua melambangkan kedalaman dan misteri alam yang tak terbatas, sementara warna biru muda mencerminkan kehidupan yang lebih mudah dipahami. Bentuk kotak yang saling terkait pada logo menggambarkan hubungan yang saling berhubungan antara pengguna dan mentor, mencerminkan adanya pertukaran pikiran dan ide di dalam platform ini. Selain itu, warna biru tua dalam bentuk sintaks program menunjukkan bahwa platform ini ditujukan untuk masyarakat umum yang tertarik dengan pemrograman.
-                </p>
-                <p class="p-3 text-gray-900 dark:text-black">
-                    Nama "Kodemaya" berasal dari singkatan bahasa Sanskerta, di mana "mathem" berarti puas atau senang sekali, dan "satya" berarti kebenaran. Artinya, platform ini bertujuan memberikan solusi yang benar-benar membantu pengguna agar merasa puas dan senang dengan hasil proyek yang mereka dapatkan tanpa kekhawatiran.
-                </p>
-                <p class="p-3 text-gray-900 dark:text-black">
-                    Dengan berbagai fitur dan layanannya, "Kodemaya" diharapkan dapat menjadi tempat yang ideal bagi para profesional digital untuk menawarkan keahlian mereka serta memenuhi kebutuhan dan harapan pengguna dalam menciptakan proyek digital yang berkualitas tinggi.
-                </p>
+                <ol class="list-decimal pl-8 text-gray-900 dark:text-black">
+                    <li>Anda harus berusia minimal 18 tahun untuk menggunakan aplikasi KodeMaya.</li>
+                    <li>Informasi yang Anda berikan saat mendaftar harus akurat, lengkap, dan mutakhir. Anda bertanggung jawab untuk memperbarui informasi pribadi Anda jika ada perubahan.</li>
+                    <li>Setiap akun pengguna hanya boleh digunakan oleh satu orang. Anda tidak diizinkan untuk berbagi akun dengan orang lain.</li>
+                    <li>Anda bertanggung jawab penuh atas keamanan akun Anda, termasuk kata sandi dan informasi keamanan lainnya. Jangan memberikan informasi ini kepada orang lain.</li>
+                    <li>Jika ada aktivitas yang mencurigakan atau penggunaan yang tidak sah pada akun Anda, Anda harus segera memberi tahu kami.</li>
+                </ol>
               </div>
             </li>
             <li class="bg-white my-2 shadow-lg" x-data="accordion(2)">
@@ -44,7 +39,7 @@
                 @click="handleClick()"
                 class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
               >
-                <p class="p-3 text-gray-900 dark:text-black">Bagaimana cara melakukan pemesanan "Tulung" sebagai pengguna?</p>
+                <p class="p-3 text-gray-900 dark:text-black">Pemesanan Aplikasi</p>
                 <svg
                   :class="handleRotate()"
                   class="fill-current text-blue-700 h-6 w-6 transform transition-transform duration-500"
@@ -58,16 +53,10 @@
                 x-ref="tab"
                 :style="handleToggle()"
               >
-                <p class="p-3 text-gray-900 dark:text-black">
-                  Sebagai pengguna, Anda dapat mengikuti langkah-langkah berikut:
-                </p>
                 <ol class="list-decimal pl-8 text-gray-900 dark:text-black">
-                    <li>Daftar atau masuk ke akun "KodeMaya" Anda.</li>
-                    <li>Pilih menu pemesanan dan buat proyek</li>
-                    <li>Tunggu hingga mentor menyetujui pesanan Anda.</li>
-                    <li>Setelah disetujui, Lihat Detail dan klik tombol negoisasi untuk berkomunikasi bersama mentor.</li>
-                    <li>Jika kedua pihak telah sepakat dan menyetujui kontrak, maka dilanjutkan ke halaman pembayaran yang telah dikirimkan oleh mentor.</li>
-                    <li>Pesanan akan dikerjakan oleh mentor sesuai kesepakatan.</li>
+                    <li>Proses pemesanan melalui aplikasi KodeMaya harus dilakukan secara lengkap dan akurat. Pastikan Anda memberikan detail proyek yang jelas dan sesuai agar kami dapat memberikan layanan dengan baik.</li>
+                    <li> Kami berhak menolak pemesanan apapun yang kami anggap melanggar hukum, melanggar etika, atau melanggar hak kekayaan intelektual pihak ketiga.</li>
+                    <li>Biaya pemesanan akan disesuaikan berdasarkan skala dan kompleksitas proyek yang dipesan. Detail biaya akan dijelaskan lebih lanjut selama proses pemesanan.</li>
                 </ol>
               </div>
             </li>
@@ -76,7 +65,7 @@
                 @click="handleClick()"
                 class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
               >
-                <p class="p-3 text-gray-900 dark:text-black">Bagaimana cara melakukan pembayaran pesanan dengan aman?</p>
+                <p class="p-3 text-gray-900 dark:text-black">Pembayaran Aplikasi</p>
                 <svg
                   :class="handleRotate()"
                   class="fill-current text-blue-700 h-6 w-6 transform transition-transform duration-500"
@@ -90,9 +79,12 @@
                 x-ref="tab"
                 :style="handleToggle()"
               >
-                <p class="p-3 text-gray-900 dark:text-black">
-                  "KodeMaya" bekerja sama dengan metode pembayaran yang terpercaya dan aman. Anda dapat menggunakan kartu kredit/debit atau opsi pembayaran elektronik lainnya untuk melakukan pembayaran pesanan Anda.
-                </p>
+                <ol class="list-decimal pl-8 text-gray-900 dark:text-black">
+                    <li>Pembayaran pemesanan harus dilakukan sesuai dengan ketentuan yang tercantum dalam aplikasi KodeMaya.</li>
+                    <li>Jika Anda membatalkan pemesanan, Anda mungkin dikenakan biaya pembatalan sesuai dengan kebijakan pembatalan yang berlaku.</li>
+                    <li>Pembayaran harus dilakukan dalam mata uang yang ditentukan oleh KodeMaya. Biaya konversi mata uang akan menjadi tanggung jawab Anda.</li>
+                    <li>KodeMaya berhak menahan layanan atau produk hingga pembayaran penuh diterima.</li>
+                </ol>
               </div>
             </li>
             <li class="bg-white my-2 shadow-lg" x-data="accordion(4)">
@@ -100,7 +92,7 @@
                 @click="handleClick()"
                 class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
               >
-                <p class="p-3 text-gray-900 dark:text-black">Bagaimana saya bisa menjadi seorang mentor di "KodeMaya"?</p>
+                <p class="p-3 text-gray-900 dark:text-black">Kebijakan Privasi</p>
                 <svg
                   :class="handleRotate()"
                   class="fill-current text-blue-700 h-6 w-6 transform transition-transform duration-500"
@@ -115,13 +107,8 @@
                 :style="handleToggle()"
               >
                 <p class="p-3 text-gray-900 dark:text-black">
-                  Sebagai seorang pengguna, Anda dapat bergabung menjadi bagian dari Mentor di "KodeMaya" dengan langkah-langkah berikut:
+                  Penggunaan informasi pribadi Anda diatur oleh Kebijakan Privasi KodeMaya. Mohon untuk membaca dan memahami kebijakan tersebut.
                 </p>
-                <ol class="list-decimal pl-8 text-gray-900 dark:text-black">
-                    <li>Pada menu login, pilih opsi "Daftar sebagai mentor".</li>
-                    <li>Isilah data diri Anda dengan lengkap dan pastikan semua informasi terisi dengan benar.</li>
-                    <li>Unggah keahlian Anda, seperti pembuatan aplikasi atau desain, agar konsumen dapat tertarik dengan penawaran yang Anda berikan.</li>
-                </ol>
                 <p class="p-3 text-gray-900 dark:text-black">Dengan mengikuti langkah-langkah di atas, Anda dapat memulai perjalanan sebagai mentor di "KodeMaya" dan menawarkan keahlian Anda kepada pengguna lain yang membutuhkan bantuan dalam proyek digital.</p>
               </div>
             </li>
@@ -130,7 +117,7 @@
                 @click="handleClick()"
                 class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
               >
-                <p class="p-3 text-gray-900 dark:text-black">Bagaimana "KodeMaya" menjamin pesanan saya selesai tepat waktu?</p>
+                <p class="p-3 text-gray-900 dark:text-black">Hak Kekayaan Intelektual</p>
                 <svg
                   :class="handleRotate()"
                   class="fill-current text-blue-700 h-6 w-6 transform transition-transform duration-500"
@@ -144,9 +131,10 @@
                 x-ref="tab"
                 :style="handleToggle()"
               >
-                <p class="p-3 text-gray-900 dark:text-black">
-                  "KodeMaya" berusaha untuk mempertemukan pengguna dengan penyedia jasa yang dapat menyelesaikan pesanan dengan tepat waktu. Namun, sebagai platform penyedia jasa, kami tidak dapat memberikan jaminan mutlak. Namun, kami akan berusaha untuk memberikan dukungan dan bantuan dalam memastikan pesanan selesai dengan baik.
-                </p>
+                <ol class="list-decimal pl-8 text-gray-900 dark:text-black">
+                    <li>Setiap hak kekayaan intelektual yang terkait dengan layanan atau produk KodeMaya tetap menjadi milik perusahaan kami.</li>
+                    <li>Anda tidak diperkenankan untuk menggunakan, mereproduksi, atau mendistribusikan konten atau karya dari KodeMaya tanpa izin tertulis sebelumnya.</li>
+                </ol>
               </div>
             </li>
             <li class="bg-white my-2 shadow-lg" x-data="accordion(6)">
@@ -154,7 +142,7 @@
                 @click="handleClick()"
                 class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
               >
-                <p class="text-gray-900 dark:text-black">Butuh Bantuan ?</p>
+                <p class="pl-3 text-gray-900 dark:text-black">Perubahan pada Syarat dan Ketentuan</p>
                 <svg
                   :class="handleRotate()"
                   class="fill-current text-blue-700 h-6 w-6 transform transition-transform duration-500"
@@ -168,14 +156,18 @@
                 x-ref="tab"
                 :style="handleToggle()"
               >
-                <p class="p-3 text-gray-900 dark:text-black">
-                  Jika Anda Memerlukan Bantuan, silahkan hubungi kami melalui :
-                </p>
                 <ol class="list-decimal pl-8 text-gray-900 dark:text-black">
-                    <li>WhatsApp : 08987528332</li>
-                    <li>Email : support@kodemaya.my.id</li>
+                    <li>KodeMaya berhak untuk memperbarui dan mengubah syarat dan ketentuan ini dari waktu ke waktu tanpa pemberitahuan sebelumnya.</li>
+                    <li>Anda disarankan untuk secara berkala memeriksa halaman syarat dan ketentuan kami agar tetap mendapat informasi terbaru.</li>
                 </ol>
               </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(4)">
+              
+                <p class="p-3 text-gray-600 dark:text-black">Dengan menggunakan aplikasi KodeMaya, Anda dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku. Jika Anda tidak setuju dengan syarat dan ketentuan ini, harap berhenti menggunakan aplikasi KodeMaya.</p>
+                  <button onclick="history.go(-1)" class="inline-block px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-success-500 dark:hover:text-white font-inter text-sm w-full text-white dark:text-white font-normal">
+                    <span class="font-Inter items-center justify-center" style="text-align:'center'; color:white">Saya Setuju</span>
+                  </button>
             </li>
           </ul>
         </div>

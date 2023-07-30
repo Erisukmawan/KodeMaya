@@ -3,25 +3,19 @@
 @section('header-element')
 <div class="flex justify-between items-center h-full">
     <div class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
-        <a href="{{ route('landingpage') }}" class="mobile-logo xl:hidden inline-block">
-            <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="black_logo" alt="logo">
-            <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="white_logo" alt="logo">
+        <a href="{{ route('mentor.menu.dashboard') }}" class="mobile-logo xl:hidden inline-block">
+            <img src="{{ url('/assets/images/logo/favicon.svg') }}" alt="logo">
         </a>
-        <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
-            <iconify-icon class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white" icon="heroicons-outline:menu-alt-3"></iconify-icon>
-        </button>
 
     </div>
     <!-- end vertcial -->
     <div class="items-center space-x-4 rtl:space-x-reverse horizental-box">
-        <a href="{{ route('landingpage') }}">
+        <a href="{{ route('mentor.menu.dashboard') }}">
             <span class="xl:inline-block hidden">
-                <img src="{{ url('assets/images/logo/logo.svg') }}" class="black_logo " alt="logo">
-                <img src="{{ url('assets/images/logo/logo.svg') }}" class="white_logo" alt="logo">
+                <img src="{{ url('assets/images/logo/logo.svg') }}" alt="logo">
             </span>
             <span class="xl:hidden inline-block">
-                <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="black_logo " alt="logo">
-                <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="white_logo " alt="logo">
+                <img src="{{ url('/assets/images/logo/favicon.svg') }}" alt="logo">
             </span>
         </a>
 
@@ -31,7 +25,7 @@
                                     <li class="{{ (request()->is('mentor/dashboard')) ? 'active' : '' }} menuatas">
                                         <a href="{{ route('mentor.menu.dashboard') }}" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                                                <span class="icon-box">
+                                                <span class="icon-box text-box">
                                                     <iconify-icon icon=heroicons-outline:home> </iconify-icon>
                                                 </span>
                                                 <div class="text-box">Home</div>
@@ -41,7 +35,7 @@
                                     <li class="{{ (request()->is('mentor/pemesanan*')) ? 'active' : '' }} menuatas">
                                         <a href="{{ route('mentor.menu.pemesanan') }}" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                                               <span class="icon-box">
+                                               <span class="icon-box text-box">
                                                     <iconify-icon icon=ic:baseline-connect-without-contact> </iconify-icon>
                                                 </span>
                                                  <div class="text-box">Pemesanan</div>
@@ -51,7 +45,7 @@
                                     <li class="{{ (request()->is('mentor/pembayaran*')) ? 'active' : '' }} menuatas">
                                         <a href="{{route('mentor.menu.pembayaran')}}">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                                                <span class="icon-box">
+                                                <span class="icon-box text-box">
                                                     <iconify-icon icon=material-symbols:price-change-outline>
                                                     </iconify-icon>
                                                 </span>
@@ -91,12 +85,6 @@
                         <a href="{{ route('mentor.profile') }}" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
                             <iconify-icon icon="heroicons-outline:user" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
                             <span class="font-Inter">Profil</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/settings" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
-                            <iconify-icon icon="heroicons-outline:cog" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
-                            <span class="font-Inter">Pengaturan</span>
                         </a>
                     </li>
                 </ul>
@@ -145,23 +133,23 @@
 @section('menu-mobile')
 <div class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
     <a href="{{route('mentor.menu.dashboard')}}">
-        <div>
-            <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+        <div class="{{ (request()->is('mentor/dashboard')) ? 'active' : '' }} menubawah">
+            <span class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
                 <iconify-icon icon="heroicons-outline:home"></iconify-icon>
             </span>
-            <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
-                Pembayaran
+            <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
+                Home
             </span>
         </div>
     </a>    
 <a href="{{route('mentor.menu.pemesanan')}}">
-        <div>
-            <span class="relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+        <div class="{{ (request()->is('mentor/pemesanan*')) ? 'active' : '' }} menubawah">
+            <span class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
                 <iconify-icon icon="mdi:feature-highlight"></iconify-icon>
             </span>
-            <span class="block text-[11px] text-slate-600 dark:text-slate-300">
+            <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
                 Pemesanan
             </span>
         </div>
@@ -169,12 +157,12 @@
         
     </a>
     <a href="{{route('mentor.menu.pembayaran')}}">
-        <div>
-            <span class=" relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+        <div class="{{ (request()->is('mentor/pembayaran*')) ? 'active' : '' }} menubawah">
+            <span class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
                 <iconify-icon icon="material-symbols:price-change-outline"></iconify-icon>
             </span>
-            <span class=" block text-[11px] text-slate-600 dark:text-slate-300">
+            <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
                 Pembayaran
             </span>
         </div>

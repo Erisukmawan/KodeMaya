@@ -1,68 +1,25 @@
 @extends('customer/template')
 @section('main-content')
-<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-                    <div class="card">
-                          <header class="card-header">
-                              <div class="flex-1">
-                          <div class="text-xl text-sm text-black dark:text-white mb-2">
-                            <span class="block font-normal">Kode Pembayaran : #PB2112</span>
-                          </div>
-                      </div>
-                      <div class="flex-none">
-                                <span class="block font-normal w-full rounded-2xl bg-danger-500 text-white dark:text-slate-800 text-sm p-1">BELUM BAYAR</span>
-                              </div>
-                          </header>
-                      <div class="card-body p-6">
-                        <div class="space-y-6">
-                          <div class="text-slate-600 space-y-2  text-sm">
-                            <div class=" text-lg space-x-2">
-                              <!-- <div class="flex-none h-6 w-6 rounded-full bg-info-500 dark:bg-info-100 text-black flex flex-col items-center justify-center text-sm">
-                                <iconify-icon icon="heroicons:user"></iconify-icon>
-                              </div> -->
-                              <div class="flex-1 mx-8 text-sm dark:text-slate-100 text-black font-sm">
-                                Project :
-                              </div>
-                              <div class="block  text-base dark:text-slate-100 text-black font-sm">
-                              Aplikasi pencari jodoh
-                              </div>
-                            </div>
-
-                            <div class="relative text-lg space-x-2 ">
-                              <!-- <div class="flex-none h-6 w-6 rounded-full bg-info-500 dark:bg-info-100 text-black flex flex-col items-center justify-center text-sm">
-                                <iconify-icon icon="heroicons:user"></iconify-icon>
-                              </div> -->
-                              <div class="flex-1 mx-8 text-sm dark:text-slate-100 text-black font-sm">
-                                Total Tagihan :
-                              </div>
-                              <div class="block  text-base dark:text-slate-100 text-black font-sm">
-                              Rp1.000.000
-                              </div>
-                            </div>
-
-                          <div class="text-lg space-x-2 ">
-                              <!-- <div class="flex-none h-6 w-6 rounded-full bg-info-500 dark:bg-info-100 text-black flex flex-col items-center justify-center text-sm">
-                                <iconify-icon icon="heroicons:user"></iconify-icon>
-                              </div> -->
-                              <div class="flex-1 mx-8 text-sm dark:text-slate-100 text-black font-sm">
-                                Batas Pembayaran :
-                              </div>
-                              <div class="block  text-base dark:text-slate-100 text-black font-sm">
-                              20-06-03 12:09:12
-                              </div>
-                            </div>
-                          
-                          </div>
-                          <a href="{{route('customer.menu.pembayaran.checkout')}}" class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
-                                dark:text-slate-300">
-                            <span>Lanjutkan Pembayaran</span>
-                            <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-
-
+<div class="mb-2 mt-7 p-4 relative text-center rounded-2xl">
+    <div class="flex max-w-[300px] mx-auto">
+        <img src="{{url('assets/images/svg/sapa.svg')}}" alt="" class="flex-1 w-8 relative mt-[73px]">
+        <div class="mt-2">
+            <div class="widget-title">No Pembayaran #200</div>
+            <div class="text-sm font-bold">
+                Belum Kamu Bayar
+            </div>
+        </div>
+    </div>
+    <div class=" bg-danger-500 rounded-2xl mb-10 p-4">
+        <a href="{{route('customer.menu.pembayaran.checkout')}}" ><button
+            class="btn bg-white hover:bg-opacity-80 text-slate-900 btn-sm w-full block">
+            <span>Bayar Sekarang </span>
+            <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
+        </button>
+        </a>
+    </div>
+    
+</div>
                   <div class="card">
                     <header class=" card-header noborder">
                       <h4 class="card-title">Riwayat Pembayaran

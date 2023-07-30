@@ -18,6 +18,7 @@
   <script src="{{url('/assets/js/jquery-3.6.0.min.js')}}"></script>
   <script src="{{url('/assets/js/rt-plugins.js')}}"></script>
   <script src="{{url('/assets/js/app.js')}}"></script>
+  <script src="{{url('/assets/js/applp.js')}}"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="if (AOS) {AOS.init();}"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js'"></script>
 </body>

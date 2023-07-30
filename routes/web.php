@@ -20,6 +20,8 @@ use App\Http\Controllers\MentorController;
 */
 
 Route::get('/',[LandingPageController::class, 'index'])->name('landingpage');
+Route::get('/faq', [LandingPageController::class, 'faq'])->name('faq');
+Route::get('/syarat-ketentuan', [LandingPageController::class, 'syarat'])->name('syarat');
 
 // Route::get('/list-files', function() {
 //     // The human readable folder name to get the contents of...
@@ -65,6 +67,9 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
     Route::post('/admin/global/delete', 'delete_global')->name('admin.menu.parameter.global.delete');
     Route::get('/admin/enum', 'view_manage_enum')->name('admin.menu.parameter.enum');
     Route::get('/admin/profile', 'view_profile')->name('admin.profile');
+    Route::get('/admin/review', 'view_review')->name('admin.menu.review');
+    Route::get('/admin/review/detail', 'view_detail')->name('admin.menu.review.detail_pemesanan');
+    
 });
 
 

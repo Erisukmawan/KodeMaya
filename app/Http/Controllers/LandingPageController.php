@@ -12,7 +12,15 @@ class LandingPageController extends Controller
      */
     public function index()
     {
-        return view('landingpage.header');
+        return view('landingpage.index');
+    }
+    public function faq()
+    {
+        return view('landingpage.faq');
+    }
+    public function syarat()
+    {
+        return view('landingpage.syarat-ketentuan');
     }
 
     /**

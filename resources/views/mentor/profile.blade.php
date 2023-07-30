@@ -22,22 +22,29 @@
                     </div>
                     <!-- end profile box -->
                     <div class="profile-info-500 md:flex md:text-start text-center content-center justify-center flex-1 max-w-[516px] md:space-y-0 space-y-4" style="text-align:center">
-                      
                       <!-- end single -->
                       <div class="flex-1">
                         <div class="text-base text-slate-900 dark:text-slate-300 font-medium mb-1">
-                          {{ Auth::user()->email }}
+                          Email
                         </div>
                         <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                          Email
+                          {{ Auth::user()->email }}
                         </div>
                       </div>
                       <div class="flex-1">
                         <div class="text-base text-slate-900 dark:text-slate-300 font-medium mb-1">
-                          Website
+                          Keahlian
                         </div>
                         <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                          Keahlian
+                          Website
+                        </div>
+                      </div>
+                      <div class="flex-1">
+                        <div class="text-base text-slate-900 dark:text-slate-300 font-medium mb-1">
+                          No Telepon
+                        </div>
+                        <div class="text-sm text-slate-600 font-light dark:text-slate-300">
+                          98734234
                         </div>
                       </div>
                       <!-- end single -->
@@ -78,14 +85,6 @@
                             <span class="block"></span>  
                         </div>
                           </div>
-                          <div class="input-area">
-                          <label for="textFormatter" class="form-label">Telphone</label>
-                          <div class="relative space-y-6">
-                            <input id="nama_project" type="number" class="form-control" placeholder="08xxxxxxxxx">
-                            <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                            <span class="block"></span>  
-                        </div>
-                        </div>
                         <div class="card-text h-full space-y-6 mb-8">
                         <div class="input-area">
                           <label for="textFormatter" class="form-label">Foto Profile</label>
@@ -127,7 +126,7 @@
                             </div>
                           </div>
                           <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            <iframe src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width:100%; height:auto;" class="space-y-8" frameborder="0"></iframe>
+                              <embed type="application/pdf" src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0" class="w-full" height="400"></embed>
                               <label for="textFormatter" class="mt-8 form-label">Ganti Dokumen</label>
                               <input id="nama_project" type="file" class="form-control" placeholder="08xxxxxxxxx">
                             </div>
@@ -155,11 +154,11 @@
                           <div class="text-slate-600 dark:text-slate-300 text-sm">
                             Yakin keluar ? pas balik harus masuk akun lagi, ya.
                           </div>
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
-                            @csrf
-                            <button type="submit">
-                                <span class="font-Inter items-center justify-center" style="text-align:'center'; color:red">Logout</span>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                            <button type="submit" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm w-full text-slate-600 dark:text-white font-normal">
+                              <span class="font-Inter items-center justify-center" style="text-align:'center'; color:red">Logout</span>
                             </button>
+                            @csrf
                         </form>
                         </div>
                       </div>

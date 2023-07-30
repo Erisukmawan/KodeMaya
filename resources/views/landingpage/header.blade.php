@@ -22,6 +22,10 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
     <link rel="stylesheet" href="{{url('/assets/css/landingpage.css')}}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="./assets/styles/styles.css" /> -->
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     <!-- End : Theme CSS-->
     <script src="{{url('/assets/js/settings.js')}}" sync></script>
 </head>
@@ -137,26 +141,18 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                             <div
                                 class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
                                 <a href="/" class="mobile-logo xl:hidden inline-block">
-                                    <img src="assets/images/logo/favicon.svg" class="black_logo" alt="logo">
-                                    <img src="assets/images/logo/favicon.svg" class="white_logo" alt="logo">
+                                    <img src="assets/images/logo/favicon.svg" alt="logo">
                                 </a>
-                                <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
-                                    <iconify-icon
-                                        class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white"
-                                        icon="heroicons-outline:menu-alt-3"></iconify-icon>
-                                </button>
 
                             </div>
                             <!-- end vertcial -->
                             <div class="items-center space-x-4 rtl:space-x-reverse horizental-box">
                             <a href="{{ route('landingpage') }}">
                                 <span class="xl:inline-block hidden">
-                                    <img src="{{ url('assets/images/logo/logo.svg') }}" class="black_logo " alt="logo">
-                                    <img src="{{ url('assets/images/logo/logo.svg') }}" class="white_logo" alt="logo">
+                                    <img src="{{ url('assets/images/logo/logo.svg') }}" alt="logo">
                                 </span>
                                 <span class="xl:hidden inline-block">
-                                    <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="black_logo " alt="logo">
-                                    <img src="{{ url('/assets/images/logo/favicon.svg') }}" class="white_logo " alt="logo">
+                                    <img src="{{ url('/assets/images/logo/favicon.svg') }}"  alt="logo">
                                 </span>
                             </a>
                                 <button
@@ -171,7 +167,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                             <div class="main-menu">
                                 <ul>
                                     <li class="menu-item-has-children">
-                                        <a href="#home" class="Navbar">
+                                        <a href="{{route('landingpage')}}" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=heroicons-outline:home> </iconify-icon>
@@ -195,7 +191,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         </a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href=#Tulung>
+                                                <a href="{{route('landingpage')}}#Tulung">
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon=ic:baseline-connect-without-contact
                                                             class="leading-[1] text-base"> </iconify-icon>
@@ -206,7 +202,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href=#Mentor>
+                                                <a href="{{route('landingpage')}}#Mentor">
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon=heroicons-outline:chat
                                                             class="leading-[1] text-base"> </iconify-icon>
@@ -220,7 +216,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         <!-- Megamenu -->
                                     </li>
                                     <li class="menu-item-has-children ">
-                                        <a href="#produk">
+                                        <a href="{{route('landingpage')}}#Harga">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=material-symbols:price-change-outline>
@@ -230,16 +226,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                             </div>
                                         </a>
                                     </li>
-
-
                                     <li class="menu-item-has-children ">
-                                        <!--  Single menu -->
-
-                                        <!-- has dropdown -->
-
-
-
-                                        <a href="javascript:void()">
+                                        <a href="{{route('faq')}}">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box">
                                                     <iconify-icon icon=material-symbols:contact-support-outline>
@@ -247,52 +235,8 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                                 </span>
                                                 <div class="text-box">FAQ</div>
                                             </div>
-                                            <div
-                                                class="flex-none text-sm ltr:ml-3 rtl:mr-3 leading-[1] relative top-1">
-                                                <iconify-icon icon="heroicons-outline:chevron-down"> </iconify-icon>
-                                            </div>
                                         </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href=basic-table.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=mdi:about class="leading-[1] text-base">
-                                                        </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Tentang Kami
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href=advance-table.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=fluent:contact-card-group-28-regular
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Hubungi Kami
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href=apex-chart.html>
-                                                    <div class="flex space-x-2 items-start rtl:space-x-reverse">
-                                                        <iconify-icon icon=material-symbols:privacy-tip-outline
-                                                            class="leading-[1] text-base"> </iconify-icon>
-                                                        <span class="leading-[1]">
-                                                            Syarat dan Ketentuan
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-
-                                        <!-- Megamenu -->
-
-
                                     </li>
-
                                 </ul>
                             </div>
                             <!-- end top menu -->
@@ -302,7 +246,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                 <!-- BEGIN: Toggle Theme -->
                                 <div>
                                     <button id="themeMood"
-                                        class="h-[28px] w-[28px] lg:h-[32px] lg:w-[32px] lg:bg-gray-500 bg-slate-50 dark:bg-slate-900 lg:dark:bg-slate-900 dark:text-white text-slate-100 cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center">
+                                        class="h-[28px] w-[28px] lg:h-[32px] lg:w-[32px] lg:bg-gray-200 bg-slate-50 dark:bg-slate-900 lg:dark:bg-slate-900 dark:text-white text-slate-100 cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center">
                                         <span class="flex items-center">
                                             <iconify-icon
                                                 class="text-slate-800 dark:text-white text-xl dark:block hidden"
@@ -331,37 +275,35 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                     <!-- Dropdown menu -->
                                     <div class="dropdown-menu z-10 hidden bg-white divide-y divide-slate-100 shadow w-44 dark:bg-slate-800 border dark:border-slate-700 !top-[23px] rounded-md overflow-hidden">
                                         <ul class="py-1 text-sm text-slate-800 dark:text-slate-200">
-                                            <li>
-                                                @php 
-                                                    $acc_type = Auth::user()->user_type;
-                                                    $dashboardRoute = null;
+                                            @php 
+                                                $acc_type = Auth::user()->user_type;
+                                                $dashboardRoute = null;
+                                                $profileRoute = null;
 
-                                                    if ($acc_type == 'A') {
-                                                        $dashboardRoute = 'admin.menu.dashboard';
-                                                    } else if ($acc_type == 'M') {
-                                                        $dashboardRoute = 'mentor.menu.dashboard';
-                                                    } else {
-                                                        $dashboardRoute = 'customer.menu.dashboard';
-                                                    }
-                                                @endphp
+                                                if ($acc_type == 'A') {
+                                                    $dashboardRoute = 'admin.menu.dashboard';
+                                                    $profileRoute = 'admin.profile';
+                                                } else if ($acc_type == 'M') {
+                                                    $dashboardRoute = 'mentor.menu.dashboard';
+                                                    $profileRoute = 'mentor.profile';
+                                                } else {
+                                                    $dashboardRoute = 'customer.menu.dashboard';
+                                                    $profileRoute = 'customer.profile';
+                                                }
+                                            @endphp
+                                            <li>
                                                 <a href="{{ route($dashboardRoute) }}" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
                                                     <iconify-icon icon="line-md:home-md" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
                                                     <span class="font-Inter">Dashboard</span>
                                                 </a>
                                             </li>
-                                            <hr>
                                             <li>
-                                                <a href="/profile" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
+                                                <a href="{{ route($profileRoute) }}" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
                                                     <iconify-icon icon="heroicons-outline:user" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
                                                     <span class="font-Inter">Profil</span>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="/settings" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
-                                                    <iconify-icon icon="heroicons-outline:cog" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
-                                                    <span class="font-Inter">Pengaturan</span>
-                                                </a>
-                                            </li>
+                                            <hr>
                                             <li>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
                                                     @csrf
@@ -408,15 +350,14 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                         </div>
                     </div>
 
-<button id="btn-back-to-top" style="z-index:2; margin-top:21.5em"
-            class="btn btn-sm  btn-danger fixed ltr:md:right-[40px] ltr:right-0 rtl:left-0 top-1/2  cursor-pointer font-medium mb-12 shadow-deep ltr:rounded-b rtl:rounded-t"
-            data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
-            <iconify-icon class="text-sm dark:text-white" icon="mingcute:up-fill"></iconify-icon>
-        </button>
+                    <button id="btn-back-to-top" class="z-50" style="z-index:2 margin-top:8rem"
+                                class="btn btn-sm  btn-danger fixed ltr:md:right-[40px] ltr:right-0 rtl:left-0 top-1/2  cursor-pointer font-medium mb-12 shadow-deep ltr:rounded-b rtl:rounded-t"
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+                                <iconify-icon class="text-sm dark:text-white" icon="mingcute:up-fill"></iconify-icon>
+                            </button>
                     <!-- END: Header -->
                     <!-- END: Header -->
-                    @include('landingpage.index')
-                    <button class="btn" onclick="my_modal_4.showModal()">open modal</button>
+                    @yield('content')
                     <dialog id="my_modal_4" class="modal rounded" >
                     <form method="dialog" class="modal-box  max-w-24">
                         <h3 class="font-bold text-lg dark:text-white justify-center text-center">Daftar Sebagai</h3>

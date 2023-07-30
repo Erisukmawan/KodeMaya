@@ -1,3 +1,5 @@
+@extends('landingpage.header')
+@section('content')
 <div class="content-wrapper transition-all duration-150 ltr:ml-[248px] rtl:mr-[248px]" id="content_wrapper"></div>
 <section id="home" class="hero" data-aos="fade-up" data-aos-duration="1000">
     <div class="background">
@@ -203,3 +205,4 @@ overflow-hidden z-[1] bg-primary-500" data-aos="zoom-out-up" data-aos-duration="
 
 
 </div>
+@endsection

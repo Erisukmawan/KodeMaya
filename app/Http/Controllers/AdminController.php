@@ -111,4 +111,12 @@ class AdminController extends Controller
     {
         return view('admin.profile');
     }
+    public function view_review()
+    {
+        return view('admin.menu.review');
+    }
+    public function view_detail()
+    {
+        return view('admin.menu.detail-pemesanan');
+    }
 }

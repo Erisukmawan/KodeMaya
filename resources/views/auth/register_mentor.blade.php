@@ -6,7 +6,7 @@
 
 @section('content-form-header')
 <div class="text-center 2xl:mb-10 mb-4">
-    <h4 class="font-medium">Register Mentor</h4>
+    <h4 class="font-medium">Daftar Mentor</h4>
     <div class="text-slate-500 text-base">
         Daftarkan akunmu untuk memulai menggunakan KodeMaya
     </div>
@@ -118,7 +118,7 @@
                     <span class="h-4 w-4 border flex-none border-slate-100 dark:border-slate-800 rounded inline-flex ltr:mr-3 rtl:ml-3 relative transition-all duration-150 bg-slate-100 dark:bg-slate-900">
                         <img src="assets/images/icon/ck-white.svg" alt="" class="h-[10px] w-[10px] block m-auto opacity-0"></span>
                     <span class="text-500 dark:text-slate-400 text-sm leading-6 capitalize">
-                       Terima <a href="#" class="text-primary-500 hover:underline" target="_blank">Syarat Dan Ketentuan</a> Dan <a class="text-primary-500 hover:text-primary-300 hover:underline" target="_blank" href="#">Kebijakan Privasi</a> Kami 
+                       Terima <a href="{{route('syarat')}}" class="text-primary-500 hover:underline">Syarat Dan Ketentuan serta Kebijakan Privasi</a> Kami
                     </span>
                 </label>
             </div>
