@@ -193,7 +193,7 @@ class AuthController extends Controller
                     UNION
                 SELECT m.id_mentor AS id, m.nama, m.email, m.password, m.status_akun, 'mentor' as type FROM mentor AS m WHERE m.email = :email2
                     UNION
-                SELECT pg.id_pegawai AS id, pg.nama, pg.email, pg.password, pg.status_akun, 'employee' as type FROM pegawai AS pg WHERE pg.email = :email3
+                SELECT pg.id_pegawai AS id, pg.nama, pg.email, pg.password, pg.status_akun, lower(pg.jabatan) as type FROM pegawai AS pg WHERE pg.email = :email3
             ",
                 array("email1" => $email, "email2" => $email, "email3" => $email)
             );
@@ -220,10 +220,17 @@ class AuthController extends Controller
                     } else {
                         throw new Exception('Email atau Password tidak valid.');
                     }
-                } else if ($user->type == 'employee') {
-                    if (Auth::guard('webemployee')->attempt($credentials, $rememberMe)) {
-                        Log::info('Employee Login ' . json_encode($user));
+                } else if ($user->type == 'administrasi') {
+                    if (Auth::guard('webadministration')->attempt($credentials, $rememberMe)) {
+                        Log::info('Administration Login ' . json_encode($user));
                         return redirect()->route('admin.menu.dashboard');
+                    } else {
+                        throw new Exception('Email atau Password tidak valid.');
+                    }
+                } else if ($user->type == 'keuangan') {
+                    if (Auth::guard('webfinance')->attempt($credentials, $rememberMe)) {
+                        Log::info('Finance Login ' . json_encode($user));
+                        return redirect()->route('financial.menu.dashboard');
                     } else {
                         throw new Exception('Email atau Password tidak valid.');
                     }
@@ -246,7 +253,8 @@ class AuthController extends Controller
             DB::beginTransaction();
             if (Auth::guard('webcustomer')->check()) {
             } else if (Auth::guard('webmentor')->check()) {
-            } else if (Auth::guard('webemployee')->check()) {
+            } else if (Auth::guard('webadministration')->check()) {
+            } else if (Auth::guard('webfinancial')->check()) {
             } else {
                 return abort(403, 'Tidak diizinkan');
             }
@@ -299,7 +307,7 @@ class AuthController extends Controller
                 Log::error($e);
                 return redirect()->route('mentor.profile')->withErrors(['message' => $e->getMessage()]);
             }
-        } else if (Auth::guard('webemployee')->check()) {
+        } else if (Auth::guard('webadministration')->check()) {
             DB::beginTransaction();
             try {
                 $request->validate([
@@ -307,7 +315,28 @@ class AuthController extends Controller
                     'alamat' => 'required|string|max:250',
                 ]);
 
-                $id = Auth::guard('webemployee')->user()->id_pegawai;
+                $id = Auth::guard('webadministration')->user()->id_pegawai;
+                $user = Pegawai::find($id);
+                $user->nama = $request->get('nama');
+                $user->alamat = $request->get('alamat');
+                $user->save();
+                DB::commit();
+                return redirect()->route('admin.profile')
+                    ->withSuccess('Berhasil ubah profil!');
+            } catch (\Exception $e) {
+                DB::rollBack();
+                Log::error($e);
+                return redirect()->route('admin.profile')->withErrors(['message' => $e->getMessage()]);
+            }
+        } else if (Auth::guard('webfinancial')->check()) {
+            DB::beginTransaction();
+            try {
+                $request->validate([
+                    'nama' => 'required|string|max:250',
+                    'alamat' => 'required|string|max:250',
+                ]);
+
+                $id = Auth::guard('webfinancial')->user()->id_pegawai;
                 $user = Pegawai::find($id);
                 $user->nama = $request->get('nama');
                 $user->alamat = $request->get('alamat');

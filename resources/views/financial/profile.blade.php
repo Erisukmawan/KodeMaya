@@ -1,4 +1,4 @@
-@extends('admin/template')
+@extends('financial/template')
 
 @section('main-content')
     <div class="grid grid-cols-12 gap-5">
@@ -27,10 +27,10 @@
                             </div>
                             <div class="">
                                 <div class="text-2xl font-medium text-slate-900 dark:text-slate-200 mb-[3px]">
-                                    {{ Auth::guard('webadministration')->user()->nama }}
+                                    {{ Auth::guard('webfinance')->user()->nama }}
                                 </div>
                                 <div class="text-1xl font-small text-slate-900 dark:text-slate-200 mb-[3px]">
-                                    {{ Auth::guard('webadministration')->user()->jabatan }}
+                                    {{ Auth::guard('webfinance')->user()->jabatan }}
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                         Email
                     </div>
                     <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                        {{ Auth::guard('webadministration')->user()->email }}
+                        {{ Auth::guard('webfinance')->user()->email }}
                     </div>
                 </div>
                 <div class="flex-1 mt-4">
@@ -49,7 +49,7 @@
                         No Telepon
                     </div>
                     <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                      {{ Auth::guard('webadministration')->user()->telp }}
+                      {{ Auth::guard('webfinance')->user()->telp }}
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                                         <label for="textFormatter" class="form-label">Nama</label>
                                         <div class="relative space-y-6">
                                             <input id="nama" name="nama" type="text" class="form-control"
-                                                placeholder="Nama Lengkap"value="{{ Auth::guard('webadministration')->user()->nama }}">
+                                                placeholder="Nama Lengkap"value="{{ Auth::guard('webfinance')->user()->nama }}">
                                             <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                                             <span class="block"></span>
                                         </div>
@@ -118,7 +118,7 @@
                                         <label for="textFormatter" class="form-label">Alamat</label>
                                         <div class="relative space-y-6">
                                             <input id="alamat" name="alamat" type="text" class="form-control"
-                                                value="{{ Auth::guard('webadministration')->user()->alamat }}"
+                                                value="{{ Auth::guard('webfinance')->user()->alamat }}"
                                                 placeholder="Alamat Anda">
                                             <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                                             <span class="block"></span>

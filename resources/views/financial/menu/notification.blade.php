@@ -1,7 +1,7 @@
-@extends('admin/template')
+@extends('financial/template')
 
 @section('main-content')
     <li class="inline-block relative text-sm text-slate-500 font-Inter dark:text-white">
-        Consultation History Page
+        Notification page
     </li>
 @endsection

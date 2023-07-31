@@ -4,26 +4,20 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
-class AdminAuth
+class FinanceAuth
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::guard('webadministration')->check()) {
-            $user_data = Auth::guard('webadministration')->user();
+        if (Auth::guard('webfinance')->check()) {
+            $user_data = Auth::guard('webfinance')->user();
 
             $acc_status = $user_data->status_akun;
 
             if ($acc_status == 'TIDAK AKTIF') {
-                Auth::guard('webadministration')->logout();
+                Auth::guard('webfinance')->logout();
                 return redirect()->route('login')
                 ->withErrors(['message' => "Akun tidak aktif, mohon verifikasi akun terlebih dahulu"]);
             } else {

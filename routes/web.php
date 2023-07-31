@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FinancialController;
 use App\Http\Controllers\MentorController;
 
 /*
@@ -95,9 +96,15 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
     Route::get('/admin/review/detail', 'view_detail')->name('admin.menu.review.detail_pemesanan');
 });
 
+Route::middleware(['financial'])->controller(FinancialController::class)->group(function () {
+    Route::get('/financial/dashboard', 'view_dashboard')->name('financial.menu.dashboard');
+    Route::get('/financial/profile', 'view_profile')->name('financial.profile');
+    Route::get('/financial/review', 'view_review')->name('financial.menu.review');
+    Route::get('/financial/review/detail', 'view_detail')->name('financial.menu.review.detail_pemesanan');
+});
+
 
 Route::middleware(['mentor'])->controller(MentorController::class)->group(function () {
-    Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
     Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
     Route::get('/mentor/pemesanan/', 'view_pemesanan')->name('mentor.menu.pemesanan');
     Route::get('/mentor/pemesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.pemesanan.pengerjaan_pemesanan');

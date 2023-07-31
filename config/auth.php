@@ -46,7 +46,12 @@ return [
             'provider' => 'mentor',
         ],
 
-        'webemployee' => [
+        'webadministration' => [
+            'driver' => 'session',
+            'provider' => 'pegawai',
+        ],
+
+        'webfinance' => [
             'driver' => 'session',
             'provider' => 'pegawai',
         ],

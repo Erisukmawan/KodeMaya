@@ -48,6 +48,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\AdminAuth::class,
         ],
 
+        'financial' => [
+            \App\Http\Middleware\FinanceAuth::class,
+        ],
+
         'mentor' => [
             \App\Http\Middleware\MentorAuth::class,
         ],
