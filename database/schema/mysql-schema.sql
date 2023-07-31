@@ -17,7 +17,7 @@ CREATE TABLE mentor (
     telp varchar(15) NOT NULL,
     password varchar(150) NOT NULL,
     foto_profil varchar(150) DEFAULT NULL,
-    keahlian varchar(150) NOT NULL,
+    keahlian enum('WEBSITE', 'DESKTOP', 'UI/UX', 'MOBILE', 'DS/ML/AI') DEFAULT 'WEBSITE',
     dokumen varchar(150) NOT NULL,
     status_mentor enum('TIDAK AKTIF', 'AKTIF', 'SEDANG MENGERJAKAN'),
     status_akun enum('AKTIF', 'DIPROSES', 'TIDAK AKTIF') DEFAULT 'TIDAK AKTIF'
@@ -57,7 +57,7 @@ CREATE TABLE pemesanan (
     id_kontrak int,
     kode_bank varchar(15),
     deskripsi_pesanan varchar(255) NOT NULL,
-    kategori enum('WEBSITE', 'DESKTOP', 'UI/UX', 'ANDROID', 'DS/ML/AI') DEFAULT 'WEBSITE',
+    kategori enum('WEBSITE', 'DESKTOP', 'UI/UX', 'MOBILE', 'DS/ML/AI') DEFAULT 'WEBSITE',
     status_pembayaran enum('BELUM DIBAYAR', 'TERTUNDA ', 'TERBAYAR ', 'KADALUARSA') DEFAULT 'BELUM DIBAYAR',
     status_pesanan enum('MENUNGGU', 'DIPROSES', 'DIPERIKSA', 'SELESAI', 'DIBATALKAN') DEFAULT 'MENUNGGU',
     nama_projek varchar(100),
