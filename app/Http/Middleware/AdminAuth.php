@@ -17,13 +17,13 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()) {
-            $user_data = Auth::user();
+        if (Auth::guard('webemployee')->check()) {
+            $user_data = Auth::guard('webemployee')->user();
 
             $acc_status = $user_data->status_akun;
 
             if ($acc_status == 'TIDAK AKTIF') {
-                Auth::logout();
+                Auth::guard('webemployee')->logout();
                 return redirect()->route('login')
                 ->withErrors(['message' => "Akun tidak aktif, mohon verifikasi akun terlebih dahulu"]);
             } else {

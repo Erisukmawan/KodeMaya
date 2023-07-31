@@ -68,8 +68,8 @@
     <div class="flex max-w-[300px] mx-auto">
         <img src="{{url('assets/images/svg/Sapa.svg')}}" alt="" class="flex-1 w-8 relative mt-[73px]">
         <div class="mt-2">
-            <div class="widget-title">No Pembayaran #200</div>
-            <div class="text-sm font-bold">
+            <div class="widget-title dark:text-white">No Pembayaran #200</div>
+            <div class="text-sm font-bold dark:text-white">
                 Belum Kamu Bayar
             </div>
         </div>

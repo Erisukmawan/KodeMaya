@@ -6,6 +6,7 @@ use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use App\Models\Pelanggan;
 use App\Models\Mentor;
+use App\Models\Pegawai;
 use App\Models\Pemesanan;
 use Exception;
 use Illuminate\Http\Request;
@@ -100,7 +101,7 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password)
             ]);
 
-            $filepath = env('GOOGLE_DRIVE_FOLDER')."/".env('GOOGLE_DRIVE_FOLDER_DOCUMENT')."/".$user->id_mentor.".".$file->extension();
+            $filepath = env('GOOGLE_DRIVE_FOLDER') . "/" . env('GOOGLE_DRIVE_FOLDER_DOCUMENT') . "/" . $user->id_mentor . "." . $file->extension();
 
             Storage::disk('google')->put($filepath, $file->getContent());
 
@@ -197,14 +198,14 @@ class AuthController extends Controller
                 array("email1" => $email, "email2" => $email, "email3" => $email)
             );
 
-            
+
             if (count($users) > 0) {
                 $user = $users[0];
 
                 if ($user->status_akun == 'TIDAK AKTIF') {
                     throw new Exception('Verifikasi email terlebih dahulu untuk melanjutkan!');
                 }
-                
+
                 if ($user->type == 'customer') {
                     if (Auth::guard('webcustomer')->attempt($credentials, $rememberMe)) {
                         Log::info('Customer Login ' . json_encode($user));
@@ -222,7 +223,7 @@ class AuthController extends Controller
                 } else if ($user->type == 'employee') {
                     if (Auth::guard('webemployee')->attempt($credentials, $rememberMe)) {
                         Log::info('Employee Login ' . json_encode($user));
-                        return redirect()->route('employee.menu.dashboard');
+                        return redirect()->route('admin.menu.dashboard');
                     } else {
                         throw new Exception('Email atau Password tidak valid.');
                     }
@@ -237,50 +238,107 @@ class AuthController extends Controller
             Log::error($e);
             return redirect()->route('login')->withErrors(['message' => $e->getMessage()]);
         }
-        
-        // if (Auth::attempt($credentials, $rememberMe)) {
-        //     $request->session()->regenerate();
-        //     Log::info('User login ' . Auth::user()->email);
-            // return redirect()->route('dashboard');
-        // } else {
-            // return redirect()->route('login')->withErrors(['message' => 'Email atau Password tidak valid.']);
-        // }
+    }
+
+    public function change_picture(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            if (Auth::guard('webcustomer')->check()) {
+            } else if (Auth::guard('webmentor')->check()) {
+            } else if (Auth::guard('webemployee')->check()) {
+            } else {
+                return abort(403, 'Tidak diizinkan');
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e);
+            return abort(500, $e->getMessage());;
+        }
+    }
+
+    public function change_profile(Request $request)
+    {
+        Log::info("coba change profile");
+        if (Auth::guard('webcustomer')->check()) {
+            DB::beginTransaction();
+            try {
+                $request->validate([
+                    'nama' => 'required|string|max:250',
+                    'alamat' => 'required|string|max:250',
+                ]);
+
+                Log::info("Customer Change Profile");
+                $id = Auth::guard('webcustomer')->user()->id_pelanggan;
+                $user = Pelanggan::find($id);
+                $user->nama = $request->get('nama');
+                $user->alamat = $request->get('alamat');
+                $user->save();
+                DB::commit();
+                return redirect()->route('customer.profile')
+                    ->withSuccess('Berhasil ubah profil!');
+            } catch (\Exception $e) {
+                DB::rollBack();
+                Log::error($e);
+                return redirect()->route('customer.profile')->withErrors(['message' => $e->getMessage()]);
+            }
+        } else if (Auth::guard('webmentor')->check()) {
+            DB::beginTransaction();
+            try {
+                Log::info("Mentor Change Profile");
+                $id = Auth::guard('webmentor')->user()->id_mentor;
+                $user = Mentor::find($id);
+                $user->nama = $request->get('nama');
+                $user->alamat = $request->get('alamat');
+                $user->save();
+                DB::commit();
+                return redirect()->route('mentor.profile')
+                    ->withSuccess('Berhasil ubah profil!');
+            } catch (\Exception $e) {
+                DB::rollBack();
+                Log::error($e);
+                return redirect()->route('mentor.profile')->withErrors(['message' => $e->getMessage()]);
+            }
+        } else if (Auth::guard('webemployee')->check()) {
+            DB::beginTransaction();
+            try {
+                $request->validate([
+                    'nama' => 'required|string|max:250',
+                    'alamat' => 'required|string|max:250',
+                ]);
+
+                $id = Auth::guard('webemployee')->user()->id_pegawai;
+                $user = Pegawai::find($id);
+                $user->nama = $request->get('nama');
+                $user->alamat = $request->get('alamat');
+                $user->save();
+                DB::commit();
+                return redirect()->route('admin.profile')
+                    ->withSuccess('Berhasil ubah profil!');
+            } catch (\Exception $e) {
+                DB::rollBack();
+                Log::error($e);
+                return redirect()->route('admin.profile')->withErrors(['message' => $e->getMessage()]);
+            }
+        } else {
+            Log::warning("Invalid Auth Change Profile");
+            return redirect()->route('login')
+            ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
+        }
     }
 
     public function dashboard()
     {
-        if (Auth::check()) {
-            $user_data = Auth::user();
-            $user_status = $user_data->user_status;
-            if ($user_status != 'A') {
-                Auth::logout();
-
-                $ban_message = DB::table('global_parameter')->get()->where('code', 'ban_message')->first();
-                $verify_message = DB::table('global_parameter')->get()->where('code', 'verify_message')->first();
-                $message = "";
-
-                if ($user_status == 'B') {
-                    $message = !empty($ban_message) ? $ban_message->value_string : 'Akun anda telah ditangguhkan, Hubungi CS KodeMaya';
-                } else if ($user_status == 'P') {
-                    $message = !empty($verify_message) ? $verify_message->value_string : "Maaf kamu belum verifikasi email, belum menerima email? silahkan klik tombol lupa password.";
-                }
-
-                return redirect()->route('login')
-                    ->withErrors(['message' => $message]);
-            }
-
-            $user_type = $user_data->user_type;
-
-            if ($user_type == 'A') {
-                return redirect()->route('admin.menu.dashboard')->withSuccess('Success Login Admin');
-            } else if ($user_type == 'M') {
-                return redirect()->route('mentor.menu.dashboard')->withSuccess('Success Login Mentor');
-            } else if ($user_type == 'C') {
-                return redirect()->route('customer.menu.dashboard')->withSuccess('Success Login Customer');
-            }
+        if (Auth::guard('webcustomer')->check()) {
+            return redirect()->route('customer.menu.dashboard')->withSuccess('Success Login Customer');
+        } else if (Auth::guard('webmentor')->check()) {
+            return redirect()->route('mentor.menu.dashboard')->withSuccess('Success Login Mentor');
+        } else if (Auth::guard('webemployee')->check()) {
+            return redirect()->route('admin.menu.dashboard')->withSuccess('Success Login Admin');
+        } else {
+            return redirect()->route('login')
+                ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
         }
-        return redirect()->route('login')
-            ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
     }
 
     public function logout(Request $request)
@@ -289,6 +347,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-            ->withSuccess('You have logged out successfully!');
+            ->withSuccess('Anda berhasil keluar akun.');
     }
 }

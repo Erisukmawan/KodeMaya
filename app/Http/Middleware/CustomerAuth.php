@@ -19,12 +19,12 @@ class CustomerAuth
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            $user_data = Auth::user();
+            $user_data = Auth::guard('webcustomer')->user();
 
             $acc_status = $user_data->status_akun;
 
             if ($acc_status == 'TIDAK AKTIF') {
-                Auth::logout();
+                Auth::guard('webcustomer')->logout();
                 return redirect()->route('login')
                 ->withErrors(['message' => "Akun tidak aktif, mohon verifikasi akun terlebih dahulu"]);
             } else {
