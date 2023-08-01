@@ -14,7 +14,7 @@ class FinancialController extends Controller
     {
         return view('financial.profile');
     }
-    public function view_review()
+    public function view_rekap()
     {
         return view('financial.menu.rekap');
     }

@@ -99,7 +99,7 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
 Route::middleware(['financial'])->controller(FinancialController::class)->group(function () {
     Route::get('/financial/dashboard', 'view_dashboard')->name('financial.menu.dashboard');
     Route::get('/financial/profile', 'view_profile')->name('financial.profile');
-    Route::get('/financial/rekap', 'view_review')->name('financial.menu.review');
+    Route::get('/financial/rekap', 'view_rekap')->name('financial.menu.rekap');
 });
 
 

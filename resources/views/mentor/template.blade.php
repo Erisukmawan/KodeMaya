@@ -182,8 +182,8 @@
 
 
         </a>
-        <a href="{{ route('mentor.menu.pembayaran') }}">
-            <div class="{{ request()->is('mentor/pembayaran*') ? 'active' : '' }} menubawah">
+        <a href="{{ route('mentor.menu.penyerahan-pesanan') }}">
+            <div class="{{ request()->is('mentor/penyerahan-pesanan*') ? 'active' : '' }} menubawah">
                 <span
                     class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">

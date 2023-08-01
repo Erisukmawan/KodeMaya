@@ -177,8 +177,8 @@
             </span>
         </div>
     </a>
-    <a href="{{route('customer.menu.pembayaran')}}">
-        <div class="{{ (request()->is('customer/pembayaran*')) ? 'active' : '' }} menubawah">
+    <a href="{{route('customer.menu.penyerahan-pesanan')}}">
+        <div class="{{ (request()->is('customer/penyerahan-pesanan*')) ? 'active' : '' }} menubawah">
             <span class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
                 <iconify-icon icon="streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand"></iconify-icon>
