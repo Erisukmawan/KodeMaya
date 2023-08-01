@@ -1,9 +1,17 @@
 @extends('mentor/template')
 @section('main-content')
-
+<div class="flex lg:justify-end items-center flex-wrap space-xy-5 ">
+    <a href="{{(route('mentor.menu.pembayaran.tambah'))}}"><button type="button" class="invocie-btn inline-flex btn btn-sm whitespace-nowrap space-x-2 cursor-pointer bg-primary-400
+                    dark:text-white btn-md h-min text-sm font-normal text-white">
+        <span class="text-lg">
+            <iconify-icon icon="line-md:upload-loop"></iconify-icon>
+        </span>
+        <span class="text-lg">Upload Project</span>
+    </button></a>
+</div>
 <div class="card">
     <header class=" card-header noborder">
-        <h4 class="card-title">Riwayat Pembayaran
+        <h4 class="card-title">Riwayat Project Selesai
         </h4>
     </header>
     <div class="card-body px-6 pb-6">
@@ -18,10 +26,10 @@
                             <tr>
                                 <th scope="col" class=" table-th ">Id</th>
                                 <th scope="col" class=" table-th ">Project_name</th>
-                                <th scope="col" class=" table-th ">Mentor</th>
-                                <th scope="col" class=" table-th ">Date</th>
+                                <th scope="col" class=" table-th ">Customer</th>
+                                <th scope="col" class=" table-th ">Tenggat Waktu</th>
                                 <th scope="col" class=" table-th ">Total</th>
-                                <th scope="col" class=" table-th ">user_status</th>
+                                <th scope="col" class=" table-th ">Status Pemesanan</th>
                                 <th scope="col" class=" table-th ">Action</th>
                             </tr>
                         </thead>
@@ -33,9 +41,8 @@
                                 <td class="table-td ">3/26/2022</td>
                                 <td class="table-td ">Rp.779.953</td>
                                 <td class="table-td ">
-                                    <div
-                                        class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">
-                                        paid
+                                   <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">
+                                      Selesai
                                     </div>
                                 </td>
                                 <td class="table-td ">
@@ -43,8 +50,8 @@
                                         <a href="{{route('mentor.menu.pembayaran.bukti_pembayaran')}}">
                                             <span
                                                 class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "
-                                                data-tippy-content="Lihat Bukti Bayar" data-tippy-theme="seccondary">
-                                                <iconify-icon icon="solar:bill-check-linear"></iconify-icon>
+                                                data-tippy-content="Detail" data-tippy-theme="seccondary">
+                                                <iconify-icon icon="heroicons:eye"></iconify-icon>
                                             </span>
                                         </a>
                                     </div>

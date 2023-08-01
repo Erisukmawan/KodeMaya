@@ -53,7 +53,17 @@
                         </div>
                     </a>
                 </li>
-
+                <li class="{{ (request()->is('mentor/penyerahan-pesanan*')) ? 'active' : '' }} menuatas">
+                                        <a href="{{route('mentor.menu.penyerahan-pesanan')}}">
+                                            <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
+                                                <span cass="icon-box text-box">
+                                                    <iconify-icon icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
+                                                    </iconify-icon>
+                                                </span>
+                                                <div class="text-box">Penyerahan Pesanan</div>
+                                            </div>
+                                        </a>
+                                    </li>
             </ul>
         </div>
 
@@ -181,6 +191,19 @@
                 </span>
                 <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
                     Pembayaran
+                </span>
+            </div>
+        </a>
+        <a href="{{ route('mentor.menu.penyerahan-pesanan') }}">
+            <div class="{{ request()->is('mentor/penyerahan-pesanan*') ? 'active' : '' }} menubawah">
+                <span
+                    class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900">
+                    <iconify-icon icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
+                                                    </iconify-icon>
+                </span>
+                <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
+                    Penyerahan Pesanan
                 </span>
             </div>
         </a>

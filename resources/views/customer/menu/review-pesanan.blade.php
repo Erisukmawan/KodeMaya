@@ -4,7 +4,7 @@
     <div class="card-body flex flex-col p-6">
         <header
             class="flex space-x-3 mb-5 items-center border-b border-slate-100 dark:border-slate-700 pb-5 -mx-6 px-6">
-            <a href="{{route('customer.menu.pemesanan')}}" class="inline-flex items-center space-x-1 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
+            <a href="{{route('customer.menu.penyerahan-pesanan')}}" class="inline-flex items-center space-x-1 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
                                 dark:text-slate-300">
                 <iconify-icon icon="heroicons:arrow-left"></iconify-icon>
                 <span class="">Kembali </span>

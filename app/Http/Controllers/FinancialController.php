@@ -16,10 +16,6 @@ class FinancialController extends Controller
     }
     public function view_review()
     {
-        return view('financial.menu.review');
-    }
-    public function view_detail()
-    {
-        return view('financial.menu.detail-pemesanan');
+        return view('financial.menu.rekap');
     }
 }

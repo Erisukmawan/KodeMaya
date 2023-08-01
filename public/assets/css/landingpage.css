@@ -4,7 +4,7 @@ html {
 
 }
 
-.light .hero {
+.light .hero, .black .hero {
     background-image: url("../images/cover.jpg");
     background-size: cover;
     background-position: center center;

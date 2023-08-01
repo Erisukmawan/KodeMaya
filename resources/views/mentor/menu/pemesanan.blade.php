@@ -1,230 +1,586 @@
 @extends('mentor/template')
 
 @section('main-content')
-    <div class="space-y-5">
-      <div class="card">
-                    <div class="card-body flex flex-col p-6">
-                      <div class="card-text h-full">
-                        <div>
-                          <header class="flex mb-5 items-center border-b border-slate-100 dark:border-slate-700  -mx-6 px-6">
-                          <ul class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4" id="tabs-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                              <a href="#tabs-home-withIcon" class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent active dark:text-slate-300" id="tabs-home-withIcon-tab" data-bs-toggle="pill" data-bs-target="#tabs-home-withIcon" role="tab" aria-controls="tabs-home-withIcon" aria-selected="true">
-                                <iconify-icon class="mr-1" icon="ic:baseline-connect-without-contact"></iconify-icon>
-                                Ambil Pesanan</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                              <a href="#tabs-profile-withIcon" class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent dark:text-slate-300" id="tabs-profile-withIcon-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile-withIcon" role="tab" aria-controls="tabs-profile-withIcon" aria-selected="false">
-                                <iconify-icon class="mr-1" icon="bxs:edit"></iconify-icon>
-                                Pengerjaan</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                              <a href="#tabs-messages-withIcon" class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent dark:text-slate-300" id="tabs-messages-withIcon-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages-withIcon" role="tab" aria-controls="tabs-messages-withIcon" aria-selected="false">
-                                <iconify-icon class="mr-1" icon="material-symbols:history"></iconify-icon>
-                                Riwayat Pesanan</a>
-                            </li>
-                          </ul>
-                           </header>
-                          <div class="tab-content" id="tabs-tabContent">
-                            <div class="tab-pane fade show active" id="tabs-home-withIcon" role="tabpanel" aria-labelledby="tabs-home-withIcon-tab">
-                              <div class="overflow-x-auto -mx-6 dashcode-data-table">
-                        <span class=" col-span-8  hidden"></span>
-                        <span class="  col-span-4 hidden"></span>
-                        <div class="inline-block min-w-full align-middle">
-                          <div class="overflow-hidden ">
-                            <table class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700" id="data-table">
-                              <thead class=" border-t border-slate-100 dark:border-slate-800">
-                                <tr>
-                                  <th scope="col" class=" table-th ">Id</th>
-                                  <th scope="col" class=" table-th ">Nama Project</th>
-                                  <th scope="col" class=" table-th ">Deskripsi</th>
-                                  <th scope="col" class=" table-th ">Kategori</th>
-                                  <th scope="col" class=" table-th ">Customer</th>
-                                  <th scope="col" class=" table-th ">Status</th>
-                                  <th scope="col" class=" table-th ">Action</th>
-                                </tr>
-                              </thead>
-                              <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-                                <tr>
-                                  <td class="table-td">1</td>
-                                  <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                  <td class="table-td">Aplikasi yang bisa mengelola kantin dengan fitur pembayaran</td>
-                                  <td class="table-td "><div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
-                                      Website
-                                    </div></td>
-                                  <td class="table-td ">Ida Nur Anisa</td>
-                                  <td class="table-td ">
-                                    <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">
-                                      Menunggu
+<div mb-10 pb-10>
+    <div class="space-y-10 mb-10 pb-5 ">
+        <div class="card">
+            <div class="card-body flex flex-col p-6">
+                <div class="card-text h-full">
+                    <div>
+                        <header
+                            class="flex justify-center mb-5 items-center border-b border-slate-100 dark:border-slate-700  -mx-6 px-6">
+                            <ul class="nav justify-center nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
+                                id="tabs-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tabs-pesanan"
+                                        class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent active dark:text-slate-300"
+                                        id="tabs-pesanan-tab" data-bs-toggle="pill"
+                                        data-bs-target="#tabs-pesanan" role="tab"
+                                        aria-controls="tabs-pesanan" aria-selected="true">
+                                        <iconify-icon class="mr-1" icon="ic:baseline-connect-without-contact">
+                                        </iconify-icon>
+                                        Pesanan
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tabs-negosiasi"
+                                        class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent dark:text-slate-300"
+                                        id="tabs-negosiasi-tab" data-bs-toggle="pill"
+                                        data-bs-target="#tabs-negosiasi" role="tab"
+                                        aria-controls="tabs-negosiasi" aria-selected="false">
+                                        <iconify-icon class="mr-1"
+                                            icon="streamline:mail-chat-bubble-typing-oval-messages-message-bubble-typing-chat">
+                                        </iconify-icon>
+                                        Negosiasi
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tabs-kontrak"
+                                        class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent dark:text-slate-300"
+                                        id="tabs-kontrak-tab" data-bs-toggle="pill"
+                                        data-bs-target="#tabs-kontrak" role="tab"
+                                        aria-controls="tabs-kontrak" aria-selected="false">
+                                        <iconify-icon class="mr-1" icon="pajamas:review-list"></iconify-icon>
+                                        Kontrak
+                                    </a>
+                                </li>
+                            </ul>
+                        </header>
+                        <div class="tab-content" id="tabs-tabContent">
+                            <div class="tab-pane fade show active" id="tabs-pesanan" role="tabpanel"
+                                aria-labelledby="tabs-pesanan-tab">
+                                <div class="overflow-x-auto -mx-6 dashcode-data-table">
+                                    <span class=" col-span-8  hidden"></span>
+                                    <span class="  col-span-4 hidden"></span>
+                                    <div class="inline-block min-w-full align-middle">
+                                        <div class="overflow-hidden ">
+                                            <table
+                                                class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
+                                                id="data-table">
+                                                <thead class=" border-t border-slate-100 dark:border-slate-800">
+                                                    <tr>
+                                                        <th scope="col" class=" table-th ">Id</th>
+                                                        <th scope="col" class=" table-th ">Nama Project</th>
+                                                        <th scope="col" class=" table-th ">Deskripsi</th>
+                                                        <th scope="col" class=" table-th ">Kategori</th>
+                                                        <th scope="col" class=" table-th ">Customer</th>
+                                                        <th scope="col" class=" table-th ">Status</th>
+                                                        <th scope="col" class=" table-th ">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
+                                                    <tr>
+                                                        <td class="table-td">1</td>
+                                                        <td class="table-td ">Aplikasi Kantin Sekolah</td>
+                                                        <td class="table-td">Aplikasi yang bisa mengelola kantin dengan
+                                                            fitur pembayaran</td>
+                                                        <td class="table-td ">
+                                                            <div
+                                                                class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
+                                                                Website
+                                                            </div>
+                                                        </td>
+                                                        <td class="table-td ">Ida Nur Anisa</td>
+                                                        <td class="table-td ">
+                                                            <div
+                                                                class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">
+                                                                Menunggu
+                                                            </div>
+                                                        </td>
+                                                        <td class="table-td ">
+                                                            <div class="flex space-x-2">
+                                                                <a
+                                                                    href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
+                                                                    <span
+                                                                        class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "
+                                                                        data-tippy-content="Detail Project"
+                                                                        data-tippy-theme="seccondary">
+                                                                        <iconify-icon icon="heroicons:eye">
+                                                                        </iconify-icon>
+                                                                    </span>
+                                                                </a>
+                                                                <a href="">
+                                                                    <span
+                                                                        class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white "
+                                                                        data-tippy-content="Terima Project"
+                                                                        data-tippy-theme="seccondary">
+                                                                        <iconify-icon icon="material-symbols:check">
+                                                                        </iconify-icon>
+                                                                    </span>
+                                                                </a>
+                                                                <a href="{{route('mentor.menu.nego')}}">
+                                                                    <span
+                                                                        class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-warning-600 text-white "
+                                                                        data-tippy-content="Negosiasi"
+                                                                        data-tippy-theme="seccondary">
+                                                                        <iconify-icon icon="material-symbols:chat">
+                                                                        </iconify-icon>
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                  </td>
-                                  <td class="table-td ">
-                                      <div class="flex space-x-2">
-                                        <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
-                                          <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "data-tippy-content="Detail Project" data-tippy-theme="seccondary">
-                                            <iconify-icon icon="heroicons:eye"></iconify-icon>
-                                          </span>
-                                        </a>
-                                        <a href="">
-                                               <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white "data-tippy-content="Terima Project" data-tippy-theme="seccondary">
-                                                  <iconify-icon icon="material-symbols:check"></iconify-icon>
-                                                </span>
-                                        </a>
-                                              <a href="{{route('mentor.menu.nego')}}">
-                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-warning-600 text-white "data-tippy-content="Negosiasi" data-tippy-theme="seccondary">
-                                                  <iconify-icon icon="material-symbols:chat"></iconify-icon>
-                                                </span>
-                                              </a>
-                                      </div>
-                                  </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                          </div>
-                        </div>
-</div>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="tabs-profile-withIcon" role="tabpanel" aria-labelledby="tabs-profile-withIcon-tab">
-                              <div class="overflow-x-auto -mx-6 dashcode-data-table">
-                        <span class=" col-span-8  hidden"></span>
-                        <span class="  col-span-4 hidden"></span>
-                        <div class="inline-block min-w-full align-middle">
-                          <div class="overflow-hidden ">
-                            <table class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700" id="data-table">
-                              <thead class=" border-t border-slate-100 dark:border-slate-800">
-                                <tr>
-                                  <th scope="col" class=" table-th ">Id</th>
-                                  <th scope="col" class=" table-th ">Nama Project</th>
-                                  <th scope="col" class=" table-th ">Deskripsi</th>
-                                  <th scope="col" class=" table-th ">Kategori</th>
-                                  <th scope="col" class=" table-th ">Customer</th>
-                                  <th scope="col" class=" table-th ">Status</th>
-                                  <th scope="col" class=" table-th ">Tenggat Waktu</th>
-                                  <th scope="col" class=" table-th ">Action</th>
-                                </tr>
-                              </thead>
-                              <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-                                <tr>
-                                  <td class="table-td">1</td>
-                                  <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                  <td class="table-td">Aplikasi yang bisa mengelola kantin dengan fitur pembayaran</td>
-                                  <td class="table-td "><div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
-                                      Website
-                                    </div></td>
-                                  <td class="table-td ">Ida Nur Anisa</td>
-                                  <td class="table-td ">
-                                    <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-600 bg-info-500">
-                                      Sedang Diproses
+                            <div class="tab-pane fade" id="tabs-negosiasi" role="tabpanel"
+                                aria-labelledby="tabs-negosiasi-tab">
+                                <!-- <div class="tab-pane fade" id="tabs-negosiasi" role="tabpanel" aria-labelledby="tabs-negosiasi-tab"> -->
+                                <!-- isi -->
+                                <div class="flex lg:space-x-5 space-y-5 chat-height rtl:space-x-reverse">
+                                    <div class="flex-1 ">
+                                        <div class="h-full card">
+                                            <div class="p-0 h-full body-class">
+                                                <div class="parent lg:space-x-5 md:space-x-5 space-x-0 lg:space-y-0 md:space-y-0 space-y-5 lg:flex md:flex
+            flex-row h-full ">
+                                                    <!-- end main message body -->
+                                                    <div class="flex-1">
+                                                        <div class="h-full overflow-auto lg:h-full md:h-full card">
+                                                            <div class="p-0 h-full body-class">
+                                                                <!-- BEGIN: Blank Page -->
+
+
+                                                                <!-- BEGIN: Messages -->
+                                                                <div class="h-full">
+                                                                    <div
+                                                                        class="chat-content  parent-height bg-slate-800 dark:bg-slate-800">
+                                                                        <div
+                                                                            class="msgs overflow-y-auto msg-height pt-6 space-y-6">
+                                                                            <div class="block md:px-6 px-4">
+                                                                                <div
+                                                                                    class="flex space-x-2 items-start group">
+                                                                                    <div class="flex-none">
+                                                                                        <div
+                                                                                            class="h-8 w-8 rounded-full">
+                                                                                            <img src="{{ url('assets/images/users/user-2.jpg') }}"
+                                                                                                alt=""
+                                                                                                class="block w-full h-full object-cover rounded-full">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="flex-1 flex space-x-4">
+                                                                                        <div>
+                                                                                            <div
+                                                                                                class="text-contrent p-3 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 text-slate-600 text-sm font-normal mb-1 rounded-md flex-1 whitespace-pre-wrap break-all">
+                                                                                                Hey! How are you?</div>
+                                                                                            <span
+                                                                                                class="font-normal text-xs text-slate-400 dark:text-slate-400">12:20
+                                                                                                pm</span>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                                                                                            <div
+                                                                                                class="relative inline-block">
+                                                                                                <div class="block w-full "
+                                                                                                    data-headlessui-state="">
+                                                                                                    <button
+                                                                                                        class="block w-full"
+                                                                                                        id="headlessui-menu-button-:rc:"
+                                                                                                        type="button"
+                                                                                                        aria-haspopup="menu"
+                                                                                                        aria-expanded="false"
+                                                                                                        data-headlessui-state="">
+                                                                                                        <div
+                                                                                                            class="label-class-custom">
+                                                                                                            <div
+                                                                                                                class="h-8 w-8 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 text-slate-900 flex flex-col justify-center items-center text-xl rounded-full">
+                                                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                    aria-hidden="true"
+                                                                                                                    role="img"
+                                                                                                                    class="iconify iconify--heroicons-outline"
+                                                                                                                    width="1em"
+                                                                                                                    height="1em"
+                                                                                                                    viewbox="0 0 24 24">
+                                                                                                                    <path
+                                                                                                                        fill="none"
+                                                                                                                        stroke="currentColor"
+                                                                                                                        stroke-linecap="round"
+                                                                                                                        stroke-linejoin="round"
+                                                                                                                        stroke-width="2"
+                                                                                                                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Z">
+                                                                                                                    </path>
+                                                                                                                </svg>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="block md:px-6 px-4">
+                                                                                <div
+                                                                                    class="flex space-x-2 items-start justify-end group w-full rtl:space-x-reverse">
+                                                                                    <div
+                                                                                        class="no flex space-x-4 rtl:space-x-reverse">
+                                                                                        <div
+                                                                                            class="opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                                                                                            <div
+                                                                                                class="relative inline-block">
+                                                                                                <div class="block w-full "
+                                                                                                    data-headlessui-state="">
+                                                                                                    <button
+                                                                                                        class="block w-full"
+                                                                                                        id="headlessui-menu-button-:re:"
+                                                                                                        type="button"
+                                                                                                        aria-haspopup="menu"
+                                                                                                        aria-expanded="false"
+                                                                                                        data-headlessui-state="">
+                                                                                                        <div
+                                                                                                            class="label-class-custom">
+                                                                                                            <div
+                                                                                                                class="h-8 w-8 bg-slate-300 dark:bg-slate-900 dark:text-slate-400 flex flex-col justify-center items-center text-xl rounded-full text-slate-900">
+                                                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                    aria-hidden="true"
+                                                                                                                    role="img"
+                                                                                                                    class="iconify iconify--heroicons-outline"
+                                                                                                                    width="1em"
+                                                                                                                    height="1em"
+                                                                                                                    viewbox="0 0 24 24">
+                                                                                                                    <path
+                                                                                                                        fill="none"
+                                                                                                                        stroke="currentColor"
+                                                                                                                        stroke-linecap="round"
+                                                                                                                        stroke-linejoin="round"
+                                                                                                                        stroke-width="2"
+                                                                                                                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Z">
+                                                                                                                    </path>
+                                                                                                                </svg>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="break-all">
+                                                                                            <div
+                                                                                                class="text-contrent p-3 bg-slate-300 dark:bg-slate-900 dark:text-slate-300 text-slate-800 text-sm font-normal rounded-md flex-1 mb-1">
+                                                                                                <video class="w-full"
+                                                                                                    id="player"
+                                                                                                    playsinline="playsinline"
+                                                                                                    controls="controls"
+                                                                                                    data-poster="https://vjs.zencdn.net/v/oceans.png">
+                                                                                                    <source
+                                                                                                        src="https://vjs.zencdn.net/v/oceans.mp4"
+                                                                                                        type="video/mp4">
+                                                                                                </video>
+                                                                                            </div>
+                                                                                            <span
+                                                                                                class="font-normal text-xs text-slate-400">4:09
+                                                                                                pm</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="flex-none">
+                                                                                        <div
+                                                                                            class="h-8 w-8 rounded-full">
+                                                                                            <img src="{ {url('assets/images/users/user-2.jpg')}}"
+                                                                                                alt=""
+                                                                                                class="block w-full h-full object-cover rounded-full">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="block md:px-6 px-4">
+                                                                                <div
+                                                                                    class="flex space-x-2 items-start justify-end group w-full rtl:space-x-reverse">
+                                                                                    <div
+                                                                                        class="no flex space-x-4 rtl:space-x-reverse">
+                                                                                        <div
+                                                                                            class="opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                                                                                            <div
+                                                                                                class="relative inline-block">
+                                                                                                <div class="block w-full "
+                                                                                                    data-headlessui-state="">
+                                                                                                    <button
+                                                                                                        class="block w-full"
+                                                                                                        id="headlessui-menu-button-:re:"
+                                                                                                        type="button"
+                                                                                                        aria-haspopup="menu"
+                                                                                                        aria-expanded="false"
+                                                                                                        data-headlessui-state="">
+                                                                                                        <div
+                                                                                                            class="label-class-custom">
+                                                                                                            <div
+                                                                                                                class="h-8 w-8 bg-slate-300 dark:bg-slate-900 dark:text-slate-400 flex flex-col justify-center items-center text-xl rounded-full text-slate-900">
+                                                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                    aria-hidden="true"
+                                                                                                                    role="img"
+                                                                                                                    class="iconify iconify--heroicons-outline"
+                                                                                                                    width="1em"
+                                                                                                                    height="1em"
+                                                                                                                    viewbox="0 0 24 24">
+                                                                                                                    <path
+                                                                                                                        fill="none"
+                                                                                                                        stroke="currentColor"
+                                                                                                                        stroke-linecap="round"
+                                                                                                                        stroke-linejoin="round"
+                                                                                                                        stroke-width="2"
+                                                                                                                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Z">
+                                                                                                                    </path>
+                                                                                                                </svg>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="break-all">
+                                                                                            <div
+                                                                                                class="text-contrent p-3 bg-slate-300 dark:bg-slate-900 dark:text-slate-300 text-slate-800 text-sm font-normal rounded-md flex-1 mb-1">
+                                                                                                <img src="https://www.freecodecamp.org/news/content/images/size/w2000/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg"
+                                                                                                    class="rounded-md"
+                                                                                                    alt="image">
+                                                                                                <br>
+                                                                                                <hr>
+                                                                                                <div class="flex-none"
+                                                                                                    style="text-align: center;">
+                                                                                                    <a href="https://www.freecodecamp.org/news/content/images/size/w2000/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg"
+                                                                                                        Download="ags"><button
+                                                                                                            type="button"
+                                                                                                            class="text-xs text-slate-900 dark:text-white">
+                                                                                                            Download</a>
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <span
+                                                                                                class="font-normal text-xs text-slate-400">4:09
+                                                                                                pm</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="flex-none">
+                                                                                        <div
+                                                                                            class="h-8 w-8 rounded-full">
+                                                                                            <img src="{{ url('assets/images/users/user-2.jpg') }}"
+                                                                                                alt=""
+                                                                                                class="block w-full h-full object-cover rounded-full">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="block md:px-6 px-4">
+                                                                                <div
+                                                                                    class="flex space-x-2 items-start justify-end group w-full rtl:space-x-reverse">
+                                                                                    <div
+                                                                                        class="no flex space-x-4 rtl:space-x-reverse">
+                                                                                        <div
+                                                                                            class="opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                                                                                            <div
+                                                                                                class="relative inline-block">
+                                                                                                <div class="block w-full "
+                                                                                                    data-headlessui-state="">
+                                                                                                    <button
+                                                                                                        class="block w-full"
+                                                                                                        id="headlessui-menu-button-:re:"
+                                                                                                        type="button"
+                                                                                                        aria-haspopup="menu"
+                                                                                                        aria-expanded="false"
+                                                                                                        data-headlessui-state="">
+                                                                                                        <div
+                                                                                                            class="label-class-custom">
+                                                                                                            <div
+                                                                                                                class="h-8 w-8 bg-slate-300 dark:bg-slate-900 dark:text-slate-400 flex flex-col justify-center items-center text-xl rounded-full text-slate-900">
+                                                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                    aria-hidden="true"
+                                                                                                                    role="img"
+                                                                                                                    class="iconify iconify--heroicons-outline"
+                                                                                                                    width="1em"
+                                                                                                                    height="1em"
+                                                                                                                    viewbox="0 0 24 24">
+                                                                                                                    <path
+                                                                                                                        fill="none"
+                                                                                                                        stroke="currentColor"
+                                                                                                                        stroke-linecap="round"
+                                                                                                                        stroke-linejoin="round"
+                                                                                                                        stroke-width="2"
+                                                                                                                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm7 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Z">
+                                                                                                                    </path>
+                                                                                                                </svg>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="break-all">
+                                                                                            <div
+                                                                                                class="text-contrent p-3 bg-slate-300 dark:bg-slate-900 dark:text-slate-300 text-slate-800 text-sm font-normal rounded-md flex-1 mb-1">
+                                                                                                <li
+                                                                                                    class="block py-[8px]">
+                                                                                                    <div
+                                                                                                        class="flex space-x-2 rtl:space-x-reverse">
+                                                                                                        <div
+                                                                                                            class="flex-1 flex space-x-2 rtl:space-x-reverse">
+                                                                                                            <div
+                                                                                                                class="flex-none">
+                                                                                                                <div
+                                                                                                                    class="h-8 w-8">
+                                                                                                                    <img src="{{ url('assets/images/icon/pdf-1.svg') }}"
+                                                                                                                        alt=""
+                                                                                                                        class="block w-full h-full object-cover rounded-full border hover:border-white border-transparent">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div
+                                                                                                                class="flex-1">
+                                                                                                                <span
+                                                                                                                    class="block text-slate-600 text-sm dark:text-slate-300">
+                                                                                                                    Dashboard.pdf
+                                                                                                                </span>
+                                                                                                                <span
+                                                                                                                    class="block font-normal text-xs text-slate-500 mt-1">155MB
+                                                                                                                </span>
+                                                                                                                <button
+                                                                                                                    type="button"
+                                                                                                                    class="text-xs text-slate-900 dark:text-white mt-1">
+                                                                                                                    Download
+                                                                                                                </button>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                            </div>
+                                                                                            <span
+                                                                                                class="font-normal text-xs text-slate-400">4:09
+                                                                                                pm</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="flex-none">
+                                                                                        <div
+                                                                                            class="h-8 w-8 rounded-full">
+                                                                                            <img src="{{ url('assets/images/users/user-2.jpg') }}"
+                                                                                                alt=""
+                                                                                                class="block w-full h-full object-cover rounded-full">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- message -->
+                                                                    <footer
+                                                                        class=" md:px-9 px-4 sm:flex md:space-x-4 sm:space-x-2 border-t md:pt-6 pt-1 border-slate-100 dark:border-slate-700">
+                                                                        <div
+                                                                            class="flex grow sm:flex md:space-x-1 space-x-3">
+                                                                            <div
+                                                                                class="h-8 w-8  cursor-pointer bg-slate-100 dark:bg-slate-900 dark:text-slate-400 flex justify-center items-center text-xl rounded-full">
+                                                                                <iconify-icon
+                                                                                    icon="material-symbols:image-outline">
+                                                                                </iconify-icon>
+                                                                            </div>
+                                                                            <div
+                                                                                class="h-8 w-8  cursor-pointer bg-slate-100 dark:bg-slate-900 dark:text-slate-400 flex justify-center items-center text-xl rounded-full">
+                                                                                <iconify-icon
+                                                                                    icon="heroicons-outline:emoji-happy">
+                                                                                </iconify-icon>
+                                                                            </div>
+                                                                            <div
+                                                                                class="grow relative bg-slate-200 space-x-3 p-2 rounded-2xl dark:bg-slate-700">
+                                                                                <textarea
+                                                                                    placeholder="Type your message..."
+                                                                                    class="focus:ring-0 focus:outline-0 block w-full bg-transparent dark:text-white resize-none"></textarea>
+                                                                            </div>
+                                                                            <div class="flex-none grow-0 md:pr-0 pr-3">
+                                                                                <button type="button"
+                                                                                    class="h-8 w-8 bg-slate-900 text-white flex flex-col justify-center items-center text-lg rounded-full">
+                                                                                    <iconify-icon
+                                                                                        icon="heroicons-outline:paper-airplane"
+                                                                                        class="transform rotate-[60deg]">
+                                                                                    </iconify-icon>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </footer>
+                                                                    <!-- end footer -->
+                                                                </div>
+                                                                <!-- END: Message -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </td>
-                                  <td class="table-td ">-</td>
-                                  <td class="table-td ">
-                                      <div class="flex space-x-2">
-                                        <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
-                                          <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "data-tippy-content="Detail Project" data-tippy-theme="seccondary">
-                                            <iconify-icon icon="heroicons:eye"></iconify-icon>
-                                          </span>
-                                        </a>
-                                        <a href="{{route('mentor.menu.pemesanan.pengerjaan_pemesanan')}}">
-                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white" data-tippy-content="Kerjakan Project" data-tippy-theme="seccondary">
-                                                  <iconify-icon icon="bxs:edit"></iconify-icon>
-                                                </span>
-                                      </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td class="table-td">2</td>
-                                  <td class="table-td ">Aplikasi Bimbel Kampus</td>
-                                  <td class="table-td">Aplikasi yang bisa menyediakan layanan konsultasi tugas</td>
-                                  <td class="table-td "><div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
-                                      Website
-                                  </div></td>
-                                  <td class="table-td ">Ida Nur Anisa</td>
-                                  <td class="table-td ">
-                                    <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">
-                                      Diperiksa
+                                    <!-- </div> -->
+                                    <!-- end isi -->
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tabs-kontrak" role="tabpanel"
+                                aria-labelledby="tabs-kontrak-tab">
+                                <div class="overflow-x-auto -mx-6 dashcode-data-table">
+                                    <span class=" col-span-8  hidden"></span>
+                                    <span class="  col-span-4 hidden"></span>
+                                    <div class="inline-block min-w-full align-middle">
+                                        <div class="overflow-hidden ">
+                                            <table
+                                                class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
+                                                id="data-table">
+                                                <thead class=" border-t border-slate-100 dark:border-slate-800">
+                                                    <tr>
+                                                        <th scope="col" class=" table-th ">Id</th>
+                                                        <th scope="col" class=" table-th ">Nama Project</th>
+                                                        <th scope="col" class=" table-th ">Deskripsi</th>
+                                                        <th scope="col" class=" table-th ">Kategori</th>
+                                                        <th scope="col" class=" table-th ">Customer</th>
+                                                        <th scope="col" class=" table-th ">Status</th>
+                                                        <th scope="col" class=" table-th ">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody
+                                                    class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
+                                                    <tr>
+                                                        <td class="table-td">1</td>
+                                                        <td class="table-td ">Aplikasi Kantin Sekolah</td>
+                                                        <td class="table-td">Aplikasi yang bisa mengelola kantin dengan
+                                                            fitur pembayaran</td>
+                                                        <td class="table-td ">
+                                                            <div
+                                                                class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
+                                                                Website
+                                                            </div>
+                                                        </td>
+                                                        <td class="table-td ">Ida Nur Anisa</td>
+                                                        <td class="table-td ">
+                                                            <div
+                                                                class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">
+                                                                Selesai
+                                                            </div>
+                                                        </td>
+                                                        <td class="table-td ">
+                                                            <div class="flex space-x-2">
+                                                                <a
+                                                                    href="{{route('mentor.menu.pemesanan.tambah-kontrak')}}">
+                                                                    <span
+                                                                        class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "
+                                                                        data-tippy-content="Tambah Kontrak"
+                                                                        data-tippy-theme="seccondary">
+                                                                        <iconify-icon icon="ic:outline-rate-review">
+                                                                        </iconify-icon>
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                  </td>
-                                  <td class="table-td ">20-06-2023</td>
-                                  <td class="table-td ">
-                                      <div class="flex space-x-2">
-                                        <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
-<span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "data-tippy-content="Detail Project" data-tippy-theme="seccondary">
-                                            <iconify-icon icon="heroicons:eye"></iconify-icon>
-                                          </span>
-                                        </a>
-                                        <a href="{{route('mentor.menu.pemesanan.pengerjaan_pemesanan')}}">
-                                                <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white" data-tippy-content="Kerjakan Project" data-tippy-theme="seccondary">
-                                                  <iconify-icon icon="bxs:edit"></iconify-icon>
-                                                </span>
-                                      </div>
-                                  </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        </div>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="tabs-messages-withIcon" role="tabpanel" aria-labelledby="tabs-messages-withIcon-tab">
-                              <div class="overflow-x-auto -mx-6 dashcode-data-table">
-                        <span class=" col-span-8  hidden"></span>
-                        <span class="  col-span-4 hidden"></span>
-                        <div class="inline-block min-w-full align-middle">
-                          <div class="overflow-hidden ">
-                            <table class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700" id="data-table">
-                              <thead class=" border-t border-slate-100 dark:border-slate-800">
-                                <tr>
-                                  <th scope="col" class=" table-th ">Id</th>
-                                  <th scope="col" class=" table-th ">Nama Project</th>
-                                  <th scope="col" class=" table-th ">Deskripsi</th>
-                                  <th scope="col" class=" table-th ">Kategori</th>
-                                  <th scope="col" class=" table-th ">Customer</th>
-                                  <th scope="col" class=" table-th ">Status</th>
-                                  <th scope="col" class=" table-th ">Action</th>
-                                </tr>
-                              </thead>
-                              <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-                                <tr>
-                                  <td class="table-td">1</td>
-                                  <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                  <td class="table-td">Aplikasi yang bisa mengelola kantin dengan fitur pembayaran</td>
-                                  <td class="table-td "><div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-black-500 bg-secondary-500">
-                                      Website
-                                    </div></td>
-                                  <td class="table-td ">Ida Nur Anisa</td>
-                                  <td class="table-td ">
-                                    <div class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">
-                                      Selesai
-                                    </div>
-                                  </td>
-                                  <td class="table-td ">
-                                      <div class="flex space-x-2">
-                                        <a href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
-                                          <span class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "data-tippy-content="Detail Project" data-tippy-theme="seccondary">
-                                            <iconify-icon icon="heroicons:eye"></iconify-icon>
-                                          </span>
-                                        </a>
-                                      </div>
-                                  </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                          </div>
                         </div>
-                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="tabs-settings-withIcon" role="tabpanel" aria-labelledby="tabs-settings-withIcon-tab">
-                              <p class="text-sm text-gray-500 dark:text-gray-200">
-                                This is some placeholder content the
-                                <strong>Settings</strong>
-                                tab's associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. consectetur adipisicing elit. Ab ipsa!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
