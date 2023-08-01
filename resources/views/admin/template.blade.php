@@ -37,10 +37,10 @@
                                         <a href="{{ route('admin.menu.review') }}" class="Navbar">
                                             <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
                                                 <span class="icon-box text-box">
-                                                    <iconify-icon icon=pajamas:review-list>
+                                                    <iconify-icon icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
                                                     </iconify-icon>
                                                 </span>
-                                                <div class="text-box">Review Pesanan</div>
+                                                <div class="text-box">Penyerahan Pesanan</div>
                                             </div>
                                         </a>
                                     </li>
@@ -138,10 +138,11 @@
         <div class="{{ (request()->is('admin/review*')) ? 'active' : '' }} menubawah">
             <span class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900 ">
-                <iconify-icon icon="pajamas:review-list"></iconify-icon>
+                <iconify-icon icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
+                                                    </iconify-icon>
             </span>
             <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
-                Review Pesanan
+                Penyerahan Pesanan
             </span>
         </div>
     </a>

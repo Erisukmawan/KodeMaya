@@ -16,7 +16,7 @@
                                 <td style="width:79%">DADANG KURNIA MEGA</td>
                             </tr>
                             <tr>
-                                <td style="width:28%">Nama project</td>
+                                <td style="width:28%">Nama projek</td>
                                 <td style="width:1%">:</td>
                                 <td style="width:79%">FASHION HITS</td>
                             </tr>

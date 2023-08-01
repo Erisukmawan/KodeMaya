@@ -27,7 +27,7 @@
                                         <th scope="col" class=" table-th ">Nomor</th>
                                         <th scope="col" class=" table-th ">Nama Customer</th>
                                         <th scope="col" class=" table-th ">Nama Mentor</th>
-                                        <th scope="col" class=" table-th ">Judul Project</th>
+                                        <th scope="col" class=" table-th ">Judul projek</th>
                                         <th scope="col" class=" table-th ">Status Pembayaran</th>
                                         <th scope="col" class=" table-th ">Status Pemesanan</th>
                                         <th scope="col" class=" table-th ">Harga</th>

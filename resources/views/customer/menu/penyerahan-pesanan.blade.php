@@ -19,7 +19,7 @@
                 <div class="text-slate-600 space-y-3 text-sm">
                     <div class="">
                         <div class=" mx-8 font-medium dark:text-slate-100 text-black">
-                            Nama Project
+                            Nama projek
                         </div>
                         <div class="block mx-8 text-sm dark:text-slate-100 text-black">
                             Aplikasi Rumah Makan

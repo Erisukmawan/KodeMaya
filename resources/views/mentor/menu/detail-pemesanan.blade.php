@@ -16,14 +16,14 @@
                       <div class="grid lg:grid-cols-2 space-y-2 md:grid-cols-2 grid-cols-2 gap-4">
                       <!-- <div class="flex card-text h-full space-y-4"> -->
                         <div class="input-area space-y-1">
-                          <label for="textFormatter" class="form-label text-slate-400">Nama Project</label>
+                          <label for="textFormatter" class="form-label text-slate-400">Nama projek</label>
                           <div class="relative">
                             <span class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">Aplikasi Penjualan Barang</span>
                           </div>
                         </div>
                             <!-- <div class="flex-1"> -->
                         <div class="input-area relative">
-                          <label for="textFormatter" class="form-label text-slate-400">Status Project</label>
+                          <label for="textFormatter" class="form-label text-slate-400">Status projek</label>
                           <div class="relative">
                             <span class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">SELESAI</span>
                           </div>
@@ -35,13 +35,13 @@
                           </div>
                         </div>
                         <div class="flex-none input-area space-y-1">
-                          <label for="textFormatter" class="form-label text-slate-400">Tenggat Project</label>
+                          <label for="textFormatter" class="form-label text-slate-400">Tenggat projek</label>
                           <div class="relative">
                             <span class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">20-08-2023</span>
                           </div>
                         </div>
                         <div class="input-area space-y-1">
-                          <label for="textFormatter" class="form-label text-slate-400">Tipe Project</label>
+                          <label for="textFormatter" class="form-label text-slate-400">Tipe projek</label>
                           <div class="relative">
                             <span class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">Website</span>
                           </div>
@@ -54,7 +54,7 @@
                         </div>
                       </div>
                       <div class="input-area mt-5">
-                          <label for="textFormatter" class="form-label text-slate-400">Deskripsi Project</label>
+                          <label for="textFormatter" class="form-label text-slate-400">Deskripsi projek</label>
                           <div class="relative">
                             <span class="text-normal font-Inter font-normal text-slate-800 mt-2  dark:text-white inline-block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                                 molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <button class="flex w-full mt-5 items-center justify-center btn-success bg-white btn-sm btn">
-                              <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">Download Project Selesai
+                              <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">Download projek Selesai
                                 <iconify-icon icon="line-md:download-loop"></iconify-icon> 
                               </div>
                         </button>

@@ -106,7 +106,7 @@ Route::middleware(['financial'])->controller(FinancialController::class)->group(
 Route::middleware(['mentor'])->controller(MentorController::class)->group(function () {
     Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
     Route::get('/mentor/pemesanan/', 'view_pemesanan')->name('mentor.menu.pemesanan');
-    Route::get('/mentor/pemesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.pemesanan.pengerjaan_pemesanan');
+    Route::get('/mentor/penyerahan-pesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.penyerahan-pesanan.pengerjaan_pemesanan');
     Route::get('/mentor/pemesanan/detail-pemesanan', 'view_detail_pemesanan')->name('mentor.menu.pemesanan.detail_pemesanan');
     Route::get('/mentor/pembayaran/', 'view_pembayaran')->name('mentor.menu.pembayaran');
     Route::get('/mentor/pembayaran/tambah', 'view_pembayaran_tambah')->name('mentor.menu.pembayaran.tambah');

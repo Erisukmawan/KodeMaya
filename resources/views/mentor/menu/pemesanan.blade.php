@@ -60,7 +60,7 @@
                                                 <thead class=" border-t border-slate-100 dark:border-slate-800">
                                                     <tr>
                                                         <th scope="col" class=" table-th ">Id</th>
-                                                        <th scope="col" class=" table-th ">Nama Project</th>
+                                                        <th scope="col" class=" table-th ">Nama projek</th>
                                                         <th scope="col" class=" table-th ">Deskripsi</th>
                                                         <th scope="col" class=" table-th ">Kategori</th>
                                                         <th scope="col" class=" table-th ">Customer</th>
@@ -94,7 +94,7 @@
                                                                     href="{{route('mentor.menu.pemesanan.detail_pemesanan')}}">
                                                                     <span
                                                                         class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white "
-                                                                        data-tippy-content="Detail Project"
+                                                                        data-tippy-content="Detail projek"
                                                                         data-tippy-theme="seccondary">
                                                                         <iconify-icon icon="heroicons:eye">
                                                                         </iconify-icon>
@@ -103,7 +103,7 @@
                                                                 <a href="">
                                                                     <span
                                                                         class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-success-600 text-white "
-                                                                        data-tippy-content="Terima Project"
+                                                                        data-tippy-content="Terima projek"
                                                                         data-tippy-theme="seccondary">
                                                                         <iconify-icon icon="material-symbols:check">
                                                                         </iconify-icon>
@@ -527,7 +527,7 @@
                                                 <thead class=" border-t border-slate-100 dark:border-slate-800">
                                                     <tr>
                                                         <th scope="col" class=" table-th ">Id</th>
-                                                        <th scope="col" class=" table-th ">Nama Project</th>
+                                                        <th scope="col" class=" table-th ">Nama projek</th>
                                                         <th scope="col" class=" table-th ">Deskripsi</th>
                                                         <th scope="col" class=" table-th ">Kategori</th>
                                                         <th scope="col" class=" table-th ">Customer</th>

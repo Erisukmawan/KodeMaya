@@ -17,11 +17,11 @@
                         <thead class=" border-t border-slate-100 dark:border-slate-800">
                             <tr>
                                 <th scope="col" class=" table-th ">Id</th>
-                                <th scope="col" class=" table-th ">Project_name</th>
+                                <th scope="col" class=" table-th ">Nama Projek</th>
                                 <th scope="col" class=" table-th ">Mentor</th>
-                                <th scope="col" class=" table-th ">Date</th>
+                                <th scope="col" class=" table-th ">Tenggat Waktu</th>
                                 <th scope="col" class=" table-th ">Total</th>
-                                <th scope="col" class=" table-th ">user_status</th>
+                                <th scope="col" class=" table-th ">Status Pembayaran</th>
                                 <th scope="col" class=" table-th ">Action</th>
                             </tr>
                         </thead>

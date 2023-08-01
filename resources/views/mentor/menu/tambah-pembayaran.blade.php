@@ -112,20 +112,20 @@
                         <div>
                                 <div class="lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-5 mb-5 last:mb-0">
                                     <div class="fromGroup       ">
-                                        <label for="name0" class="block capitalize form-label  ">Nama Project</label>
+                                        <label for="name0" class="block capitalize form-label  ">Nama projek</label>
                                         <div class="relative ">
                                             <input type="text" name="test[0].firstName" class="  form-control py-2   "
-                                                placeholder="Nama Project" id="name0">
+                                                placeholder="Nama projek" id="name0">
                                             <div
                                                 class="flex text-xl absolute ltr:right-[14px] rtl:left-[14px] top-1/2 -translate-y-1/2  space-x-1 rtl:space-x-reverse">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="fromGroup       ">
-                                        <label for="name20" class="block capitalize form-label  ">Deskripsi Project</label>
+                                        <label for="name20" class="block capitalize form-label  ">Deskripsi projek</label>
                                         <div class="relative ">
                                             <input type="text" name="test[0].lastName" class="  form-control py-2   "
-                                                placeholder="Deskripsi Project" id="name20">
+                                                placeholder="Deskripsi projek" id="name20">
                                             <div
                                                 class="flex text-xl absolute ltr:right-[14px] rtl:left-[14px] top-1/2 -translate-y-1/2  space-x-1 rtl:space-x-reverse">
                                             </div>
@@ -153,7 +153,7 @@
             </div>
             <label for="textFormatter" class="form-label">Harga</label>
             <div class="relative space-y-6">
-                <input id="nama_project" type="number" class="form-control" placeholder="">
+                <input id="nama_projek" type="number" class="form-control" placeholder="">
                 <span class="block"></span>
             </div>
             <div class="ltr:text-right rtl:text-left space-x-3 rtl:space-x-reverse">

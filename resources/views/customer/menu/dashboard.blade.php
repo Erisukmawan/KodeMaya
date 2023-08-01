@@ -6,7 +6,7 @@
         <div class="flex-1">
             <div class="text-xl font-medium text-white text-center justify-center  mb-2">
                 <span class="block font-normal">Selamat Datang, {{ Auth::user()->name }}</span>
-                <span class="block text-sm">Mari Buat Project Bersama Kami</span>
+                <span class="block text-sm">Mari Buat projek Bersama Kami</span>
                 <!-- </div> -->
             </div>
         </div>
@@ -39,7 +39,7 @@
                         <iconify-icon icon=heroicons-outline:chart-pie></iconify-icon>
                     </div>
                     <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Project Selesai
+                        projek Selesai
                     </span>
                     <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
                         45
@@ -52,7 +52,7 @@
                         <iconify-icon icon=heroicons-outline:clock></iconify-icon>
                     </div>
                     <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Project Di Proses
+                        projek Di Proses
                     </span>
                     <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
                         190

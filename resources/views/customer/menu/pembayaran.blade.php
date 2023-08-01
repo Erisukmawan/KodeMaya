@@ -35,11 +35,11 @@
                               <thead class=" border-t border-slate-100 dark:border-slate-800">
                                 <tr>
                                   <th scope="col" class=" table-th ">Id</th>
-                                  <th scope="col" class=" table-th ">Project_name</th>
+                                  <th scope="col" class=" table-th ">Nama Projek</th>
                                   <th scope="col" class=" table-th ">Mentor</th>
-                                  <th scope="col" class=" table-th ">Date</th>
+                                  <th scope="col" class=" table-th ">Tenggat Waktu</th>
                                   <th scope="col" class=" table-th ">Total</th>
-                                  <th scope="col" class=" table-th ">user_status</th>
+                                  <th scope="col" class=" table-th ">Status Pembayaran</th>
                                   <th scope="col" class=" table-th ">Action</th>
                                 </tr>
                               </thead>
@@ -61,12 +61,6 @@
                                                 <span class="text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-info-600 text-white">
                                                   <iconify-icon icon="solar:bill-check-linear"></iconify-icon>
                                                 </span>
-                                        </a>
-                                              <a href="finvoive-preview.html">
-                                                <span class="text-2xl rounded-sm pt-2 p-1 w-9 hover:bg-slate-900 bg-danger-600 text-white">
-                                                  <iconify-icon icon="heroicons:trash"></iconify-icon>
-                                                </span>
-                                              </a>
                                       </div>
                                   </td>
                                 </tr>

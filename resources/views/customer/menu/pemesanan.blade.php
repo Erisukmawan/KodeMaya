@@ -35,7 +35,7 @@
                     <div class="flex-1">
                         <div class="max-w-[310px]">
                             <div class="text-md text-slate-800 mb-2">
-                                <span class="block font-normal">Hi, {{ Auth::user()->name }} Yuk Buat Project
+                                <span class="block font-normal">Hi, {{ Auth::user()->name }} Yuk Buat projek
                                     Sekarang!</span>
                                 <!-- <span class="block">{{ Auth::user()->name }}</span> -->
                             </div>
@@ -74,7 +74,7 @@
                                     <div class="text-slate-600 space-y-3 text-sm">
                                         <div class="">
                                             <div class=" mx-8 font-medium dark:text-slate-100 text-black">
-                                                Nama Project
+                                                Nama projek
                                             </div>
                                             <div class="block mx-8 text-sm dark:text-slate-100 text-black">
                                                 Aplikasi Rumah Makan
@@ -124,7 +124,7 @@
                                     <div class="text-slate-600 space-y-3 text-sm">
                                         <div class="">
                                             <div class=" mx-8 font-medium dark:text-slate-100 text-black">
-                                                Nama Project
+                                                Nama projek
                                             </div>
                                             <div class="block mx-8 text-sm dark:text-slate-100 text-black">
                                                 Aplikasi Rumah Makan
@@ -522,7 +522,7 @@
                                 <iconify-icon icon="heroicons:user"></iconify-icon>
                               </div> -->
                                     <div class="flex-1 mx-8 text-sm dark:text-slate-100 text-black font-sm">
-                                        Project :
+                                        projek :
                                     </div>
                                     <div class="block  text-base dark:text-slate-100 text-black font-sm">
                                         Aplikasi pencari jodoh
@@ -569,7 +569,7 @@
                                     <thead class=" border-t border-slate-100 dark:border-slate-800">
                                         <tr>
                                             <th scope="col" class=" table-th ">Id</th>
-                                            <th scope="col" class=" table-th ">Nama Project</th>
+                                            <th scope="col" class=" table-th ">Nama projek</th>
                                             <th scope="col" class=" table-th ">Mentor</th>
                                             <th scope="col" class=" table-th ">Date</th>
                                             <th scope="col" class=" table-th ">Status Kontrak</th>

@@ -17,9 +17,9 @@
                     </div>
                 </header>
             <div class="input-area">
-                <label for="textFormatter" class="form-label">Nama Project</label>
+                <label for="textFormatter" class="form-label">Nama projek</label>
                 <div class="relative space-y-6">
-                    <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
+                    <input id="nama_projek" type="text" class="form-control" placeholder="Alamat Anda">
                     <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                     <span class="block"></span>
                 </div>
@@ -27,7 +27,7 @@
             <div class="input-area">
                 <label for="textFormatter" class="form-label">Deskripsi</label>
                 <div class="relative space-y-6">
-                    <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
+                    <input id="nama_projek" type="text" class="form-control" placeholder="Alamat Anda">
                     <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                     <span class="block"></span>
                 </div>
@@ -35,7 +35,7 @@
             <div class="input-area">
                 <label for="textFormatter" class="form-label">Tenggat Waktu</label>
                 <div class="relative space-y-6">
-                    <input id="nama_project" type="date" class="form-control" placeholder="Alamat Anda">
+                    <input id="nama_projek" type="date" class="form-control" placeholder="Alamat Anda">
                     <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                     <span class="block"></span>
                 </div>
@@ -43,7 +43,7 @@
             <div class="input-area">
                 <label for="textFormatter" class="form-label">Waktu Kontrak</label>
                 <div class="relative space-y-6">
-                    <input id="nama_project" type="date" class="form-control" placeholder="Alamat Anda">
+                    <input id="nama_projek" type="date" class="form-control" placeholder="Alamat Anda">
                     <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                     <span class="block"></span>
                 </div>
@@ -51,7 +51,7 @@
             <div class="input-area">
                 <label for="textFormatter" class="form-label">Total Harga</label>
                 <div class="relative space-y-6">
-                    <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
+                    <input id="nama_projek" type="text" class="form-control" placeholder="Alamat Anda">
                     <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                     <span class="block"></span>
                 </div>

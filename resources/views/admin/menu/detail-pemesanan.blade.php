@@ -4,17 +4,17 @@
     <div class="card-body flex flex-col p-6">
         <header
             class="flex space-x-3 mb-5 items-center border-b border-slate-100 dark:border-slate-700 pb-5 -mx-6 px-6">
-            <a href="{{route('admin.menu.review')}}" class="inline-flex items-center space-x-1 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
+            <a href="{{route('admin.menu.projekw')}}" class="inline-flex items-center space-x-1 rtl:space-x-reverse text-sm capitalize font-medium text-slate-600
                                 dark:text-slate-300">
                 <iconify-icon icon="heroicons:arrow-left"></iconify-icon>
                 <span class="">Kembali </span>
             </a>
             <div class="flex-1">
-                <div class="card-title text-slate-900 dark:text-white">Review Pesanan</div>
+                <div class="card-title text-slate-900 dark:text-white">projekw Pesanan</div>
             </div>
             <div class="flex-none">
                 <a href="{{route('customer.menu.nego')}}"><button class="rounded-xl p-2 hover:bg-primary-600 w-30 bg-success-600 text-white dark:text-white">
-                    <iconify-icon icon="pajamas:review-checkmark"></iconify-icon>
+                    <iconify-icon icon="pajamas:projekw-checkmark"></iconify-icon>
                     <span class="font-normal text-sm p-1">Pengiriman Pesanan</span>
                 </button>
                 </a>
