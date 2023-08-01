@@ -11,10 +11,10 @@
         </div>
     </div>
 </section>
-<section class="Tulung" id="Tulung" data-aos="fade-up">
+<section class="Tulung" id="Bikin_Aplikasi" data-aos="fade-up">
     <div class="page-content ">
-        <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">TULUNG</h1>
-        <p class="title" data-aos="fade-up" data-aos-duration="1500">Anda Mungkin Bertanya, Apa Itu Tulung ?</p>
+        <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">Bikin Aplikasi</h1>
+        <p class="title" data-aos="fade-up" data-aos-duration="1500"></p>
         <div class="card-row">
             <div class="outer-card " data-aos="zoom-out-up" data-aos-duration="1500">
                 <div class="inner-card_img" data-aos="zoom-out-up" data-aos-duration="1500">
@@ -31,8 +31,8 @@
                 </div>
                 <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="card-content">
-                        <h2>Mentor Berpengalaman</h2>
-                        <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
+                        <h2>Proses Cepat</h2>
+                        <p>Dengan para mentor handal, Aplikasi kamu bisa cepat selesai lohh</p>
                     </div>
                 </div>
                 <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
@@ -59,21 +59,19 @@
                 <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="card-content">
                         <h2>Bekerja dimana saja dan kapan saja</h2>
-                        <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
+                        <p>Bekerja dimanapun dan kapanpun sesuka dan semau kamu</p>
                     </div>
                 </div>
                 <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="card-content">
                         <h2>Harga project bisa anda atur sendiri</h2>
-                        <p>Kamu dapat membuat aplikasi dengan baik dari saran mentor yang sudah berpengalaman</p>
+                        <p>Kamu bisa bernegosiasi dengan pelanggan untuk menyepakati harga</p>
                     </div>
                 </div>
                 <div class="inner-card" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="card-content">
                         <h2>Pajak yang relatif kecil</h2>
-                        <p>Gak perlu khawatir kemahalan, kamu bisa bernegosiasi dengan mentor untuk menyesuaikan harga
-                            yang
-                            kamu mau</p>
+                        <p>Pajak Cuman seharga mie bungkus lohh, jadi kamu gak perlu khawatir tentang pajak layanan</p>
                         </p>
                     </div>
                 </div>
@@ -85,7 +83,7 @@
 
                 </div>
             </div>
-            <a href="{{route('register')}}" class="cta animate-[wiggle_1s_ease-in-out_infinite]" data-aos="zoom-out-up"
+            <a href="{{route('register-mentor')}}" class="cta animate-[wiggle_1s_ease-in-out_infinite]" data-aos="zoom-out-up"
                 data-aos-duration="2500">Gabung Sekarang Juga !</a>
         </div>
     </div>
@@ -96,7 +94,7 @@
         <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">HARGA</h1>
         <p class="title" data-aos="fade-up" data-aos-duration="1500">Apa saja yang dapat kami kerjakan ?</p>
         <div class="card-body p-6">
-            <div class="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+            <div class="grid xl:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-5">
                 <div data-aos="zoom-out-up" data-aos-duration="1500"
                     class="price-table bg-opacity-[0.16] dark:bg-opacity-[0.36] rounded-[6px] p-6 text-slate-900 dark:text-white relative overflow-hidden z-[1] bg-warning-500">
                     <div class="overlay absolute right-0 top-0 w-full h-full z-[-1]">
@@ -108,7 +106,7 @@
                             Start From
                         </p>
                         <span class="text-[32px] leading-10 font-medium">
-                            Rp50.000
+                            Rp500.000
                         </span>
                     </header>
                     <div class="price-body space-y-8">
@@ -116,8 +114,7 @@
                             Pembuatan Website Fungsional Penuh
                         </p>
                         <div>
-                            <button class="btn-outline-dark dark:border-slate-400 w-full btn">
-                                Konsultasi Sekarang !</button>
+                            
                         </div>
                     </div>
                 </div>
@@ -131,12 +128,12 @@
                         Most popular
                     </div>
                     <header class="mb-6">
-                        <h4 class="text-xl mb-5">Data Science</h4>
+                        <h4 class="text-xl mb-5">Data Science </h4>
                         <p class="text-slate-500 dark:text-slate-300 text-sm">
                             Start From
                         </p>
                         <span class="text-[32px] leading-10 font-medium">
-                            Rp85.000
+                            Rp650.000
                         </span>
                     </header>
                     <div class="price-body space-y-8">
@@ -144,8 +141,7 @@
                             Pembuatan model ML & AI, Pengolahan Data
                         </p>
                         <div>
-                            <button class="btn-outline-dark dark:border-slate-400 w-full btn">
-                                Konsultasi Sekarang !</button>
+                           
                         </div>
                     </div>
                 </div>
@@ -160,7 +156,7 @@
                             Start From
                         </p>
                         <span class="text-[32px] leading-10 font-medium">
-                            Rp75.000
+                            Rp550.000
                         </span>
                     </header>
                     <div class="price-body space-y-8">
@@ -168,8 +164,7 @@
                             Pembuatan Aplikasi Mobile Fungsional Penuh
                         </p>
                         <div>
-                            <button class="btn-outline-dark dark:border-slate-400 w-full btn">
-                                Konsultasi Sekarang !</button>
+                           
                         </div>
                     </div>
                 </div>
@@ -184,7 +179,7 @@ overflow-hidden z-[1] bg-primary-500" data-aos="zoom-out-up" data-aos-duration="
                             Start From
                         </p>
                         <span class="text-[32px] leading-10 font-medium">
-                            Rp80.000
+                            Rp800.000
                         </span>
                     </header>
                     <div class="price-body space-y-8">
@@ -192,15 +187,35 @@ overflow-hidden z-[1] bg-primary-500" data-aos="zoom-out-up" data-aos-duration="
                             Pembuatan Aplikasi Desktop Fungsional Penuh
                         </p>
                         <div>
-                            <button class="btn-outline-dark dark:border-slate-400 w-full btn">
-                                Konsultasi Sekarang !</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="price-table bg-opacity-[0.16] dark:bg-opacity-[0.36] rounded-[6px] p-6 text-slate-900 dark:text-white relative
+overflow-hidden z-[1] bg-primary-500" data-aos="zoom-out-up" data-aos-duration="1500">
+                    <div class="overlay absolute right-0 top-0 w-full h-full z-[-1]">
+                        <img src="{{url('/assets/images/all-img/big-shap4.png')}}" alt="" class="ml-auto block">
+                    </div>
+                    <header class="mb-6">
+                        <h4 class="text-xl mb-5">UI/UX</h4>
+                        <p class="text-slate-500 dark:text-slate-300 text-sm">
+                            Start From
+                        </p>
+                        <span class="text-[32px] leading-10 font-medium">
+                            Rp500.000
+                        </span>
+                    </header>
+                    <div class="price-body space-y-8">
+                        <p class="text-sm leading-5 text-slate-600 dark:text-slate-300">
+                            Pembuatan Aplikasi Desktop Fungsional Penuh
+                        </p>
+                        <div>
+                           
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="{{route('register')}}" class="cta animate-[wiggle_1s_ease-in-out_infinite]" data-aos="zoom-out-up"
-                data-aos-duration="1500">Lihat Selengkapnya</a>
-        </div>
+            </div>
 </section>
 
 

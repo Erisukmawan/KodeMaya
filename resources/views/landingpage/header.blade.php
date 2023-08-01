@@ -72,7 +72,7 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                 <ul class="sidebar-menu">
                     <li class="sidebar-menu-title">MENU</li>
                     <li class="">
-                        <a href="#" class="navItem">
+                        <a href="{{route('landingpage')}}" class="navItem">
                             <span class="flex items-center">
                                 <iconify-icon class="nav-icon" icon=heroicons-outline:home> </iconify-icon>
                                 <span>Home</span>
@@ -89,15 +89,15 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                         </a>
                         <ul class="sidebar-submenu">
                             <li>
-                                <a href="#Tulung">Tulung</a>
+                                <a href="{{route('landingpage')}}#Bikin_Aplikasi">Bikin Aplikasi</a>
                             </li>
                             <li>
-                                <a href="#Mentor">Mentor</a>
+                                <a href="{{route('landingpage')}}#Mentor">Mentor</a>
                             </li>
                         </ul>
                     </li>
                     <li class="">
-                        <a href="#" class="navItem">
+                        <a href="{{route('landingpage')}}#Harga" class="navItem">
                             <span class="flex items-center">
                                 <iconify-icon class="nav-icon" icon=material-symbols:price-change-outline>
                                 </iconify-icon>
@@ -106,25 +106,15 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                         </a>
                     </li>
                     <li class="">
-                        <a href="javascript:void(0)" class="navItem">
+                        <a href="{{route('faq')}}" class="navItem">
                             <span class="flex items-center">
-                                <iconify-icon class=" nav-icon" icon="material-symbols:contact-support-outline">
-                                </iconify-icon>
+                                <span class="icon-box">
+                                                    <iconify-icon icon=material-symbols:contact-support-outline>
+                                                    </iconify-icon>
+                                                </span>
                                 <span>FAQ</span>
                             </span>
-                            <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
                         </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="project.html">Tentang Kami</a>
-                            </li>
-                            <li>
-                                <a href="project-details.html">Hubungi Kami</a>
-                            </li>
-                            <li>
-                                <a href="project-details.html">Syarat dan Ketentuan</a>
-                            </li>
-                        </ul>
                     </li>
             </div>
         </div>
@@ -190,12 +180,12 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                         </a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href="{{ route('landingpage') }}#Tulung">
+                                                <a href="{{ route('landingpage') }}#Bikin_Aplikasi">
                                                     <div class="flex space-x-2 items-start rtl:space-x-reverse">
                                                         <iconify-icon icon=ic:baseline-connect-without-contact
                                                             class="leading-[1] text-base"> </iconify-icon>
                                                         <span class="leading-[1]">
-                                                            Tulung
+                                                            Bikin Aplikasi
                                                         </span>
                                                     </div>
                                                 </a>
