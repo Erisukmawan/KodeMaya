@@ -2,7 +2,7 @@
 
 @section('main-content')
 <div class="mb-10 pb-10">
-    <ul class="nav bg-white justify-center nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
+    <ul class="nav bg-white dark:bg-slate-700 justify-center nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
         id="tabs-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <a href="#tabs-pesanan"
