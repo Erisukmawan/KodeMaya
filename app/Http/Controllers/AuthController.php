@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use App\Models\Pelanggan;
 use App\Models\Mentor;
 use App\Models\Pegawai;
 use App\Models\Pemesanan;
-use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -21,10 +22,11 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest')->except([
-            'logout', 'dashboard'
-        ]);
+        // $this->middleware('guest')->except([
+        //     'logout', 'dashboard'
+        // ]);
     }
+
 
     public function register()
     {
@@ -91,20 +93,20 @@ class AuthController extends Controller
 
             $file = $request->file('dokumen');
 
+            $metadata = uploadFile($file, 'document');
+            $url = makeUrl($metadata);
+
             $user = Mentor::create([
                 'nama' => $request->nama,
                 'email' => $request->email,
                 'alamat' => $request->alamat,
                 'telp' => $request->telp,
                 'keahlian' => $request->keahlian,
-                'dokumen' => $file->getClientOriginalName(),
+                'dokumen' => $url,
                 'password' => Hash::make($request->password)
             ]);
 
-            $filepath = env('GOOGLE_DRIVE_FOLDER') . "/" . env('GOOGLE_DRIVE_FOLDER_DOCUMENT') . "/" . $user->id_mentor . "." . $file->extension();
-
-            Storage::disk('google')->put($filepath, $file->getContent());
-
+            
             Log::info('Mentor Register ' . json_encode($user));
 
             $user->notify(new \App\Notifications\VerifikasiMentor);
@@ -249,15 +251,50 @@ class AuthController extends Controller
 
     public function change_picture(Request $request)
     {
+        DB::beginTransaction();
         try {
-            DB::beginTransaction();
+            $file = $request->file('image');
+            $uuid =  Str::uuid();
+            $filename = $uuid . "." . $file->extension();
+            $mainFolder = env('GOOGLE_DRIVE_FOLDER');
+            $profileFolder = env('GOOGLE_DRIVE_FOLDER_PROFILE');
+            $folderpath = $mainFolder . "/" . $profileFolder;
+
+            $user = "";
+            $user_view = "";
+
             if (Auth::guard('webcustomer')->check()) {
+                $user_view = "customer";
+                $id = Auth::guard('webcustomer')->user()->id_pelanggan;
+                $user = Pelanggan::find($id);
             } else if (Auth::guard('webmentor')->check()) {
+                $user_view = "mentor";
+                $id = Auth::guard('webmentor')->user()->id_mentor;
+                $user = Mentor::find($id);
             } else if (Auth::guard('webadministration')->check()) {
-            } else if (Auth::guard('webfinancial')->check()) {
+                $user_view = "admin";
+                $id = Auth::guard('webadministration')->user()->id_pegawai;
+                $user = Pegawai::find($id);
+            } else if (Auth::guard('webfinance')->check()) {
+                $user_view = "financial";
+                $id = Auth::guard('webfinance')->user()->id_pegawai;
+                $user = Pegawai::find($id);
             } else {
-                return abort(403, 'Tidak diizinkan');
+                return redirect()->route('login')
+                    ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
             }
+
+            if ($user->foto_profil) {
+                $driveID = getDriveID($user->foto_profil);
+                deleteFile($driveID);
+            }
+            $metadata = uploadFile($file, 'profile');
+            $url = makeUrl($metadata);
+            $user->foto_profil = $url;
+            $user->save();
+            DB::commit();
+            return redirect()->route($user_view.".profile")
+                ->withSuccess('Berhasil ubah gambar profil!');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
@@ -267,7 +304,6 @@ class AuthController extends Controller
 
     public function change_profile(Request $request)
     {
-        Log::info("coba change profile");
         if (Auth::guard('webcustomer')->check()) {
             DB::beginTransaction();
             try {
@@ -293,6 +329,11 @@ class AuthController extends Controller
         } else if (Auth::guard('webmentor')->check()) {
             DB::beginTransaction();
             try {
+                $request->validate([
+                    'nama' => 'required|string|max:250',
+                    'alamat' => 'required|string|max:250',
+                ]);
+
                 Log::info("Mentor Change Profile");
                 $id = Auth::guard('webmentor')->user()->id_mentor;
                 $user = Mentor::find($id);
@@ -328,7 +369,7 @@ class AuthController extends Controller
                 Log::error($e);
                 return redirect()->route('admin.profile')->withErrors(['message' => $e->getMessage()]);
             }
-        } else if (Auth::guard('webfinancial')->check()) {
+        } else if (Auth::guard('webfinance')->check()) {
             DB::beginTransaction();
             try {
                 $request->validate([
@@ -336,23 +377,23 @@ class AuthController extends Controller
                     'alamat' => 'required|string|max:250',
                 ]);
 
-                $id = Auth::guard('webfinancial')->user()->id_pegawai;
+                $id = Auth::guard('webfinance')->user()->id_pegawai;
                 $user = Pegawai::find($id);
                 $user->nama = $request->get('nama');
                 $user->alamat = $request->get('alamat');
                 $user->save();
                 DB::commit();
-                return redirect()->route('admin.profile')
+                return redirect()->route('financial.profile')
                     ->withSuccess('Berhasil ubah profil!');
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
-                return redirect()->route('admin.profile')->withErrors(['message' => $e->getMessage()]);
+                return redirect()->route('financial.profile')->withErrors(['message' => $e->getMessage()]);
             }
         } else {
             Log::warning("Invalid Auth Change Profile");
             return redirect()->route('login')
-            ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
+                ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
         }
     }
 

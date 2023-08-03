@@ -1,187 +1,5 @@
 @extends('mentor/template')
 
-{{-- @section('main-content')
-    <div class="space-y-5 profile-page">
-        <div
-            class="profiel-wrap px-[35px] pb-10 md:pt-[84px] pt-10 rounded-lg bg-white dark:bg-slate-800 lg:flex lg:space-y-0
-                space-y-6 justify-between items-end relative z-[1]">
-            <div class="bg-slate-900 dark:bg-slate-700 absolute left-0 top-0 md:h-1/2 h-[150px] w-full z-[-1] rounded-t-lg">
-            </div>
-            <div class="profile-box flex-none md:text-start text-center">
-                <div class="md:flex items-end md:space-x-6 rtl:space-x-reverse">
-                    <div class="flex-none">
-                        <div
-                            class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] md:ml-0 md:mr-0 ml-auto mr-auto md:mb-0 mb-4 rounded-full ring-4
-                                ring-slate-100 relative">
-                            <img src="{{ url('assets/images/users/user-1.jpg') }}" alt=""
-                                class="w-full h-full object-cover rounded-full">
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <div class="text-2xl font-medium text-slate-900 dark:text-slate-200 mb-[3px]">
-                            {{ Auth::guard('webmentor')->user()->nama }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end profile box -->
-            <div class="profile-info-500 md:flex md:text-start text-center content-center justify-center flex-1 max-w-[516px] md:space-y-0 space-y-4"
-                style="text-align:center">
-                <!-- end single -->
-                <div class="flex-1">
-                    <div class="text-base text-slate-900 dark:text-slate-300 font-medium mb-1">
-                        Email
-                    </div>
-                    <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                        {{ Auth::guard('webmentor')->user()->email }}
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <div class="text-base text-slate-900 dark:text-slate-300 font-medium mb-1">
-                        Keahlian
-                    </div>
-                    <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                        Website
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <div class="text-base text-slate-900 dark:text-slate-300 font-medium mb-1">
-                        No Telepon
-                    </div>
-                    <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                        98734234
-                    </div>
-                </div>
-                <!-- end single -->
-
-                <!-- end single -->
-            </div>
-            <!-- profile info-500 -->
-        </div>
-        <div class="lg:col-span-8 col-span-12 space-x-3">
-            <div class="card">
-                <header class="card-header">
-                    <div class="flex space-x-3 items-center rtl:space-x-reverse">
-                        <div
-                            class="flex-none h-8 w-8 rounded-full bg-success-500 text-white flex flex-col items-center justify-center text-lg">
-                            <iconify-icon icon="heroicons:user"></iconify-icon>
-                        </div>
-                        <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                            Profile Settings
-                        </div>
-                    </div>
-                </header>
-                <div class="card-body p-6">
-                    <div class="space-y-9">
-                        <div class="text-slate-600 dark:text-slate-300 text-sm">
-
-                            <div class="input-area">
-                                <label for="textFormatter" class="form-label">Nama</label>
-                                <div class="relative space-y-6">
-                                    <input id="nama_projek" type="text" class="form-control"
-                                        placeholder="Apa Nama projek Anda ? "value="{{ Auth::guard('webmentor')->User()->nama }}">
-                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                    <span class="block"></span>
-                                </div>
-                            </div>
-                            <div class="input-area">
-                                <label for="textFormatter" class="form-label">Alamat</label>
-                                <div class="relative space-y-6">
-                                    <input id="nama_projek" type="text" class="form-control" placeholder="Alamat Anda">
-                                    <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
-                                    <span class="block"></span>
-                                </div>
-                            </div>
-                            <div class="card-text h-full space-y-6 mb-8">
-                                <div class="input-area">
-                                    <label for="textFormatter" class="form-label">Foto Profile</label>
-                                    <div class="filePreview">
-                                        <label>
-                                            <input type="file" class=" w-full hidden" name="basic"
-                                                accept=".jpg, .jpeg, .png">
-                                            <span class="w-full h-[40px] file-control flex items-center custom-class">
-                                                <span class="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
-                                                    <!-- <span id="placeholder" class="text-slate-400"></span> -->
-                                                </span>
-                                                <span
-                                                    class="file-name flex-none cursor-pointer border-l px-4 border-slate-200 dark:border-slate-700 h-full inline-flex items-center bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 text-sm rounded-tr rounded-br font-normal">Browse</span>
-                                            </span>
-                                        </label>
-                                        <div id="file-preview"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
-                                <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
-                                    Ubah Profile
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class=" space-y-5">
-            <!-- <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-6"> -->
-            <div class="card">
-                <div class="card-body p-6">
-                    <div class="space-y-6">
-                        <div class="flex space-x-3 items-center rtl:space-x-reverse">
-                            <div
-                                class="flex-none h-8 w-8 rounded-full bg-primary-500 text-slate-300 flex flex-col items-center justify-center text-lg">
-                                <iconify-icon icon="solar:document-outline"></iconify-icon>
-                            </div>
-                            <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                                Document
-                            </div>
-                        </div>
-                        <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            <embed type="application/pdf"
-                                src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0"
-                                class="w-full" height="400"></embed>
-                            <label for="textFormatter" class="mt-8 form-label">Ganti Dokumen</label>
-                            <input id="nama_projek" type="file" class="form-control" placeholder="08xxxxxxxxx">
-                        </div>
-                        <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
-                            <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
-                                Ubah Dokumen
-                            </div>
-                        </button>
-                        <!-- <iconify-icon icon="heroicons:arrow-right"></iconify-icon> -->
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body p-6">
-                    <div class="space-y-6">
-                        <div class="flex space-x-3 rtl:space-x-reverse items-center">
-                            <div
-                                class="flex-none h-8 w-8 rounded-full bg-danger-500 text-white flex flex-col items-center justify-center text-lg">
-                                <iconify-icon icon="solar:logout-2-bold"></iconify-icon>
-                            </div>
-                            <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                                Logout
-                            </div>
-                        </div>
-                        <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            Yakin keluar ? pas balik harus masuk akun lagi, ya.
-                        </div>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            <button type="submit"
-                                class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm w-full text-slate-600 dark:text-white font-normal">
-                                <span class="font-Inter items-center justify-center"
-                                    style="text-align:'center'; color:red">Logout</span>
-                            </button>
-                            @csrf
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- </div> -->
-        </div>
-    @endsection --}}
-
 
 @section('main-content')
     <div class="grid grid-cols-12 gap-5">
@@ -197,15 +15,23 @@
                         <div class="profile-box flex-none text-center">
                             <div class="md:space-x-6 rtl:space-x-reverse">
                                 <div class="flex-none">
-                                    <div
-                                        class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] ml-auto mr-auto mb-4 rounded-full ring-4 ring-slate-100 relative">
-                                        <img src="{{ url('assets/images/avatar/av-1.svg') }}" alt=""
-                                            class="w-full h-full object-cover rounded-full">
-                                        <a href="./profile-setting"
-                                            class="absolute right-2 h-8 w-8 bg-slate-50 text-slate-600 rounded-full shadow-sm flex flex-col items-center justify-center md:top-[140px] top-[100px]">
-                                            <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                        </a>
-                                    </div>
+                                    <form id="pic_form" action="{{ route('change_picture') }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div
+                                            class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] ml-auto mr-auto mb-4 rounded-full ring-4 ring-slate-100 relative">
+                                            <img id="profile_pic"
+                                                src="{{ Auth::guard('webmentor')->user()->foto_profil ? Auth::guard('webmentor')->user()->foto_profil : url('assets/images/avatar/av-1.svg') }}"
+                                                alt="" class="w-full h-full object-cover rounded-full">
+                                            <button id="change_image"
+                                                class="absolute right-2 h-8 w-8 bg-slate-50 text-slate-600 rounded-full shadow-sm flex flex-col items-center justify-center md:top-[140px] top-[100px]">
+                                                <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
+                                            </button>
+                                            <input type="file" id="img_upload" name="image"
+                                                accept=".gif,.jpg,.jpeg,.png" style="display:none" />
+                                            <input type="submit" style="display: none">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="">
@@ -245,7 +71,8 @@
                         Dokumen
                     </div>
                     <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                      <a href="#" style="text-decoration: underline;">{{ Auth::guard('webmentor')->user()->dokumen }}</a>
+                        <a href="{{ Auth::guard('webmentor')->user()->dokumen }}" target="_blank"
+                            style="text-decoration: underline;">Klik untuk download</a>
                     </div>
                 </div>
             </div>
@@ -332,7 +159,8 @@
                                     <div class="card-text h-full space-y-6 mb-8">
 
                                     </div>
-                                    <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
+                                    <button
+                                        class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
                                         <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
                                             Simpan
                                         </div>
@@ -422,6 +250,28 @@
                     $('#password').attr('type', 'password')
                 }
             })
+
+            $('#pic_form').on('submit', function(e) {
+                e.preventDefault();
+                if ($("#img_upload").val()) {
+                    e.submit()
+                }
+            })
+
+            $("#img_upload").change(function() {
+                var input = this;
+                var url = $(this).val();
+                var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+                if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" ||ext == "jpg")) {
+                    console.log('ya', input.files)
+                    $('#pic_form')[0].submit()
+                    // $('#pic_form input[type=submit]').trigger('submit')
+                }
+            });
+
+            $('#change_image').click(function() {
+                $('#img_upload').trigger('click')
+            });
         });
     </script>
 @endsection

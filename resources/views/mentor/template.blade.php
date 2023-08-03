@@ -86,7 +86,7 @@
                     class="text-slate-800 dark:text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center"
                     type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="lg:h-8 lg:w-8 h-7 w-7 rounded-full flex-1 ltr:mr-[10px] rtl:ml-[10px]">
-                        <img src="{{ url('assets/images/avatar/av-1.svg') }}" alt="user"
+                        <img src="{{ Auth::guard('webmentor')->user()->foto_profil ? Auth::guard('webmentor')->user()->foto_profil : url('assets/images/avatar/av-1.svg') }}" alt="user"
                             class="block w-full h-full object-cover rounded-full">
                     </div>
                     <span

@@ -115,7 +115,7 @@ class AdminController extends Controller
     {
         return view('admin.menu.review');
     }
-    public function view_detail()
+    public function view_detail_order()
     {
         return view('admin.menu.detail-pemesanan');
     }

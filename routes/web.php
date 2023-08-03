@@ -28,10 +28,25 @@ Route::get('/syarat-dan-ketentuan', [LandingPageController::class, 'syarat'])->n
 
 
 // Route::get('/list-dir', function() {
-//     $folder = env('GOOGLE_DRIVE_FOLDER');
-//     $listDir = collect(Storage::disk('google')->listContents($folder, true));
+//     $folder = env('GOOGLE_DRIVE_FOLDER_PROFILE');
+//     $result = "";
+//     // $listContent = Storage::disk('google')->listContents($folder);
 
-//     return $listDir;
+//     // $filename = "8533607e-a39e-44cb-aa7a-2268274251d2";
+
+//     // foreach ($listContent as $item) {
+//     //     if ($item['extra_metadata']['filename'] == $filename) {
+//     //         $result = $item;
+//     //     } else {
+//     //         $result = false;
+//     //     }
+//     // }
+//     // $result = Storage::disk('google')->delete('18mQQedj4Qbn6y6_h8IDdBMezfe__PACA/10aP3bJ694h_wW0u6OJCy84ayC6fLUbFn');
+//     $result = Storage::disk('google')->delete('1ixaaEjCkf8Qz0tpjdM7bcibeZn04rnWq');
+//     // $path = "KodeMaya Files/Profiles/8533607e-a39e-44cb-aa7a-2268274251d2.png";
+//     // $result = Storage::disk('google')->files('1CGtusA0vlbxRyWXFCsCizZuE6uYmzGIc/18mQQedj4Qbn6y6_h8IDdBMezfe__PACA');
+
+//     return $result;
 // });
 
 // Route::get('/list-files', function() {

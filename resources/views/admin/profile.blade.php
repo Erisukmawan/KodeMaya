@@ -14,15 +14,21 @@
                         <div class="profile-box flex-none text-center">
                             <div class="md:space-x-6 rtl:space-x-reverse">
                                 <div class="flex-none">
-                                    <div
-                                        class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] ml-auto mr-auto mb-4 rounded-full ring-4 ring-slate-100 relative">
-                                        <img src="{{ url('assets/images/avatar/av-1.svg') }}" alt=""
-                                            class="w-full h-full object-cover rounded-full">
-                                        <a href="./profile-setting"
-                                            class="absolute right-2 h-8 w-8 bg-slate-50 text-slate-600 rounded-full shadow-sm flex flex-col items-center justify-center md:top-[140px] top-[100px]">
-                                            <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                        </a>
-                                    </div>
+                                    <form id="pic_form" action="{{ route('change_picture') }}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <div
+                                            class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] ml-auto mr-auto mb-4 rounded-full ring-4 ring-slate-100 relative">
+                                            <img id="profile_pic" src="{{ Auth::guard('webadministration')->user()->foto_profil ? Auth::guard('webadministration')->user()->foto_profil : url('assets/images/avatar/av-1.svg') }}"
+                                                alt="" class="w-full h-full object-cover rounded-full">
+                                            <button id="change_image"
+                                                class="absolute right-2 h-8 w-8 bg-slate-50 text-slate-600 rounded-full shadow-sm flex flex-col items-center justify-center md:top-[140px] top-[100px]">
+                                                <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
+                                            </button>
+                                            <input type="file" id="img_upload" name="image" accept=".gif,.jpg,.jpeg,.png"
+                                                style="display:none" />
+                                            <input type="submit" style="display: none">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="">
@@ -198,6 +204,28 @@
                     $('#password').attr('type', 'password')
                 }
             })
+                        
+            $('#pic_form').on('submit', function(e) {
+                e.preventDefault();
+                if ($("#img_upload").val()) {
+                    e.submit()
+                }
+            })
+
+            $("#img_upload").change(function() {
+                var input = this;
+                var url = $(this).val();
+                var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+                if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" ||ext == "jpg")) {
+                    console.log('ya', input.files)
+                    $('#pic_form')[0].submit()
+                    // $('#pic_form input[type=submit]').trigger('submit')
+                }
+            });
+
+            $('#change_image').click(function() {
+                $('#img_upload').trigger('click')
+            });
         });
     </script>
 @endsection
