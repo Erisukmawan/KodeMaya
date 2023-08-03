@@ -53,6 +53,17 @@
                                             </div>
                                         </a>
                                     </li>
+                                    <li class="{{ (request()->is('customer/penyerahan-pesanan*')) ? 'active' : '' }} menuatas">
+                                        <a href="{{route('customer.menu.penyerahan-pesanan')}}">
+                                            <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
+                                                <span class="icon-box text-box">
+                                                    <iconify-icon icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
+                                                    </iconify-icon>
+                                                 </span>
+                                                <div class="text-box">Penyerahan Pesanan</div>
+                                            </div>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -166,6 +177,59 @@
             </span>
         </div>
     </a>
+    <a href="{{route('customer.menu.penyerahan-pesanan')}}">
+        <div class="{{ (request()->is('customer/penyerahan-pesanan*')) ? 'active' : '' }} menubawah">
+            <span class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
+          text-slate-900">
+                <iconify-icon icon="streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand"></iconify-icon>
+            </span>
+            <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
+                Penyerahan Pesanan
+            </span>
+        </div>
+    </a>
 </div>
 </div>
+@endsection
+@section('custom-script')
+<script>
+    var hargaawal = 0;
+
+    $('#kategori').on('change', function () {
+        const el = $(this)
+        const elHarga = $('#harga')
+
+        if(el.val()=="WEBSITE"){
+            hargaawal = 500000
+        } else if(el.val()=="DESKTOP"){
+            hargaawal = 800000
+        } else if(el.val()=="MOBILE"){
+            hargaawal = 550000
+        } else if(el.val()=="DS/ML/AI"){
+            hargaawal = 650000
+        } else if(el.val()=="UI/UX"){
+            hargaawal = 400000
+        }
+
+        elHarga.val(hargaawal)
+    })
+
+    $('#harga').on('input', function () {
+        const el = $(this)
+        if (el.val() < hargaawal) {
+            $('#harga-error').show()
+            el.val(hargaawal)
+        } else {
+            $('#harga-error').hide()
+        }
+    })
+</script>
+ <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+ <script>
+   tinymce.init({
+     selector: '#DrowsTextarea', // Replace this CSS selector to match the placeholder element for TinyMCE
+    //  plugins: 'code table lists',
+     toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code '
+   });
+ </script>
 @endsection

@@ -1,84 +1,22 @@
 @extends('financial/template')
-
-
 @section('main-content')
-    <div class="card p-6">
-    <div class="grid grid-cols-8 gap-5">
-        <div class="xl:col-span-12 col-span-12">
-            <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
-
-                <!-- BEGIN: Group Chart5 -->
-
-
-                <div class=" bg-info-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
-                    <div
-                        class="text-info-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-                        <iconify-icon icon=heroicons-outline:menu-alt-1></iconify-icon>
-                    </div>
-                    <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Total Pembayaran
-                    </span>
-                    <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
-                        64
-                    </span>
-                </div>
-
-                <div class=" bg-success-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
-                    <div
-                    class="text-success-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-                    <iconify-icon icon=heroicons-outline:chart-pie></iconify-icon>
-                    </div>
-                    <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Total Sudah Bayar
-                    </span>
-                    <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
-                        45
-                    </span>
-                </div>
-
-
-                <div class=" bg-danger-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
-                    <div
-                        class="text-danger-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-                        
-                        <iconify-icon icon=heroicons-outline:clock></iconify-icon>
-                    </div>
-                    <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Belum Bayar
-                    </span>
-                    <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
-                        190
-                    </span>
-                </div>
-                <div class=" bg-primary-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
-                    <div
-                        class="text-primary-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-                        <iconify-icon icon=fluent:payment-16-regular></iconify-icon>
-                    </div>
-                    <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Total Keuangan
-                    </span>
-                    <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
-                        Rp2.000.000
-                    </span>
-                </div>
-
-                <!-- END: Group Chart5 -->
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    <div class=" space-y-5">
+<button onclick="getPDF()"
+                            class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-800 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
+                            <iconify-icon icon="line-md:download-loop"></iconify-icon> 
+                            <span class="font-Inter items-center justify-center"
+                                style="text-align:'center'; color:white">Download</span>
+                        </button>
+    <div class=" space-y-5 canvas_div_pdf"id='printable_div_id' >
         <div class="card">
-            <header class=" card-header noborder">
-                <h4 class="card-title">Daftar Semua Pemesanan
-                </h4>
+            <header class=" card-header noborder justify-center items-center">
+                <img src="{{ url('assets/images/logo/logo.svg') }}" alt="" class="">
             </header>
             <div class="card-body px-6 pb-6">
-                <div class="overflow-x-auto -mx-6 dashcode-data-table">
-                    <span class=" col-span-8  hidden"></span>
+                <h4 class="card-title mb-8">Data Transaksi Keuangan</h4>
+                <p class="ml-8 mb-3">Nama Pegawai: <span>{{ Auth::guard('webfinance')->user()->nama }}</span></p>
+                <p class="ml-8 ">Tanggal: <span id="tanggalwaktu"></span></p>
+                <div class="overflow-x-auto -mx-6 mt-8 dashcode-data-table">
+                    <!-- <span class=" col-span-8 ">per hari ini</span> -->
                     <span class="  col-span-4 hidden"></span>
                     <div class="inline-block min-w-full align-middle">
                         <div class="overflow-hidden ">
@@ -169,6 +107,10 @@
                                                 </span>
                                             </span>
                                         </td>
+                                        <td class="table-td "> Rp20.000.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-td" colspan="6"><p class="text-right font-bold">Total Harga</p></td>
                                         <td class="table-td "> Rp20.000.000</td>
                                     </tr>
                                 </tbody>

@@ -54,4 +54,12 @@ class CustomerController extends Controller
     {
         return view('customer.menu.review-pesanan');
     }
+    public function view_detailkontrak()
+    {
+        return view('customer.menu.detail-kontrak');
+    }
+    public function view_penyerahan()
+    {
+        return view('customer.menu.penyerahan-pesanan');
+    }
 }

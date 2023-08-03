@@ -78,8 +78,8 @@
                             <div class="input-area">
                                 <label for="textFormatter" class="form-label">Nama</label>
                                 <div class="relative space-y-6">
-                                    <input id="nama_project" type="text" class="form-control"
-                                        placeholder="Apa Nama Project Anda ? "value="{{ Auth::guard('webmentor')->User()->nama }}">
+                                    <input id="nama_projek" type="text" class="form-control"
+                                        placeholder="Apa Nama projek Anda ? "value="{{ Auth::guard('webmentor')->User()->nama }}">
                                     <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                                     <span class="block"></span>
                                 </div>
@@ -87,7 +87,7 @@
                             <div class="input-area">
                                 <label for="textFormatter" class="form-label">Alamat</label>
                                 <div class="relative space-y-6">
-                                    <input id="nama_project" type="text" class="form-control" placeholder="Alamat Anda">
+                                    <input id="nama_projek" type="text" class="form-control" placeholder="Alamat Anda">
                                     <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                                     <span class="block"></span>
                                 </div>
@@ -140,7 +140,7 @@
                                 src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0"
                                 class="w-full" height="400"></embed>
                             <label for="textFormatter" class="mt-8 form-label">Ganti Dokumen</label>
-                            <input id="nama_project" type="file" class="form-control" placeholder="08xxxxxxxxx">
+                            <input id="nama_projek" type="file" class="form-control" placeholder="08xxxxxxxxx">
                         </div>
                         <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
                             <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
@@ -360,7 +360,7 @@
                                 src="http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&navpanes=0&scrollbar=0"
                                 class="w-full" height="400"></embed>
                             <label for="textFormatter" class="mt-8 form-label">Ganti Dokumen</label>
-                            <input id="nama_project" type="file" class="form-control" placeholder="08xxxxxxxxx">
+                            <input id="nama_projek" type="file" class="form-control" placeholder="08xxxxxxxxx">
                         </div>
                         <button class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
                             <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">

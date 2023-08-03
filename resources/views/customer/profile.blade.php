@@ -70,7 +70,7 @@
                             <div class="input-area">
                                 <label for="textFormatter" class="form-label">Nama</label>
                                 <div class="relative space-y-6">
-                                    <input id="nama_project" type="text" class="form-control"
+                                    <input id="nama_projek" type="text" class="form-control"
                                         placeholder="Nama Lengkap"value="{{ Auth::User()->nama }}">
                                     <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                                     <span class="block"></span>

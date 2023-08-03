@@ -99,21 +99,22 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
 Route::middleware(['financial'])->controller(FinancialController::class)->group(function () {
     Route::get('/financial/dashboard', 'view_dashboard')->name('financial.menu.dashboard');
     Route::get('/financial/profile', 'view_profile')->name('financial.profile');
-    Route::get('/financial/review', 'view_review')->name('financial.menu.review');
-    Route::get('/financial/review/detail', 'view_detail')->name('financial.menu.review.detail_pemesanan');
+    Route::get('/financial/rekap', 'view_rekap')->name('financial.menu.rekap');
 });
 
 
 Route::middleware(['mentor'])->controller(MentorController::class)->group(function () {
     Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
     Route::get('/mentor/pemesanan/', 'view_pemesanan')->name('mentor.menu.pemesanan');
-    Route::get('/mentor/pemesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.pemesanan.pengerjaan_pemesanan');
+    Route::get('/mentor/penyerahan-pesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.penyerahan-pesanan.pengerjaan_pemesanan');
     Route::get('/mentor/pemesanan/detail-pemesanan', 'view_detail_pemesanan')->name('mentor.menu.pemesanan.detail_pemesanan');
     Route::get('/mentor/pembayaran/', 'view_pembayaran')->name('mentor.menu.pembayaran');
     Route::get('/mentor/pembayaran/tambah', 'view_pembayaran_tambah')->name('mentor.menu.pembayaran.tambah');
     Route::get('/mentor/pembayaran/preview', 'view_pembayaran_preview')->name('mentor.menu.pembayaran.bukti_pembayaran');
     Route::get('/mentor/profile', 'view_profile')->name('mentor.profile');
     Route::get('/mentor/pemesanan/negosiasi', 'view_nego')->name('mentor.menu.nego');
+    Route::get('/mentor/penyerahan-pesanan', 'view_penyerahan')->name('mentor.menu.penyerahan-pesanan');
+    Route::get('/mentor/pemesanan/tambah-kontrak', 'view_tambahkontrak')->name('mentor.menu.pemesanan.tambah-kontrak');
 });
 
 Route::middleware(['customer'])->controller(CustomerController::class)->group(function () {
@@ -126,5 +127,7 @@ Route::middleware(['customer'])->controller(CustomerController::class)->group(fu
     Route::get('/customer/pembayaran/preview', 'view_pembayaran_preview')->name('customer.menu.pembayaran.bukti_pembayaran');
     Route::get('/customer/profile', 'view_profile')->name('customer.profile');
     Route::get('/customer/pemesanan/negosiasi', 'view_nego')->name('customer.menu.nego');
-    Route::get('/customer/pemesanan/review', 'view_review')->name('customer.menu.pemesanan.review');
+    Route::get('/customer/penyerahan-pesanan/review', 'view_review')->name('customer.menu.penyerahan-pesanan.review');
+    Route::get('/customer/pemesanan/detail-kontrak', 'view_detailkontrak')->name('customer.menu.pemesanan.detail-kontrak');
+    Route::get('/customer/penyerahan-pesanan', 'view_penyerahan')->name('customer.menu.penyerahan-pesanan');
 });

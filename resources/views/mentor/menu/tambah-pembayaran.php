@@ -34,9 +34,9 @@
                       
                       <div class="card-text h-full space-y-8 mb-3">
                         <div class="input-area">
-                          <label for="textFormatter" class="form-label">Deskripsi Project</label>
+                          <label for="textFormatter" class="form-label">Deskripsi projek</label>
                           <div class="relative">
-                            <!-- <input id="nama_project" type="text" class="form-control" placeholder="Apa Nama Project Anda ?"> -->
+                            <!-- <input id="nama_projek" type="text" class="form-control" placeholder="Apa Nama projek Anda ?"> -->
                             <textarea id="DrowsTextarea" class="form-control" rows="5" placeholder="Text Area"></textarea>
                             <!-- <span class="text-xs font-Inter font-normal text-slate-400 mt-2 inline-block">We will convert your text to lowercase instantly</span> -->
                           </div>

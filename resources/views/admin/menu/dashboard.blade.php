@@ -16,7 +16,7 @@
                         <iconify-icon icon=heroicons-outline:menu-alt-1></iconify-icon>
                     </div>
                     <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Total Project
+                        Total projek
                     </span>
                     <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
                         64
@@ -29,7 +29,7 @@
                         <iconify-icon icon=heroicons-outline:chart-pie></iconify-icon>
                     </div>
                     <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Project Selesai
+                        projek Selesai
                     </span>
                     <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
                         45
@@ -42,7 +42,7 @@
                         <iconify-icon icon=heroicons-outline:clock></iconify-icon>
                     </div>
                     <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                        Project Di Proses
+                        projek Di Proses
                     </span>
                     <span class="block mb- text-2xl text-slate-900 dark:text-white font-medium">
                         190
@@ -87,7 +87,7 @@
                                     <tr>
                                         <th scope="col" class=" table-th ">Nomor</th>
                                         <th scope="col" class=" table-th ">Nama Customer</th>
-                                        <th scope="col" class=" table-th ">Judul Project</th>
+                                        <th scope="col" class=" table-th ">Judul projek</th>
                                         <th scope="col" class=" table-th ">Status Pemesanan</th>
                                         <th scope="col" class=" table-th ">Status Kontrak</th>
                                         <th scope="col" class=" table-th ">Status Pembayaran</th>
