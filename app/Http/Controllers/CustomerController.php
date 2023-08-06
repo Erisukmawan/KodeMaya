@@ -218,7 +218,10 @@ class CustomerController extends Controller
     }
     public function view_pembayaran_checkout()
     {
-        return view('customer.menu.checkout');
+        $payment_method = getPaymentMethod();
+        $data = array('payment_method' => $payment_method);
+
+        return view('customer.menu.checkout')->with($data);
     }
     public function view_nego()
     {
