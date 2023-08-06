@@ -146,8 +146,8 @@
                             </div>
                             <div class="input-area">
                                 <label for="email" class="form-label">Email</label>
-                                <input id="email" name="email" type="text" class="form-control" placeholder="email"
-                                    disabled="disabled">
+                                <input id="email" name="email" type="text" class="form-control"
+                                    placeholder="email" disabled="disabled">
                             </div>
                             <div class="input-area">
                                 <label for="phone" class="form-label">Phone</label>
@@ -161,7 +161,8 @@
                             </div>
                             <div class="input-area">
                                 <label for="address" class="form-label">Address</label>
-                                <textarea id="address" name="address" rows="3" class="form-control" placeholder="User address" disabled="disabled"></textarea>
+                                <textarea id="address" name="address" rows="3" class="form-control" placeholder="User address"
+                                    disabled="disabled"></textarea>
                             </div>
                             {{-- Account Type Select --}}
                             <div class="input-area">
@@ -205,7 +206,6 @@
 
 
 @section('custom-script')
-    <script src="{{ asset('assets/js/jquery.formatCurrency-1.4.0.min.js') }}"></script>
     <script>
         const currency = new Intl.NumberFormat("id-ID", {
             style: "currency",

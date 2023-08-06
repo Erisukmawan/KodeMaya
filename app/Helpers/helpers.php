@@ -1,12 +1,18 @@
 <?php
 
+use App\Models\Mentor;
+use App\Models\Pelanggan;
+use App\Models\Pemesanan;
+use Carbon\Carbon;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use League\Flysystem\Filesystem;
 use League\Flysystem\FileAttributes;
 use Illuminate\Filesystem\FilesystemAdapter;
+use Pusher\Pusher as Pusher;
 
+// File Management
 function searchFile($listContent, $filename)
 {
     foreach ($listContent as $item) {
@@ -86,4 +92,66 @@ function deleteFile(string $file_id)
     $delete = $storage->delete($file_id);
 
     return $delete;
+}
+
+
+// Chat Functions
+function initPusher(): Pusher
+{
+    $options = array(
+        'cluster' => 'ap1',//env('PUSHER_APP_CLUSTER'),
+        'useTLS' => true,
+    );
+
+    $pusher = new Pusher(
+        '2144bc95f007e22453fb',//env('PUSHER_APP_KEY'),
+        'd5ec24ef45217ccd201e',//env('PUSHER_APP_SECRET'),
+        '1619388',//env('PUSHER_APP_ID'),
+        $options
+    );
+
+    return $pusher;
+}
+
+function customerSendMessage(Pelanggan $user, string $order_id, string $message, string $type)
+{
+    $order = Pemesanan::where('id_pemesanan', $order_id)->first();
+    $pusher = initPusher();
+    $now = Carbon::now()->timezone('Asia/Manila')->timestamp;
+    $data = array(
+        'order_id' => $order_id,
+        'user_id' => $user->id_pelanggan,
+        'user_name' => $user->nama,
+        'msg_from' => 'customer',
+        'msg_date' => $now,
+        'msg_type' => $type,
+        'msg_content' => $message,
+    );
+    $pusher->trigger('chat-mentor.'.$order->id_mentor, 'chat-event', $data);
+
+    return $now;
+}
+
+function mentorSendMessage(Mentor $user, string $order_id, string $message, string $type)
+{
+    $order = Pemesanan::where('id_pemesanan', $order_id)->first();
+    $pusher = initPusher();
+    $now = Carbon::now()->timezone('Asia/Manila')->timestamp;
+    $data = array(
+        'order_id' => $order_id,
+        'user_id' => $user->id_mentor,
+        'user_name' => $user->nama,
+        'msg_from' => 'mentor',
+        'msg_date' => $now,
+        'msg_type' => $type,
+        'msg_content' => $message,
+    );
+    $pusher->trigger('chat-customer.'.$order->id_pelanggan, 'chat-event', $data);
+
+    return $now;
+}
+
+// Tripay
+function buatTagihanPembayaran() {
+    return 'TRX-001';
 }

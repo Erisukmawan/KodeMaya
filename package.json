@@ -11,6 +11,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@sweetalert2/themes": "^5.0.15",
         "tw-elements": "^1.0.0-beta2"
     }
 }
