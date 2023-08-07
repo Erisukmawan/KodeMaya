@@ -155,24 +155,25 @@ function mentorSendMessage(Mentor $user, string $order_id, string $message, stri
 
 // Tripay
 
-function getPaymentMethod() {
+function getPaymentMethod()
+{
     $curl = curl_init();
     $apiKey = 'czKesl2x2oIUTOkGrXquJjMqCJrwPqG6J4wr1aJT';
-    
+
     curl_setopt_array($curl, array(
         CURLOPT_FRESH_CONNECT  => true,
         CURLOPT_URL            => 'https://tripay.co.id/api/merchant/payment-channel',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HEADER         => false,
-        CURLOPT_HTTPHEADER     => ['Authorization: Bearer '.$apiKey],
+        CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . $apiKey],
         CURLOPT_FAILONERROR    => false,
         CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
         CURLOPT_SSL_VERIFYPEER => false
     ));
-    
+
     $response = curl_exec($curl);
     $error = curl_error($curl);
-    
+
     curl_close($curl);
 
     if (empty($error)) {
@@ -184,53 +185,65 @@ function getPaymentMethod() {
     }
 }
 
-function createSignature($kode_referensi, $jumlah)
+function createSignature($json)
 {
-    $privateKey   = 'ytf6ooi2gmlNPfpchd94jDOk8hRWOu';
-    $merchantCode = 'T0001';
-    $merchantRef  = 'INV55567';
-    $amount       = 1500000;
+    $privateKey   = 'EV6mC-kbsIY-uQLIt-aS34w-2nmWo';
+    // $privateKey   = 'oJAwX-8ZdWz-ClKgg-4K621-ypEnF';
+
+    $signature = hash_hmac('sha256', $json, $privateKey);
+
+    return $signature;
+}
+
+function createOrderSignature($kode_referensi, $total_harga)
+{
+    $privateKey   = 'EV6mC-kbsIY-uQLIt-aS34w-2nmWo';
+    // $privateKey   = 'oJAwX-8ZdWz-ClKgg-4K621-ypEnF';
+    $merchantCode = 'T5024';
+    // $merchantCode = 'T23882';
+    $merchantRef  = $kode_referensi;
+    $amount       = $total_harga;
 
     $signature = hash_hmac('sha256', $merchantCode . $merchantRef . $amount, $privateKey);
 
     return $signature;
 }
 
-function requestInvoice(User $pelanggan)
+function requestInvoice($pesanan)
 {
-    $apiKey       = 'api_key_anda';
-    $privateKey   = 'private_key_anda';
-    $merchantCode = 'kode merchant anda';
-    $merchantRef  = 'nomor referensi merchant anda';
-    $amount       = 1000000;
+    $apiKey       = 'DEV-qEUudU7DQFbWr9ufoZktGdJJpOzff4bY8DQOkSaF';
+    // $apiKey       = 'czKesl2x2oIUTOkGrXquJjMqCJrwPqG6J4wr1aJT';
+    $merchantRef  = $pesanan->kode_referensi;
+    $amount       = $pesanan->total_harga;
+    $signature    = createOrderSignature($merchantRef, $amount);
 
     $data = [
-        'method'         => 'BRIVA',
+        'method'         => $pesanan->kode_bank,
         'merchant_ref'   => $merchantRef,
         'amount'         => $amount,
-        'customer_name'  => 'Nama Pelanggan',
-        'customer_email' => 'emailpelanggan@domain.com',
-        'customer_phone' => '081234567890',
+        'customer_name'  => $pesanan->nama_pelanggan,
+        'customer_email' => $pesanan->email_pelanggan,
+        'customer_phone' => $pesanan->telp_pelanggan,
         'order_items'    => [
             [
-                'sku'         => 'FB-06',
-                'name'        => 'Nama Produk 1',
-                'price'       => 500000,
+                'sku'         => $pesanan->kategori,
+                'name'        => $pesanan->nama_projek,
+                'price'       => $amount,
                 'quantity'    => 1,
-                'product_url' => 'https://tokokamu.com/product/nama-produk-1',
-                'image_url'   => 'https://tokokamu.com/product/nama-produk-1.jpg',
+                // 'product_url' => 'https://tokokamu.com/product/nama-produk-1',
+                // 'image_url'   => 'https://tokokamu.com/product/nama-produk-1.jpg',
             ]
         ],
         'return_url'   => 'https://kodemaya.my.id/redirect',
         'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
-        'signature'    => hash_hmac('sha256', $merchantCode . $merchantRef . $amount, $privateKey)
+        'signature'    => $signature
     ];
 
     $curl = curl_init();
 
     curl_setopt_array($curl, [
         CURLOPT_FRESH_CONNECT  => true,
-        CURLOPT_URL            => 'https://tripay.co.id/api/transaction/create',
+        CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/transaction/create',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HEADER         => false,
         CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . $apiKey],
@@ -245,9 +258,59 @@ function requestInvoice(User $pelanggan)
 
     curl_close($curl);
 
-    echo empty($error) ? $response : $error;
+    if (empty($error)) {
+        // return $response;
+        return json_decode($response);
+    } else {
+        Log::error($error);
+        throw new Exception($error);
+        return $error;
+    }
 }
-function buatTagihanPembayaran()
+
+function detailInvoice($tripayReference)
 {
-    return 'TRX-001';
+    $apiKey       = 'DEV-qEUudU7DQFbWr9ufoZktGdJJpOzff4bY8DQOkSaF';
+    // $apiKey       = 'czKesl2x2oIUTOkGrXquJjMqCJrwPqG6J4wr1aJT';
+    $payload = ['reference'    => $tripayReference];
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, [
+        CURLOPT_FRESH_CONNECT  => true,
+        CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/transaction/detail?' . http_build_query($payload),
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HEADER         => false,
+        CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . $apiKey],
+        CURLOPT_FAILONERROR    => false,
+        CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
+    ]);
+
+    $response = curl_exec($curl);
+    $error = curl_error($curl);
+
+    curl_close($curl);
+
+    if (empty($error)) {
+        // return $response;
+        return json_decode($response);
+    } else {
+        Log::error($error);
+        throw new Exception($error);
+        return $error;
+    }
+}
+
+function generateReferenceCode(string $first_code, $length = 8)
+{
+    $characters = '0123456789';
+    $referenceCode = '';
+
+    $characterCount = strlen($characters);
+    for ($i = 0; $i < $length; $i++) {
+        $randomCharacter = $characters[rand(0, $characterCount - 1)];
+        $referenceCode .= $randomCharacter;
+    }
+
+    return str_pad($first_code, 4, "0") . $referenceCode;
 }

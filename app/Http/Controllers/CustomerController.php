@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kontrak;
 use App\Models\Mentor;
 use App\Models\Pemesanan;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +32,7 @@ class CustomerController extends Controller
 
         return $kontrak;
     }
-    
+
     public function get_kontrak(string $id_kontrak)
     {
         $kontrak = Kontrak::where('kontrak.id_kontrak', $id_kontrak)
@@ -98,6 +99,8 @@ class CustomerController extends Controller
                 'pemesanan.*',
                 'pelanggan.nama as nama_pelanggan',
                 'pelanggan.foto_profil as foto_profil_pelanggan',
+                'pelanggan.email as email_pelanggan',
+                'pelanggan.telp as telp_pelanggan',
                 'mentor.nama as nama_mentor',
                 'mentor.foto_profil as foto_profil_mentor',
                 'kontrak.waktu_kontrak',
@@ -127,6 +130,9 @@ class CustomerController extends Controller
                 'pemesanan.*',
                 'pelanggan.nama as nama_pelanggan',
                 'pelanggan.foto_profil as foto_profil_pelanggan',
+                'pelanggan.alamat as alamat_pelanggan',
+                'pelanggan.email as email_pelanggan',
+                'pelanggan.telp as telp_pelanggan',
                 'mentor.nama as nama_mentor',
                 'mentor.foto_profil as foto_profil_mentor',
                 'kontrak.waktu_kontrak',
@@ -157,8 +163,9 @@ class CustomerController extends Controller
             ->count();
         $pesanan_belum_bayar = Pemesanan::where([
             ['id_pelanggan', '=', $user->id_pelanggan],
-            ['status_pembayaran', '=', 'BELUM DIBAYAR']
         ])
+            ->orWhere('status_pembayaran', '=', 'BELUM DIBAYAR')
+            ->orWhere('status_pembayaran', '=', 'TERTUNDA')
             ->first();
 
         $data = array(
@@ -256,11 +263,82 @@ class CustomerController extends Controller
 
     public function view_pembayaran()
     {
-        return view('customer.menu.pembayaran');
+        $user = Auth::guard('webcustomer')->user();
+        $pesanan_belum_bayar = Pemesanan::where([
+            ['id_pelanggan', '=', $user->id_pelanggan],
+        ])
+            ->orWhere('status_pembayaran', '=', 'BELUM DIBAYAR')
+            ->orWhere('status_pembayaran', '=', 'TERTUNDA')
+            ->first();
+        $riwayat_pembayaran = Pemesanan::where([
+            ['id_pelanggan', '=', $user->id_pelanggan],
+            ['status_pembayaran', '!=', 'BELUM DIBUAT'],
+            ['status_pembayaran', '!=', 'BELUM DIBAYAR'],
+            ['status_pembayaran', '!=', 'TERTUNDA'],
+        ])
+            ->get();
+
+        $data = array(
+            'pesanan_belum_bayar' => $pesanan_belum_bayar,
+            'riwayat_pembayaran' => $riwayat_pembayaran,
+        );
+
+        return view('customer.menu.pembayaran')->with($data);
     }
-    public function view_pembayaran_preview()
+    public function proses_pembayaran(Request $request)
     {
-        return view('customer.menu.preview-pembayaran');
+        $refcode = $request->get('refcode');
+        DB::beginTransaction();
+        try {
+            if (!$request->get('payment_method')) {
+                throw new Exception('Mohon pilih metode pembayaran. ');
+            }
+            $id_pemesanan = $request->get('id_pemesanan');
+            $total_harga = $request->get('total_harga');
+            $payment_method = $request->get('payment_method');
+
+            $pesanan = $this->get_pemesanan($id_pemesanan);
+
+
+            $pesanan->kode_bank = $payment_method;
+            $pesanan->total_harga = $total_harga;
+
+            $response = requestInvoice($pesanan);
+            Log::info("payment request " . json_encode($response));
+            if ($response->success) {
+                $pesanan->status_pembayaran = 'TERTUNDA';
+                $pesanan->kode_referensi_tripay = $response->data->reference;
+                unset($pesanan->total_harga);
+                $pesanan->save();
+                DB::commit();
+                return redirect()->route('customer.menu.pembayaran.bukti_pembayaran', ['code' => $refcode]);
+            } else {
+                return redirect()->route('customer.menu.pembayaran.checkout', ['code' => $refcode])->withErrors(['message' => $response->message]);
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e);
+            return redirect()->route('customer.menu.pembayaran.checkout', ['code' => $refcode])->withErrors(['message' => $e->getMessage()]);
+        }
+    }
+    public function view_pembayaran_preview(Request $request)
+    {
+        $merchant_ref = $request->get('code');
+        if (!$merchant_ref) {
+            return redirect()->route('gakada');
+        }
+        $pemesanan = $this->get_pemesanan_by_refcode($merchant_ref);
+        $response = detailInvoice($pemesanan->kode_referensi_tripay);
+
+        if ($response->success) {
+            $data = array(
+                'pemesanan' => $pemesanan,
+                'invoice' => $response->data
+            );
+            return view('customer.menu.preview-pembayaran')->with($data);
+        } else {
+            return redirect()->route('customer.menu.pembayaran.checkout', ['code' => $merchant_ref])->withErrors(['message' => $response->message]);
+        }
     }
     public function view_kontrak()
     {
@@ -268,15 +346,25 @@ class CustomerController extends Controller
     }
     public function view_pembayaran_checkout(Request $request)
     {
+        $id = Auth::guard('webcustomer')->user()->id_pelanggan;
         $code = $request->get('code');
         $pemesanan = $this->get_pemesanan_by_refcode($code);
-        $payment_method = getPaymentMethod();
-        $data = array(
-            'pemesanan' => $pemesanan,
-            'payment_method' => $payment_method
-        );
+        if (isset($pemesanan->id_pelanggan)) {
+            if ($pemesanan->id_pelanggan != $id) return redirect()->route('gakada');
+            if ($pemesanan->status_pembayaran == 'TERTUNDA') {
+                return redirect()->route('customer.menu.pembayaran.bukti_pembayaran', ['code' => $code]);
+            } else {
+                $payment_method = getPaymentMethod();
+                $data = array(
+                    'pemesanan' => $pemesanan,
+                    'payment_method' => $payment_method
+                );
 
-        return view('customer.menu.checkout')->with($data);
+                return view('customer.menu.checkout')->with($data);
+            }
+        } else {
+            return redirect()->route('gakada');
+        }
     }
     public function view_nego()
     {
@@ -303,7 +391,7 @@ class CustomerController extends Controller
             $kontrak = Kontrak::find($id);
             $pemesanan = Pemesanan::where('id_kontrak', $id)->first();
             if ($status == 'SETUJU') {
-                $reference_code = buatTagihanPembayaran(); // Kode Tripay
+                $reference_code = generateReferenceCode($id); // Kode Tripay
                 $kontrak->status_kontrak = 'SETUJU';
                 $kontrak->save();
                 $pemesanan->status_pembayaran = 'BELUM DIBAYAR';

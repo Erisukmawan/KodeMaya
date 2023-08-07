@@ -59,7 +59,7 @@ CREATE TABLE pemesanan (
     kode_referensi varchar(50),
     deskripsi_pemesanan text,
     kategori enum('WEBSITE', 'DESKTOP', 'UI/UX', 'MOBILE', 'DS/ML/AI') DEFAULT 'WEBSITE',
-    status_pembayaran enum('BELUM DIBUAT', 'BELUM DIBAYAR', 'TERTUNDA ', 'TERBAYAR ', 'KADALUARSA') DEFAULT 'BELUM DIBUAT',
+    status_pembayaran enum('BELUM DIBUAT', 'BELUM DIBAYAR', 'TERTUNDA ', 'TERBAYAR ', 'KADALUARSA', 'GAGAL') DEFAULT 'BELUM DIBUAT',
     status_pemesanan enum('MENUNGGU', 'DIPROSES', 'DIPERIKSA', 'SELESAI', 'DIBATALKAN') DEFAULT 'MENUNGGU',
     nama_projek varchar(100) NOT NULL,
     deskripsi_projek text NOT NULL,

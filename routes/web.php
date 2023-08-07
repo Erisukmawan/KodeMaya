@@ -77,12 +77,12 @@ Route::get('/gakada', [LandingPageController::class, 'gakada'])->name('gakada');
 // });
 
 // Route::controller(LoginRegisterController::class)->group(function () {
-    // Route::get('/dashboard', 'dashboard')->name('dashboard');
+// Route::get('/dashboard', 'dashboard')->name('dashboard');
 //     Route::get('/register', 'register')->name('register');
 //     Route::get('/register-mentor', 'register_mentor')->name('register-mentor');
 //     Route::get('/verify', 'verify')->name('verify');
 //     Route::post('/store', 'store')->name('store');
-    // Route::get('/login', 'login')->name('login');
+// Route::get('/login', 'login')->name('login');
 //     Route::post('/authenticate', 'authenticate')->name('authenticate');
 //     Route::post('/logout', 'logout')->name('logout');
 // });
@@ -99,6 +99,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/change-profile', 'change_profile')->name('change_profile');
     Route::post('/change-picture', 'change_picture')->name('change_picture');
     Route::post('/logout', 'logout')->name('logout');
+    Route::get('/payment-callback','payment_callback')->name('payment_callback');
 });
 
 
@@ -154,6 +155,7 @@ Route::middleware(['customer'])->controller(CustomerController::class)->group(fu
     Route::get('/customer/pemesanan/detail-pemesanan/{id}', 'view_detail_pemesanan')->name('customer.menu.pemesanan.detail_pemesanan');
     Route::get('/customer/pembayaran/', 'view_pembayaran')->name('customer.menu.pembayaran');
     Route::get('/customer/pembayaran/checkout', 'view_pembayaran_checkout')->name('customer.menu.pembayaran.checkout');
+    Route::post('/customer/pembayaran/proses', 'proses_pembayaran')->name('customer.menu.pembayaran.process');
     Route::get('/customer/pembayaran/preview', 'view_pembayaran_preview')->name('customer.menu.pembayaran.bukti_pembayaran');
     Route::get('/customer/profile', 'view_profile')->name('customer.profile');
     Route::get('/customer/pemesanan/negosiasi', 'view_nego')->name('customer.menu.nego');

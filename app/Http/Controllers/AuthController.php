@@ -106,7 +106,7 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password)
             ]);
 
-            
+
             Log::info('Mentor Register ' . json_encode($user));
 
             $user->notify(new \App\Notifications\VerifikasiMentor);
@@ -293,7 +293,7 @@ class AuthController extends Controller
             $user->foto_profil = $url;
             $user->save();
             DB::commit();
-            return redirect()->route($user_view.".profile")
+            return redirect()->route($user_view . ".profile")
                 ->withSuccess('Berhasil ubah gambar profil!');
         } catch (\Exception $e) {
             DB::rollBack();
@@ -418,5 +418,92 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('login')
             ->withSuccess('Anda berhasil keluar akun.');
+    }
+
+    public function payment_callback(Request $request)
+    {
+        // Ambil data JSON
+        $json = $request->getContent();
+
+        Log::info("get callback $json");
+
+        $signature = createSignature($json);
+
+        // Ambil callback signature
+        $callbackSignature = isset($_SERVER['HTTP_X_CALLBACK_SIGNATURE'])
+            ? $_SERVER['HTTP_X_CALLBACK_SIGNATURE']
+            : '';
+
+        // Validasi signature
+        if ($callbackSignature !== $signature) {
+            return json_encode([
+                'success' => false,
+                'message' => 'Invalid signature',
+            ]);
+        }
+
+        $data = json_decode($json);
+
+        if (JSON_ERROR_NONE !== json_last_error()) {
+            return json_encode([
+                'success' => false,
+                'message' => 'Invalid data sent by payment gateway',
+            ]);
+        }
+
+        // Hentikan proses jika callback event-nya bukan payment_status
+        if ('payment_status' !== $_SERVER['HTTP_X_CALLBACK_EVENT']) {
+            return json_encode([
+                'success' => false,
+                'message' => 'Unrecognized callback event: ' . $_SERVER['HTTP_X_CALLBACK_EVENT'],
+            ]);
+        }
+
+        $invoiceId = $data->merchant_ref;
+        $tripayReference = $data->reference;
+        $status = strtoupper((string) $data->status);
+
+
+        if ($data->is_closed_payment === 1) {
+            $pemesanan = Pemesanan::where([
+                ['kode_referensi', $invoiceId],
+                ['status_pembayaran', 'TERTUNDA']
+            ])->first();
+
+            if (!$pemesanan) {
+                return json_encode([
+                    'success' => false,
+                    'message' => 'Invoice not found or already paid: ' . $invoiceId,
+                ]);
+            }
+
+            switch ($status) {
+                    // handle status PAID
+                case 'PAID':
+                    $pemesanan->status_pembayaran = 'TERBAYAR';
+                    $pemesanan->save();
+                    break;
+
+                    // handle status EXPIRED
+                case 'EXPIRED':
+                    $pemesanan->status_pembayaran = 'KADALUARSA';
+                    $pemesanan->save();
+                    break;
+
+                    // handle status FAILED
+                case 'FAILED':
+                    $pemesanan->status_pembayaran = 'GAGAL';
+                    $pemesanan->save();
+                    break;
+
+                default:
+                    return json_encode([
+                        'success' => false,
+                        'message' => 'Unrecognized payment status',
+                    ]);
+            }
+
+            return json_encode(['success' => true]);
+        }
     }
 }
