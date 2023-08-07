@@ -14,7 +14,7 @@ class CustomerController extends Controller
 {
     public function list_kontrak(string $id_pelanggan)
     {
-        $pemesanan = Kontrak::where('kontrak.id_pelanggan', $id_pelanggan)
+        $kontrak = Kontrak::where('kontrak.id_pelanggan', $id_pelanggan)
             ->whereNotNull('kontrak.id_kontrak')
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'kontrak.id_pelanggan');
@@ -29,7 +29,27 @@ class CustomerController extends Controller
                 'mentor.foto_profil as foto_profil_mentor'
             ]);
 
-        return $pemesanan;
+        return $kontrak;
+    }
+    
+    public function get_kontrak(string $id_kontrak)
+    {
+        $kontrak = Kontrak::where('kontrak.id_kontrak', $id_kontrak)
+            ->whereNotNull('kontrak.id_kontrak')
+            ->leftJoin('pelanggan', function ($join) {
+                $join->on('pelanggan.id_pelanggan', '=', 'kontrak.id_pelanggan');
+            })
+            ->leftJoin('mentor', function ($join) {
+                $join->on('mentor.id_mentor', '=', 'kontrak.id_mentor');
+            })->first([
+                'kontrak.*',
+                'pelanggan.nama as nama_pelanggan',
+                'pelanggan.foto_profil as foto_profil_pelanggan',
+                'mentor.nama as nama_mentor',
+                'mentor.foto_profil as foto_profil_mentor'
+            ]);
+
+        return $kontrak;
     }
 
     public function list_pemesanan(string $id_pelanggan)
@@ -88,6 +108,36 @@ class CustomerController extends Controller
 
         return $pemesanan;
     }
+
+    public function get_pemesanan_by_refcode(string $refcode)
+    {
+        $pemesanan = Pemesanan::where('kode_referensi', $refcode)
+            ->leftJoin('pelanggan', function ($join) {
+                $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
+            })
+            ->leftJoin('mentor', function ($join) {
+                $join->on('mentor.id_mentor', '=', 'pemesanan.id_mentor');
+            })
+            ->leftJoin('kontrak', function ($join) {
+                $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
+            })
+            ->leftJoin('pegawai', function ($join) {
+                $join->on('pegawai.id_pegawai', '=', 'pemesanan.id_pegawai');
+            })->first([
+                'pemesanan.*',
+                'pelanggan.nama as nama_pelanggan',
+                'pelanggan.foto_profil as foto_profil_pelanggan',
+                'mentor.nama as nama_mentor',
+                'mentor.foto_profil as foto_profil_mentor',
+                'kontrak.waktu_kontrak',
+                'kontrak.tenggat_waktu',
+                'kontrak.status_kontrak',
+                'kontrak.total_harga',
+            ]);
+
+        return $pemesanan;
+    }
+
 
     public function view_dashboard()
     {
@@ -216,10 +266,15 @@ class CustomerController extends Controller
     {
         return view('customer.menu.kontrak');
     }
-    public function view_pembayaran_checkout()
+    public function view_pembayaran_checkout(Request $request)
     {
+        $code = $request->get('code');
+        $pemesanan = $this->get_pemesanan_by_refcode($code);
         $payment_method = getPaymentMethod();
-        $data = array('payment_method' => $payment_method);
+        $data = array(
+            'pemesanan' => $pemesanan,
+            'payment_method' => $payment_method
+        );
 
         return view('customer.menu.checkout')->with($data);
     }
@@ -234,7 +289,7 @@ class CustomerController extends Controller
     public function view_detailkontrak(Request $request)
     {
         $id = $request->route('id');
-        $pemesanan = $this->get_pemesanan($id);
+        $pemesanan = $this->get_kontrak($id);
         $data = array('kontrak' => $pemesanan);
 
         return view('customer.menu.detail-kontrak')->with($data);

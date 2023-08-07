@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" dir="ltr" class="light">
+<html lang="id" dir="ltr" class="light">
 
 <head>
     <meta charset="UTF-8">

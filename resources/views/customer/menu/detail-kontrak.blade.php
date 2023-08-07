@@ -72,15 +72,6 @@
                         </div>
                     </div>
                     <div class="input-area space-y-1">
-                        <label for="textFormatter" class="form-label text-slate-400">Tipe projek</label>
-                        <div class="relative">
-                            <span
-                                class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">
-                                {{ $kontrak->kategori }}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="input-area space-y-1">
                         <label for="textFormatter" class="form-label text-slate-400">Total Harga</label>
                         <div class="relative">
                             <span id="harga"

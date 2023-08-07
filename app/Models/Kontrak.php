@@ -29,9 +29,4 @@ class Kontrak extends Model
     ];
 
     protected $hidden = [];
-
-    protected $casts = [
-        'waktu_kontrak' => 'datetime',
-        'tenggat_waktu' => 'datetime',
-    ];
 }

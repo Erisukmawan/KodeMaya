@@ -736,4 +736,10 @@
             }
         }
     </script>
+    <script>
+        $(document).ready(function() {
+            var hargaEl = $('.idr-currency')
+            hargaEl.text(currency.format(parseInt(hargaEl.text())))
+        })
+    </script>
 @endsection

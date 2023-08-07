@@ -156,38 +156,32 @@ function mentorSendMessage(Mentor $user, string $order_id, string $message, stri
 // Tripay
 
 function getPaymentMethod() {
-    try {
-        $curl = curl_init();
-        $apiKey = 'czKesl2x2oIUTOkGrXquJjMqCJrwPqG6J4wr1aJT';
-        
-        curl_setopt_array($curl, array(
-          CURLOPT_FRESH_CONNECT  => true,
-          CURLOPT_URL            => 'https://tripay.co.id/api/merchant/payment-channel',
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_HEADER         => false,
-          CURLOPT_HTTPHEADER     => ['Authorization: Bearer '.$apiKey],
-          CURLOPT_FAILONERROR    => false,
-          CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
-        ));
-        
-        $response = curl_exec($curl);
-        $error = curl_error($curl);
-        
-        curl_close($curl);
+    $curl = curl_init();
+    $apiKey = 'czKesl2x2oIUTOkGrXquJjMqCJrwPqG6J4wr1aJT';
+    
+    curl_setopt_array($curl, array(
+        CURLOPT_FRESH_CONNECT  => true,
+        CURLOPT_URL            => 'https://tripay.co.id/api/merchant/payment-channel',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HEADER         => false,
+        CURLOPT_HTTPHEADER     => ['Authorization: Bearer '.$apiKey],
+        CURLOPT_FAILONERROR    => false,
+        CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
+        CURLOPT_SSL_VERIFYPEER => false
+    ));
+    
+    $response = curl_exec($curl);
+    $error = curl_error($curl);
+    
+    curl_close($curl);
 
-        if (empty($error)) {
-            return json_decode($response);
-        } else {
-            throw new Exception($error);
-        }
-    } catch (\Exception $e) {
-        Log::error($e);
-        return $e;
+    if (empty($error)) {
+        return json_decode($response);
+    } else {
+        Log::error($error);
+        throw new Exception($error);
+        return $error;
     }
-}
-
-function calculateAmount($amount, $payment_method) {
-
 }
 
 function createSignature($kode_referensi, $jumlah)

@@ -13,22 +13,22 @@
                                 <tr>
                                     <td style="width:28%">Penerima Jasa</td>
                                     <td style="width:1%">:</td>
-                                    <td style="width:79%">DADANG KURNIA MEGA</td>
+                                    <td style="width:79%">{{ $pemesanan->nama_pelanggan }}</td>
                                 </tr>
                                 <tr>
                                     <td style="width:28%">Nama projek</td>
                                     <td style="width:1%">:</td>
-                                    <td style="width:79%">FASHION HITS</td>
+                                    <td style="width:79%">{{ $pemesanan->nama_projek }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width:28%">Deskripsi</td>
+                                    <td style="width:28%">Kategori</td>
                                     <td style="width:1%">:</td>
-                                    <td style="width:79%">Website CEO dan Responsive</td>
+                                    <td style="width:79%">{{ $pemesanan->kategori }}</td>
                                 </tr>
                                 <tr>
-                                    <td style=" width:28%">Tenggat Waktu</td>
-                                    <td style=" width:1%">:</td>
-                                    <td style=" width:79%">20-06-2023</td>
+                                    <td style="width:28%">Tenggat Waktu</td>
+                                    <td style="width:1%">:</td>
+                                    <td style="width:79%">{{ explode(' ', $pemesanan->tenggat_waktu)[0] }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -42,22 +42,17 @@
                                 <tr>
                                     <td style="width:28%">Harga</td>
                                     <td style="width:1%">:</td>
-                                    <td style="width:79%">Rp5,000,000</td>
+                                    <td id="idr1" style="width:79%">{{ $pemesanan->total_harga }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width:28%">Biaya Admin (7%)</td>
+                                    <td style="width:28%">Biaya Admin</td>
                                     <td style="width:1%">:</td>
-                                    <td style="width:79%">Rp90,000</td>
+                                    <td id="idr2" style="width:79%">5000</td>
                                 </tr>
                                 <tr>
                                     <td style="width:28%">Biaya Aplikasi</td>
                                     <td style="width:1%">:</td>
-                                    <td style="width:79%">Rp3,000</td>
-                                </tr>
-                                <tr>
-                                    <td style=" width:28%" class="font-bold text-base">Total Harga</td>
-                                    <td style=" width:1%">:</td>
-                                    <td style=" width:79%" class="font-bold text-base">Rp5,093,000</td>
+                                    <td style="width:79%">(Mohon pilih metode pembayaran)</td>
                                 </tr>
                             </table>
                         </div>
@@ -75,25 +70,80 @@
                     <div class="card-title text-slate-900 dark:text-white">Pilih Metode Pembayaran</div>
                 </div>
             </header>
+
             <div class="card-text h-full space-y-4">
-                @foreach ($payment_method->data as $payment)
-                    @if ($payment->active)
-                        <div class="primary-radio">
-                            <label class="flex items-center cursor-pointer ">
-                                <img src="{{ $payment->icon_url }}" alt="user"
-                                    class="block w-20 h-auto object-cover pr-3 border hover:border-white border-transparent">
-                                <span
-                                    class="text-slate-900 w-full font-Inter font-normal text-base leading-6 capitalize dark:text-slate-300">
-                                    {{ $payment->name }} ({{ $payment->group }})
-                                </span>
-                                <input type="radio" class="hidden" name="arrayRadio[]" value="{{ $payment->code }}">
-                                <span
-                                    class="flex-none bg-white dark:bg-slate-500 rounded-full border inline-flex relative transition-all
-                                duration-150 h-[16px] w-[16px] border-slate-400 dark:border-slate-600 dark:ring-slate-700"></span>
-                            </label>
-                        </div>
-                    @endif
-                @endforeach
+                <div class="card">
+                    <span>Virtual Account</span>
+                    <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 gap-3">
+                        @if (isset($payment_method->data))
+                            @foreach ($payment_method->data as $payment)
+                                @if (strtolower($payment->group) == 'virtual account')
+                                    <label class="cursor-pointer ">
+                                        <div class="primary-radio text-center bg-slate-100 dark:bg-slate-400 rounded hover:bg-slate-200 dark:hover:bg-slate-600 p-2">
+                                            <div class="flex justify-center mb-2">
+                                                <img src="{{ $payment->icon_url }}" alt="user"
+                                                    data-tippy-content="{{ $payment->name }}"
+                                                    class="toolTip onTop block w-auto h-8 object-cover border border-transparent">
+                                            </div>
+                                            <input type="radio" class="hidden" name="paymentRadio[]" value="bni">
+                                            <span
+                                                class="flex-none bg-white dark:bg-slate-200 rounded-full border inline-flex relative transition-all duration-150 h-[16px] w-[16px] border-slate-400 dark:border-slate-600 dark:ring-slate-700"></span>
+                                        </div>
+                                    </label>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div class="card">
+                    <span>E-Wallet</span>
+                    <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 gap-3">
+                        @if (isset($payment_method->data))
+                            @foreach ($payment_method->data as $payment)
+                                @if (strtolower($payment->group) == 'e-wallet')
+                                    <label class="cursor-pointer ">
+                                        <div class="primary-radio text-center  bg-slate-100 dark:bg-slate-400 rounded hover:bg-slate-200 dark:hover:bg-slate-600 p-2">
+                                            <div class="flex justify-center mb-2">
+                                                <img src="{{ $payment->icon_url }}" alt="user"
+                                                    data-tippy-content="{{ $payment->name }}"
+                                                    class="toolTip onTop block w-auto h-8 object-cover border border-transparent">
+                                            </div>
+                                            <input type="radio" class="hidden" name="paymentRadio[]" value="bni">
+                                            <span
+                                                class="flex-none bg-white dark:bg-slate-200 rounded-full border inline-flex relative transition-all duration-150 h-[16px] w-[16px] border-slate-400 dark:border-slate-600 dark:ring-slate-700"></span>
+                                        </div>
+                                    </label>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div class="card">
+                    <span>Convenience Store</span>
+                    <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 gap-3">
+                        @if (isset($payment_method->data))
+                            @foreach ($payment_method->data as $payment)
+                                @if (strtolower($payment->group) == 'convenience store')
+                                    <label class="cursor-pointer ">
+                                        <div class="primary-radio text-center bg-slate-100 dark:bg-slate-400 rounded hover:bg-slate-200 dark:hover:bg-slate-600 p-2">
+                                            <div class="flex justify-center mb-2">
+                                                <img src="{{ $payment->icon_url }}" alt="user"
+                                                    data-tippy-content="{{ $payment->name }}"
+                                                    class="toolTip onTop block w-auto h-8 object-cover border border-transparent">
+                                            </div>
+                                            <input type="radio" class="hidden" name="paymentRadio[]" value="bni">
+                                            <span
+                                                class="flex-none bg-white dark:bg-slate-200 rounded-full border inline-flex relative transition-all duration-150 h-[16px] w-[16px] border-slate-400 dark:border-slate-600 dark:ring-slate-700"></span>
+                                        </div>
+                                    </label>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+                @if (!isset($payment_method->data))
+                    <span>Terdapat kesalahan, kami akan memperbaikinya segera.</span>
+                @endif
             </div>
         </div>
     </div>
@@ -146,4 +196,15 @@
         </div>
     </button>
     <!-- </div> -->
+@endsection
+
+@section('custom-script')
+    <script>
+        $(document).ready(function() {
+            var hargaEl1 = $('#idr1')
+            var hargaEl2 = $('#idr2')
+            hargaEl1.text(currency.format(parseInt(hargaEl1.text())))
+            hargaEl2.text(currency.format(parseInt(hargaEl2.text())))
+        })
+    </script>
 @endsection
