@@ -53,17 +53,18 @@
                         </div>
                     </a>
                 </li>
-                <li class="{{ (request()->is('mentor/penyerahan-pesanan*')) ? 'active' : '' }} menuatas">
-                                        <a href="{{route('mentor.menu.penyerahan-pesanan')}}">
-                                            <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                                                <span cass="icon-box text-box">
-                                                    <iconify-icon icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
-                                                    </iconify-icon>
-                                                </span>
-                                                <div class="text-box">Penyerahan Pesanan</div>
-                                            </div>
-                                        </a>
-                                    </li>
+                <li class="{{ request()->is('mentor/penyerahan-pesanan*') ? 'active' : '' }} menuatas">
+                    <a href="{{ route('mentor.menu.penyerahan-pesanan') }}">
+                        <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
+                            <span cass="icon-box text-box">
+                                <iconify-icon
+                                    icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
+                                </iconify-icon>
+                            </span>
+                            <div class="text-box">Penyerahan Pesanan</div>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -86,8 +87,8 @@
                     class="text-slate-800 dark:text-white focus:ring-0 focus:outline-none font-medium rounded-lg text-sm text-center inline-flex items-center"
                     type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="lg:h-8 lg:w-8 h-7 w-7 rounded-full flex-1 ltr:mr-[10px] rtl:ml-[10px]">
-                        <img src="{{ Auth::guard('webmentor')->user()->foto_profil ? Auth::guard('webmentor')->user()->foto_profil : url('assets/images/avatar/av-1.svg') }}" alt="user"
-                            class="block w-full h-full object-cover rounded-full">
+                        <img src="{{ Auth::guard('webmentor')->user()->foto_profil ? Auth::guard('webmentor')->user()->foto_profil : url('assets/images/avatar/av-1.svg') }}"
+                            alt="user" class="block w-full h-full object-cover rounded-full">
                     </div>
                     <span
                         class="flex-none text-slate-600 dark:text-white text-sm font-normal items-center lg:flex hidden overflow-hidden text-ellipsis whitespace-nowrap">{{ Auth::guard('webmentor')->user()->nama }}</span>
@@ -155,7 +156,7 @@
 
 @section('menu-mobile')
     <div
-        class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 md:hidden">
+        class="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-slate-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 bottom-0 w-full z-[9999] bothrefm-0 py-[12px] px-4 xl:hidden">
         <a href="{{ route('mentor.menu.dashboard') }}">
             <div class="{{ request()->is('mentor/dashboard') ? 'active' : '' }} menubawah">
                 <span
@@ -200,7 +201,7 @@
                     class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
           text-slate-900">
                     <iconify-icon icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
-                                                    </iconify-icon>
+                    </iconify-icon>
                 </span>
                 <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
                     Penyerahan Pesanan
@@ -210,12 +211,13 @@
     </div>
     </div>
 @endsection
-@section('custom-script')<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
- <script>
-   tinymce.init({
-     selector: '#DrowsTextarea', // Replace this CSS selector to match the placeholder element for TinyMCE
-    //  plugins: 'code table lists',
-     toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code '
-   });
- </script>
+@section('custom-script')
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#DrowsTextarea', // Replace this CSS selector to match the placeholder element for TinyMCE
+            //  plugins: 'code table lists',
+            toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code '
+        });
+    </script>
 @endsection
