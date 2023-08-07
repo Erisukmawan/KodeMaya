@@ -118,6 +118,20 @@
                                                                         </iconify-icon>
                                                                     </span>
                                                                 </a>
+                                                                <a href="#tabs-negosiasi"
+                                                                    class="nav-link w-full flex items-center font-medium text-sm font-Inter leading-tight capitalize border-x-0 border-t-0 border-b border-transparent px-4 pb-2 my-2 hover:border-transparent focus:border-transparent dark:text-slate-300"
+                                                                    id="tabs-negosiasi-tab" data-bs-toggle="pill"
+                                                                    data-bs-target="#tabs-negosiasi" role="tab"
+                                                                    aria-controls="tabs-negosiasi"
+                                                                    aria-selected="false">
+                                                                    <span
+                                                                        class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-warning-600 text-white "
+                                                                        data-tippy-content="Negosiasi"
+                                                                        data-tippy-theme="seccondary">
+                                                                        <iconify-icon icon="material-symbols:chat">
+                                                                        </iconify-icon>
+                                                                    </span>
+                                                                </a>
                                                             </div>
                                                         </td>
                                                     </tr>

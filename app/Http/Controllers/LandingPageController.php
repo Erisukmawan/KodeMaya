@@ -27,6 +27,15 @@ class LandingPageController extends Controller
         return view('landingpage.kebijakan-privasi');
     }
 
+    public function pengembangan()
+    {
+        return view('errors.500');
+    }
+    public function gakada()
+    {
+        return view('errors.404');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

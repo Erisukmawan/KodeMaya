@@ -5,7 +5,7 @@
     <div class="background">
         <div class="hero-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
             <h1>We Help To <span>Build</span> Your Dream</h1>
-            <p>Bersama KodeMaya, proses belajarmu akan menjadi LEBIH MUDAH dan CEPAT. Ayo bergabung sekarang!</p>
+            <p>Bersama KodeMaya, membuat project aplikasi atau design akan menjadi LEBIH MUDAH dan CEPAT. Ayo bergabung sekarang!</p>
             <a href="{{route('register')}}" class="cta animate-[wiggle_1s_ease-in-out_infinite]">Gabung Sekarang Juga
                 !</a>
         </div>
@@ -14,11 +14,12 @@
 <section class="Tulung" id="Bikin_Aplikasi" data-aos="fade-up">
     <div class="page-content ">
         <h1 class="dark:text-white" data-aos="fade-up" data-aos-duration="1500">Bikin Aplikasi</h1>
+        <p class="title" data-aos="fade-up" data-aos-duration="1500">Apa Keuntungan Memesan di KodeMaya ?
         <p class="title" data-aos="fade-up" data-aos-duration="1500"></p>
         <div class="card-row">
             <div class="outer-card " data-aos="zoom-out-up" data-aos-duration="1500">
                 <div class="inner-card_img" data-aos="zoom-out-up" data-aos-duration="1500">
-                    <img src="{{url('/assets/images/all-img/Tulung.png')}}" alt="">
+                    <img src="{{url('/assets/images/all-img/lp1.svg')}}" alt="">
 
                 </div>
             </div>
@@ -79,7 +80,7 @@
             </div>
             <div class="outer-card " data-aos="zoom-out-up" data-aos-duration="1500">
                 <div class="inner-card_img" data-aos="zoom-out-up" data-aos-duration="1500">
-                    <img src="{{url('/assets/images/all-img/Mentor.png')}}" alt="">
+                    <img src="{{url('/assets/images/all-img/lp2.svg')}}" alt="">
 
                 </div>
             </div>
