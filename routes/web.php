@@ -23,8 +23,11 @@ use App\Http\Controllers\MentorController;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 Route::get('/faq', [LandingPageController::class, 'faq'])->name('faq');
+Route::get('/faq1', [LandingPageController::class, 'faq'])->name('faq');
 Route::get('/kebijakan-privasi', [LandingPageController::class, 'kebijakan'])->name('kebijakan');
 Route::get('/syarat-dan-ketentuan', [LandingPageController::class, 'syarat'])->name('syarat');
+Route::get('/dalam-pengembangan', [LandingPageController::class, 'pengembangan'])->name('dalampengembangan');
+Route::get('/gakada', [LandingPageController::class, 'gakada'])->name('gakada');
 
 
 // Route::get('/list-dir', function() {

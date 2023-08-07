@@ -6,6 +6,8 @@
                             <span class="font-Inter items-center justify-center"
                                 style="text-align:'center'; color:white">Download</span>
                         </button>
+                        <button id="export"class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-800 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
+                            <iconify-icon icon="line-md:download-loop"></iconify-icon>Export</button>
     <div class=" space-y-5 canvas_div_pdf"id='printable_div_id' >
         <div class="card">
             <header class=" card-header noborder justify-center items-center">
@@ -20,7 +22,7 @@
                     <span class="  col-span-4 hidden"></span>
                     <div class="inline-block min-w-full align-middle">
                         <div class="overflow-hidden ">
-                            <table class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
+                            <table id="exportMe" class="table min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
                                 >
                                 <thead class=" border-t border-slate-100 dark:border-slate-800">
                                     <tr>
@@ -36,20 +38,9 @@
                                 <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
                                     <tr>
                                         <td class="table-td">1</td>
-                                        <td class="table-td">
-                                            <span class="flex">
-                                                <span class="w-7 h-7 rounded-full ltr:mr-3 rtl:ml-3 flex-none">
-                                                    <img src="{{url('assets/images/all-img/customer_1.png')}}" alt="1"
-                                                        class="object-cover w-full h-full rounded-full">
-                                                </span>
-                                                <span
-                                                    class="text-sm text-slate-600 dark:text-slate-300 capitalize">Jenny
-                                                    Wilson</span>
-                                            </span>
-                                        </td>
+                                        <td class="table-td">Wilson</td>
                                         <td class="table-td ">Jeje</td>
                                         <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                        
                                         <td class="table-td ">
                                             <span class="block min-w-[140px] text-left">
                                                 <span class="inline-block text-center mx-auto py-1">
@@ -70,21 +61,11 @@
                                                 </span>
                                             </span>
                                         </td>
-                                        <td class="table-td "> Rp20.000.000</td>
+                                        <td class="table-td ">Rp20.000.000</td>
                                     </tr>
                                     <tr>
                                         <td class="table-td">1</td>
-                                        <td class="table-td">
-                                            <span class="flex">
-                                                <span class="w-7 h-7 rounded-full ltr:mr-3 rtl:ml-3 flex-none">
-                                                    <img src="{{url('assets/images/all-img/customer_1.png')}}" alt="1"
-                                                        class="object-cover w-full h-full rounded-full">
-                                                </span>
-                                                <span
-                                                    class="text-sm text-slate-600 dark:text-slate-300 capitalize">Jenny
-                                                    Wilson</span>
-                                            </span>
-                                        </td>
+                                        <td class="table-td">Wilson</td>
                                         <td class="table-td ">Jeje</td>
                                         <td class="table-td ">Aplikasi Kantin Sekolah</td>
                                         <td class="table-td ">
@@ -107,11 +88,11 @@
                                                 </span>
                                             </span>
                                         </td>
-                                        <td class="table-td "> Rp20.000.000</td>
+                                        <td class="table-td ">Rp20.000.000</td>
                                     </tr>
                                     <tr>
                                         <td class="table-td" colspan="6"><p class="text-right font-bold">Total Harga</p></td>
-                                        <td class="table-td "> Rp20.000.000</td>
+                                        <td class="table-td ">Rp20.000.000</td>
                                     </tr>
                                 </tbody>
                             </table>
