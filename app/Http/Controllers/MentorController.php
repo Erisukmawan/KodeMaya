@@ -90,9 +90,9 @@ class MentorController extends Controller
         return $pemesanan;
     }
 
-    public function get_pemesanan_by_status(string $status_pemesanan)
+    public function get_pemesanan_by_status(string $status_pesanan)
     {
-        $pemesanan = Pemesanan::where('pemesanan.status_pemesanan', $status_pemesanan)
+        $pemesanan = Pemesanan::where('pemesanan.status_pesanan', $status_pesanan)
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
             })
@@ -128,12 +128,12 @@ class MentorController extends Controller
             ->count();
         $projek_diproses = Pemesanan::where([
             ['id_mentor', '=', $user->id_mentor],
-            ['status_pemesanan', '=', 'DIPROSES']
+            ['status_pesanan', '=', 'DIPROSES']
         ])
             ->count();
         $projek_selesai = Pemesanan::where([
             ['id_mentor', '=', $user->id_mentor],
-            ['status_pemesanan', '=', 'SELESAI']
+            ['status_pesanan', '=', 'SELESAI']
         ])
             ->count();
 
@@ -186,7 +186,7 @@ class MentorController extends Controller
 
             $pemesanan = Pemesanan::where('id_pemesanan', $id)->first();
             $pemesanan->id_mentor = $user->id_mentor;
-            $pemesanan->status_pemesanan = "DIPROSES";
+            $pemesanan->status_pesanan = "DIPROSES";
             $pemesanan->save();
             $mentor = Mentor::find($user->id_mentor);
             $mentor->status_mentor = 'SIBUK';

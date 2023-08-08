@@ -425,7 +425,10 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
             // Ambil data JSON
-            $json = $request->getContent();
+            $data_json = $request->getContent();
+
+            $json = json_decode($data_json);
+            $json = json_encode($json);
 
             Log::info("get callback $json");
 
@@ -467,9 +470,8 @@ class AuthController extends Controller
 
 
             if ($data->is_closed_payment === 1) {
-                $refCodeSQL = "CONCAT(SUBSTR(UPPER(MD5(CONCAT(`pemesanan.id_pemesanan`, `pemesanan.nama_projek`))), 1, 15), LPAD(`pemesanan.id_pemesanan`, 5, '0')) = $invoiceId";
                 $pemesanan = Pemesanan::where([
-                    [$refCodeSQL],
+                    ['kode_referensi', $tripayReference],
                     ['status_pembayaran', 'TERTUNDA']
                 ])->first();
 

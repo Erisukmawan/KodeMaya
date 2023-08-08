@@ -99,7 +99,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/change-profile', 'change_profile')->name('change_profile');
     Route::post('/change-picture', 'change_picture')->name('change_picture');
     Route::post('/logout', 'logout')->name('logout');
-    Route::get('/payment-callback','payment_callback')->name('payment_callback');
+    Route::post('/payment-callback','payment_callback')->name('payment_callback');
 });
 
 
@@ -160,7 +160,7 @@ Route::middleware(['customer'])->controller(CustomerController::class)->group(fu
     Route::get('/customer/profile', 'view_profile')->name('customer.profile');
     Route::get('/customer/pemesanan/negosiasi', 'view_nego')->name('customer.menu.nego');
     Route::get('/customer/penyerahan-pesanan/review', 'view_review')->name('customer.menu.penyerahan-pesanan.review');
-    Route::get('/customer/pemesanan/persetujuan-konstrak', 'persetujuan_kontrak')->name('customer.menu.pemesanan.persetujuan_kontrak');
+    Route::get('/customer/pemesanan/persetujuan-kontrak', 'persetujuan_kontrak')->name('customer.menu.pemesanan.persetujuan_kontrak');
     Route::get('/customer/pemesanan/detail-kontrak/{id}', 'view_detailkontrak')->name('customer.menu.pemesanan.detail-kontrak');
     Route::get('/customer/penyerahan-pesanan', 'view_penyerahan')->name('customer.menu.penyerahan-pesanan');
 });

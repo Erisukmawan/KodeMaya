@@ -243,9 +243,10 @@
             cluster: 'ap1'
         });
 
-        var channel = pusher.subscribe(`system-notify.{{ $pemesanan->getReferenceCode() }}`);
+        var channel = pusher.subscribe(`system-notify.payment-{{ $pemesanan->getReferenceCode() }}`);
         channel.bind('notify-event', function(data) {
             console.log(data);
+            Toast.fire('Pembayaran sukses', '', 'success').then(() => window.location.reload());
         });
     </script>
     <script>

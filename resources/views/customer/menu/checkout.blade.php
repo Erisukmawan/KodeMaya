@@ -121,7 +121,7 @@
                 <div class="card-text h-full space-y-4">
                     <div class="card">
                         <span>Virtual Account</span>
-                        <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 gap-3">
+                        <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3">
                             @if (isset($payment_method->data))
                                 @foreach ($payment_method->data as $payment)
                                     @if (strtolower($payment->group) == 'virtual account')
@@ -149,7 +149,7 @@
                     </div>
                     <div class="card">
                         <span>E-Wallet</span>
-                        <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 gap-3">
+                        <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3">
                             @if (isset($payment_method->data))
                                 @foreach ($payment_method->data as $payment)
                                     @if (strtolower($payment->group) == 'e-wallet')
@@ -177,7 +177,7 @@
                     </div>
                     <div class="card">
                         <span>Convenience Store</span>
-                        <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 gap-3">
+                        <div class="mt-4 grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3">
                             @if (isset($payment_method->data))
                                 @foreach ($payment_method->data as $payment)
                                     @if (strtolower($payment->group) == 'convenience store')

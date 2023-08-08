@@ -16,7 +16,7 @@
         }
     </style>
     <div>
-        <div class="space-y-10 mb-10 pb-5 ">
+        <div class="">
             <div class="card">
                 <div class="card-body flex flex-col p-6">
                     <div class="card-text h-full">
