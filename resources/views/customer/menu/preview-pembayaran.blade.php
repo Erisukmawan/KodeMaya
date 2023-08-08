@@ -245,8 +245,13 @@
 
         var channel = pusher.subscribe(`system-notify.payment-{{ $pemesanan->getReferenceCode() }}`);
         channel.bind('notify-event', function(data) {
-            console.log(data);
-            Toast.fire('Pembayaran sukses', '', 'success').then(() => window.location.reload());
+            if (data.message == 'PAID') {
+                Toast.fire('Pembayaran sukses', '', 'success').then(() => window.location.reload());
+            } else if (data.message == 'EXPIRED') {
+                Toast.fire('Pembayaran kadaluarsa', '', 'warning').then(() => window.location.reload());
+            } else if (data.message == 'FAILED') {
+                Toast.fire('Pembayaran gagal', '', 'danger').then(() => window.location.reload());
+            }
         });
     </script>
     <script>
