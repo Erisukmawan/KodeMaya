@@ -1,13 +1,13 @@
 @extends('financial/template')
 @section('main-content')
 <button onclick="getPDF()"
-                            class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-800 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
+                            class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-600 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
                             <iconify-icon icon="line-md:download-loop"></iconify-icon> 
                             <span class="font-Inter items-center justify-center"
                                 style="text-align:'center'; color:white">Download</span>
                         </button>
                         <button id="export"class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-800 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
-                            <iconify-icon icon="line-md:download-loop"></iconify-icon>Export</button>
+                            <iconify-icon icon="teenyicons:csv-outline"></iconify-icon>Export CSV</button>
     <div class=" space-y-5 canvas_div_pdf"id='printable_div_id' >
         <div class="card">
             <header class=" card-header noborder justify-center items-center">
@@ -41,26 +41,8 @@
                                         <td class="table-td">Wilson</td>
                                         <td class="table-td ">Jeje</td>
                                         <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                        <td class="table-td ">
-                                            <span class="block min-w-[140px] text-left">
-                                                <span class="inline-block text-center mx-auto py-1">
-                                                    <span class="flex items-center space-x-3 rtl:space-x-reverse">
-                                                        <span class="h-[6px] w-[6px] bg-success-500 rounded-full inline-block ring-4 ring-opacity-30 ring-success-500"></span>
-                                                        <span>Sudah Bayar</span>
-                                                    </span>
-                                                </span>
-                                            </span>
-                                        </td>
-                                        <td class="table-td ">
-                                            <span class="block min-w-[140px] text-left">
-                                                <span class="inline-block text-center mx-auto py-1">
-                                                    <span class="flex items-center space-x-3 rtl:space-x-reverse">
-                                                        <span class="h-[6px] w-[6px] bg-warning-500 rounded-full inline-block ring-4 ring-opacity-30 ring-warning-500"></span>
-                                                        <span>Diproses</span>
-                                                    </span>
-                                                </span>
-                                            </span>
-                                        </td>
+                                        <td class="table-td ">Sudah Bayar</td>
+                                        <td class="table-td ">Diproses</td>
                                         <td class="table-td ">Rp20.000.000</td>
                                     </tr>
                                     <tr>
@@ -68,30 +50,8 @@
                                         <td class="table-td">Wilson</td>
                                         <td class="table-td ">Jeje</td>
                                         <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                        <td class="table-td ">
-                                            <span class="block min-w-[140px] text-left">
-                                                <span class="inline-block text-center mx-auto py-1">
-                                                    <span class="flex items-center space-x-3 rtl:space-x-reverse">
-                                                        <span class="h-[6px] w-[6px] bg-danger-500 rounded-full inline-block ring-4 ring-opacity-30 ring-danger-500"></span>
-                                                        <span>Belum Bayar</span>
-                                                    </span>
-                                                </span>
-                                            </span>
-                                        </td>
-                                        <td class="table-td ">
-                                            <span class="block min-w-[140px] text-left">
-                                                <span class="inline-block text-center mx-auto py-1">
-                                                    <span class="flex items-center space-x-3 rtl:space-x-reverse">
-                                                        <span class="h-[6px] w-[6px] bg-warning-500 rounded-full inline-block ring-4 ring-opacity-30 ring-warning-500"></span>
-                                                        <span>Diproses</span>
-                                                    </span>
-                                                </span>
-                                            </span>
-                                        </td>
-                                        <td class="table-td ">Rp20.000.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-td" colspan="6"><p class="text-right font-bold">Total Harga</p></td>
+                                        <td class="table-td ">Belum Bayar</td>
+                                        <td class="table-td ">Diproses</td>
                                         <td class="table-td ">Rp20.000.000</td>
                                     </tr>
                                 </tbody>
