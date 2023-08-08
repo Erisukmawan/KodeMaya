@@ -42,17 +42,6 @@
                         </div>
                     </a>
                 </li>
-                <li class="{{ request()->is('mentor/pembayaran*') ? 'active' : '' }} menuatas">
-                    <a href="{{ route('mentor.menu.pembayaran') }}">
-                        <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
-                            <span class="icon-box text-box">
-                                <iconify-icon icon=material-symbols:price-change-outline>
-                                </iconify-icon>
-                            </span>
-                            <div class="text-box">Pembayaran</div>
-                        </div>
-                    </a>
-                </li>
                 <li class="{{ request()->is('mentor/penyerahan-pesanan*') ? 'active' : '' }} menuatas">
                     <a href="{{ route('mentor.menu.penyerahan-pesanan') }}">
                         <div class="flex flex-1 items-center space-x-[6px] rtl:space-x-reverse">
@@ -141,8 +130,7 @@
         <a href="{{ route('mentor.menu.dashboard') }}">
             <div class="{{ request()->is('mentor/dashboard') ? 'active' : '' }} menubawah">
                 <span
-                    class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900">
+                    class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white text-slate-900">
                     <iconify-icon icon="heroicons-outline:home"></iconify-icon>
                 </span>
                 <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
@@ -153,8 +141,7 @@
         <a href="{{ route('mentor.menu.pemesanan') }}">
             <div class="{{ request()->is('mentor/pemesanan*') ? 'active' : '' }} menubawah">
                 <span
-                    class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900 ">
+                    class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white text-slate-900 ">
                     <iconify-icon icon="mdi:feature-highlight"></iconify-icon>
                 </span>
                 <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
@@ -167,20 +154,7 @@
         <a href="{{ route('mentor.menu.penyerahan-pesanan') }}">
             <div class="{{ request()->is('mentor/penyerahan-pesanan*') ? 'active' : '' }} menubawah">
                 <span
-                    class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900">
-                    <iconify-icon icon="material-symbols:price-change-outline"></iconify-icon>
-                </span>
-                <span class="textcol block text-[11px] text-slate-600 dark:text-slate-300">
-                    Pembayaran
-                </span>
-            </div>
-        </a>
-        <a href="{{ route('mentor.menu.penyerahan-pesanan') }}">
-            <div class="{{ request()->is('mentor/penyerahan-pesanan*') ? 'active' : '' }} menubawah">
-                <span
-                    class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white
-          text-slate-900">
+                    class="textcol relative cursor-pointer rounded-full text-[20px] flex flex-col items-center justify-center mb-1 dark:text-white text-slate-900">
                     <iconify-icon icon=streamline:interface-favorite-give-heart-reward-social-rating-media-heart-hand>
                     </iconify-icon>
                 </span>
@@ -192,13 +166,21 @@
     </div>
     </div>
 @endsection
+
 @section('custom-script')
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-        tinymce.init({
-            selector: '#DrowsTextarea', // Replace this CSS selector to match the placeholder element for TinyMCE
-            //  plugins: 'code table lists',
-            toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code '
-        });
+        const mode = $('html').attr('class');
+
+        let tinyConfig = {
+            selector: '#DrowsTextarea',
+            plugins: 'anchor autolink emoticons link lists table visualblocks wordcount checklist typography image',
+            toolbar: 'undo redo | formatselect| bold italic | image | alignleft aligncenter alignright | indent outdent | bullist numlist | code'
+        }
+        if (mode == 'dark') {
+            tinyConfig['skin'] = 'oxide-dark';
+            tinyConfig['content_css'] = 'dark';
+        }
+
+        tinymce.init(tinyConfig);
     </script>
 @endsection

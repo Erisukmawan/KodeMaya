@@ -191,6 +191,7 @@
     </div>
     </div>
 @endsection
+
 @section('custom-script')
     <script>
         var hargaawal = 0;
@@ -230,8 +231,8 @@
 
             let tinyConfig = {
                 selector: '#DrowsTextarea',
-                plugins: 'anchor autolink emoticons link lists table visualblocks wordcount checklist typography',
-                toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code '
+                plugins: 'anchor autolink emoticons link lists table visualblocks wordcount checklist typography image',
+                toolbar: 'undo redo | formatselect| bold italic | image | alignleft aligncenter alignright | indent outdent | bullist numlist | code'
             }
             if (mode == 'dark') {
                 tinyConfig['skin'] = 'oxide-dark';

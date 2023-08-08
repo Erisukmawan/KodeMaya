@@ -250,7 +250,7 @@
             } else if (data.message == 'EXPIRED') {
                 Toast.fire('Pembayaran kadaluarsa', '', 'warning').then(() => window.location.reload());
             } else if (data.message == 'FAILED') {
-                Toast.fire('Pembayaran gagal', '', 'danger').then(() => window.location.reload());
+                Toast.fire('Pembayaran gagal', '', 'error').then(() => window.location.reload());
             }
         });
     </script>

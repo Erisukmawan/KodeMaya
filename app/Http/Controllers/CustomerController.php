@@ -259,7 +259,7 @@ class CustomerController extends Controller
             $request->validate([
                 'nama_projek' => 'required|string',
                 'kategori' => 'required|string',
-                'harga' => 'required|integer',
+                'harga' => 'required|string',
                 'deskripsi_projek' => 'required|string',
             ]);
 

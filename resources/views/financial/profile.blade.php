@@ -19,7 +19,7 @@
                                         <div
                                             class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] ml-auto mr-auto mb-4 rounded-full ring-4 ring-slate-100 relative">
                                             <img id="profile_pic" src="{{ Auth::guard('webfinance')->user()->foto_profil ? Auth::guard('webfinance')->user()->foto_profil : url('assets/images/avatar/av-1.svg') }}"
-                                                alt="" class="w-full h-full object-cover rounded-full">
+                                                alt="" class="w-full h-full object-cover rounded-full bg-white">
                                             <button id="change_image"
                                                 class="absolute right-2 h-8 w-8 bg-slate-50 text-slate-600 rounded-full shadow-sm flex flex-col items-center justify-center md:top-[140px] top-[100px]">
                                                 <iconify-icon icon="heroicons:pencil-square"></iconify-icon>

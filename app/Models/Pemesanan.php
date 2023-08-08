@@ -35,6 +35,6 @@ class Pemesanan extends Model
         'deskripsi_projek',
         'status_pesanan',
         'file_projek',
-        'total_harga'
+        'harga'
     ];
 }

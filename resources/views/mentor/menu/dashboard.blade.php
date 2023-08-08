@@ -102,15 +102,28 @@
                                                     <span class="block min-w-[140px] text-left">
                                                         <span class="inline-block text-center mx-auto py-1">
                                                             <span class="flex items-center space-x-3 rtl:space-x-reverse">
-                                                                <span
-                                                                    class="h-[6px] w-[6px] bg-danger-500 rounded-full inline-block ring-4 ring-opacity-30 ring-danger-500"></span>
-                                                                <span>{{ $pesanan->status_pesanan }}</span>
+                                                                @if ($pesanan->status_pesanan == 'MENUNGGU')
+                                                                    <span
+                                                                        class="block font-normal px-4 w-full rounded-2xl bg-warning-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                                @elseif ($pesanan->status_pesanan == 'DIPROSES')
+                                                                    <span
+                                                                        class="block font-normal px-4 w-full rounded-2xl bg-primary-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                                @elseif ($pesanan->status_pesanan == 'DIPERIKSA')
+                                                                    <span
+                                                                        class="block font-normal px-4 w-full rounded-2xl bg-info-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                                @elseif ($pesanan->status_pesanan == 'SELESAI')
+                                                                    <span
+                                                                        class="block font-normal px-4 w-full rounded-2xl bg-success-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                                @elseif ($pesanan->status_pesanan == 'DIBATALKAN')
+                                                                    <span
+                                                                        class="block font-normal px-4 w-full rounded-2xl bg-danger-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                                @endif
                                                             </span>
                                                         </span>
                                                     </span>
                                                 </td>
-                                                <td class="table-td ">
-                                                    {{ $pesanan->total_harga == '0' ? '-' : $pesanan->total_harga }}</td>
+                                                <td id="harga-{{ $pesanan->id_pemesanan }}" class="table-td ">
+                                                    {{ $pesanan->harga == '0' ? '-' : $pesanan->harga }}</td>
                                                 <td class="table-td ">
                                                     <div>
                                                         <div class="relative">
@@ -147,4 +160,13 @@
             </div>
         @endif
     </div>
+@endsection
+
+@section('custom-script')
+    <script>
+        @foreach ($pemesanan as $pesanan)
+            $('#harga-{{ $pesanan->id_pemesanan }}').text(currency.format(parseInt($(
+                '#harga-{{ $pesanan->id_pemesanan }}').text())))
+        @endforeach
+    </script>
 @endsection

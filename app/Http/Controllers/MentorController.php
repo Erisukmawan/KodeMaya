@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Kontrak;
 use App\Models\Mentor;
 use App\Models\Pemesanan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +31,42 @@ class MentorController extends Controller
             ]);
 
         return $kontrak;
+    }
+
+    public function get_list_pesanan(string $id_mentor)
+    {
+        $riwayat = Pemesanan::where([
+            ['pemesanan.id_mentor', '=', $id_mentor],
+            ['status_pembayaran', '!=', 'BELUM DIBUAT'],
+            // ['status_pembayaran', '!=', 'BELUM DIBAYAR'],
+            // ['status_pembayaran', '!=', 'TERTUNDA'],
+        ])
+            ->leftJoin('pelanggan', function ($join) {
+                $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
+            })
+            ->leftJoin('mentor', function ($join) {
+                $join->on('mentor.id_mentor', '=', 'pemesanan.id_mentor');
+            })
+            ->leftJoin('kontrak', function ($join) {
+                $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
+            })
+            ->leftJoin('pegawai', function ($join) {
+                $join->on('pegawai.id_pegawai', '=', 'pemesanan.id_pegawai');
+            })->select([
+                'pemesanan.*',
+                'pelanggan.nama as nama_pelanggan',
+                'pelanggan.foto_profil as foto_profil_pelanggan',
+                'pelanggan.email as email_pelanggan',
+                'pelanggan.telp as telp_pelanggan',
+                'mentor.nama as nama_mentor',
+                'mentor.foto_profil as foto_profil_mentor',
+                'kontrak.waktu_kontrak',
+                'kontrak.tenggat_waktu',
+                'kontrak.status_kontrak',
+                'kontrak.total_harga',
+            ]);
+
+        return $riwayat;
     }
 
     public function get_pemesanan(string $id_pemesanan)
@@ -165,9 +203,16 @@ class MentorController extends Controller
         );
         return view('mentor.menu.pemesanan')->with($data);
     }
-    public function view_pengerjaan_pemesanan()
+    public function view_pengerjaan_pemesanan(Request $request)
     {
-        return view('mentor.menu.pengerjaan');
+        $id_pemesanan = $request->get('id');
+        $pesanan = $this->get_pemesanan($id_pemesanan);
+
+        $data = array(
+            'pesanan' => $pesanan,
+        );
+
+        return view('mentor.menu.pengerjaan')->with($data);
     }
     public function view_detail_pemesanan(Request $request)
     {
@@ -184,14 +229,25 @@ class MentorController extends Controller
             $user = Auth::guard('webmentor')->user();
             $id = $request->route('id');
 
-            $pemesanan = Pemesanan::where('id_pemesanan', $id)->first();
-            $pemesanan->id_mentor = $user->id_mentor;
-            $pemesanan->status_pesanan = "DIPROSES";
-            $pemesanan->save();
             $mentor = Mentor::find($user->id_mentor);
-            $mentor->status_mentor = 'SIBUK';
-            $mentor->save();
-            DB::commit();
+            if ($mentor->status_mentor == 'SIBUK') {
+                $pesanan_mentor = Pemesanan::where([
+                    ['id_mentor', $user->id_mentor],
+                    ['status_pesanan', 'DIPROSES'],
+                ])->first();
+                throw new Exception("Maaf kamu masih mengerjakan projek $pesanan_mentor->nama_projek");
+            } else {
+                $mentor->status_mentor = 'SIBUK';
+                $mentor->save();
+    
+                $pemesanan = Pemesanan::where('id_pemesanan', $id)->first();
+                $pemesanan->id_mentor = $user->id_mentor;
+                $pemesanan->status_pesanan = "DIPROSES";
+                $pemesanan->save();
+                
+                DB::commit();
+            }
+
             return redirect()->route('mentor.menu.pemesanan')
                 ->withSuccess("Pemesanan #$pemesanan->id_pemesanan berhasil diambil! Silahkan cek menu negosiasi.");
         } catch (\Exception $e) {
@@ -238,7 +294,78 @@ class MentorController extends Controller
     }
     public function view_penyerahan()
     {
-        return view('mentor.menu.penyerahan-pesanan');
+        $user = Auth::guard('webmentor')->user();
+        $list_pesanan = $this->get_list_pesanan($user->id_mentor)->get();
+
+        $data = array(
+            'list_pesanan' => $list_pesanan
+        );
+        return view('mentor.menu.penyerahan-pesanan')->with($data);
+    }
+    public function upload_projek(Request $request) {
+        DB::beginTransaction();
+        try {
+            $id_pemesanan = $request->route('id');
+            $pemesanan = $this->get_pemesanan($id_pemesanan);
+
+            $file = $request->file('file');
+            $uuid =  Str::uuid();
+            $filename = $uuid . "." . $file->extension();
+            $mainFolder = env('GOOGLE_DRIVE_FOLDER');
+            $projectFolder = env('GOOGLE_DRIVE_FOLDER_PROJECT');
+            $folderpath = $mainFolder . "/" . $projectFolder;
+
+            if ($pemesanan->file_project) {
+                $driveID = getDriveID($pemesanan->file_project);
+                deleteFile($driveID);
+            }
+
+            $metadata = uploadFile($file, 'project');
+            $url = makeUrl($metadata);
+            $pemesanan->file_projek = $url;
+            $pemesanan->save();
+            DB::commit();
+            return array(
+                'success' => true,
+                'message' => 'Berhasil upload file.',
+            );
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e);
+            return array(
+                'success' => false,
+                'message' => $e->getMessage(),
+            );
+        }
+    }
+    public function update_pengerjaan_pemesanan(Request $request) {
+        DB::beginTransaction();
+        try {
+            $request->validate([
+                'id_pemesanan' => 'required|string',
+                'deskripsi_pemesanan' => 'required|string',
+            ]);
+
+            $pemesanan = Pemesanan::find($request->get('id_pemesanan'));
+
+            if ($request->get('status_pesanan')) {
+                $pemesanan->status_pesanan = $request->get('status_pesanan');
+            }
+
+            $pemesanan->deskripsi_pemesanan = $request->get('deskripsi_pemesanan');
+            $pemesanan->save();
+            DB::commit();
+            return redirect()->route('mentor.menu.penyerahan-pesanan')
+                ->withSuccess("Berhasil diupdate.");
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e);
+            return redirect()->route('mentor.menu.pemesanan')->withErrors(['message' => $e->getMessage()]);
+        }
+    }
+    public function proses_penyerahan()
+    {
+        return view('mentor.menu.form-penyerahan-pesanan');
     }
     public function view_tambahkontrak(Request $request)
     {

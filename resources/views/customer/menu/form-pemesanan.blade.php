@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <button type="submit" class="flex w-full items-center justify-center btn-success bg-white btn-sm btn">
-                    <div class="flex-1 mx-8 text-base text-slate-900 text-black font-medium">
+                    <div class="flex-1 mx-8 text-base text-slate-900 text-white font-medium">
                         Buat Pesanan
                     </div>
                 </button>

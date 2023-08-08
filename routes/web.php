@@ -129,7 +129,9 @@ Route::middleware(['financial'])->controller(FinancialController::class)->group(
 Route::middleware(['mentor'])->controller(MentorController::class)->group(function () {
     Route::get('/mentor/dashboard', 'view_dashboard')->name('mentor.menu.dashboard');
     Route::get('/mentor/pemesanan/', 'view_pemesanan')->name('mentor.menu.pemesanan');
+    Route::post('/mentor/penyerahan-pesanan/upload/{id}', 'upload_projek')->name('mentor.project.upload');
     Route::get('/mentor/penyerahan-pesanan/pengerjaan-pemesanan', 'view_pengerjaan_pemesanan')->name('mentor.menu.penyerahan-pesanan.pengerjaan_pemesanan');
+    Route::post('/mentor/penyerahan-pesanan/pengerjaan-pemesanan-update', 'update_pengerjaan_pemesanan')->name('mentor.menu.penyerahan-pesanan.pengerjaan_pemesanan.update');
     Route::get('/mentor/pemesanan/detail-pemesanan/{id}', 'view_detail_pemesanan')->name('mentor.menu.pemesanan.detail_pemesanan');
     Route::get('/mentor/pemesanan/ambil/{id}', 'ambil_pemesanan')->name('mentor.menu.pemesanan.ambil');
     Route::post('/mentor/pemesanan/detail-pemesanan/json', 'detail_pemesanan')->name('mentor.menu.pemesanan.get');
