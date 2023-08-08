@@ -112,9 +112,20 @@ class CustomerController extends Controller
         return $pemesanan;
     }
 
+    public function get_refcode(string $refcode)
+    {
+        $refCodeSQL = "CONCAT(SUBSTR(UPPER(MD5(CONCAT(id_pemesanan, nama_projek))), 1, 15), LPAD(id_pemesanan, 5, '0')) = ?";
+        $pemesanan = Pemesanan::whereRaw($refCodeSQL, $refcode)->first();
+
+        return $pemesanan;
+    }
+
     public function get_pemesanan_by_refcode(string $refcode)
     {
-        $pemesanan = Pemesanan::where('kode_referensi', $refcode)
+        $pemesanan_refcode = $this->get_refcode($refcode);
+        if (!$pemesanan_refcode) return false;
+
+        $pemesanan = Pemesanan::where('pemesanan.id_pemesanan', $pemesanan_refcode->id_pemesanan)
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
             })
@@ -153,16 +164,19 @@ class CustomerController extends Controller
         $total_pemesanan = $pemesanan->count();
         $projek_diproses = Pemesanan::where([
             ['id_pelanggan', '=', $user->id_pelanggan],
-            ['status_pemesanan', '=', 'DIPROSES']
+            ['status_pesanan', '=', 'DIPROSES']
         ])
             ->count();
         $projek_selesai = Pemesanan::where([
             ['id_pelanggan', '=', $user->id_pelanggan],
-            ['status_pemesanan', '=', 'SELESAI']
+            ['status_pesanan', '=', 'SELESAI']
         ])
             ->count();
         $pesanan_belum_bayar = Pemesanan::where([
             ['id_pelanggan', '=', $user->id_pelanggan],
+            ['status_pembayaran', '!=', 'BELUM DIBUAT'],
+            ['status_pembayaran', '!=', 'TERBAYAR'],
+            ['status_pembayaran', '!=', 'KADALUARSA'],
         ])
             ->orWhere('status_pembayaran', '=', 'BELUM DIBAYAR')
             ->orWhere('status_pembayaran', '=', 'TERTUNDA')
@@ -266,6 +280,9 @@ class CustomerController extends Controller
         $user = Auth::guard('webcustomer')->user();
         $pesanan_belum_bayar = Pemesanan::where([
             ['id_pelanggan', '=', $user->id_pelanggan],
+            ['status_pembayaran', '!=', 'BELUM DIBUAT'],
+            ['status_pembayaran', '!=', 'TERBAYAR'],
+            ['status_pembayaran', '!=', 'KADALUARSA'],
         ])
             ->orWhere('status_pembayaran', '=', 'BELUM DIBAYAR')
             ->orWhere('status_pembayaran', '=', 'TERTUNDA')
@@ -307,7 +324,7 @@ class CustomerController extends Controller
             Log::info("payment request " . json_encode($response));
             if ($response->success) {
                 $pesanan->status_pembayaran = 'TERTUNDA';
-                $pesanan->kode_referensi_tripay = $response->data->reference;
+                $pesanan->kode_referensi = $response->data->reference;
                 unset($pesanan->total_harga);
                 $pesanan->save();
                 DB::commit();
@@ -328,7 +345,10 @@ class CustomerController extends Controller
             return redirect()->route('gakada');
         }
         $pemesanan = $this->get_pemesanan_by_refcode($merchant_ref);
-        $response = detailInvoice($pemesanan->kode_referensi_tripay);
+        if (!$pemesanan) {
+            return redirect()->route('gakada');
+        }
+        $response = detailInvoice($pemesanan->kode_referensi);
 
         if ($response->success) {
             $data = array(
@@ -349,7 +369,9 @@ class CustomerController extends Controller
         $id = Auth::guard('webcustomer')->user()->id_pelanggan;
         $code = $request->get('code');
         $pemesanan = $this->get_pemesanan_by_refcode($code);
-        if (isset($pemesanan->id_pelanggan)) {
+        if (!$pemesanan) {
+            return redirect()->route('gakada');
+        } else {
             if ($pemesanan->id_pelanggan != $id) return redirect()->route('gakada');
             if ($pemesanan->status_pembayaran == 'TERTUNDA') {
                 return redirect()->route('customer.menu.pembayaran.bukti_pembayaran', ['code' => $code]);
@@ -359,11 +381,9 @@ class CustomerController extends Controller
                     'pemesanan' => $pemesanan,
                     'payment_method' => $payment_method
                 );
-
+    
                 return view('customer.menu.checkout')->with($data);
             }
-        } else {
-            return redirect()->route('gakada');
         }
     }
     public function view_nego()
@@ -391,19 +411,18 @@ class CustomerController extends Controller
             $kontrak = Kontrak::find($id);
             $pemesanan = Pemesanan::where('id_kontrak', $id)->first();
             if ($status == 'SETUJU') {
-                $reference_code = generateReferenceCode($id); // Kode Tripay
+                $reference_code = getReferenceCode($id, $pemesanan->nama_projek); // Get Merchant Reference Code
                 $kontrak->status_kontrak = 'SETUJU';
                 $kontrak->save();
                 $pemesanan->status_pembayaran = 'BELUM DIBAYAR';
-                $pemesanan->kode_referensi = $reference_code;
                 $pemesanan->save();
                 DB::commit();
-                return redirect()->route('customer.menu.pemesanan')
+                return redirect()->route('customer.menu.pembayaran.checkout', ['code' => $reference_code])
                     ->withSuccess("Kontrak #$kontrak->id_kontrak telah disetujui! Silahkan melanjutkan pembayaran.");
             } else {
                 $kontrak->status_kontrak = 'TIDAK SETUJU';
                 $kontrak->save();
-                $pemesanan->status_pemesanan = 'MENUNGGU';
+                $pemesanan->status_pesanan = 'MENUNGGU';
                 $pemesanan->id_mentor = NULL;
                 $pemesanan->id_kontrak = NULL;
                 $pemesanan->save();

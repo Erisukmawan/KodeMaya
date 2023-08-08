@@ -133,21 +133,21 @@
                                                                 <td class="table-td ">
                                                                     {{ $pemesanan_mentor->nama_pelanggan }}</td>
                                                                 <td class="table-td ">
-                                                                    @if ($pemesanan_mentor->status_pemesanan == 'MENUNGGU')
+                                                                    @if ($pemesanan_mentor->status_pesanan == 'MENUNGGU')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">{{ $pemesanan_mentor->status_pemesanan }}</span>
-                                                                    @elseif ($pemesanan_mentor->status_pemesanan == 'DIPROSES')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">{{ $pemesanan_mentor->status_pesanan }}</span>
+                                                                    @elseif ($pemesanan_mentor->status_pesanan == 'DIPROSES')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-primary-500 bg-primary-500">{{ $pemesanan_mentor->status_pemesanan }}</span>
-                                                                    @elseif ($pemesanan_mentor->status_pemesanan == 'DIPERIKSA')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-primary-500 bg-primary-500">{{ $pemesanan_mentor->status_pesanan }}</span>
+                                                                    @elseif ($pemesanan_mentor->status_pesanan == 'DIPERIKSA')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-500 bg-info-500">{{ $pemesanan_mentor->status_pemesanan }}</span>
-                                                                    @elseif ($pemesanan_mentor->status_pemesanan == 'SELESAI')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-500 bg-info-500">{{ $pemesanan_mentor->status_pesanan }}</span>
+                                                                    @elseif ($pemesanan_mentor->status_pesanan == 'SELESAI')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">{{ $pemesanan_mentor->status_pemesanan }}</span>
-                                                                    @elseif ($pemesanan_mentor->status_pemesanan == 'DIBATALKAN')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">{{ $pemesanan_mentor->status_pesanan }}</span>
+                                                                    @elseif ($pemesanan_mentor->status_pesanan == 'DIBATALKAN')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">{{ $pemesanan_mentor->status_pemesanan }}</span>
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">{{ $pemesanan_mentor->status_pesanan }}</span>
                                                                     @endif
                                                                 </td>
                                                                 <td class="table-td ">
@@ -191,21 +191,21 @@
                                                                 </td>
                                                                 <td class="table-td ">{{ $pesanan->nama_pelanggan }}</td>
                                                                 <td class="table-td ">
-                                                                    @if ($pesanan->status_pemesanan == 'MENUNGGU')
+                                                                    @if ($pesanan->status_pesanan == 'MENUNGGU')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">{{ $pesanan->status_pemesanan }}</span>
-                                                                    @elseif ($pesanan->status_pemesanan == 'DIPROSES')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">{{ $pesanan->status_pesanan }}</span>
+                                                                    @elseif ($pesanan->status_pesanan == 'DIPROSES')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-primary-500 bg-primary-500">{{ $pesanan->status_pemesanan }}</span>
-                                                                    @elseif ($pesanan->status_pemesanan == 'DIPERIKSA')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-primary-500 bg-primary-500">{{ $pesanan->status_pesanan }}</span>
+                                                                    @elseif ($pesanan->status_pesanan == 'DIPERIKSA')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-500 bg-info-500">{{ $pesanan->status_pemesanan }}</span>
-                                                                    @elseif ($pesanan->status_pemesanan == 'SELESAI')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-500 bg-info-500">{{ $pesanan->status_pesanan }}</span>
+                                                                    @elseif ($pesanan->status_pesanan == 'SELESAI')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">{{ $pesanan->status_pemesanan }}</span>
-                                                                    @elseif ($pesanan->status_pemesanan == 'DIBATALKAN')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">{{ $pesanan->status_pesanan }}</span>
+                                                                    @elseif ($pesanan->status_pesanan == 'DIBATALKAN')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">{{ $pesanan->status_pemesanan }}</span>
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">{{ $pesanan->status_pesanan }}</span>
                                                                     @endif
                                                                 </td>
                                                                 <td class="table-td ">
@@ -306,19 +306,19 @@
                                                                     <div class="flex space-x-3 px-6 rtl:space-x-reverse">
                                                                         <div class="flex-none">
                                                                             <div class="h-10 w-10 rounded-full relative">
-                                                                                @if ($pesanan->status_pemesanan == 'MENUNGGU')
+                                                                                @if ($pesanan->status_pesanan == 'MENUNGGU')
                                                                                     <span
                                                                                         class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-warning-500 "></span>
-                                                                                @elseif ($pesanan->status_pemesanan == 'DIPROSES')
+                                                                                @elseif ($pesanan->status_pesanan == 'DIPROSES')
                                                                                     <span
                                                                                         class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-primary-500 "></span>
-                                                                                @elseif ($pesanan->status_pemesanan == 'DIPERIKSA')
+                                                                                @elseif ($pesanan->status_pesanan == 'DIPERIKSA')
                                                                                     <span
                                                                                         class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-info-500 "></span>
-                                                                                @elseif ($pesanan->status_pemesanan == 'SELESAI')
+                                                                                @elseif ($pesanan->status_pesanan == 'SELESAI')
                                                                                     <span
                                                                                         class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-success-500 "></span>
-                                                                                @elseif ($pesanan->status_pemesanan == 'DIBATALKAN')
+                                                                                @elseif ($pesanan->status_pesanan == 'DIBATALKAN')
                                                                                     <span
                                                                                         class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-danger-500 "></span>
                                                                                 @endif
@@ -479,21 +479,21 @@
                                                                     {{ $pesanan->nama_pelanggan }}
                                                                 </td>
                                                                 <td class="table-td ">
-                                                                    @if ($pesanan->status_pemesanan == 'MENUNGGU')
+                                                                    @if ($pesanan->status_pesanan == 'MENUNGGU')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">{{ $pesanan->status_pemesanan }}</span>
-                                                                    @elseif ($pesanan->status_pemesanan == 'DIPROSES')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-warning-500 bg-warning-500">{{ $pesanan->status_pesanan }}</span>
+                                                                    @elseif ($pesanan->status_pesanan == 'DIPROSES')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-primary-500 bg-primary-500">{{ $pesanan->status_pemesanan }}</span>
-                                                                    @elseif ($pesanan->status_pemesanan == 'DIPERIKSA')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-primary-500 bg-primary-500">{{ $pesanan->status_pesanan }}</span>
+                                                                    @elseif ($pesanan->status_pesanan == 'DIPERIKSA')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-500 bg-info-500">{{ $pesanan->status_pemesanan }}</span>
-                                                                    @elseif ($pesanan->status_pemesanan == 'SELESAI')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-info-500 bg-info-500">{{ $pesanan->status_pesanan }}</span>
+                                                                    @elseif ($pesanan->status_pesanan == 'SELESAI')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">{{ $pesanan->status_pemesanan }}</span>
-                                                                    @elseif ($pesanan->status_pemesanan == 'DIBATALKAN')
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-success-500 bg-success-500">{{ $pesanan->status_pesanan }}</span>
+                                                                    @elseif ($pesanan->status_pesanan == 'DIBATALKAN')
                                                                         <span
-                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">{{ $pesanan->status_pemesanan }}</span>
+                                                                            class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">{{ $pesanan->status_pesanan }}</span>
                                                                     @endif
                                                                 </td>
                                                                 <td class="table-td ">

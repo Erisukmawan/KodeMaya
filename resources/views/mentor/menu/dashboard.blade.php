@@ -104,7 +104,7 @@
                                                             <span class="flex items-center space-x-3 rtl:space-x-reverse">
                                                                 <span
                                                                     class="h-[6px] w-[6px] bg-danger-500 rounded-full inline-block ring-4 ring-opacity-30 ring-danger-500"></span>
-                                                                <span>{{ $pesanan->status_pemesanan }}</span>
+                                                                <span>{{ $pesanan->status_pesanan }}</span>
                                                             </span>
                                                         </span>
                                                     </span>

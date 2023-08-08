@@ -62,17 +62,17 @@
     </div>
     <div class="mb-10 mt-7 p-4 relative text-center rounded-2xl">
         @if ($pesanan_belum_bayar)
-            <div class="flex max-w-[300px] mx-auto">
+            <div class="flex max-w-[500px] mx-auto">
                 <img src="{{ url('assets/images/svg/Sapa.svg') }}" alt="" class="flex-1 w-8 relative mt-[73px]">
                 <div class="mt-2">
-                    <div class="widget-title dark:text-white">No Pembayaran #{{ $pesanan_belum_bayar->kode_referensi }}</div>
+                    <div class="widget-title dark:text-white">No Pembayaran #{{ $pesanan_belum_bayar->getReferenceCode() }}</div>
                     <div class="text-sm font-bold dark:text-white">
                         Belum Kamu Bayar
                     </div>
                 </div>
             </div>
             <div class=" bg-danger-500 rounded-2xl mb-10 p-4">
-                <a href="{{ route('customer.menu.pembayaran.checkout', ['code' => $pesanan_belum_bayar->kode_referensi]) }}"><button
+                <a href="{{ route('customer.menu.pembayaran.checkout', ['code' => $pesanan_belum_bayar->getReferenceCode()]) }}"><button
                         class="btn bg-white hover:bg-opacity-80 text-slate-900 btn-sm w-full block">
                         <span>Bayar Sekarang </span>
                         <iconify-icon icon="heroicons:arrow-right"></iconify-icon>

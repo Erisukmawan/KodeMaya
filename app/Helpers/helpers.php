@@ -115,11 +115,25 @@ function initPusher(): Pusher
     return $pusher;
 }
 
+function systemNotify(string $type, string $message, $data)
+{
+    $pusher = initPusher();
+    $now = Carbon::now()->timezone('Asia/Jakarta')->timestamp;
+    $data_notify = array(
+        'type' => $type,
+        'message' => $message,
+        'data' => $data,
+    );
+    $pusher->trigger('system-notify.' . $type, 'notify-event', $data_notify);
+
+    return $now;
+}
+
 function customerSendMessage(Pelanggan $user, string $order_id, string $message, string $type)
 {
     $order = Pemesanan::where('id_pemesanan', $order_id)->first();
     $pusher = initPusher();
-    $now = Carbon::now()->timezone('Asia/Manila')->timestamp;
+    $now = Carbon::now()->timezone('Asia/Jakarta')->timestamp;
     $data = array(
         'order_id' => $order_id,
         'user_id' => $user->id_pelanggan,
@@ -138,7 +152,7 @@ function mentorSendMessage(Mentor $user, string $order_id, string $message, stri
 {
     $order = Pemesanan::where('id_pemesanan', $order_id)->first();
     $pusher = initPusher();
-    $now = Carbon::now()->timezone('Asia/Manila')->timestamp;
+    $now = Carbon::now()->timezone('Asia/Jakarta')->timestamp;
     $data = array(
         'order_id' => $order_id,
         'user_id' => $user->id_mentor,
@@ -213,7 +227,7 @@ function requestInvoice($pesanan)
 {
     $apiKey       = 'DEV-qEUudU7DQFbWr9ufoZktGdJJpOzff4bY8DQOkSaF';
     // $apiKey       = 'czKesl2x2oIUTOkGrXquJjMqCJrwPqG6J4wr1aJT';
-    $merchantRef  = $pesanan->kode_referensi;
+    $merchantRef  = getReferenceCode($pesanan->id_pemesanan, $pesanan->nama_projek);
     $amount       = $pesanan->total_harga;
     $signature    = createOrderSignature($merchantRef, $amount);
 
@@ -234,7 +248,7 @@ function requestInvoice($pesanan)
                 // 'image_url'   => 'https://tokokamu.com/product/nama-produk-1.jpg',
             ]
         ],
-        'return_url'   => 'https://kodemaya.my.id/redirect',
+        'return_url'   => env('APP_URL').'/customer/pembayaran',
         'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
         'signature'    => $signature
     ];
@@ -301,16 +315,7 @@ function detailInvoice($tripayReference)
     }
 }
 
-function generateReferenceCode(string $first_code, $length = 8)
+function getReferenceCode(string $product_id, string $product_name)
 {
-    $characters = '0123456789';
-    $referenceCode = '';
-
-    $characterCount = strlen($characters);
-    for ($i = 0; $i < $length; $i++) {
-        $randomCharacter = $characters[rand(0, $characterCount - 1)];
-        $referenceCode .= $randomCharacter;
-    }
-
-    return str_pad($first_code, 4, "0") . $referenceCode;
+    return substr(strtoupper(md5($product_id.$product_name)), 0, 15).str_pad($product_id, 5, "0", STR_PAD_LEFT);
 }

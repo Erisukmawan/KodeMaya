@@ -32,19 +32,19 @@
                         <div class="relative">
                             <span
                                 class="text-normal font-Inter font-normal text-slate-800 mt-2 dark:text-white inline-block">
-                                @if ($pemesanan->status_pemesanan == 'MENUNGGU')
+                                @if ($pemesanan->status_pesanan == 'MENUNGGU')
                                     <span
                                         class="block font-normal w-full rounded-2xl bg-warning-500 text-white dark:text-slate-800 text-sm p-1">Menunggu</span>
-                                @elseif ($pemesanan->status_pemesanan == 'DIPROSES')
+                                @elseif ($pemesanan->status_pesanan == 'DIPROSES')
                                     <span
                                         class="block font-normal w-full rounded-2xl bg-primary-500 text-white dark:text-slate-800 text-sm p-1">Diproses</span>
-                                @elseif ($pemesanan->status_pemesanan == 'DIPERIKSA')
+                                @elseif ($pemesanan->status_pesanan == 'DIPERIKSA')
                                     <span
                                         class="block font-normal w-full rounded-2xl bg-info-500 text-white dark:text-slate-800 text-sm p-1">Diperiksa</span>
-                                @elseif ($pemesanan->status_pemesanan == 'SELESAI')
+                                @elseif ($pemesanan->status_pesanan == 'SELESAI')
                                     <span
                                         class="block font-normal w-full rounded-2xl bg-success-500 text-white dark:text-slate-800 text-sm p-1">Selesai</span>
-                                @elseif ($pemesanan->status_pemesanan == 'DIBATALKAN')
+                                @elseif ($pemesanan->status_pesanan == 'DIBATALKAN')
                                     <span
                                         class="block font-normal w-full rounded-2xl bg-danger-500 text-white dark:text-slate-800 text-sm p-1">Dibatalkan</span>
                                 @endif

@@ -9,6 +9,11 @@ class Pemesanan extends Model
 {
     use HasFactory;
 
+    public function getReferenceCode()
+    {
+        return substr(strtoupper(md5($this->id_pemesanan.$this->nama_projek)), 0, 15).str_pad($this->id_pemesanan, 5, "0", STR_PAD_LEFT);;
+    }
+
     protected $table = "pemesanan";
 
     public $incrementing = true;

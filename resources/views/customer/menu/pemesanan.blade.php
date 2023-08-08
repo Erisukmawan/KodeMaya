@@ -115,21 +115,21 @@
                                                 </div>
                                             </div>
                                             <div class="flex-none">
-                                                @if ($pesanan->status_pemesanan == 'MENUNGGU')
+                                                @if ($pesanan->status_pesanan == 'MENUNGGU')
                                                     <span
-                                                        class="block font-normal w-full rounded-2xl bg-warning-500 text-white dark:text-slate-800 text-sm p-1">Menunggu</span>
-                                                @elseif ($pesanan->status_pemesanan == 'DIPROSES')
+                                                        class="block font-normal px-4 w-full rounded-2xl bg-warning-500 text-white dark:text-slate-800 text-sm p-1">Menunggu</span>
+                                                @elseif ($pesanan->status_pesanan == 'DIPROSES')
                                                     <span
-                                                        class="block font-normal w-full rounded-2xl bg-primary-500 text-white dark:text-slate-800 text-sm p-1">Diproses</span>
-                                                @elseif ($pesanan->status_pemesanan == 'DIPERIKSA')
+                                                        class="block font-normal px-4 w-full rounded-2xl bg-primary-500 text-white dark:text-slate-800 text-sm p-1">Diproses</span>
+                                                @elseif ($pesanan->status_pesanan == 'DIPERIKSA')
                                                     <span
-                                                        class="block font-normal w-full rounded-2xl bg-info-500 text-white dark:text-slate-800 text-sm p-1">Diperiksa</span>
-                                                @elseif ($pesanan->status_pemesanan == 'SELESAI')
+                                                        class="block font-normal px-4 w-full rounded-2xl bg-info-500 text-white dark:text-slate-800 text-sm p-1">Diperiksa</span>
+                                                @elseif ($pesanan->status_pesanan == 'SELESAI')
                                                     <span
-                                                        class="block font-normal w-full rounded-2xl bg-success-500 text-white dark:text-slate-800 text-sm p-1">Selesai</span>
-                                                @elseif ($pesanan->status_pemesanan == 'DIBATALKAN')
+                                                        class="block font-normal px-4 w-full rounded-2xl bg-success-500 text-white dark:text-slate-800 text-sm p-1">Selesai</span>
+                                                @elseif ($pesanan->status_pesanan == 'DIBATALKAN')
                                                     <span
-                                                        class="block font-normal w-full rounded-2xl bg-danger-500 text-white dark:text-slate-800 text-sm p-1">Dibatalkan</span>
+                                                        class="block font-normal px-4 w-full rounded-2xl bg-danger-500 text-white dark:text-slate-800 text-sm p-1">Dibatalkan</span>
                                                 @endif
                                             </div>
                                         </header>
@@ -245,19 +245,19 @@
                                                 <div class="flex space-x-3 px-6 rtl:space-x-reverse">
                                                     <div class="flex-none">
                                                         <div class="h-10 w-10 rounded-full relative">
-                                                            @if ($pesanan->status_pemesanan == 'MENUNGGU')
+                                                            @if ($pesanan->status_pesanan == 'MENUNGGU')
                                                                 <span
                                                                     class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-warning-500 "></span>
-                                                            @elseif ($pesanan->status_pemesanan == 'DIPROSES')
+                                                            @elseif ($pesanan->status_pesanan == 'DIPROSES')
                                                                 <span
                                                                     class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-primary-500 "></span>
-                                                            @elseif ($pesanan->status_pemesanan == 'DIPERIKSA')
+                                                            @elseif ($pesanan->status_pesanan == 'DIPERIKSA')
                                                                 <span
                                                                     class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-info-500 "></span>
-                                                            @elseif ($pesanan->status_pemesanan == 'SELESAI')
+                                                            @elseif ($pesanan->status_pesanan == 'SELESAI')
                                                                 <span
                                                                     class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-success-500 "></span>
-                                                            @elseif ($pesanan->status_pemesanan == 'DIBATALKAN')
+                                                            @elseif ($pesanan->status_pesanan == 'DIBATALKAN')
                                                                 <span
                                                                     class=" status ring-1 ring-white inline-block h-[10px] w-[10px] rounded-full absolute -right-0 top-0 bg-danger-500 "></span>
                                                             @endif
@@ -383,8 +383,8 @@
                                     <header class="card-header">
                                         <div class="flex-1">
                                             <div class="text-xl text-sm text-black dark:text-white mb-2">
-                                                <span class="block font-normal">No Pesanan :
-                                                    #{{ $pesanan->id_pemesanan }}</span>
+                                                <span class="block font-normal">No Kontrak :
+                                                    #{{ $pesanan->id_kontrak }}</span>
                                             </div>
                                         </div>
                                         <div class="flex-none">
@@ -425,7 +425,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a href="{{ route('customer.menu.pemesanan.detail-kontrak', ['id' => $pesanan->id_pemesanan]) }}"
+                                            <a href="{{ route('customer.menu.pemesanan.detail-kontrak', ['id' => $pesanan->id_kontrak]) }}"
                                                 class="inline-flex items-center space-x-3 rtl:space-x-reverse text-sm capitalize dark:bg-slate-700 bg-slate-200 rounded-full p-2 font-medium text-slate-600 dark:text-slate-300">
                                                 <span>Setujui Kontrak</span>
                                                 <iconify-icon icon="heroicons:arrow-right"></iconify-icon>
@@ -563,7 +563,7 @@
                     "id": order_id
                 },
                 success: function(data) {
-                    if (data.status_pemesanan == "MENUNGGU") {
+                    if (data.status_pesanan == "MENUNGGU") {
                         Toast.fire('', 'Belum diambil oleh mentor', 'info')
                     } else {
                         $('#chat-content').attr('data-order_id', order_id)

@@ -43,7 +43,7 @@
                             <div class="flex-1">
                                 <div class="card-title text-slate-900 dark:text-white">Deskripsi Pesanan</div>
                             </div>
-                            <input type="text" name="refcode" value="{{ $pemesanan->kode_referensi }}" hidden>
+                            <input type="text" name="refcode" value="{{ $pemesanan->getReferenceCode() }}" hidden>
                             <input type="text" name="id_pemesanan" value="{{ $pemesanan->id_pemesanan }}" hidden>
                             <div class="relative">
                                 <table style="b width:100%">
@@ -131,7 +131,7 @@
                                                 <div class="flex justify-center mb-2">
                                                     <img src="{{ $payment->icon_url }}" alt="user"
                                                         data-tippy-content="{{ $payment->name }}"
-                                                        class="toolTip onTop block w-auto h-8 object-cover border border-transparent">
+                                                        class="toolTip onTop block w-auto h-6 object-cover border border-transparent">
                                                 </div>
                                                 <input type="radio" class="hidden" name="payment_method"
                                                     data-type="{{ $payment->type }}"
@@ -159,7 +159,7 @@
                                                 <div class="flex justify-center mb-2">
                                                     <img src="{{ $payment->icon_url }}" alt="user"
                                                         data-tippy-content="{{ $payment->name }}"
-                                                        class="toolTip onTop block w-auto h-8 object-cover border border-transparent">
+                                                        class="toolTip onTop block w-auto h-6 object-cover border border-transparent">
                                                 </div>
                                                 <input type="radio" class="hidden" name="payment_method"
                                                     data-type="{{ $payment->type }}"
@@ -187,7 +187,7 @@
                                                 <div class="flex justify-center mb-2">
                                                     <img src="{{ $payment->icon_url }}" alt="user"
                                                         data-tippy-content="{{ $payment->name }}"
-                                                        class="toolTip onTop block w-auto h-8 object-cover border border-transparent">
+                                                        class="toolTip onTop block w-auto h-6 object-cover border border-transparent">
                                                 </div>
                                                 <input type="radio" class="hidden" name="payment_method"
                                                     data-type="{{ $payment->type }}"

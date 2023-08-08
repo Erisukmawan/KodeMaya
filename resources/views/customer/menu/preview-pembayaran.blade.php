@@ -1,7 +1,8 @@
 @extends('customer.template')
 @section('main-content')
     <div class="lg:flex justify-between flex-wrap items-center mb-6">
-        <h4>Bukti Pembayaran
+        <h4>
+            {{ $pemesanan->status_pembayaran == 'TERBAYAR' ? 'Bukti Pembayaran' : 'Tagihan Pembayaran' }}
         </h4>
         <div class="flex lg:justify-end items-center flex-wrap space-xy-5">
 
@@ -24,34 +25,6 @@
                 </span>
                 <span>Print</span>
             </button>
-            <button
-                class="invocie-btn inline-flex btn btn-sm whitespace-nowrap space-x-1 cursor-pointer bg-white dark:bg-slate-800
-                    dark:text-slate-300 btn-md h-min text-sm font-normal text-slate-900 rtl:space-x-reverse">
-                <span class="text-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-                        role="img" class="iconify iconify--heroicons" width="1em" height="1em" viewbox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3">
-                        </path>
-                    </svg>
-                </span>
-                <span>Download</span>
-            </button>
-            <button
-                class="invocie-btn inline-flex btn btn-sm whitespace-nowrap space-x-1 cursor-pointer bg-white dark:bg-slate-800
-                    dark:text-slate-300 btn-md h-min text-sm font-normal text-slate-900 rtl:space-x-reverse">
-                <span class="text-lg transform -rotate-45">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-                        role="img" class="iconify iconify--heroicons" width="1em" height="1em" viewbox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M6 12L3.269 3.126A59.768 59.768 0 0 1 21.485 12A59.77 59.77 0 0 1 3.27 20.876L5.999 12Zm0 0h7.5">
-                        </path>
-                    </svg>
-                </span>
-                <span>Send invoice</span>
-            </button>
         </div>
     </div>
     <div class="card ">
@@ -59,7 +32,7 @@
             <div class="flex justify-between flex-wrap space-y-4 px-6 pt-6 bg-slate-50 dark:bg-slate-800 pb-6 rounded-t-md">
                 <div>
                     <img src="{{ url('assets/images/logo/logo.svg') }}" alt="kodemaya logo" class="mb-10 dark_logo">
-                    <div class="text-slate-500 dark:text-slate-300 font-normal leading-5 mt-4 text-sm">KodeMaya <br>
+                    <div class="text-slate-500 dark:text-slate-300 font-normal leading-5 mt-4 text-sm">
                         Jl. Dipati Ukur No.112-116, Lebakgede,<br>
                         Kecamatan Coblong, Kota Bandung, <br>Jawa Barat 40132
                         <div class="flex space-x-2 mt-2 leading-[1] rtl:space-x-reverse">
@@ -96,8 +69,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 aria-hidden="true" role="img" class="iconify iconify--heroicons-outline" width="1em"
                                 height="1em" viewbox="0 0 24 24">
-                                <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
                                     d="M3 5a2 2 0 0 1 2-2h3.28a1 1 0 0 1 .948.684l1.498 4.493a1 1 0 0 1-.502 1.21l-2.257 1.13a11.042 11.042 0 0 0 5.516
                                         5.516l1.13-2.257a1 1 0 0 1 1.21-.502l4.493 1.498a1 1 0 0 1 .684.949V19a2 2 0 0 1-2 2h-1C9.716 21 3 14.284 3 6V5Z">
                                 </path>
@@ -106,10 +79,10 @@
                         </div>
                         <div class="mt-[6px] flex space-x-2 leading-[1] rtl:space-x-reverse">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                aria-hidden="true" role="img" class="iconify iconify--heroicons-outline"
-                                width="1em" height="1em" viewbox="0 0 24 24">
-                                <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"
+                                aria-hidden="true" role="img" class="iconify iconify--heroicons-outline" width="1em"
+                                height="1em" viewbox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
                                     d="m3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2Z">
                                 </path>
                             </svg>
@@ -122,7 +95,7 @@
                         class="block text-slate-900 dark:text-slate-300 font-medium leading-5 text-xl mb-4">Invoice:</span>
                     <h4 class="text-slate-600 font-medium dark:text-slate-300 text-xs uppercase">Invoice number:</h4>
                     <div class="text-slate-500 dark:text-slate-300 font-normal leading-5 text-sm">
-                        #{{ $pemesanan->kode_referensi_tripay }}</div>
+                        #{{ $pemesanan->kode_referensi }}</div>
                     <h4 class="text-slate-600 font-medium dark:text-slate-300 text-xs uppercase">Expire Time</h4>
                     <div class="text-slate-500 dark:text-slate-300 font-normal leading-5 text-sm">
                         {{ date('Y-m-d H:i:s', $invoice->expired_time) }}</div>
@@ -205,13 +178,24 @@
                     </div>
                 </div>
                 <div class="py-2"></div>
-                {{-- <div class="py-10 text-center md:text-2xl text-xl font-normal text-slate-600 dark:text-slate-300">Thank you for
-                your
-                purchase!</div> --}}
+                @if ($pemesanan->status_pembayaran == 'TERBAYAR')
+                    <div class="py-10 text-center md:text-2xl text-xl font-normal text-slate-600 dark:text-slate-300">
+                        Terimakasih, pembayaran diterima!
+                    </div>
+                @elseif ($pemesanan->status_pembayaran == 'KADALUARSA')
+                    <div class="py-10 text-center md:text-2xl text-xl font-normal text-slate-600 dark:text-slate-300">
+                        Maaf, waktu pembayaran telah habis.
+                    </div>
+                @elseif ($pemesanan->status_pembayaran == 'GAGAL')
+                    <div class="py-10 text-center md:text-2xl text-xl font-normal text-slate-600 dark:text-slate-300">
+                        Maaf, pembayaran gagal.
+                    </div>
+                @endif
         </main>
     </div>
     <!-- novirtual -->
-    <div class="card xl:col-span-2 rounded-md bg-white dark:bg-slate-800 lg:h-full shadow-base">
+    <div class="card xl:col-span-2 rounded-md bg-white dark:bg-slate-800 lg:h-full shadow-base"
+        {{ $pemesanan->status_pembayaran == 'TERBAYAR' || $pemesanan->status_pembayaran == 'KADALUARSA' || $pemesanan->status_pembayaran == 'GAGAL' ? 'hidden' : '' }}>
         <div class="card-body flex flex-col p-6">
             <header
                 class="flex mb-5 pb-5 -mx-6 px-6 items-center  justify-center text-center border-b border-slate-100 dark:border-slate-700 ">
@@ -220,7 +204,7 @@
                         class="block w-20 h-auto pr-3 border hover:border-white border-transparent justify-center place-content-center"> --}}
                     <span
                         class="text-slate-900 w-full font-Inter font-bold text-xl leading-6 capitalize dark:text-slate-300">
-                      {{ $invoice->payment_name }}</span>
+                        {{ $invoice->payment_name }}</span>
                 </div>
             </header>
             <input type="text" id="expire-time" value="{{ $invoice->expired_time }}" hidden>
@@ -241,8 +225,9 @@
                         <div class="relative">
                             <span
                                 class="text-base font-Inter font-bold dark:text-slate-200 text-slate-900 mt-2 inline-block">
-                              <a href="{{ $invoice->pay_url ? $invoice->pay_url : $invoice->checkout_url }}" target="_blank">Bayar -></a>
-                              </span>
+                                <a href="{{ $invoice->pay_url ? $invoice->pay_url : $invoice->checkout_url }}"
+                                    target="_blank">Bayar -></a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -252,6 +237,17 @@
 @endsection
 
 @section('custom-script')
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+        var pusher = new Pusher('2144bc95f007e22453fb', {
+            cluster: 'ap1'
+        });
+
+        var channel = pusher.subscribe(`system-notify.{{ $pemesanan->getReferenceCode() }}`);
+        channel.bind('notify-event', function(data) {
+            console.log(data);
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $('.idr-currency').text(currency.format(parseInt($('.idr-currency').text())))
