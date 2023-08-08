@@ -112,7 +112,7 @@
                                                             <th scope="col" class=" table-th ">Kategori</th>
                                                             <th scope="col" class=" table-th ">Customer</th>
                                                             <th scope="col" class=" table-th ">Status</th>
-                                                            <th scope="col" class=" table-th ">Action</th>
+                                                            <th scope="col" class=" table-th text-center">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody
@@ -150,27 +150,14 @@
                                                                             class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">{{ $pemesanan_mentor->status_pesanan }}</span>
                                                                     @endif
                                                                 </td>
-                                                                <td class="table-td ">
-                                                                    <div class="flex space-x-2">
+                                                                <td class="table-td text-center">
+                                                                    <div class="">
                                                                         <a
                                                                             href="{{ route('mentor.menu.pemesanan.detail_pemesanan', ['id' => $pemesanan_mentor->id_pemesanan]) }}">
                                                                             <span
                                                                                 class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-primary-600 text-white "
                                                                                 data-tippy-content="Detail projek">
                                                                                 <iconify-icon icon="heroicons:eye">
-                                                                                </iconify-icon>
-                                                                            </span>
-                                                                        </a>
-                                                                        <a href="#tabs-negosiasi" class="nav-link w-full"
-                                                                            id="tabs-negosiasi-tab" data-bs-toggle="pill"
-                                                                            data-bs-target="#tabs-negosiasi"
-                                                                            role="tab" aria-controls="tabs-negosiasi"
-                                                                            aria-selected="false">
-                                                                            <span
-                                                                                class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-warning-600 text-white "
-                                                                                data-tippy-content="Negosiasi"
-                                                                                data-tippy-theme="seccondary">
-                                                                                <iconify-icon icon="material-symbols:chat">
                                                                                 </iconify-icon>
                                                                             </span>
                                                                         </a>

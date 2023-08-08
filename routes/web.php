@@ -30,63 +30,6 @@ Route::get('/dalam-pengembangan', [LandingPageController::class, 'pengembangan']
 Route::get('/gakada', [LandingPageController::class, 'gakada'])->name('gakada');
 
 
-// Route::get('/list-dir', function() {
-//     $folder = env('GOOGLE_DRIVE_FOLDER_PROFILE');
-//     $result = "";
-//     // $listContent = Storage::disk('google')->listContents($folder);
-
-//     // $filename = "8533607e-a39e-44cb-aa7a-2268274251d2";
-
-//     // foreach ($listContent as $item) {
-//     //     if ($item['extra_metadata']['filename'] == $filename) {
-//     //         $result = $item;
-//     //     } else {
-//     //         $result = false;
-//     //     }
-//     // }
-//     // $result = Storage::disk('google')->delete('18mQQedj4Qbn6y6_h8IDdBMezfe__PACA/10aP3bJ694h_wW0u6OJCy84ayC6fLUbFn');
-//     $result = Storage::disk('google')->delete('1ixaaEjCkf8Qz0tpjdM7bcibeZn04rnWq');
-//     // $path = "KodeMaya Files/Profiles/8533607e-a39e-44cb-aa7a-2268274251d2.png";
-//     // $result = Storage::disk('google')->files('1CGtusA0vlbxRyWXFCsCizZuE6uYmzGIc/18mQQedj4Qbn6y6_h8IDdBMezfe__PACA');
-
-//     return $result;
-// });
-
-// Route::get('/list-files', function() {
-//     // The human readable folder name to get the contents of...
-//     // For simplicity, this folder is assumed to exist in the root directory.
-//     // $folder = '17MLpOnKad2ren9enhC2jYV7Y0uKIhxky';
-//     // $filePath = 'KodeMaya Files/Document/Kodemaya Mentor.zip';
-//     // $filePath = '1CGtusA0vlbxRyWXFCsCizZuE6uYmzGIc/1OezXwRST-KXI6DmVuybmMXOu2hdwrIZ5/Kodemaya Mentor.zip';
-//     $fileId = '1OezXwRST-KXI6DmVuybmMXOu2hdwrIZ5/1a9eK0-SohO8wb5GWVxPQu13gJVpp3U2h';
-//     // Get directory contents...
-//     // $files = collect(Storage::disk('google')->listContents($folder, true));
-//     // $files = Storage::disk('google')->allFiles($folder);
-//     // $files = Storage::disk('google')->get($fileId);
-//     // $files = Storage::disk('google')->getAdapter()->getMetadata($fileId);
-
-//     return $files;
-//     // return $files->mapWithKeys(function($file) {
-//     //     return [$file->path() => pathinfo($file->path(),PATHINFO_BASENAME)];
-//     // });
-// });
-
-// Route::get('/create-dir', function() {
-//     Storage::disk('google')->makeDirectory('/1TIGPlwR94tafFHQfg9uNYmF_sLhB8UXT/Test Dir');
-//     return 'Directory was created in Google Drive';
-// });
-
-// Route::controller(LoginRegisterController::class)->group(function () {
-// Route::get('/dashboard', 'dashboard')->name('dashboard');
-//     Route::get('/register', 'register')->name('register');
-//     Route::get('/register-mentor', 'register_mentor')->name('register-mentor');
-//     Route::get('/verify', 'verify')->name('verify');
-//     Route::post('/store', 'store')->name('store');
-// Route::get('/login', 'login')->name('login');
-//     Route::post('/authenticate', 'authenticate')->name('authenticate');
-//     Route::post('/logout', 'logout')->name('logout');
-// });
-
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
     Route::get('/register', 'register')->name('register');
@@ -116,7 +59,8 @@ Route::middleware(['admin'])->controller(AdminController::class)->group(function
     Route::get('/admin/enum', 'view_manage_enum')->name('admin.menu.parameter.enum');
     Route::get('/admin/profile', 'view_profile')->name('admin.profile');
     Route::get('/admin/review', 'view_review')->name('admin.menu.review');
-    Route::get('/admin/review/detail', 'view_detail')->name('admin.menu.review.detail_pemesanan');
+    Route::get('/admin/review/detail', 'view_detail_review')->name('admin.menu.review.detail_pemesanan');
+    Route::post('/admin/review/process/{id}', 'process_review')->name('admin.menu.review.process');
 });
 
 Route::middleware(['financial'])->controller(FinancialController::class)->group(function () {

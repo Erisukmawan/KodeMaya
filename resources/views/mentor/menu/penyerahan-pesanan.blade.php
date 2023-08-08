@@ -1,15 +1,5 @@
 @extends('mentor/template')
 @section('main-content')
-    <div class="flex lg:justify-end items-center flex-wrap space-xy-5 ">
-        <a href="{{ route('mentor.menu.penyerahan-pesanan.pengerjaan_pemesanan') }}"><button type="button"
-                class="invocie-btn inline-flex btn btn-sm whitespace-nowrap space-x-2 cursor-pointer bg-primary-400
-                    dark:text-white btn-md h-min text-sm font-normal text-white">
-                <span class="text-lg">
-                    <iconify-icon icon="line-md:upload-loop"></iconify-icon>
-                </span>
-                <span class="text-lg">Upload projek</span>
-            </button></a>
-    </div>
     <div class="card">
         <header class=" card-header noborder">
             <h4 class="card-title">pesanan projek Selesai
@@ -32,7 +22,7 @@
                                     <th scope="col" class=" table-th ">Total</th>
                                     <th scope="col" class=" table-th ">Status Pemesanan</th>
                                     <th scope="col" class=" table-th ">Status Pembayaran</th>
-                                    <th scope="col" class=" table-th "></th>
+                                    <th scope="col" class=" table-th ">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
@@ -77,6 +67,11 @@
                                                 <div
                                                     class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">
                                                     {{ $pesanan->status_pembayaran }}
+                                                </div>
+                                            @else
+                                                <div
+                                                    class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">
+                                                    BELUM DIBUAT
                                                 </div>
                                             @endif
                                         </td>

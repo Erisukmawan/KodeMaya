@@ -1,14 +1,14 @@
 @extends('financial/template')
 @section('main-content')
-<button onclick="getPDF()"
-                            class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-600 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
-                            <iconify-icon icon="line-md:download-loop"></iconify-icon> 
-                            <span class="font-Inter items-center justify-center"
-                                style="text-align:'center'; color:white">Download</span>
-                        </button>
-                        <button id="export"class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-800 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
-                            <iconify-icon icon="teenyicons:csv-outline"></iconify-icon>Export CSV</button>
-    <div class=" space-y-5 canvas_div_pdf"id='printable_div_id' >
+    <button onclick="getPDF()"
+        class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-600 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
+        <iconify-icon icon="line-md:download-loop"></iconify-icon>
+        <span class="font-Inter items-center justify-center" style="text-align:'center'; color:white">Download</span>
+    </button>
+    <button
+        id="export"class=" px-4 py-2 hover:bg-slate-600 dark:hover:bg-slate-600 bg-info-800 dark:hover:text-white font-inter text-sm w-2/4   text-white dark:text-white font-normal">
+        <iconify-icon icon="teenyicons:csv-outline"></iconify-icon>Export CSV</button>
+    <div class=" space-y-5 canvas_div_pdf"id='printable_div_id'>
         <div class="card">
             <header class=" card-header noborder justify-center items-center">
                 <img src="{{ url('assets/images/logo/logo.svg') }}" alt="" class="">
@@ -22,8 +22,8 @@
                     <span class="  col-span-4 hidden"></span>
                     <div class="inline-block min-w-full align-middle">
                         <div class="overflow-hidden ">
-                            <table id="exportMe" class="table min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700"
-                                >
+                            <table id="exportMe"
+                                class="table min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700">
                                 <thead class=" border-t border-slate-100 dark:border-slate-800">
                                     <tr>
                                         <th scope="col" class=" table-th ">Nomor</th>
@@ -36,24 +36,22 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-                                    <tr>
-                                        <td class="table-td">1</td>
-                                        <td class="table-td">Wilson</td>
-                                        <td class="table-td ">Jeje</td>
-                                        <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                        <td class="table-td ">Sudah Bayar</td>
-                                        <td class="table-td ">Diproses</td>
-                                        <td class="table-td ">Rp20.000.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-td">1</td>
-                                        <td class="table-td">Wilson</td>
-                                        <td class="table-td ">Jeje</td>
-                                        <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                        <td class="table-td ">Belum Bayar</td>
-                                        <td class="table-td ">Diproses</td>
-                                        <td class="table-td ">Rp20.000.000</td>
-                                    </tr>
+                                    @foreach ($list_pesanan as $pesanan)
+                                        <tr>
+                                            <td class="table-td">#{{ $pesanan->id_pemesanan }}</td>
+                                            <td class="table-td">{{ $pesanan->nama_pelanggan }}</td>
+                                            <td class="table-td ">{{ $pesanan->nama_mentor }}</td>
+                                            <td class="table-td ">{{ $pesanan->nama_projek }}</td>
+
+                                            <td class="table-td ">
+                                                {{ $pesanan->status_pembayaran ? $pesanan->status_pembayaran : 'BELUM DIBUAT' }}
+
+                                            </td>
+                                            <td class="table-td ">{{ $pesanan->status_pesanan }}</td>
+                                            <td id="harga-{{ $pesanan->id_pemesanan }}" class="table-td text-center">
+                                                {{ $pesanan->total_harga ? $pesanan->total_harga : '-' }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -62,4 +60,17 @@
             </div>
         </div>
     </div>
-    @endsection
+    <script>
+        $(document).ready(function() {
+            @foreach ($list_pesanan as $pesanan)
+                var total_harga = "{{ $pesanan->total_harga }}"
+                if (total_harga) {
+                    $('#harga-{{ $pesanan->id_pemesanan }}').text(currency.format(parseInt($(
+                        '#harga-{{ $pesanan->id_pemesanan }}').text())))
+                }
+            @endforeach
+
+            $('#tanggalwaktu').text(new Date().toISOString().split('T')[0])
+        })
+    </script>
+@endsection

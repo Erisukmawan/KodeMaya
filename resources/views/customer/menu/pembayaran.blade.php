@@ -54,7 +54,8 @@
                                         <td class="table-td ">{{ $riwayat->nama_projek }}</td>
                                         <td class="table-td">{{ $riwayat->nama_mentor }}</td>
                                         <td class="table-td ">{{ explode(' ', $riwayat->waktu_kontrak)[0] }}</td>
-                                        <td id="total-{{ $riwayat->kode_referensi }}" class="table-td ">{{ $riwayat->total_harga }}</td>
+                                        <td id="total-{{ $riwayat->kode_referensi }}" class="table-td ">
+                                            {{ $riwayat->total_harga }}</td>
                                         <td class="table-td ">
                                             @if ($riwayat->status_pembayaran == 'TERBAYAR')
                                                 <div
@@ -70,6 +71,11 @@
                                                 <div
                                                     class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">
                                                     {{ $riwayat->status_pembayaran }}
+                                                </div>
+                                            @else
+                                                <div
+                                                    class="inline-block px-3 min-w-[90px] text-center mx-auto py-1 rounded-[999px] bg-opacity-25 text-danger-500 bg-danger-500">
+                                                    BELUM DIBUAT
                                                 </div>
                                             @endif
                                         </td>
@@ -95,12 +101,12 @@
 @endsection
 
 @section('custom-script')
-<script>
-    $(document).ready(function () {
-        @foreach ($riwayat_pembayaran as $riwayat)
-            var elTotal = $(`#total-{{ $riwayat->kode_referensi }}`)
-            elTotal.text(currency.format(elTotal.text()))
-        @endforeach
-    })
-</script>
+    <script>
+        $(document).ready(function() {
+            @foreach ($riwayat_pembayaran as $riwayat)
+                var elTotal = $(`#total-{{ $riwayat->kode_referensi }}`)
+                elTotal.text(currency.format(elTotal.text()))
+            @endforeach
+        })
+    </script>
 @endsection

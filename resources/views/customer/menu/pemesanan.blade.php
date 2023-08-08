@@ -103,9 +103,9 @@
                     </div>
                     <!-- section pesanan  -->
                     <div class=" space-y-5">
-                        @if ($pemesanan)
+                        @if ($pemesanan_aktif)
                             <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-                                @foreach ($pemesanan as $pesanan)
+                                @foreach ($pemesanan_aktif as $pesanan)
                                     <div class="card">
                                         <header class="card-header">
                                             <div class="flex-1">

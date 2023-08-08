@@ -143,7 +143,10 @@
                             <div class="card-text h-full space-y-6">
                                 <div
                                     class="w-full  text-center border-dashed border border-secondary-500 rounded-md py-[52px] flex justify-center items-center">
-                                    <form action="" role="presentation" tabindex="0"
+                                    <form action="/" role="presentation" tabindex="0"
+                                        class="dropzone border-none dark:bg-slate-800">
+                                    </form>
+                                    <form action="/" role="presentation" tabindex="0"
                                         class="dropzone border-none dark:bg-slate-800" id="projectUpload">
                                         @csrf
                                         <div class="dz-default dz-message">
@@ -191,28 +194,11 @@
     </script>
     <script>
         $(document).ready(function() {
-            const projectUpload = $("#projectUpload")
-            var file_project = "{!! $pesanan->file_projek !!}";
-
             $("#projectUpload").dropzone({
                 url: "{{ route('mentor.project.upload', ['id' => $pesanan->id_pemesanan]) }}",
                 dictDefaultMessage: "",
                 addRemoveLinks: true
             });
-
-            if (file_project) {
-                $.get(file_project, function(data) {
-                    $.each(data, function(key, value) {
-                        var mockFile = {
-                            name: value.name,
-                            size: value.size
-                        };
-                        projectUpload.options.addedfile.call(projectUpload, mockFile);
-                        projectUpload.options.thumbnail.call(projectUpload, mockFile, "uploads/" +
-                            value.name);
-                    });
-                });
-            }
         })
     </script>
 @endsection

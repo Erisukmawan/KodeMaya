@@ -112,7 +112,7 @@
                         <div class="input-area">
                             <label for="textFormatter" class="form-label">Total Harga</label>
                             <div class="relative">
-                                <input id="total_harga" name="total_harga" type="number" min="{{ $pemesanan->harga }}"
+                                <input id="total_harga" name="total_harga" type="number"
                                     class="form-control !pl-9" placeholder="harga" required value="{{ $pemesanan->harga }}">
                                 <span class="absolute left-2 top-1/2 -translate-y-1/2 text-base text-slate-500">Rp</span>
                                 <span class="block"></span>

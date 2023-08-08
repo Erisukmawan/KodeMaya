@@ -127,6 +127,39 @@ class MentorController extends Controller
 
         return $pemesanan;
     }
+    
+    public function get_pemesanan_by_mentor_active(string $id_mentor)
+    {
+        $pemesanan = Pemesanan::where([
+            ['pemesanan.id_mentor', $id_mentor],
+            ['pemesanan.status_pemesanan', '!=', 'MENUNGGU'],
+            ['pemesanan.status_pemesanan', '!=', 'SELESAI']
+            ])
+            ->leftJoin('pelanggan', function ($join) {
+                $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
+            })
+            ->leftJoin('mentor', function ($join) {
+                $join->on('mentor.id_mentor', '=', 'pemesanan.id_mentor');
+            })
+            ->leftJoin('kontrak', function ($join) {
+                $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
+            })
+            ->leftJoin('pegawai', function ($join) {
+                $join->on('pegawai.id_pegawai', '=', 'pemesanan.id_pegawai');
+            })->select([
+                'pemesanan.*',
+                'pelanggan.nama as nama_pelanggan',
+                'pelanggan.foto_profil as foto_profil_pelanggan',
+                'mentor.nama as nama_mentor',
+                'mentor.status_mentor',
+                'mentor.foto_profil as foto_profil_mentor',
+                'kontrak.waktu_kontrak',
+                'kontrak.tenggat_waktu',
+                'kontrak.status_kontrak',
+            ]);
+
+        return $pemesanan;
+    }
 
     public function get_pemesanan_by_status(string $status_pesanan)
     {

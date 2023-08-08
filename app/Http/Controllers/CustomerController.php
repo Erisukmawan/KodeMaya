@@ -80,6 +80,68 @@ class CustomerController extends Controller
 
         return $pemesanan;
     }
+    
+    public function list_pemesanan_aktif(string $id_pelanggan)
+    {
+        $pemesanan = Pemesanan::where([
+            ['pemesanan.id_pelanggan', $id_pelanggan],
+            ['pemesanan.status_pesanan', '!=', 'SELESAI']
+            ])
+            ->leftJoin('pelanggan', function ($join) {
+                $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
+            })
+            ->leftJoin('mentor', function ($join) {
+                $join->on('mentor.id_mentor', '=', 'pemesanan.id_mentor');
+            })
+            ->leftJoin('kontrak', function ($join) {
+                $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
+            })
+            ->leftJoin('pegawai', function ($join) {
+                $join->on('pegawai.id_pegawai', '=', 'pemesanan.id_pegawai');
+            })->select([
+                'pemesanan.*',
+                'pelanggan.nama as nama_pelanggan',
+                'pelanggan.foto_profil as foto_profil_pelanggan',
+                'mentor.nama as nama_mentor',
+                'mentor.foto_profil as foto_profil_mentor',
+                'kontrak.waktu_kontrak',
+                'kontrak.tenggat_waktu',
+                'kontrak.status_kontrak',
+            ]);
+
+        return $pemesanan;
+    }
+    
+    public function list_pemesanan_selesai(string $id_pelanggan)
+    {
+        $pemesanan = Pemesanan::where([
+            ['pemesanan.id_pelanggan', $id_pelanggan],
+            ['pemesanan.status_pesanan', '=', 'SELESAI']
+            ])
+            ->leftJoin('pelanggan', function ($join) {
+                $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
+            })
+            ->leftJoin('mentor', function ($join) {
+                $join->on('mentor.id_mentor', '=', 'pemesanan.id_mentor');
+            })
+            ->leftJoin('kontrak', function ($join) {
+                $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
+            })
+            ->leftJoin('pegawai', function ($join) {
+                $join->on('pegawai.id_pegawai', '=', 'pemesanan.id_pegawai');
+            })->select([
+                'pemesanan.*',
+                'pelanggan.nama as nama_pelanggan',
+                'pelanggan.foto_profil as foto_profil_pelanggan',
+                'mentor.nama as nama_mentor',
+                'mentor.foto_profil as foto_profil_mentor',
+                'kontrak.waktu_kontrak',
+                'kontrak.tenggat_waktu',
+                'kontrak.status_kontrak',
+            ]);
+
+        return $pemesanan;
+    }
 
     public function get_pemesanan(string $id_pemesanan)
     {
@@ -117,8 +179,6 @@ class CustomerController extends Controller
         $riwayat = Pemesanan::where([
             ['pemesanan.id_pelanggan', '=', $id_pelanggan],
             ['status_pembayaran', '!=', 'BELUM DIBUAT'],
-            ['status_pembayaran', '!=', 'BELUM DIBAYAR'],
-            ['status_pembayaran', '!=', 'TERTUNDA'],
         ])
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
@@ -209,14 +269,13 @@ class CustomerController extends Controller
             ['status_pesanan', '=', 'SELESAI']
         ])
             ->count();
+
         $pesanan_belum_bayar = Pemesanan::where([
             ['id_pelanggan', '=', $user->id_pelanggan],
             ['status_pembayaran', '!=', 'BELUM DIBUAT'],
             ['status_pembayaran', '!=', 'TERBAYAR'],
             ['status_pembayaran', '!=', 'KADALUARSA'],
         ])
-            ->orWhere('status_pembayaran', '=', 'BELUM DIBAYAR')
-            ->orWhere('status_pembayaran', '=', 'TERTUNDA')
             ->first();
 
         $data = array(
@@ -238,12 +297,14 @@ class CustomerController extends Controller
     {
         $user = Auth::guard('webcustomer')->user();
 
+        $pemesanan_aktif = $this->list_pemesanan_aktif($user->id_pelanggan)->get();
         $pemesanan = $this->list_pemesanan($user->id_pelanggan)->get();
         $kontrak_list = $this->list_kontrak($user->id_pelanggan)->get();
 
         $data = array(
             'kontrak_list' => $kontrak_list,
-            'pemesanan' => $pemesanan
+            'pemesanan' => $pemesanan,
+            'pemesanan_aktif' => $pemesanan_aktif,
         );
         return view('customer.menu.pemesanan')->with($data);
     }
@@ -321,8 +382,6 @@ class CustomerController extends Controller
             ['status_pembayaran', '!=', 'TERBAYAR'],
             ['status_pembayaran', '!=', 'KADALUARSA'],
         ])
-            ->orWhere('status_pembayaran', '=', 'BELUM DIBAYAR')
-            ->orWhere('status_pembayaran', '=', 'TERTUNDA')
             ->first();
         $riwayat_pembayaran = $this->get_riwayat_pembayaran($user->id_pelanggan)->get();
 
@@ -425,9 +484,25 @@ class CustomerController extends Controller
     {
         return view('customer.menu.nego-kontrak');
     }
-    public function view_review()
+    public function view_review(Request $request)
     {
-        return view('customer.menu.review-pesanan');
+        $user = Auth::guard('webcustomer')->user();
+        $id = $request->get('id');
+        $pesanan = $this->get_pemesanan($id);
+
+        if (!$pesanan) {
+            return redirect()->route('gakada');
+        }
+
+        if ($pesanan->id_pelanggan != $user->id_pelanggan) {
+            return redirect()->route('gakada');
+        }
+
+        $data = array(
+            'pesanan' => $pesanan
+        );
+
+        return view('customer.menu.review-pesanan')->with($data);
     }
     public function view_detailkontrak(Request $request)
     {
@@ -476,6 +551,13 @@ class CustomerController extends Controller
     }
     public function view_penyerahan()
     {
-        return view('customer.menu.penyerahan-pesanan');
+        $user = Auth::guard('webcustomer')->user();
+        $pesanan_selesai = $this->list_pemesanan_selesai($user->id_pelanggan);
+
+        $data = array(
+            'pesanan_selesai' => $pesanan_selesai->get()
+        );
+
+        return view('customer.menu.penyerahan-pesanan')->with($data);
     }
 }

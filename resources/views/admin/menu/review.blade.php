@@ -3,9 +3,40 @@
     <div class=" space-y-5">
         <div class="card">
             <header class=" card-header noborder">
-                <h4 class="card-title">projekw Pesanan
+                <h4 class="card-title">Review Pesanan
                 </h4>
             </header>
+            @if ($message = Session::get('success'))
+                <div class="p-6 panel-alert-main">
+                    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-success-500 text-white">
+                        <div class="flex items-center space-x-3 rtl:space-x-reverse">
+                            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
+                            <p class="flex-1 font-Inter">
+                                {{ $message }}
+                            </p>
+                            <div class="flex-0 text-xl cursor-pointer panel-alert">
+                                <iconify-icon icon="line-md:close"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="p-6 panel-alert-main">
+                    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-danger-500 text-white">
+                        <div class="flex items-center space-x-3 rtl:space-x-reverse">
+                            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
+                            <p class="flex-1 font-Inter">
+                                {{ $errors->first() }}
+                            </p>
+                            <div class="flex-0 text-xl cursor-pointer panel-alert">
+                                <iconify-icon icon="line-md:close"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
             <div class="card-body px-6 pb-6">
                 <div class="overflow-x-auto -mx-6 dashcode-data-table">
                     <span class=" col-span-8  hidden"></span>
@@ -25,51 +56,67 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-                                    <tr>
-                                        <td class="table-td">28-10-2023</td>
-                                        <td class="table-td">
-                                            <span class="flex">
-                                                <span class="w-7 h-7 rounded-full ltr:mr-3 rtl:ml-3 flex-none">
-                                                    <img src="{{url('assets/images/all-img/customer_1.png')}}" alt="1"
-                                                        class="object-cover w-full h-full rounded-full">
-                                                </span>
-                                                <span
-                                                    class="text-sm text-slate-600 dark:text-slate-300 capitalize">Jenny
-                                                    Wilson</span>
-                                            </span>
-                                        </td>
-                                        <td class="table-td ">Aplikasi Kantin Sekolah</td>
-                                        <td class="table-td ">
-                                            <span class="block min-w-[140px] text-left">
-                                                <span class="inline-block text-center mx-auto py-1">
-                                                    <span class="flex items-center space-x-3 rtl:space-x-reverse">
-                                                        <span class="h-[6px] w-[6px] bg-danger-500 rounded-full inline-block ring-4 ring-opacity-30 ring-danger-500"></span>
-                                                        <span>Di Periksa</span>
+                                    @foreach ($pemesanan_review as $pesanan)
+                                        <tr>
+                                            <td class="table-td">{{ $pesanan->tenggat_waktu }}</td>
+                                            <td class="table-td">
+                                                <span class="flex">
+                                                    <span class="w-7 h-7 rounded-full ltr:mr-3 rtl:ml-3 flex-none">
+                                                        <img src="{{ $pesanan->foto_profil_pelanggan ? $pesanan->foto_profil_pelanggan : url('assets/images/all-img/customer_1.png') }}"
+                                                            alt="1" class="object-cover w-full h-full rounded-full">
+                                                    </span>
+                                                    <span class="text-sm text-slate-600 dark:text-slate-300 capitalize">
+                                                        {{ $pesanan->nama_pelanggan }}
                                                     </span>
                                                 </span>
-                                            </span>
-                                        </td>
-                                        <td class="table-td "> Rp20.000.000</td>
-                                        <td class="table-td ">
-                                            <div>
-                                                <div class="relative">
-                                                    <div class="dropdown relative">
-                                                        <button class="text-xl text-center block w-full " type="button"
-                                                            id="tableDropdownMenuButton1" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
-                                                            <iconify-icon icon="heroicons-outline:dots-vertical">
-                                                            </iconify-icon>
-                                                        </button>
-                                                        <ul class=" dropdown-menu min-w-[120px] absolute text-sm text-slate-700 dark:text-white hidden bg-white dark:bg-slate-700 shadow z-[2] float-left overflow-hidden list-none text-left rounded-lg mt-1 m-0 bg-clip-padding border-none">
-                                                            <li>
-                                                                <a href="{{route('admin.menu.review.detail_pemesanan')}}" class="text-slate-600 dark:text-white block font-Inter font-normal px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white">Lihat dan Serahkan</a>
-                                                            </li>
-                                                        </ul>
+                                            </td>
+                                            <td class="table-td ">{{ $pesanan->nama_projek }}</td>
+                                            <td class="table-td ">
+                                                <span class="block min-w-[140px] text-left">
+                                                    <span class="inline-block text-center mx-auto py-1">
+                                                        <span class="flex items-center space-x-3 rtl:space-x-reverse">
+                                                            @if ($pesanan->status_pesanan == 'MENUNGGU')
+                                                                <span
+                                                                    class="block font-normal px-4 w-full rounded-2xl bg-warning-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                            @elseif ($pesanan->status_pesanan == 'DIPROSES')
+                                                                <span
+                                                                    class="block font-normal px-4 w-full rounded-2xl bg-primary-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                            @elseif ($pesanan->status_pesanan == 'DIPERIKSA')
+                                                                <span
+                                                                    class="block font-normal px-4 w-full rounded-2xl bg-info-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                            @elseif ($pesanan->status_pesanan == 'SELESAI')
+                                                                <span
+                                                                    class="block font-normal px-4 w-full rounded-2xl bg-success-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                            @elseif ($pesanan->status_pesanan == 'DIBATALKAN')
+                                                                <span
+                                                                    class="block font-normal px-4 w-full rounded-2xl bg-danger-500 text-white dark:text-slate-800 text-sm p-1">{{ $pesanan->status_pesanan }}</span>
+                                                            @endif
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </td>
+                                            <td id="harga-{{ $pesanan->id_pemesanan }}" class="table-td ">
+                                                {{ $pesanan->total_harga }}</td>
+                                            <td class="table-td ">
+                                                <div>
+                                                    <div class="relative">
+                                                        <div class="dropdown relative">
+                                                            <form action="" method="post"></form>
+                                                            <a
+                                                                href="{{ route('admin.menu.review.detail_pemesanan', ['id' => $pesanan->id_pemesanan]) }}">
+                                                                <span
+                                                                    class="toolTip onTop text-2xl rounded-sm pt-2 p-1 hover:bg-slate-900 bg-primary-600 text-white "
+                                                                    data-tippy-content="Lihat dan Serahkan">
+                                                                    <iconify-icon icon="ic:baseline-rate-review">
+                                                                    </iconify-icon>
+                                                                </span>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -78,4 +125,18 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection
+
+@section('custom-script')
+    <script>
+        $(document).ready(function() {
+            @foreach ($pemesanan_review as $pesanan)
+                var total_harga = "{{ $pesanan->total_harga }}"
+                if (total_harga) {
+                    $('#harga-{{ $pesanan->id_pemesanan }}').text(currency.format(parseInt($(
+                        '#harga-{{ $pesanan->id_pemesanan }}').text())))
+                }
+            @endforeach
+        })
+    </script>
+@endsection
