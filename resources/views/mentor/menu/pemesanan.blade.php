@@ -324,8 +324,8 @@
                                                                                 </span>
                                                                                 <span
                                                                                     class="block text-slate-600 dark:text-slate-300 text-xs font-normal">
-                                                                                    Mentor:
-                                                                                    {{ $pesanan->nama_mentor ? $pesanan->nama_mentor : '-' }}
+                                                                                    Pelanggan:
+                                                                                    {{ $pesanan->nama_pelanggan ? $pesanan->nama_pelanggan : '-' }}
                                                                                 </span>
                                                                             </div>
                                                                         </div>
