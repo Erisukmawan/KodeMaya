@@ -335,11 +335,11 @@ class CustomerController extends Controller
             ]);
             DB::commit();
             return redirect()->route('customer.menu.pemesanan')
-                ->withSuccess("Pemesanan #$pemesanan->id_pemesanan berhasil dibuat!");
+                ->withSuccess("I||Berhasil Disimpan!||");
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('customer.menu.pemesanan.form_pemesanan')->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('customer.menu.pemesanan.form_pemesanan')->withErrors(['message' => "P||Gagal  Disimpan||".$e->getMessage()]);
         }
     }
 
@@ -528,7 +528,7 @@ class CustomerController extends Controller
                 $pemesanan->save();
                 DB::commit();
                 return redirect()->route('customer.menu.pembayaran.checkout', ['code' => $reference_code])
-                    ->withSuccess("Kontrak #$kontrak->id_kontrak telah disetujui! Silahkan melanjutkan pembayaran.");
+                    ->withSuccess("I||Kontrak Disetujui||Silahkan melanjutkan pembayaran.");
             } else {
                 $kontrak->status_kontrak = 'TIDAK SETUJU';
                 $kontrak->save();
@@ -541,12 +541,12 @@ class CustomerController extends Controller
                 $mentor->save();
                 DB::commit();
                 return redirect()->route('customer.menu.pemesanan')
-                    ->withSuccess("Kontrak #$kontrak->id_kontrak ditolak, status pesanan anda kembali ke waiting list dan tunggu mentor lain mengambil ulang.");
+                    ->withSuccess("I||Kontrak Ditolak||status pesanan anda kembali ke waiting list dan tunggu mentor lain mengambil ulang.");
             }
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('customer.menu.pemesanan')->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('customer.menu.pemesanan')->withErrors(['message' => "Gagal  Disimpan||".$e->getMessage()]);
         }
     }
     public function view_penyerahan()

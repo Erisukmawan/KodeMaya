@@ -251,11 +251,12 @@ class AdminController extends Controller
             $pemesanan->status_pesanan = 'SELESAI';
             $pemesanan->save();
             DB::commit();
-            return redirect()->route('admin.menu.review')->withSuccess('Pesanan telah dikirim ke pelanggan.');
+            return redirect()->route('admin.menu.review')->withSuccess('I||Berhasil Dikirim||Pesanan telah dikirim ke pelanggan.');
+            >withSuccess("Berhasil diambil||Silahkan cek menu negosiasi.");
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('admin.menu.detail-pemesanan', ['id'=>$id])->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('admin.menu.detail-pemesanan', ['id'=>$id])->withErrors(['message' => "P||Gagal  Dikirim||".$e->getMessage()]);
         }
     }
 }

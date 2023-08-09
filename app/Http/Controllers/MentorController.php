@@ -282,11 +282,11 @@ class MentorController extends Controller
             }
 
             return redirect()->route('mentor.menu.pemesanan')
-                ->withSuccess("Pemesanan #$pemesanan->id_pemesanan berhasil diambil! Silahkan cek menu negosiasi.");
+                ->withSuccess("I||Berhasil diambil||Silahkan cek menu negosiasi.");
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('mentor.menu.pemesanan')->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('mentor.menu.pemesanan')->withErrors(['message' => "I||Gagal  diambil||".$e->getMessage()]);
         }
     }
 
@@ -389,11 +389,11 @@ class MentorController extends Controller
             $pemesanan->save();
             DB::commit();
             return redirect()->route('mentor.menu.penyerahan-pesanan')
-                ->withSuccess("Berhasil diupdate.");
+                ->withSuccess("I||Berhasil disimpan||");
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('mentor.menu.pemesanan')->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('mentor.menu.pemesanan')->withErrors(['message' => "I||Gagal  diambil||".$e->getMessage()]);
         }
     }
     public function proses_penyerahan()
@@ -448,11 +448,11 @@ class MentorController extends Controller
 
             DB::commit();
             return redirect()->route('mentor.menu.pemesanan')
-                ->withSuccess("Kontrak #$kontrak->id_kontrak berhasil dibuat!");
+                ->withSuccess("I||Berhasil dibuat||");
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('mentor.menu.pemesanan.tambah-kontrak', ['id' => $request->get('id_pemesanan')])->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('mentor.menu.pemesanan.tambah-kontrak', ['id' => $request->get('id_pemesanan')])->withErrors(['message' => "P||Gagal  diambil||".$e->getMessage()]);
         }
     }
 }
