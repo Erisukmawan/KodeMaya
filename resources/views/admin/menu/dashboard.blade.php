@@ -81,10 +81,10 @@
                                     <tr>
                                         <th scope="col" class=" table-th ">Nomor</th>
                                         <th scope="col" class=" table-th ">Nama Pelanggan</th>
-                                        <th scope="col" class=" table-th ">Judul projek</th>
-                                        <th scope="col" class=" table-th ">Status Pemesanan</th>
-                                        <th scope="col" class=" table-th ">Status Kontrak</th>
+                                        <th scope="col" class=" table-th ">Nama Mentor</th>
+                                        <th scope="col" class=" table-th ">Judul Projek</th>
                                         <th scope="col" class=" table-th ">Status Pembayaran</th>
+                                        <th scope="col" class=" table-th ">Status Pesanan</th>
                                         <th scope="col" class=" table-th ">Harga</th>
                                     </tr>
                                 </thead>
@@ -99,7 +99,7 @@
                                                     </span>
                                                 </span>
                                             </td>
-                                            <td class="table-td ">{{ $pesanan->nama_mentor }}</td>
+                                            <td class="table-td ">{{ $pesanan->nama_mentor ? $pesanan->nama_mentor : '-' }}</td>
                                             <td class="table-td ">{{ $pesanan->nama_projek }}</td>
 
                                             <td class="table-td ">
