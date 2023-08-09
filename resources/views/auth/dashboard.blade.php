@@ -74,7 +74,7 @@
             style: "currency",
             currency: "IDR",
         });
-        
+
         $(document).ready(function() {
             var mode = $('html').attr('class');
             var linkTag = document.createElement('link');
@@ -89,6 +89,14 @@
             $(".panel-alert").click(function() {
                 $('.panel-alert-main').remove()
             })
+
+            if ("{{ Session::get('success') }}") {
+                Swal.fire("{{ Session::get('success') }}", "", "success")
+            }
+
+            if ("{{ $errors->any() }}") {
+                Swal.fire("{{ $errors->first() }}", "", "error")
+            }
         })
     </script>
     @yield('custom-script')

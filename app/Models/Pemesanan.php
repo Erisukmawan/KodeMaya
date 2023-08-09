@@ -37,4 +37,6 @@ class Pemesanan extends Model
         'file_projek',
         'harga'
     ];
+
+    protected $cast = [];
 }

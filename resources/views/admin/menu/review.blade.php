@@ -6,37 +6,6 @@
                 <h4 class="card-title">Review Pesanan
                 </h4>
             </header>
-            @if ($message = Session::get('success'))
-                <div class="p-6 panel-alert-main">
-                    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-success-500 text-white">
-                        <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
-                            <p class="flex-1 font-Inter">
-                                {{ $message }}
-                            </p>
-                            <div class="flex-0 text-xl cursor-pointer panel-alert">
-                                <iconify-icon icon="line-md:close"></iconify-icon>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-
-            @if ($errors->any())
-                <div class="p-6 panel-alert-main">
-                    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-danger-500 text-white">
-                        <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
-                            <p class="flex-1 font-Inter">
-                                {{ $errors->first() }}
-                            </p>
-                            <div class="flex-0 text-xl cursor-pointer panel-alert">
-                                <iconify-icon icon="line-md:close"></iconify-icon>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
             <div class="card-body px-6 pb-6">
                 <div class="overflow-x-auto -mx-6 dashcode-data-table">
                     <span class=" col-span-8  hidden"></span>

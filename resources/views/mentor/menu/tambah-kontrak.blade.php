@@ -20,40 +20,6 @@
                                     {{ $pemesanan->nama_projek }}</div>
                             </div>
                         </header>
-                        <div class="card-text h-full space-y-3 mb-3">
-                            @if ($message = Session::get('success'))
-                                <div class="p-6 panel-alert-main">
-                                    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-success-500 text-white">
-                                        <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                                            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
-                                            <p class="flex-1 font-Inter">
-                                                {{ $message }}
-                                                Hi
-                                            </p>
-                                            <div class="flex-0 text-xl cursor-pointer panel-alert">
-                                                <iconify-icon icon="line-md:close"></iconify-icon>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                
-                            @if ($errors->any())
-                                <div class="p-6 panel-alert-main">
-                                    <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-danger-500 text-white">
-                                        <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                                            <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
-                                            <p class="flex-1 font-Inter">
-                                                {{ $errors->first() }}
-                                            </p>
-                                            <div class="flex-0 text-xl cursor-pointer panel-alert">
-                                                <iconify-icon icon="line-md:close"></iconify-icon>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
                         <input type="text" name="id_pemesanan" value="{{ $pemesanan->id_pemesanan }}"
                             style="display: none;">
                         <div class="input-area">
@@ -71,7 +37,8 @@
                             <label for="textFormatter" class="form-label">Deskripsi</label>
                             <div class="relative">
                                 <input id="deskripsi_projek" name="deskripsi_projek" type="text" class="form-control"
-                                    placeholder="Deskripsi Projek" value="{{ $pemesanan->deskripsi_projek }}" style="display: none;">
+                                    placeholder="Deskripsi Projek" value="{{ $pemesanan->deskripsi_projek }}"
+                                    style="display: none;">
                                 <span
                                     class="text-sm font-Inter font-normal text-slate-400 mt-2 inline-block">{!! $pemesanan->deskripsi_projek !!}</span>
                                 <span class="block"></span>
@@ -112,8 +79,8 @@
                         <div class="input-area">
                             <label for="textFormatter" class="form-label">Total Harga</label>
                             <div class="relative">
-                                <input id="total_harga" name="total_harga" type="number"
-                                    class="form-control !pl-9" placeholder="harga" required value="{{ $pemesanan->harga }}">
+                                <input id="total_harga" name="total_harga" type="number" class="form-control !pl-9"
+                                    placeholder="harga" required value="{{ $pemesanan->harga }}">
                                 <span class="absolute left-2 top-1/2 -translate-y-1/2 text-base text-slate-500">Rp</span>
                                 <span class="block"></span>
                             </div>

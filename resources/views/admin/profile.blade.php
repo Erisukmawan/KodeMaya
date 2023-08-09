@@ -14,18 +14,20 @@
                         <div class="profile-box flex-none text-center">
                             <div class="md:space-x-6 rtl:space-x-reverse">
                                 <div class="flex-none">
-                                    <form id="pic_form" action="{{ route('change_picture') }}" method="post" enctype="multipart/form-data">
+                                    <form id="pic_form" action="{{ route('change_picture') }}" method="post"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div
                                             class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] ml-auto mr-auto mb-4 rounded-full ring-4 ring-slate-100 relative">
-                                            <img id="profile_pic" src="{{ Auth::guard('webadministration')->user()->foto_profil ? Auth::guard('webadministration')->user()->foto_profil : url('assets/images/avatar/av-1.svg') }}"
+                                            <img id="profile_pic"
+                                                src="{{ Auth::guard('webadministration')->user()->foto_profil ? Auth::guard('webadministration')->user()->foto_profil : url('assets/images/avatar/av-1.svg') }}"
                                                 alt="" class="w-full h-full object-cover rounded-full bg-white">
                                             <button id="change_image"
                                                 class="absolute right-2 h-8 w-8 bg-slate-50 text-slate-600 rounded-full shadow-sm flex flex-col items-center justify-center md:top-[140px] top-[100px]">
                                                 <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
                                             </button>
-                                            <input type="file" id="img_upload" name="image" accept=".gif,.jpg,.jpeg,.png"
-                                                style="display:none" />
+                                            <input type="file" id="img_upload" name="image"
+                                                accept=".gif,.jpg,.jpeg,.png" style="display:none" />
                                             <input type="submit" style="display: none">
                                         </div>
                                     </form>
@@ -55,7 +57,7 @@
                         No Telepon
                     </div>
                     <div class="text-sm text-slate-600 font-light dark:text-slate-300">
-                      {{ Auth::guard('webadministration')->user()->telp }}
+                        {{ Auth::guard('webadministration')->user()->telp }}
                     </div>
                 </div>
             </div>
@@ -76,37 +78,6 @@
                         </div>
                     </header>
                     <div class="card-body p-6">
-                        @if ($message = Session::get('success'))
-                            <div class="p-6 panel-alert-main">
-                                <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-success-500 text-white">
-                                    <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                                        <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
-                                        <p class="flex-1 font-Inter">
-                                            {{ $message }}
-                                        </p>
-                                        <div class="flex-0 text-xl cursor-pointer panel-alert">
-                                            <iconify-icon icon="line-md:close"></iconify-icon>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if ($errors->any())
-                            <div class="p-6 panel-alert-main">
-                                <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-danger-500 text-white">
-                                    <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                                        <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
-                                        <p class="flex-1 font-Inter">
-                                            {{ $errors->first() }}
-                                        </p>
-                                        <div class="flex-0 text-xl cursor-pointer panel-alert">
-                                            <iconify-icon icon="line-md:close"></iconify-icon>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
                         <div class="space-y-9">
                             <div class="text-slate-600 dark:text-slate-300 text-sm">
                                 <form action="{{ route('change_profile') }}" method="post">
@@ -204,7 +175,7 @@
                     $('#password').attr('type', 'password')
                 }
             })
-                        
+
             $('#pic_form').on('submit', function(e) {
                 e.preventDefault();
                 if ($("#img_upload").val()) {
@@ -216,7 +187,8 @@
                 var input = this;
                 var url = $(this).val();
                 var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
-                if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" ||ext == "jpg")) {
+                if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" ||
+                        ext == "jpg")) {
                     console.log('ya', input.files)
                     $('#pic_form')[0].submit()
                     // $('#pic_form input[type=submit]').trigger('submit')

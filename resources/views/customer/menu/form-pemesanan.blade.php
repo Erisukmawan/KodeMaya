@@ -18,40 +18,6 @@
                 </header>
 
                 <div class="card-text h-full space-y-3 mb-3">
-                    @if ($message = Session::get('success'))
-                        <div class="p-6 panel-alert-main">
-                            <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-success-500 text-white">
-                                <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                                    <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
-                                    <p class="flex-1 font-Inter">
-                                        {{ $message }}
-                                    </p>
-                                    <div class="flex-0 text-xl cursor-pointer panel-alert">
-                                        <iconify-icon icon="line-md:close"></iconify-icon>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-
-                    @if ($errors->any())
-                        <div class="p-6 panel-alert-main">
-                            <div class="py-[18px] px-5 font-normal text-sm rounded-md bg-danger-500 text-white">
-                                <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                                    <iconify-icon class="text-2xl flex-0" icon="system-uicons:target"></iconify-icon>
-                                    <p class="flex-1 font-Inter">
-                                        {{ $errors->first() }}
-                                    </p>
-                                    <div class="flex-0 text-xl cursor-pointer panel-alert">
-                                        <iconify-icon icon="line-md:close"></iconify-icon>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                </div>
-
-                <div class="card-text h-full space-y-3 mb-3">
                     <div class="input-area">
                         <label for="textFormatter" class="form-label">Nama projek</label>
                         <div class="relative">

@@ -63,7 +63,7 @@ class AuthController extends Controller
 
             $user->notify(new \App\Notifications\VerifikasiPelanggan);
             DB::commit();
-            return redirect()->route('login')->withSuccess('Registrasi berhasil, silahkan cek email (termasuk spam) kamu untuk melanjutkan verifikasi.');
+            return redirect()->route('login')->withSuccess('Daftar berhasil, silahkan cek email (termasuk spam) kamu untuk melanjutkan verifikasi.');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
@@ -130,7 +130,6 @@ class AuthController extends Controller
             $account_type = $request->get('acc_type');
 
             Log::info('Acc Type ' . $account_type);
-
 
             if ($account_type == 'customer') {
                 Log::info('Customer Verify ' . json_encode($decoded));
@@ -205,7 +204,7 @@ class AuthController extends Controller
                 $user = $users[0];
 
                 if ($user->status_akun == 'TIDAK AKTIF') {
-                    throw new Exception('Verifikasi email terlebih dahulu untuk melanjutkan!');
+                    throw new Exception('Login Gagal, Verifikasi email terlebih dahulu untuk melanjutkan!');
                 }
 
                 if ($user->type == 'customer') {

@@ -79,7 +79,33 @@
     <script src="{{url('assets/js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{url('assets/js/rt-plugins.js')}}"></script>
     <script src="{{url('assets/js/app.js')}}"></script>
-    <!-- <script src="{{url('assets/js/app-chat.js')}}"></script> -->
+    <script src="{{ url('/assets/js/sweetalert2.min.js') }}" sync></script>
+    <script src="{{ url('/assets/js/swal-custom.js') }}" sync></script>
+    <script>
+        $(document).ready(function() {
+            var mode = $('html').attr('class');
+            var linkTag = document.createElement('link');
+            if (mode == 'black' || mode == 'light') {
+                $('head').append(
+                    `<link rel="stylesheet" href="{{ url('/assets/css/sweetalert2.light.min.css') }}">`)
+            } else {
+                $('head').append(
+                    `<link rel="stylesheet" href="{{ url('/assets/css/sweetalert2.dark.min.css') }}">`)
+            }
+
+            $(".panel-alert").click(function() {
+                $('.panel-alert-main').remove()
+            })
+
+            if ("{{ Session::get('success') }}") {
+                Swal.fire("{{ Session::get('success') }}", "", "success")
+            }
+
+            if ("{{ $errors->any() }}") {
+                Swal.fire("{{ $errors->first() }}", "", "error")
+            }
+        })
+    </script>
     @yield('custom-script')
 </body>
 
