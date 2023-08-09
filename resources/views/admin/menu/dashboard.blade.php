@@ -27,7 +27,7 @@
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
                             Pemesanan Menunggu
                         </span>
-                        <span id="idr-curr" class="block mb- text-slate-900 dark:text-white font-medium">
+                        <span class="block mb- text-slate-900 dark:text-white font-medium">
                             {{ $pemesanan_menunggu }}
                         </span>
                     </div>

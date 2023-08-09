@@ -31,7 +31,7 @@
                                             <td class="table-td">
                                                 <span class="flex">
                                                     <span class="w-7 h-7 rounded-full ltr:mr-3 rtl:ml-3 flex-none">
-                                                        <img src="{{ $pesanan->foto_profil_pelanggan ? $pesanan->foto_profil_pelanggan : url('assets/images/all-img/customer_1.png') }}"
+                                                        <img src="{{ $pesanan->foto_profil_pelanggan ? $pesanan->foto_profil_pelanggan : url('assets/images/avatar/av-1.svg') }}"
                                                             alt="1" class="object-cover w-full h-full rounded-full">
                                                     </span>
                                                     <span class="text-sm text-slate-600 dark:text-slate-300 capitalize">
