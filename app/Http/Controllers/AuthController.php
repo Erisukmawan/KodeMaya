@@ -63,11 +63,11 @@ class AuthController extends Controller
 
             $user->notify(new \App\Notifications\VerifikasiPelanggan);
             DB::commit();
-            return redirect()->route('login')->withSuccess('Daftar berhasil, silahkan cek email (termasuk spam) kamu untuk melanjutkan verifikasi.');
+            return redirect()->route('login')->withSuccess('I||Daftar berhasil||silahkan cek email (termasuk spam) kamu untuk melanjutkan verifikasi.');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('register')->withErrors($e->getMessage());
+            return redirect()->route('register')->withErrors("P||Daftar Gagal||".$e->getMessage());
         }
     }
 
@@ -111,11 +111,11 @@ class AuthController extends Controller
 
             $user->notify(new \App\Notifications\VerifikasiMentor);
             DB::commit();
-            return redirect()->route('login')->withSuccess('Registrasi berhasil, silahkan cek email (termasuk spam) kamu untuk melanjutkan verifikasi.');
+            return redirect()->route('login')->withSuccess('I||Daftar berhasil||silahkan cek email (termasuk spam) kamu untuk melanjutkan verifikasi.');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('register-mentor')->withErrors($e->getMessage());
+            return redirect()->route('register-mentor')->withErrors("I||Daftar Gagal||".$e->getMessage());
         }
     }
 
@@ -154,11 +154,11 @@ class AuthController extends Controller
             }
 
             DB::commit();
-            return redirect()->route('login')->withSuccess('Verifikasi berhasil! Silahkan login.');
+            return redirect()->route('login')->withSuccess('I||Verifikasi Berhasil||Silahkan login.');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('login')->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('login')->withErrors(['message' => "P||Verifikasi Gagal||".$e->getMessage()]);
         }
     }
 
@@ -204,7 +204,7 @@ class AuthController extends Controller
                 $user = $users[0];
 
                 if ($user->status_akun == 'TIDAK AKTIF') {
-                    throw new Exception('Login Gagal, Verifikasi email terlebih dahulu untuk melanjutkan!');
+                    throw new Exception('P||Login Gagal||Verifikasi email terlebih dahulu untuk melanjutkan!');
                 }
 
                 if ($user->type == 'customer') {
@@ -212,39 +212,39 @@ class AuthController extends Controller
                         Log::info('Customer Login ' . json_encode($user));
                         return redirect()->route('customer.menu.dashboard');
                     } else {
-                        throw new Exception('Email atau Password tidak valid.');
+                        throw new Exception('P||Login Gagal||Email atau Password tidak valid.');
                     }
                 } else if ($user->type == 'mentor') {
                     if (Auth::guard('webmentor')->attempt($credentials, $rememberMe)) {
                         Log::info('Mentor Login ' . json_encode($user));
                         return redirect()->route('mentor.menu.dashboard');
                     } else {
-                        throw new Exception('Email atau Password tidak valid.');
+                        throw new Exception('P||Login Gagal||Email atau Password tidak valid.');
                     }
                 } else if ($user->type == 'administrasi') {
                     if (Auth::guard('webadministration')->attempt($credentials, $rememberMe)) {
                         Log::info('Administration Login ' . json_encode($user));
                         return redirect()->route('admin.menu.dashboard');
                     } else {
-                        throw new Exception('Email atau Password tidak valid.');
+                        throw new Exception('P||Login Gagal||Email atau Password tidak valid.');
                     }
                 } else if ($user->type == 'keuangan') {
                     if (Auth::guard('webfinance')->attempt($credentials, $rememberMe)) {
                         Log::info('Finance Login ' . json_encode($user));
                         return redirect()->route('financial.menu.dashboard');
                     } else {
-                        throw new Exception('Email atau Password tidak valid.');
+                        throw new Exception('P||Login Gagal||Email atau Password tidak valid.');
                     }
                 } else {
-                    throw new Exception('Akun ini tidak memenuhi kriteria, mohon hubungi admin.');
+                    throw new Exception('P||Login Gagal||Akun ini tidak memenuhi kriteria, mohon hubungi admin.');
                 }
             } else {
-                throw new Exception('Akun anda tidak terdaftar.');
+                throw new Exception('P||Login Gagal||Akun anda tidak terdaftar.');
             }
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('login')->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('login')->withErrors(['message' => "P||Login Gagal||".$e->getMessage()]);
         }
     }
 
@@ -280,7 +280,7 @@ class AuthController extends Controller
                 $user = Pegawai::find($id);
             } else {
                 return redirect()->route('login')
-                    ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
+                    ->withErrors(['message' => 'P||Gagal disimpan||Silahkan login untuk mengakses dashboard.']);
             }
 
             if ($user->foto_profil) {
@@ -293,7 +293,7 @@ class AuthController extends Controller
             $user->save();
             DB::commit();
             return redirect()->route($user_view . ".profile")
-                ->withSuccess('Berhasil ubah gambar profil!');
+                ->withSuccess('I||Berhasil disimpan||');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
@@ -319,11 +319,11 @@ class AuthController extends Controller
                 $user->save();
                 DB::commit();
                 return redirect()->route('customer.profile')
-                    ->withSuccess('Berhasil ubah profil!');
+                    ->withSuccess('I||Berhasil disimpan||');
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
-                return redirect()->route('customer.profile')->withErrors(['message' => $e->getMessage()]);
+                return redirect()->route('customer.profile')->withErrors(['message' => "P||Gagal Disimpan||".$e->getMessage()]);
             }
         } else if (Auth::guard('webmentor')->check()) {
             DB::beginTransaction();
@@ -341,7 +341,7 @@ class AuthController extends Controller
                 $user->save();
                 DB::commit();
                 return redirect()->route('mentor.profile')
-                    ->withSuccess('Berhasil ubah profil!');
+                    ->withSuccess('I||Berhasil disimpan||');
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
@@ -362,11 +362,11 @@ class AuthController extends Controller
                 $user->save();
                 DB::commit();
                 return redirect()->route('admin.profile')
-                    ->withSuccess('Berhasil ubah profil!');
+                    ->withSuccess('I||Berhasil disimpan||');
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
-                return redirect()->route('admin.profile')->withErrors(['message' => $e->getMessage()]);
+                return redirect()->route('admin.profile')->withErrors(['message' => "P||Gagal disimpan||".$e->getMessage()]);
             }
         } else if (Auth::guard('webfinance')->check()) {
             DB::beginTransaction();
@@ -383,7 +383,7 @@ class AuthController extends Controller
                 $user->save();
                 DB::commit();
                 return redirect()->route('financial.profile')
-                    ->withSuccess('Berhasil ubah profil!');
+                    ->withSuccess('I||Berhasil disimpan||');
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
@@ -392,7 +392,7 @@ class AuthController extends Controller
         } else {
             Log::warning("Invalid Auth Change Profile");
             return redirect()->route('login')
-                ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
+                ->withErrors(['message' => 'P||Gagal disimpan||Silahkan login untuk mengakses dashboard.']);
         }
     }
 
@@ -406,7 +406,7 @@ class AuthController extends Controller
             return redirect()->route('admin.menu.dashboard')->withSuccess('Success Login Admin');
         } else {
             return redirect()->route('login')
-                ->withErrors(['message' => 'Silahkan login untuk mengakses dashboard.']);
+                ->withErrors(['message' => 'P||Gagal login||Silahkan login untuk mengakses dashboard.']);
         }
     }
 
@@ -415,8 +415,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')
-            ->withSuccess('Anda berhasil keluar akun.');
+        return redirect()->route('login');
     }
 
     public function payment_callback(Request $request)

@@ -22,8 +22,8 @@
 </head>
 
 <body class="font-inter dashcode-app" id="body_class">
-      
-<main class="app-wrapper">
+
+    <main class="app-wrapper">
         <!-- BEGIN: Sidebar -->
         <!-- BEGIN: Sidebar -->
         @yield('sidebar')
@@ -93,11 +93,49 @@
             })
 
             if ("{{ Session::get('success') }}") {
-                Swal.fire("{{ Session::get('success') }}", "", "success")
+                let message = "{{ Session::get('success') }}"
+                let splitMsg = message.split('||')
+                let type = splitMsg[0]
+                let title = splitMsg[1]
+                let desc = splitMsg[2]
+                if (type == 'P') {
+                    Swal.fire(title, desc, "warning")
+                } else if (type == 'I') {
+                    Swal.fire(title, desc, "info")
+                } else if (type == 'K') {
+                    Swal.fire({
+                        title: title,
+                        text: desc,
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonText: 'Ya'
+                    }).then((result) => {
+                        
+                    })
+                }
             }
 
             if ("{{ $errors->any() }}") {
-                Swal.fire("{{ $errors->first() }}", "", "error")
+                let message = "{{ $errors->first() }}"
+                let splitMsg = message.split('||')
+                let type = splitMsg[0]
+                let title = splitMsg[1]
+                let desc = splitMsg[2]
+                if (type == 'P') {
+                    Swal.fire(title, desc, "warning")
+                } else if (type == 'I') {
+                    Swal.fire(title, desc, "info")
+                } else if (type == 'K') {
+                    Swal.fire({
+                        title: title,
+                        text: desc,
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonText: 'Ya'
+                    }).then((result) => {
+                        
+                    })
+                }
             }
         })
     </script>
