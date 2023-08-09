@@ -14,7 +14,8 @@
                     </div>
                 </div>
                 <div class="flex-none">
-                    <form action="{{ route('admin.menu.review.process', ['id' => $pesanan->id_pemesanan]) }}" method="POST">
+                    <form action="{{ route('admin.menu.review.process', ['id' => $pesanan->id_pemesanan]) }}"
+                        method="POST">
                         @csrf
                         <button
                             class="flex rounded-xl p-2 hover:bg-primary-600 w-30 bg-success-600 text-white dark:text-white items-center">
@@ -148,17 +149,29 @@
                             @endif
                         </div>
                     </div>
-                </div>
-                <div class="input-area mt-5">
-                    <label for="textFormatter" class="form-label text-slate-400">Deskripsi Aplikasi</label>
-                    <div class="relative">
-                        <span class="text-normal font-Inter font-normal text-slate-800 mt-2  dark:text-white inline-block">
-                            {!! $pesanan->deskripsi_pemesanan !!}
-                        </span>
+                    <div class="input-area space-y-1">
+                        <label for="textFormatter" class="form-label text-slate-400">Status Pembayaran</label>
+                        <div class="relative">
+                            <a href="{{ $pesanan->file_projek }}" target="_blank"><button
+                                    class="rounded-xl p-2 hover:bg-primary-600 w-30 bg-info-700 text-white dark:text-white">
+                                    <iconify-icon icon="line-md:download-loop"></iconify-icon>
+                                    <span class="font-normal text-sm p-1">Unduh Projek</span>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="input-area mt-5">
+                <label for="textFormatter" class="form-label text-slate-400">Deskripsi Aplikasi</label>
+                <div class="relative">
+                    <span class="text-normal font-Inter font-normal text-slate-800 mt-2  dark:text-white inline-block">
+                        {!! $pesanan->deskripsi_pemesanan !!}
+                    </span>
+                </div>
+            </div>
         </div>
+    </div>
     </div>
     <!-- </div> -->
 @endsection

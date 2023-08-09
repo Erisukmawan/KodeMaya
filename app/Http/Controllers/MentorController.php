@@ -393,7 +393,7 @@ class MentorController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('mentor.menu.pemesanan')->withErrors(['message' => "I||Gagal  diambil||".$e->getMessage()]);
+            return redirect()->route('mentor.menu.penyerahan-pesanan.pengerjaan_pemesanan', ['id' => $request->get('id_pemesanan')])->withErrors(['message' => "I||Gagal  disimpan||".$e->getMessage()]);
         }
     }
     public function proses_penyerahan()
