@@ -106,9 +106,7 @@ class AdminController extends Controller
             'total_pemesanan' => $list_pesanan->count(),
             'pemesanan_selesai' => Pemesanan::where('status_pesanan', 'SELESAI')->count(),
             'pemesanan_diproses' => Pemesanan::where('status_pesanan', 'DIPROSES')->count(),
-            'pemesanan_menunggu' => Pemesanan::where('status_pembayaran', 'BELUM DIBAYAR')->leftJoin('kontrak', function ($join) {
-                $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
-            })->sum('total_harga'),
+            'pemesanan_menunggu' => Pemesanan::where('status_pesanan', 'MENUNGGU')->count(),
             'list_pesanan' => $list_pesanan->get()
         );
 

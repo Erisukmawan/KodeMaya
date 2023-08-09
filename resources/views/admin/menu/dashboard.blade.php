@@ -19,24 +19,21 @@
                             {{ $total_pemesanan }}
                         </span>
                     </div>
-
-                    <div class=" bg-success-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                    <div class=" bg-warning-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
                         <div
-                            class="text-success-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-                            <iconify-icon icon=heroicons-outline:chart-pie></iconify-icon>
+                            class="text-warning-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
+                            <iconify-icon icon=medical-icon:i-waiting-area></iconify-icon>
                         </div>
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Pemesanan Selesai
+                            Pemesanan Menunggu
                         </span>
-                        <span class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $pemesanan_selesai }}
+                        <span id="idr-curr" class="block mb- text-slate-900 dark:text-white font-medium">
+                            {{ $pemesanan_menunggu }}
                         </span>
                     </div>
-
-
-                    <div class=" bg-danger-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                    <div class=" bg-info-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
                         <div
-                            class="text-danger-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
+                            class="text-info-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
 
                             <iconify-icon icon=heroicons-outline:clock></iconify-icon>
                         </div>
@@ -47,16 +44,16 @@
                             {{ $pemesanan_diproses }}
                         </span>
                     </div>
-                    <div class=" bg-primary-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                    <div class=" bg-success-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
                         <div
-                            class="text-primary-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-                            <iconify-icon icon=fluent:payment-16-regular></iconify-icon>
+                            class="text-success-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
+                            <iconify-icon icon=heroicons-outline:chart-pie></iconify-icon>
                         </div>
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Pemesanan Menunggu
+                            Pemesanan Selesai
                         </span>
-                        <span id="idr-curr" class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $pemesanan_menunggu }}
+                        <span class="block mb- text-slate-900 dark:text-white font-medium">
+                            {{ $pemesanan_selesai }}
                         </span>
                     </div>
                     <!-- END: Group Chart5 -->
