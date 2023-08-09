@@ -71,13 +71,26 @@
             </button>
             <!-- Dropdown menu -->
             <div class="dropdown-menu z-100 hidden bg-white divide-y divide-slate-100 shadow w-44 dark:bg-slate-800 border dark:border-slate-700 !top-[23px] rounded-md overflow-hidden">
-                <ul class="py-1 text-sm text-slate-800 dark:text-slate-200">
-                    <li>
+                <ul class="py-1 text-sm text-slate-800 dark:text-slate-200">  
+                <li>
                         <a href="{{ route('admin.profile') }}" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
                             <iconify-icon icon="heroicons-outline:user" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
                             <span class="font-Inter">Profil</span>
                         </a>
                     </li>
+                    <li id="clogout">
+                                                    <form id="logout-form" action="{{ route('logout') }}"
+                                                        method="POST"
+                                                        class="block px-4 py-2 dark:hover:bg-danger-600 dark:hover:text-white font-inter text-sm hover:text-white dark:text-white font-normal">
+                                                        @csrf
+                                                        <button type="submit">
+                                                            <iconify-icon icon="heroicons-outline:login"
+                                                                class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1">
+                                                            </iconify-icon>
+                                                            <span class="font-Inter">Logout</span>
+                                                        </button>
+                                                    </form>
+                                                </li>
                 </ul>
             </div>
         </div>

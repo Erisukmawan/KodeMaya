@@ -13,50 +13,47 @@
                             <iconify-icon icon=heroicons-outline:menu-alt-1></iconify-icon>
                         </div>
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Total Pembayaran
+                            Total Pemesanan
                         </span>
                         <span class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $total_pembayaran }}
+                            {{ $total_pemesanan }}
                         </span>
                     </div>
+                    <div class=" bg-warning-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                        <div
+                            class="text-warning-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
+                            <iconify-icon icon=medical-icon:i-waiting-area></iconify-icon>
+                        </div>
+                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
+                            Pemesanan Menunggu
+                        </span>
+                        <span id="idr-curr" class="block mb- text-slate-900 dark:text-white font-medium">
+                            {{ $pemesanan_menunggu }}
+                        </span>
+                    </div>
+                    <div class=" bg-info-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
+                        <div
+                            class="text-info-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
 
+                            <iconify-icon icon=heroicons-outline:clock></iconify-icon>
+                        </div>
+                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
+                            Pemesanan Diproses
+                        </span>
+                        <span class="block mb- text-slate-900 dark:text-white font-medium">
+                            {{ $pemesanan_diproses }}
+                        </span>
+                    </div>
                     <div class=" bg-success-500 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
                         <div
                             class="text-success-500 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
                             <iconify-icon icon=heroicons-outline:chart-pie></iconify-icon>
                         </div>
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Total Sudah Bayar
+                            Pemesanan Selesai
                         </span>
                         <span class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $total_sudah_bayar }}
-                        </span>
-                    </div>
-
-
-                    <div class=" bg-danger-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
-                        <div
-                            class="text-danger-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-
-                            <iconify-icon icon=heroicons-outline:clock></iconify-icon>
-                        </div>
-                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Belum Bayar
-                        </span>
-                        <span class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $total_belum_bayar }}
-                        </span>
-                    </div>
-                    <div class=" bg-primary-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
-                        <div
-                            class="text-primary-600 mx-auto h-10 w-10 flex flex-col items-center justify-center rounded-full bg-white text-2xl mb-4">
-                            <iconify-icon icon=fluent:payment-16-regular></iconify-icon>
-                        </div>
-                        <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Total Keuangan
-                        </span>
-                        <span id="idr-curr" class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $total_keuangan }}
+                            {{ $pemesanan_selesai }}
                         </span>
                     </div>
                     <!-- END: Group Chart5 -->
@@ -83,7 +80,7 @@
                                 <thead class=" border-t border-slate-100 dark:border-slate-800">
                                     <tr>
                                         <th scope="col" class=" table-th ">Nomor</th>
-                                        <th scope="col" class=" table-th ">Nama Customer</th>
+                                        <th scope="col" class=" table-th ">Nama Pelanggan</th>
                                         <th scope="col" class=" table-th ">Judul projek</th>
                                         <th scope="col" class=" table-th ">Status Pemesanan</th>
                                         <th scope="col" class=" table-th ">Status Kontrak</th>

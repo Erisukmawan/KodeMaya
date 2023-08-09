@@ -103,12 +103,10 @@ class AdminController extends Controller
         $list_pesanan = $this->get_list_pesanan();
 
         $data = array(
-            'total_pembayaran' => $list_pesanan->count(),
-            'total_sudah_bayar' => Pemesanan::where('status_pembayaran', 'TERBAYAR')->count(),
-            'total_belum_bayar' => Pemesanan::where('status_pembayaran', 'BELUM BAYAR')->count(),
-            'total_keuangan' => Pemesanan::where('status_pembayaran', 'TERBAYAR')->leftJoin('kontrak', function ($join) {
-                $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
-            })->sum('total_harga'),
+            'total_pemesanan' => $list_pesanan->count(),
+            'pemesanan_selesai' => Pemesanan::where('status_pesanan', 'SELESAI')->count(),
+            'pemesanan_diproses' => Pemesanan::where('status_pesanan', 'DIPROSES')->count(),
+            'pemesanan_menunggu' => Pemesanan::where('status_pesanan', 'MENUNGGU')->count(),
             'list_pesanan' => $list_pesanan->get()
         );
 

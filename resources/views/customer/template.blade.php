@@ -110,6 +110,19 @@
                                 <span class="font-Inter">Profil</span>
                             </a>
                         </li>
+                        <li id="clogout">
+                                                    <form id="logout-form" action="{{ route('logout') }}"
+                                                        method="POST"
+                                                        class="block px-4 py-2 dark:hover:bg-danger-600 dark:hover:text-white font-inter text-sm hover:text-white dark:text-white font-normal">
+                                                        @csrf
+                                                        <button type="submit">
+                                                            <iconify-icon icon="heroicons-outline:login"
+                                                                class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1">
+                                                            </iconify-icon>
+                                                            <span class="font-Inter">Logout</span>
+                                                        </button>
+                                                    </form>
+                                                </li>
                     </ul>
                 </div>
             </div>

@@ -48,15 +48,6 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::middleware(['admin'])->controller(AdminController::class)->group(function () {
     Route::get('/admin/dashboard', 'view_dashboard')->name('admin.menu.dashboard');
-    Route::get('/admin/users', 'view_manage_users')->name('admin.menu.users');
-    Route::get('/admin/users/get', 'get_user')->name('admin.menu.users.get');
-    Route::post('/admin/users/update', 'update_user')->name('admin.menu.users.update');
-    Route::get('/admin/global', 'view_manage_global')->name('admin.menu.parameter.global');
-    Route::get('/admin/global/get', 'get_global')->name('admin.menu.parameter.global.get');
-    Route::post('/admin/global/add', 'add_global')->name('admin.menu.parameter.global.add');
-    Route::post('/admin/global/update', 'update_global')->name('admin.menu.parameter.global.update');
-    Route::post('/admin/global/delete', 'delete_global')->name('admin.menu.parameter.global.delete');
-    Route::get('/admin/enum', 'view_manage_enum')->name('admin.menu.parameter.enum');
     Route::get('/admin/profile', 'view_profile')->name('admin.profile');
     Route::get('/admin/review', 'view_review')->name('admin.menu.review');
     Route::get('/admin/review/detail', 'view_detail_review')->name('admin.menu.review.detail_pemesanan');
@@ -80,9 +71,6 @@ Route::middleware(['mentor'])->controller(MentorController::class)->group(functi
     Route::get('/mentor/pemesanan/ambil/{id}', 'ambil_pemesanan')->name('mentor.menu.pemesanan.ambil');
     Route::post('/mentor/pemesanan/detail-pemesanan/json', 'detail_pemesanan')->name('mentor.menu.pemesanan.get');
     Route::post('/mentor/negosiasi/send', 'kirim_pesan')->name('mentor.menu.negosiasi.send');
-    Route::get('/mentor/pembayaran/', 'view_pembayaran')->name('mentor.menu.pembayaran');
-    Route::get('/mentor/pembayaran/tambah', 'view_pembayaran_tambah')->name('mentor.menu.pembayaran.tambah');
-    Route::get('/mentor/pembayaran/preview', 'view_pembayaran_preview')->name('mentor.menu.pembayaran.bukti_pembayaran');
     Route::get('/mentor/profile', 'view_profile')->name('mentor.profile');
     Route::get('/mentor/pemesanan/negosiasi', 'view_nego')->name('mentor.menu.nego');
     Route::get('/mentor/penyerahan-pesanan', 'view_penyerahan')->name('mentor.menu.penyerahan-pesanan');
