@@ -78,7 +78,7 @@
                             <span class="font-Inter">Profil</span>
                         </a>
                     </li>
-                    <li id="#clogout">
+                    <li id="clogout">
                                                     <form id="logout-form" action="{{ route('logout') }}"
                                                         method="POST"
                                                         class="block px-4 py-2 dark:hover:bg-danger-600 dark:hover:text-white font-inter text-sm hover:text-white dark:text-white font-normal">

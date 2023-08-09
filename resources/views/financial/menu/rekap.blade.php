@@ -27,7 +27,7 @@
                                 <thead class=" border-t border-slate-100 dark:border-slate-800">
                                     <tr>
                                         <th scope="col" class=" table-th ">Nomor</th>
-                                        <th scope="col" class=" table-th ">Nama Customer</th>
+                                        <th scope="col" class=" table-th ">Nama Pelanggan</th>
                                         <th scope="col" class=" table-th ">Nama Mentor</th>
                                         <th scope="col" class=" table-th ">Judul projek</th>
                                         <th scope="col" class=" table-th ">Status Pembayaran</th>

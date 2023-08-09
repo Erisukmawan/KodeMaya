@@ -13,10 +13,10 @@
                             <iconify-icon icon=heroicons-outline:menu-alt-1></iconify-icon>
                         </div>
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Total Pembayaran
+                            Total Pemesanan
                         </span>
                         <span class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $total_pembayaran }}
+                            {{ $total_pemesanan }}
                         </span>
                     </div>
 
@@ -26,10 +26,10 @@
                             <iconify-icon icon=heroicons-outline:chart-pie></iconify-icon>
                         </div>
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Total Sudah Bayar
+                            Pemesanan Selesai
                         </span>
                         <span class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $total_sudah_bayar }}
+                            {{ $pemesanan_selesai }}
                         </span>
                     </div>
 
@@ -41,10 +41,10 @@
                             <iconify-icon icon=heroicons-outline:clock></iconify-icon>
                         </div>
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Belum Bayar
+                            Pemesanan Diproses
                         </span>
                         <span class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $total_belum_bayar }}
+                            {{ $pemesanan_diproses }}
                         </span>
                     </div>
                     <div class=" bg-primary-600 rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center">
@@ -53,10 +53,10 @@
                             <iconify-icon icon=fluent:payment-16-regular></iconify-icon>
                         </div>
                         <span class="block text-sm text-slate-600 font-medium dark:text-white mb-1">
-                            Total Keuangan
+                            Pemesanan Menunggu
                         </span>
                         <span id="idr-curr" class="block mb- text-slate-900 dark:text-white font-medium">
-                            {{ $total_keuangan }}
+                            {{ $pemesanan_menunggu }}
                         </span>
                     </div>
                     <!-- END: Group Chart5 -->
@@ -83,7 +83,7 @@
                                 <thead class=" border-t border-slate-100 dark:border-slate-800">
                                     <tr>
                                         <th scope="col" class=" table-th ">Nomor</th>
-                                        <th scope="col" class=" table-th ">Nama Customer</th>
+                                        <th scope="col" class=" table-th ">Nama Pelanggan</th>
                                         <th scope="col" class=" table-th ">Judul projek</th>
                                         <th scope="col" class=" table-th ">Status Pemesanan</th>
                                         <th scope="col" class=" table-th ">Status Kontrak</th>

@@ -110,7 +110,7 @@
                                                             <th scope="col" class=" table-th ">Nama projek</th>
                                                             <th scope="col" class=" table-th ">Deskripsi</th>
                                                             <th scope="col" class=" table-th ">Kategori</th>
-                                                            <th scope="col" class=" table-th ">Customer</th>
+                                                            <th scope="col" class=" table-th ">Pelanggan</th>
                                                             <th scope="col" class=" table-th ">Status</th>
                                                             <th scope="col" class=" table-th text-center">Action</th>
                                                         </tr>
