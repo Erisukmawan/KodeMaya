@@ -150,7 +150,7 @@
                         </div>
                     </div>
                     <div class="input-area space-y-1">
-                        <label for="textFormatter" class="form-label text-slate-400">Status Pembayaran</label>
+                        <label for="textFormatter" class="form-label text-slate-400">Lampiran</label>
                         <div class="relative">
                             <a href="{{ $pesanan->file_projek }}" target="_blank"><button
                                     class="rounded-xl p-2 hover:bg-primary-600 w-30 bg-info-700 text-white dark:text-white">
