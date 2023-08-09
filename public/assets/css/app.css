@@ -216,10 +216,10 @@ Correct the cursor style of increment and decrement buttons in Safari.
 .menuatas.active .text-box {
     color: blue;
 }
-#clogout:hover{
-        background-color:red;
-        color:white
-    }
+#clogout:hover {
+  background-color: red;
+  color: white
+}
 .dark .menuatas.active .text-box {
     color: #00c9ff;
 }
