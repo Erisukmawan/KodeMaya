@@ -204,7 +204,7 @@ class AuthController extends Controller
                 $user = $users[0];
 
                 if ($user->status_akun == 'TIDAK AKTIF') {
-                    throw new Exception('P||Login Gagal||Verifikasi email terlebih dahulu untuk melanjutkan!');
+                    throw new Exception('Verifikasi email terlebih dahulu untuk melanjutkan!');
                 }
 
                 if ($user->type == 'customer') {
@@ -212,34 +212,34 @@ class AuthController extends Controller
                         Log::info('Customer Login ' . json_encode($user));
                         return redirect()->route('customer.menu.dashboard');
                     } else {
-                        throw new Exception('P||Login Gagal||Email atau Password tidak valid.');
+                        throw new Exception('Email atau Password tidak valid.');
                     }
                 } else if ($user->type == 'mentor') {
                     if (Auth::guard('webmentor')->attempt($credentials, $rememberMe)) {
                         Log::info('Mentor Login ' . json_encode($user));
                         return redirect()->route('mentor.menu.dashboard');
                     } else {
-                        throw new Exception('P||Login Gagal||Email atau Password tidak valid.');
+                        throw new Exception('Email atau Password tidak valid.');
                     }
                 } else if ($user->type == 'administrasi') {
                     if (Auth::guard('webadministration')->attempt($credentials, $rememberMe)) {
                         Log::info('Administration Login ' . json_encode($user));
                         return redirect()->route('admin.menu.dashboard');
                     } else {
-                        throw new Exception('P||Login Gagal||Email atau Password tidak valid.');
+                        throw new Exception('Email atau Password tidak valid.');
                     }
                 } else if ($user->type == 'keuangan') {
                     if (Auth::guard('webfinance')->attempt($credentials, $rememberMe)) {
                         Log::info('Finance Login ' . json_encode($user));
                         return redirect()->route('financial.menu.dashboard');
                     } else {
-                        throw new Exception('P||Login Gagal||Email atau Password tidak valid.');
+                        throw new Exception('Email atau Password tidak valid.');
                     }
                 } else {
-                    throw new Exception('P||Login Gagal||Akun ini tidak memenuhi kriteria, mohon hubungi admin.');
+                    throw new Exception('Akun ini tidak memenuhi kriteria, mohon hubungi admin.');
                 }
             } else {
-                throw new Exception('P||Login Gagal||Akun anda tidak terdaftar.');
+                throw new Exception('Akun anda tidak terdaftar.');
             }
         } catch (\Exception $e) {
             DB::rollBack();

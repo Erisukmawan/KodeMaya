@@ -110,7 +110,7 @@
                         showCancelButton: true,
                         confirmButtonText: 'Ya'
                     }).then((result) => {
-                        
+
                     })
                 }
             }
@@ -133,10 +133,42 @@
                         showCancelButton: true,
                         confirmButtonText: 'Ya'
                     }).then((result) => {
-                        
+
                     })
                 }
             }
+
+            $("#logout-form").on('submit', function(evt) {
+                evt.preventDefault();
+                Swal.fire({
+                    title: "Apakah anda yakin ingin logout?",
+                    text: "",
+                    icon: 'question',
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya',
+                    cancelButtonText: 'Tidak',
+                }).then((result) => {
+                    console.log(result)
+                    if (result.isConfirmed) {
+                        window.location.href = "{{ route('login')}}";
+                        $.ajax({
+                            type: 'POST',
+                            url: "{{ route('logout') }}",
+                            headers: {
+                                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                            },
+                            data: {
+                                "_token": "{{ csrf_token() }}"
+                            },
+                            success: function(data) {
+                                window.location.href = "{{ route('login')}}";
+                            }
+                        });
+
+                    }
+                })
+            });
         })
     </script>
     @yield('custom-script')
