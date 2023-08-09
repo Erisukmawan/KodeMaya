@@ -71,9 +71,6 @@ Route::middleware(['mentor'])->controller(MentorController::class)->group(functi
     Route::get('/mentor/pemesanan/ambil/{id}', 'ambil_pemesanan')->name('mentor.menu.pemesanan.ambil');
     Route::post('/mentor/pemesanan/detail-pemesanan/json', 'detail_pemesanan')->name('mentor.menu.pemesanan.get');
     Route::post('/mentor/negosiasi/send', 'kirim_pesan')->name('mentor.menu.negosiasi.send');
-    Route::get('/mentor/pembayaran/', 'view_pembayaran')->name('mentor.menu.pembayaran');
-    Route::get('/mentor/pembayaran/tambah', 'view_pembayaran_tambah')->name('mentor.menu.pembayaran.tambah');
-    Route::get('/mentor/pembayaran/preview', 'view_pembayaran_preview')->name('mentor.menu.pembayaran.bukti_pembayaran');
     Route::get('/mentor/profile', 'view_profile')->name('mentor.profile');
     Route::get('/mentor/pemesanan/negosiasi', 'view_nego')->name('mentor.menu.nego');
     Route::get('/mentor/penyerahan-pesanan', 'view_penyerahan')->name('mentor.menu.penyerahan-pesanan');
