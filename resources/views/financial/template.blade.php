@@ -202,7 +202,7 @@
         .call(rows)
         .map(function (row) {
             // Query all cells
-            const cells = row.querySelectorAll('th,td');
+            const cells = row.querySelectorAll('th,#isitable');
             return [].slice
                 .call(cells)
                 .map(function (cell) {
