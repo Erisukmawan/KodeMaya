@@ -100,7 +100,8 @@ class MentorController extends Controller
     public function get_pemesanan_by_mentor(string $id_mentor)
     {
         $pemesanan = Pemesanan::where([
-            ['pemesanan.id_mentor', $id_mentor]
+            ['pemesanan.id_mentor', $id_mentor],
+            ['pemesanan.status_pemesanan', '!=', 'SELESAI'],
             ])
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
