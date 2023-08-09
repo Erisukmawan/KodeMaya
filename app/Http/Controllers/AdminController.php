@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mentor;
 use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -250,6 +251,11 @@ class AdminController extends Controller
 
             $pemesanan->status_pesanan = 'SELESAI';
             $pemesanan->save();
+
+            $mentor = Mentor::find($pemesanan->id_mentor);
+            $mentor->status_mentor = 'TERSEDIA';
+            $mentor->save();
+            
             DB::commit();
             return redirect()->route('admin.menu.review')->withSuccess('I||Berhasil Dikirim||Pesanan telah dikirim ke pelanggan.');
         } catch (\Exception $e) {
