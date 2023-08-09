@@ -199,32 +199,6 @@
                     </div>
                 </div>
             </div> --}}
-            <div class="card">
-                <div class="card-body p-6">
-                    <div class="space-y-6">
-                        <div class="flex space-x-3 rtl:space-x-reverse items-center">
-                            <div
-                                class="flex-none h-8 w-8 rounded-full bg-danger-500 text-white flex flex-col items-center justify-center text-lg">
-                                <iconify-icon icon="solar:logout-2-bold"></iconify-icon>
-                            </div>
-                            <div class="flex-1 text-base text-slate-900 dark:text-white font-medium">
-                                Logout
-                            </div>
-                        </div>
-                        <div class="text-slate-600 dark:text-slate-300 text-sm">
-                            Yakin keluar ? pas balik harus masuk akun lagi, ya.
-                        </div>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit"
-                                class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm w-full text-slate-600 dark:text-white font-normal">
-                                <span class="font-Inter items-center justify-center"
-                                    style="text-align:'center'; color:red">Logout</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 @endsection
