@@ -18,10 +18,12 @@
     <link rel="stylesheet" href="{{ url('/assets/css/landingpage.css') }}">
     <!-- End : Theme CSS-->
     <script src="{{ url('/assets/js/settings.js') }}" sync></script>
+
 </head>
 
 <body class="font-inter dashcode-app" id="body_class">
-    <main class="app-wrapper">
+      
+<main class="app-wrapper">
         <!-- BEGIN: Sidebar -->
         <!-- BEGIN: Sidebar -->
         @yield('sidebar')

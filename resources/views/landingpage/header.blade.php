@@ -307,10 +307,16 @@ ame: DashCode - HTML, React, Vue, Tailwind Admin Dashboard Template Author: Code
                                                     </a>
                                                 </li>
                                                 <hr>
-                                                <li>
+                                                <style>
+    #clogout:hover{
+        background-color:red;
+        color:white
+    }
+</style> 
+                                                <li id="clogout">
                                                     <form id="logout-form" action="{{ route('logout') }}"
                                                         method="POST"
-                                                        class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600 dark:text-white font-normal">
+                                                        class="block px-4 py-2 dark:hover:bg-danger-600 dark:hover:text-white font-inter text-sm hover:text-white dark:text-white font-normal">
                                                         @csrf
                                                         <button type="submit">
                                                             <iconify-icon icon="heroicons-outline:login"
