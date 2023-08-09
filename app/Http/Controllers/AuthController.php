@@ -399,11 +399,11 @@ class AuthController extends Controller
     public function dashboard()
     {
         if (Auth::guard('webcustomer')->check()) {
-            return redirect()->route('customer.menu.dashboard')->withSuccess('Success Login Customer');
+            return redirect()->route('customer.menu.dashboard');
         } else if (Auth::guard('webmentor')->check()) {
-            return redirect()->route('mentor.menu.dashboard')->withSuccess('Success Login Mentor');
+            return redirect()->route('mentor.menu.dashboard');
         } else if (Auth::guard('webemployee')->check()) {
-            return redirect()->route('admin.menu.dashboard')->withSuccess('Success Login Admin');
+            return redirect()->route('admin.menu.dashboard');
         } else {
             return redirect()->route('login')
                 ->withErrors(['message' => 'P||Gagal login||Silahkan login untuk mengakses dashboard.']);

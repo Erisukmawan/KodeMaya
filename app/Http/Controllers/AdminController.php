@@ -252,7 +252,6 @@ class AdminController extends Controller
             $pemesanan->save();
             DB::commit();
             return redirect()->route('admin.menu.review')->withSuccess('I||Berhasil Dikirim||Pesanan telah dikirim ke pelanggan.');
-            >withSuccess("Berhasil diambil||Silahkan cek menu negosiasi.");
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
