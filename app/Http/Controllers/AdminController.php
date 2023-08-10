@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PesananDiserahkan;
 use App\Models\Mentor;
 use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -255,7 +257,15 @@ class AdminController extends Controller
             $mentor = Mentor::find($pemesanan->id_mentor);
             $mentor->status_mentor = 'TERSEDIA';
             $mentor->save();
+
+            $data = array(
+                'nama_pelanggan' => $pemesanan->nama_pelanggan,
+                'nama_pesanan' => $pemesanan->nama_projek." (#$pemesanan->id_pemesanan)",
+                'link_pesanan' => '<a href="'.env('APP_URL')."/customer/penyerahan-pesanan/review?id=$pemesanan->id_pemesanan".'" target="_blank">Pesanan</a>',
+            );
             
+            Mail::to($pemesanan->email_pelanggan)->send(new PesananDiserahkan($data));
+
             DB::commit();
             return redirect()->route('admin.menu.review')->withSuccess('I||Berhasil Dikirim||Pesanan telah dikirim ke pelanggan.');
         } catch (\Exception $e) {

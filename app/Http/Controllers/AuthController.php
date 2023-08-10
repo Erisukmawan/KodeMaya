@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PembayaranDiterima;
 use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
 
@@ -27,6 +29,38 @@ class AuthController extends Controller
         // ]);
     }
 
+    public function get_pemesanan_unpaid(string $tripayReference)
+    {
+        $pemesanan = Pemesanan::where([
+            ['kode_referensi', $tripayReference],
+            ['status_pembayaran', 'TERTUNDA']
+        ])
+            ->leftJoin('pelanggan', function ($join) {
+                $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
+            })
+            ->leftJoin('mentor', function ($join) {
+                $join->on('mentor.id_mentor', '=', 'pemesanan.id_mentor');
+            })
+            ->leftJoin('kontrak', function ($join) {
+                $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
+            })
+            ->leftJoin('pegawai', function ($join) {
+                $join->on('pegawai.id_pegawai', '=', 'pemesanan.id_pegawai');
+            })->first([
+                'pemesanan.*',
+                'pelanggan.nama as nama_pelanggan',
+                'pelanggan.foto_profil as foto_profil_pelanggan',
+                'pelanggan.email as email_pelanggan',
+                'mentor.nama as nama_mentor',
+                'mentor.foto_profil as foto_profil_mentor',
+                'mentor.email as email_mentor',
+                'kontrak.waktu_kontrak',
+                'kontrak.tenggat_waktu',
+                'kontrak.status_kontrak',
+            ]);
+
+        return $pemesanan;
+    }
 
     public function register()
     {
@@ -67,7 +101,7 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('register')->withErrors("P||Daftar Gagal||".$e->getMessage());
+            return redirect()->route('register')->withErrors("P||Daftar Gagal||" . $e->getMessage());
         }
     }
 
@@ -115,7 +149,7 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('register-mentor')->withErrors("I||Daftar Gagal||".$e->getMessage());
+            return redirect()->route('register-mentor')->withErrors("P||Daftar Gagal||" . $e->getMessage());
         }
     }
 
@@ -158,7 +192,7 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('login')->withErrors(['message' => "P||Verifikasi Gagal||".$e->getMessage()]);
+            return redirect()->route('login')->withErrors(['message' => "P||Verifikasi Gagal||" . $e->getMessage()]);
         }
     }
 
@@ -244,7 +278,7 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('login')->withErrors(['message' => "P||Login Gagal||".$e->getMessage()]);
+            return redirect()->route('login')->withErrors(['message' => "P||Login Gagal||" . $e->getMessage()]);
         }
     }
 
@@ -323,7 +357,7 @@ class AuthController extends Controller
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
-                return redirect()->route('customer.profile')->withErrors(['message' => "P||Gagal Disimpan||".$e->getMessage()]);
+                return redirect()->route('customer.profile')->withErrors(['message' => "P||Gagal Disimpan||" . $e->getMessage()]);
             }
         } else if (Auth::guard('webmentor')->check()) {
             DB::beginTransaction();
@@ -366,7 +400,7 @@ class AuthController extends Controller
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
-                return redirect()->route('admin.profile')->withErrors(['message' => "P||Gagal disimpan||".$e->getMessage()]);
+                return redirect()->route('admin.profile')->withErrors(['message' => "P||Gagal disimpan||" . $e->getMessage()]);
             }
         } else if (Auth::guard('webfinance')->check()) {
             DB::beginTransaction();
@@ -462,16 +496,19 @@ class AuthController extends Controller
                 ]);
             }
 
+            $totalAmount = $data->total_amount;
+            $totalFee = $data->total_fee;
+            $totalFee = $data->total_fee;
+            $amountReceived = $data->amount_received;
+            $paymentMethod = $data->payment_method;
+
             $invoiceId = $data->merchant_ref;
             $tripayReference = $data->reference;
             $status = strtoupper((string) $data->status);
 
 
             if ($data->is_closed_payment === 1) {
-                $pemesanan = Pemesanan::where([
-                    ['kode_referensi', $tripayReference],
-                    ['status_pembayaran', 'TERTUNDA']
-                ])->first();
+                $pemesanan = $this->get_pemesanan_unpaid($tripayReference);
 
                 if (!$pemesanan) {
                     return json_encode([
@@ -486,6 +523,17 @@ class AuthController extends Controller
                         $pemesanan->status_pembayaran = 'TERBAYAR';
                         $pemesanan->save();
                         systemNotify("payment-$invoiceId", "PAID", $data);
+                        $dataEmail = array(
+                            'nama_pelanggan' => $pemesanan->nama_pelanggan,
+                            'nama_pesanan' => $pemesanan->nama_projek." (#$pemesanan->id_pemesanan)",
+                            'kode_tagihan' => $pemesanan->getReferenceCode(),
+                            'kode_referensi' => $pemesanan->kode_referensi,
+                            'nama_projek' => $pemesanan->nama_projek,
+                            'metode_bayar' => $paymentMethod,
+                            'biaya' => $totalFee,
+                            'total_harga' => $totalAmount,
+                        );
+                        Mail::to($pemesanan->email_pelanggan)->send(new PembayaranDiterima($dataEmail));
                         DB::commit();
                         break;
 

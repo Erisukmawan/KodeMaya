@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PesananDiambil;
 use Exception;
 use App\Models\Kontrak;
 use App\Models\Mentor;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class MentorController extends Controller
 {
@@ -38,6 +40,7 @@ class MentorController extends Controller
         $riwayat = Pemesanan::where([
             ['pemesanan.id_mentor', '=', $id_mentor],
             ['status_pembayaran', '!=', 'BELUM DIBUAT'],
+            // ['pemesanan.kategori', 'mentor.keahlian'],
             // ['status_pembayaran', '!=', 'BELUM DIBAYAR'],
             // ['status_pembayaran', '!=', 'TERTUNDA'],
         ])
@@ -71,7 +74,10 @@ class MentorController extends Controller
 
     public function get_pemesanan(string $id_pemesanan)
     {
-        $pemesanan = Pemesanan::where('id_pemesanan', $id_pemesanan)
+        $pemesanan = Pemesanan::where([
+            ['id_pemesanan', $id_pemesanan],
+            // ['pemesanan.kategori', 'mentor.keahlian'],
+        ])
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
             })
@@ -87,8 +93,10 @@ class MentorController extends Controller
                 'pemesanan.*',
                 'pelanggan.nama as nama_pelanggan',
                 'pelanggan.foto_profil as foto_profil_pelanggan',
+                'pelanggan.email as email_pelanggan',
                 'mentor.nama as nama_mentor',
                 'mentor.foto_profil as foto_profil_mentor',
+                'mentor.email as email_mentor',
                 'kontrak.waktu_kontrak',
                 'kontrak.tenggat_waktu',
                 'kontrak.status_kontrak',
@@ -101,8 +109,9 @@ class MentorController extends Controller
     {
         $pemesanan = Pemesanan::where([
             ['pemesanan.id_mentor', $id_mentor],
-            ['pemesanan.status_pemesanan', '!=', 'SELESAI'],
-            ])
+            ['pemesanan.status_pesanan', '!=', 'SELESAI'],
+            // ['pemesanan.kategori', 'mentor.keahlian'],
+        ])
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
             })
@@ -128,14 +137,14 @@ class MentorController extends Controller
 
         return $pemesanan;
     }
-    
+
     public function get_pemesanan_by_mentor_active(string $id_mentor)
     {
         $pemesanan = Pemesanan::where([
             ['pemesanan.id_mentor', $id_mentor],
-            ['pemesanan.status_pemesanan', '!=', 'MENUNGGU'],
-            ['pemesanan.status_pemesanan', '!=', 'SELESAI']
-            ])
+            ['pemesanan.status_pesanan', '!=', 'MENUNGGU'],
+            ['pemesanan.status_pesanan', '!=', 'SELESAI'],
+        ])
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
             })
@@ -164,7 +173,10 @@ class MentorController extends Controller
 
     public function get_pemesanan_by_status(string $status_pesanan)
     {
-        $pemesanan = Pemesanan::where('pemesanan.status_pesanan', $status_pesanan)
+        $pemesanan = Pemesanan::where([
+            ['pemesanan.status_pesanan', $status_pesanan],
+            // ['pemesanan.kategori', 'WEBSITE'],
+        ])
             ->leftJoin('pelanggan', function ($join) {
                 $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
             })
@@ -188,6 +200,25 @@ class MentorController extends Controller
                 'kontrak.status_kontrak',
             ]);
 
+            // KEAHLIAN KATERGORI MASIH BELUM BIsA
+
+        //     $pemesanan2 = Pemesanan::where([
+        //         ['pemesanan.status_pesanan', $status_pesanan],
+        //         ['pemesanan.kategori', 'mentor.keahlian'],
+        //     ])
+        //         ->leftJoin('pelanggan', function ($join) {
+        //             $join->on('pelanggan.id_pelanggan', '=', 'pemesanan.id_pelanggan');
+        //         })
+        //         ->leftJoin('mentor', function ($join) {
+        //             $join->on('mentor.id_mentor', '=', 'pemesanan.id_mentor');
+        //         })
+        //         ->leftJoin('kontrak', function ($join) {
+        //             $join->on('kontrak.id_kontrak', '=', 'pemesanan.id_kontrak');
+        //         })
+        //         ->leftJoin('pegawai', function ($join) {
+        //             $join->on('pegawai.id_pegawai', '=', 'pemesanan.id_pegawai');
+        //         })->toSql();
+        // Log::info($pemesanan2);
         return $pemesanan;
     }
 
@@ -227,7 +258,7 @@ class MentorController extends Controller
         $user = Auth::guard('webmentor')->user();
 
         $pemesanan_mentor_list = $this->get_pemesanan_by_mentor($user->id_mentor)->get();
-        $pemesanan_mentor = $this->get_pemesanan_by_mentor($user->id_mentor)->first();
+        $pemesanan_mentor = $this->get_pemesanan_by_mentor_active($user->id_mentor)->first();
         $pemesanan = $this->get_pemesanan_by_status('MENUNGGU');
         $data = array(
             'pemesanan_mentor_list' => $pemesanan_mentor_list,
@@ -273,12 +304,20 @@ class MentorController extends Controller
             } else {
                 $mentor->status_mentor = 'SIBUK';
                 $mentor->save();
-    
-                $pemesanan = Pemesanan::where('id_pemesanan', $id)->first();
+
+                $pemesanan = $this->get_pemesanan($id);
                 $pemesanan->id_mentor = $user->id_mentor;
                 $pemesanan->status_pesanan = "DIPROSES";
                 $pemesanan->save();
-                
+
+
+                $data = array(
+                    'nama_pelanggan' => $pemesanan->nama_pelanggan,
+                    'nama_mentor' => $pemesanan->nama_mentor,
+                    'nama_pesanan' => $pemesanan->nama_projek . " (#$pemesanan->id_pemesanan)",
+                );
+
+                Mail::to($pemesanan->email_pelanggan)->send(new PesananDiambil($data));
                 DB::commit();
             }
 
@@ -287,7 +326,7 @@ class MentorController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('mentor.menu.pemesanan')->withErrors(['message' => "I||Gagal  diambil||".$e->getMessage()]);
+            return redirect()->route('mentor.menu.pemesanan')->withErrors(['message' => "I||Gagal  diambil||" . $e->getMessage()]);
         }
     }
 
@@ -336,7 +375,8 @@ class MentorController extends Controller
         );
         return view('mentor.menu.penyerahan-pesanan')->with($data);
     }
-    public function upload_projek(Request $request) {
+    public function upload_projek(Request $request)
+    {
         DB::beginTransaction();
         try {
             $id_pemesanan = $request->route('id');
@@ -372,7 +412,8 @@ class MentorController extends Controller
             );
         }
     }
-    public function update_pengerjaan_pemesanan(Request $request) {
+    public function update_pengerjaan_pemesanan(Request $request)
+    {
         DB::beginTransaction();
         try {
             $request->validate([
@@ -394,7 +435,7 @@ class MentorController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('mentor.menu.penyerahan-pesanan.pengerjaan_pemesanan', ['id' => $request->get('id_pemesanan')])->withErrors(['message' => "I||Gagal  disimpan||".$e->getMessage()]);
+            return redirect()->route('mentor.menu.penyerahan-pesanan.pengerjaan_pemesanan', ['id' => $request->get('id_pemesanan')])->withErrors(['message' => "I||Gagal  disimpan||" . $e->getMessage()]);
         }
     }
     public function proses_penyerahan()
@@ -433,7 +474,7 @@ class MentorController extends Controller
             $pemesanan = Pemesanan::where('id_pemesanan', $request->get('id_pemesanan'))->first();
             $id_pelanggan = $pemesanan->id_pelanggan;
 
-            
+
             $kontrak = Kontrak::create([
                 'id_pelanggan' => $id_pelanggan,
                 'id_mentor' => $user->id_mentor,
@@ -443,7 +484,7 @@ class MentorController extends Controller
                 'tenggat_waktu' => $request->get('tenggat_waktu'),
                 'total_harga' => $request->get('total_harga'),
             ]);
-            
+
             $pemesanan->id_kontrak = $kontrak->id_kontrak;
             $pemesanan->save();
 
@@ -453,7 +494,7 @@ class MentorController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e);
-            return redirect()->route('mentor.menu.pemesanan.tambah-kontrak', ['id' => $request->get('id_pemesanan')])->withErrors(['message' => "P||Gagal  diambil||".$e->getMessage()]);
+            return redirect()->route('mentor.menu.pemesanan.tambah-kontrak', ['id' => $request->get('id_pemesanan')])->withErrors(['message' => "P||Gagal dibuat||" . $e->getMessage()]);
         }
     }
 }
