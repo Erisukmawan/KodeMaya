@@ -41,26 +41,34 @@ Password   : KodeMayaBangkit#321
 3. Eri Sukmawan (10121139) - UI/UX Designer
 4. M. Ilham Gymnastiar (10121124) - Database Administrator
 
-## Fitur
+
 ### Admin
-- [ ] Admin Dashboard
-- [x] Kelola Pengguna
-- [x] Kelola Mentor
-- [ ] Kelola Keuangan
-- [X] Kelola Admin
+- [x] Admin Dashboard
+- [x] Review Pesanan
+- [x] pengiriman pemesanan
+- [x] Update Profile
 
 ### Mentor
-- [ ] Mentor Dashboard
-- [ ] Kelola Keuangan
-- [ ] Tulung
-- [ ] Profile
+- [x] Mentor Dashboard
+- [x] Ambil Pesanan
+- [x] Negosiasi
+- [x] Buat Kontrak
+- [x] Penyerahan Pemesanan
+- [x] Update Profile
 
-### Pengguna
-- [ ] Landing Page
-- [ ] Fitur Tulung
-- [ ] Fitur Pembayaran
-- [ ] Fitur Profile
+### Pelanggan
+- [x] Landing Page
+- [x] Pelanggan Dashboard
+- [x] Buat Pesanan
+- [x] Negosiasi
+- [x] Pembayaran
+- [x] Review Pesanan
+- [x] Update Profile
 
+### Keuangan
+- [x] Keuangan Dashboard
+- [x] Rekap Keuangan
+      
 ## Note
 - Backup db otomatis mingguan (buat server)
 - Settings buat auto backup db ada di app/Console/Kernel.php#L16
