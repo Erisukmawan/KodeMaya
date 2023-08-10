@@ -47,15 +47,15 @@
                 <select name="keahlian" id="keahlian" class="form-control w-full mt-2">
                     <option selected="Selected" disabled="disabled" value="none"
                         class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Select an option</option>
-                    <option value="Website" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Website
+                    <option value="WEBSITE" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Website
                     </option>
-                    <option value="Desktop" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Desktop
+                    <option value="DESKTOP" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Desktop
                     </option>
                     <option value="UI/UX" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">UI / UX
                     </option>
-                    <option value="Mobile" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Mobile
+                    <option value="MOBILE" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Mobile
                     </option>
-                    <option value="AI" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">
+                    <option value="DS/ML/AI" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">
                         Artificial Intellegent / Machine Learning</option>
                 </select>
             </div>
