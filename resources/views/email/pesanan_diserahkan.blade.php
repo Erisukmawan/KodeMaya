@@ -47,7 +47,7 @@
                                     <td style="padding:0 15px;">
                                         <h1
                                             style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">
-                                            Pesanan diambil</h1>
+                                            Pesanan selesai</h1>
                                         <p>Yeay {{ $nama_pelanggan }},
                                             pesanan {{ $nama_pesanan }} kamu telah selesai. cek pesanan kamu disini ya {!! $link_pesanan !!}
                                             atau kamu bisa akses dimenu penyerahan pesanan dan lihat detail pesanan

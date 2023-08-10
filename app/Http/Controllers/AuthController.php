@@ -337,8 +337,8 @@ class AuthController extends Controller
 
     public function change_profile(Request $request)
     {
+        DB::beginTransaction();
         if (Auth::guard('webcustomer')->check()) {
-            DB::beginTransaction();
             try {
                 $request->validate([
                     'nama' => 'required|string|max:250',
@@ -379,7 +379,7 @@ class AuthController extends Controller
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
-                return redirect()->route('mentor.profile')->withErrors(['message' => $e->getMessage()]);
+                return redirect()->route('mentor.profile')->withErrors(['message' => "P||Gagal Disimpan||" . $e->getMessage()]);
             }
         } else if (Auth::guard('webadministration')->check()) {
             DB::beginTransaction();
@@ -421,7 +421,7 @@ class AuthController extends Controller
             } catch (\Exception $e) {
                 DB::rollBack();
                 Log::error($e);
-                return redirect()->route('financial.profile')->withErrors(['message' => $e->getMessage()]);
+                return redirect()->route('financial.profile')->withErrors(['message' => "P||Gagal disimpan||" . $e->getMessage()]);
             }
         } else {
             Log::warning("Invalid Auth Change Profile");
@@ -525,7 +525,7 @@ class AuthController extends Controller
                         systemNotify("payment-$invoiceId", "PAID", $data);
                         $dataEmail = array(
                             'nama_pelanggan' => $pemesanan->nama_pelanggan,
-                            'nama_pesanan' => $pemesanan->nama_projek." (#$pemesanan->id_pemesanan)",
+                            'nama_pesanan' => $pemesanan->nama_projek . " (#$pemesanan->id_pemesanan)",
                             'kode_tagihan' => $pemesanan->getReferenceCode(),
                             'kode_referensi' => $pemesanan->kode_referensi,
                             'nama_projek' => $pemesanan->nama_projek,

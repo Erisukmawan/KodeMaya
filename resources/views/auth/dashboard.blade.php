@@ -154,9 +154,7 @@
                     confirmButtonText: 'Ya',
                     cancelButtonText: 'Tidak',
                 }).then((result) => {
-                    console.log(result)
                     if (result.isConfirmed) {
-                        window.location.href = "{{ route('login')}}";
                         $.ajax({
                             type: 'POST',
                             url: "{{ route('logout') }}",
@@ -167,6 +165,7 @@
                                 "_token": "{{ csrf_token() }}"
                             },
                             success: function(data) {
+                                document.cookie = 'XSRF-TOKEN' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
                                 window.location.href = "{{ route('login')}}";
                             }
                         });
