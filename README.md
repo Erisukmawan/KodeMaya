@@ -37,8 +37,8 @@ Password   : KodeMayaBangkit#321
 
 ## Project Team
 1. Edwin Liona Jaya (10121154) - Product Manager
-2. Hanif Ahmad Syauqi (10121161 - Website Developer
-3. Eri Sukmawan (10121139) - UI/UX Designer
+2. Hanif Ahmad Syauqi (10121161 - Backend Developer
+3. Eri Sukmawan (10121139) - UI/UX Designer & FrontEnd Developer
 4. M. Ilham Gymnastiar (10121124) - Database Administrator
 
 
