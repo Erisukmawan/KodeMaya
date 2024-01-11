@@ -39,11 +39,11 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftp.kodemaya.my.id
-          username: production@kodemaya.my.id
+          server: deploy.us1.frbit.com
+          username: laravel-x2yl.fqp1qd4lu4ry9a5n
           password: KodeMayaBangkit#321
           protocol: ftp
-          port: 21
+          port: 22
           exclude: |
             **/.git*
             **/.git*/**
